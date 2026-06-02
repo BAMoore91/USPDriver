@@ -20,7 +20,7 @@ function check(name, cond, detail) {
 // ---- Fixtures: ConfigSettings slot values ----
 const CONFIG = {
   IPAddress: '192.168.1.100', USPPort: '24',
-  L1: 'lay1', O1: 'RX1', O2: 'RX2', O3: 'RX3',
+  L1: 'lay1', L10: 'lay10', O1: 'RX1', O2: 'RX2', O3: 'RX3',
   I1: 'TX1', I2: 'TX2',
   MX1: 'mx1', VW1: 'videowall2', WL1: 'vlayout1', PL1: '444',
 };
@@ -172,6 +172,10 @@ console.log('Multiview arm-then-route:');
   const d = loadDriver();
   d.call('SelectLayout("L1")');
   check('SelectLayout writes SelectedLayout', d.vars.SelectedLayout === 'lay1', d.vars.SelectedLayout);
+  check('SelectLayout writes SelectedLayoutID (slot index)', d.vars.SelectedLayoutID === 1, '' + d.vars.SelectedLayoutID);
+  d.call('SelectLayout("L10")');
+  check('SelectLayoutID handles two-digit slot', d.vars.SelectedLayoutID === 10, '' + d.vars.SelectedLayoutID);
+  d.call('SelectLayout("L1")');
   d.call('SelectWindow(3)');
   check('SelectWindow writes SelectedWindowID (int)', d.vars.SelectedWindowID === 3, '' + d.vars.SelectedWindowID);
   d.call('SelectWindow("5")');

@@ -23,6 +23,7 @@
 
   <category name="Multiview Routing">
     <variable name="Selected Window ID" sysvar="SelectedWindowID" type="integer" sample="1" />
+    <variable name="Selected Layout ID" sysvar="SelectedLayoutID" type="integer" sample="1" />
     <variable name="Selected Layout" sysvar="SelectedLayout" type="string" sample="lay1" />
   </category>
 </variables>

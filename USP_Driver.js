@@ -121,6 +121,18 @@ function StartsWith(s, prefix) {
     return s.substring(0, prefix.length) === prefix;
 }
 
+// Trailing numeric index of a config slot key, e.g. "L1" -> 1, "L10" -> 10.
+// Returns 0 if no digits are found.
+function SlotIndex(key) {
+    key = "" + key;
+    var i = 0;
+    while (i < key.length && !(key.charAt(i) >= "0" && key.charAt(i) <= "9")) {
+        i++;
+    }
+    var n = parseInt(key.substring(i), 10);
+    return (n >= 1) ? n : 0;
+}
+
 function TrimStr(s) {
     if (s == null) {
         return "";
@@ -258,7 +270,8 @@ function SelectLayout(layoutKey) {
     }
     g_selLayoutVal = v;
     SystemVars.Write("SelectedLayout", v);
-    System.Print("[Select] Layout armed: " + v + "\r\n");
+    SystemVars.Write("SelectedLayoutID", SlotIndex(layoutKey));
+    System.Print("[Select] Layout armed: " + v + " (slot " + layoutKey + ")\r\n");
 }
 
 /** Arm the window that the next input tap will be routed into. winID is 1..N. */

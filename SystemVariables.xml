@@ -26,4 +26,17 @@
     <variable name="Selected Layout ID" sysvar="SelectedLayoutID" type="integer" sample="1" />
     <variable name="Selected Layout" sysvar="SelectedLayout" type="string" sample="lay1" />
   </category>
+
+  <!-- Per-window booleans: true only for the armed window. Bind a Select -->
+  <!-- Window button's Reversed state directly to its matching WinSelN.    -->
+  <category name="Multiview Window Selected">
+    <variable name="Window 1 Selected" sysvar="WinSel1" type="boolean" sample="false" />
+    <variable name="Window 2 Selected" sysvar="WinSel2" type="boolean" sample="false" />
+    <variable name="Window 3 Selected" sysvar="WinSel3" type="boolean" sample="false" />
+    <variable name="Window 4 Selected" sysvar="WinSel4" type="boolean" sample="false" />
+    <variable name="Window 5 Selected" sysvar="WinSel5" type="boolean" sample="false" />
+    <variable name="Window 6 Selected" sysvar="WinSel6" type="boolean" sample="false" />
+    <variable name="Window 7 Selected" sysvar="WinSel7" type="boolean" sample="false" />
+    <variable name="Window 8 Selected" sysvar="WinSel8" type="boolean" sample="false" />
+  </category>
 </variables>

@@ -260,6 +260,7 @@ function UpdateWindowSource(layoutKey, winID, inputKey) {
 
 var g_selWindow = 0;     // armed window ID (0 = none)
 var g_selLayoutVal = ""; // armed layout name (resolved from a config slot)
+var WIN_COUNT = 8;       // number of Select Window buttons / WinSelN booleans
 
 /** Arm the multiview layout to route within (call from the page's layout button). */
 function SelectLayout(layoutKey) {
@@ -283,6 +284,10 @@ function SelectWindow(winID) {
     }
     g_selWindow = w;
     SystemVars.Write("SelectedWindowID", w);
+    // Per-window booleans for direct "Reversed" button binding: true only for w.
+    for (var i = 1; i <= WIN_COUNT; i++) {
+        SystemVars.Write("WinSel" + i, (i === w), "BOOLEAN");
+    }
     System.Print("[Select] Window armed: " + w + "\r\n");
 }
 

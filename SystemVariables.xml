@@ -20,4 +20,9 @@
     <variable name="Active Wall Layout" sysvar="ActiveWallLayout" type="string" sample="vlayout1" />
     <variable name="Device Status (Raw)" sysvar="DeviceStatusRaw" type="string" sample="{&quot;cmd&quot;:&quot;config get device status ALL&quot;,...}" />
   </category>
+
+  <category name="Multiview Routing">
+    <variable name="Selected Window ID" sysvar="SelectedWindowID" type="integer" sample="1" />
+    <variable name="Selected Layout" sysvar="SelectedLayout" type="string" sample="lay1" />
+  </category>
 </variables>

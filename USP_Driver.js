@@ -240,6 +240,58 @@ function UpdateWindowSource(layoutKey, winID, inputKey) {
     }
 }
 
+// --- Multiview Window Routing (arm-then-route workflow) ---
+// Workflow: SelectLayout (armed by the page's layout button) -> SelectWindow
+// (tap a window to arm it) -> RouteSelectedInput (tap an input to route it
+// into the armed layout+window). Selection state lives in script globals and
+// is mirrored to System Variables for touchpanel feedback.
+
+var g_selWindow = 0;     // armed window ID (0 = none)
+var g_selLayoutVal = ""; // armed layout name (resolved from a config slot)
+
+/** Arm the multiview layout to route within (call from the page's layout button). */
+function SelectLayout(layoutKey) {
+    var v = Config.Get(layoutKey);
+    if (!v) {
+        System.Print("[Error] SelectLayout: config slot '" + layoutKey + "' is empty.\r\n");
+        return;
+    }
+    g_selLayoutVal = v;
+    SystemVars.Write("SelectedLayout", v);
+    System.Print("[Select] Layout armed: " + v + "\r\n");
+}
+
+/** Arm the window that the next input tap will be routed into. winID is 1..N. */
+function SelectWindow(winID) {
+    var w = parseInt("" + winID, 10);
+    if (!(w >= 1)) {
+        System.Print("[Error] SelectWindow: invalid window '" + winID + "'.\r\n");
+        return;
+    }
+    g_selWindow = w;
+    SystemVars.Write("SelectedWindowID", w);
+    System.Print("[Select] Window armed: " + w + "\r\n");
+}
+
+/** Route the tapped input into the armed layout+window, then activate it live. */
+function RouteSelectedInput(inputKey) {
+    var input = Config.Get(inputKey);
+    if (!input) {
+        System.Print("[Error] RouteSelectedInput: config slot '" + inputKey + "' is empty.\r\n");
+        return;
+    }
+    if (!g_selLayoutVal) {
+        System.Print("[Error] RouteSelectedInput: no layout armed. Tap a layout first.\r\n");
+        return;
+    }
+    if (!g_selWindow) {
+        System.Print("[Error] RouteSelectedInput: no window armed. Tap a window first.\r\n");
+        return;
+    }
+    SendCommand("mvid layout tx " + g_selLayoutVal + " " + g_selWindow + " " + input);
+    SendCommand("mvid layout active " + g_selLayoutVal);
+}
+
 // --- Matrix ---
 
 /** Route one source (TX) video+audio to one display (RX). Effective immediately. */

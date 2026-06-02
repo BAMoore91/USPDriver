@@ -626,4 +626,78 @@
 
   </category>
 
+  <!-- Arm-then-route workflow: tap a layout (top of page) to arm it, tap a -->
+  <!-- window to arm it, then tap an input to route it into that window.    -->
+  <category name="IPCBox: Multiview Routing">
+
+    <!-- Arm the layout. Attach to each top-of-page layout button (also flips page). -->
+    <function name="1. Select Layout (Arm)" export="SelectLayout">
+      <parameter name="Select Layout Slot" type="mcstring">
+        <choice name="%%L1%%" value="L1" />
+        <choice name="%%L2%%" value="L2" />
+        <choice name="%%L3%%" value="L3" />
+        <choice name="%%L4%%" value="L4" />
+        <choice name="%%L5%%" value="L5" />
+        <choice name="%%L6%%" value="L6" />
+        <choice name="%%L7%%" value="L7" />
+        <choice name="%%L8%%" value="L8" />
+        <choice name="%%L9%%" value="L9" />
+        <choice name="%%L10%%" value="L10" />
+      </parameter>
+    </function>
+
+    <!-- Arm a window. One button each; SelectedWindowID drives highlighting. -->
+    <function name="2. Select Window 1" export="SelectWindow:win1">
+      <parameter name="Window ID" type="integer" default="1" hidden="true" />
+    </function>
+    <function name="2. Select Window 2" export="SelectWindow:win2">
+      <parameter name="Window ID" type="integer" default="2" hidden="true" />
+    </function>
+    <function name="2. Select Window 3" export="SelectWindow:win3">
+      <parameter name="Window ID" type="integer" default="3" hidden="true" />
+    </function>
+    <function name="2. Select Window 4" export="SelectWindow:win4">
+      <parameter name="Window ID" type="integer" default="4" hidden="true" />
+    </function>
+    <function name="2. Select Window 5" export="SelectWindow:win5">
+      <parameter name="Window ID" type="integer" default="5" hidden="true" />
+    </function>
+    <function name="2. Select Window 6" export="SelectWindow:win6">
+      <parameter name="Window ID" type="integer" default="6" hidden="true" />
+    </function>
+    <function name="2. Select Window 7" export="SelectWindow:win7">
+      <parameter name="Window ID" type="integer" default="7" hidden="true" />
+    </function>
+    <function name="2. Select Window 8" export="SelectWindow:win8">
+      <parameter name="Window ID" type="integer" default="8" hidden="true" />
+    </function>
+
+    <!-- Route the tapped input into the armed layout+window. -->
+    <function name="3. Route Input to Selected Window" export="RouteSelectedInput">
+      <parameter name="Select Input Slot" type="mcstring">
+        <choice name="%%I1%%" value="I1" />
+        <choice name="%%I2%%" value="I2" />
+        <choice name="%%I3%%" value="I3" />
+        <choice name="%%I4%%" value="I4" />
+        <choice name="%%I5%%" value="I5" />
+        <choice name="%%I6%%" value="I6" />
+        <choice name="%%I7%%" value="I7" />
+        <choice name="%%I8%%" value="I8" />
+        <choice name="%%I9%%" value="I9" />
+        <choice name="%%I10%%" value="I10" />
+        <choice name="%%I11%%" value="I11" />
+        <choice name="%%I12%%" value="I12" />
+        <choice name="%%I13%%" value="I13" />
+        <choice name="%%I14%%" value="I14" />
+        <choice name="%%I15%%" value="I15" />
+        <choice name="%%I16%%" value="I16" />
+        <choice name="%%I17%%" value="I17" />
+        <choice name="%%I18%%" value="I18" />
+        <choice name="%%I19%%" value="I19" />
+        <choice name="%%I20%%" value="I20" />
+      </parameter>
+    </function>
+
+  </category>
+
 </functions>

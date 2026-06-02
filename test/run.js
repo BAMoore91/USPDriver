@@ -164,6 +164,49 @@ console.log('Feedback parsing:');
   check('devicelist/status -> DeviceStatusRaw set', typeof d.vars.DeviceStatusRaw === 'string' && d.vars.DeviceStatusRaw.indexOf('device status') >= 0);
 })();
 
+// =====================================================================
+// 3. Multiview arm-then-route workflow
+// =====================================================================
+console.log('Multiview arm-then-route:');
+(function () {
+  const d = loadDriver();
+  d.call('SelectLayout("L1")');
+  check('SelectLayout writes SelectedLayout', d.vars.SelectedLayout === 'lay1', d.vars.SelectedLayout);
+  d.call('SelectWindow(3)');
+  check('SelectWindow writes SelectedWindowID (int)', d.vars.SelectedWindowID === 3, '' + d.vars.SelectedWindowID);
+  d.call('SelectWindow("5")');
+  check('SelectWindow accepts string arg', d.vars.SelectedWindowID === 5, '' + d.vars.SelectedWindowID);
+  // re-arm window 3 and route input
+  d.call('SelectWindow(3)');
+  d.call('RouteSelectedInput("I1")');
+  const a = d.allSent();
+  check('routes into armed layout+window then activates',
+    a.length === 2 && a[0] === 'mvid layout tx lay1 3 TX1' && a[1] === 'mvid layout active lay1',
+    a.join(' | '));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectWindow(2)');            // no layout armed
+  d.call('RouteSelectedInput("I1")');
+  check('route with no layout armed -> no command', d.allSent().length === 0, d.allSent().join('|'));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectLayout("L1")');         // layout armed, no window
+  d.call('RouteSelectedInput("I1")');
+  check('route with no window armed -> no command', d.allSent().length === 0, d.allSent().join('|'));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectLayout("L1")');
+  d.call('SelectWindow(1)');
+  d.call('RouteSelectedInput("I9")');   // I9 not in fixtures -> empty slot
+  check('route with empty input slot -> no command', d.allSent().length === 0, d.allSent().join('|'));
+})();
+
 console.log('');
 if (failures) { console.log(failures + ' FAILURE(S)'); process.exit(1); }
 console.log('All assertions passed.');

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<functions>
+  <category name="IPCBox: Multiview">
+    
+    <!-- FUNCTION A: Layout Assignment and Activation -->
+    <function name="1. Set Layout on Display" export="ShowLayoutOnDisplay">
+      <parameter name="Select Layout Slot" type="mcstring">
+        <choice name="%%L1%%" value="L1" /><choice name="%%L2%%" value="L2" />
+        <choice name="%%L3%%" value="L3" /><choice name="%%L4%%" value="L4" />
+        <choice name="%%L5%%" value="L5" /><choice name="%%L6%%" value="L6" />
+        <choice name="%%L7%%" value="L7" /><choice name="%%L8%%" value="L8" />
+        <choice name="%%L9%%" value="L9" /><choice name="%%L10%%" value="L10" />
+      </parameter>
+      <parameter name="Select Output Slot" type="mcstring">
+        <choice name="%%O1%%" value="O1" /><choice name="%%O2%%" value="O2" />
+        <choice name="%%O3%%" value="O3" /><choice name="%%O4%%" value="O4" />
+        <choice name="%%O5%%" value="O5" /><choice name="%%O6%%" value="O6" />
+        <choice name="%%O7%%" value="O7" /><choice name="%%O8%%" value="O8" />
+        <choice name="%%O9%%" value="O9" /><choice name="%%O10%%" value="O10" />
+      </parameter>
+    </function>
+
+    <!-- FUNCTION B: Window Routing and Activation -->
+    <function name="2. Switch Window Source" export="UpdateWindowSource">
+      <parameter name="Select Layout Slot" type="mcstring">
+        <choice name="%%L1%%" value="L1" /><choice name="%%L2%%" value="L2" />
+        <choice name="%%L3%%" value="L3" /><choice name="%%L4%%" value="L4" />
+        <choice name="%%L5%%" value="L5" /><choice name="%%L6%%" value="L6" />
+        <choice name="%%L7%%" value="L7" /><choice name="%%L8%%" value="L8" />
+        <choice name="%%L9%%" value="L9" /><choice name="%%L10%%" value="L10" />
+      </parameter>
+      <parameter name="Window ID" type="mcstring">
+        <choice name="Win 1" value="1" /><choice name="Win 2" value="2" />
+        <choice name="Win 3" value="3" /><choice name="Win 4" value="4" />
+        <choice name="Win 5" value="5" /><choice name="Win 6" value="6" />
+        <choice name="Win 7" value="7" /><choice name="Win 8" value="8" />
+      </parameter>
+      <parameter name="Select Input Slot" type="mcstring">
+        <choice name="%%I1%%" value="I1" /><choice name="%%I2%%" value="I2" />
+        <choice name="%%I3%%" value="I3" /><choice name="%%I4%%" value="I4" />
+        <choice name="%%I5%%" value="I5" /><choice name="%%I6%%" value="I6" />
+        <choice name="%%I7%%" value="I7" /><choice name="%%I8%%" value="I8" />
+        <choice name="%%I9%%" value="I9" /><choice name="%%I10%%" value="I10" />
+        <choice name="%%I11%%" value="I11" /><choice name="%%I12%%" value="I12" />
+        <choice name="%%I13%%" value="I13" /><choice name="%%I14%%" value="I14" />
+        <choice name="%%I15%%" value="I15" /><choice name="%%I16%%" value="I16" />
+        <choice name="%%I17%%" value="I17" /><choice name="%%I18%%" value="I18" />
+        <choice name="%%I19%%" value="I19" /><choice name="%%I20%%" value="I20" />
+      </parameter>
+    </function>
+
+  </category>
+</functions>

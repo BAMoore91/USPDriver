@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<device>
+  <sources>
+    <source name="IPCBox" sourceid="IPC1">
+      <templates><template name="Video Switcher"/></templates>
+    </source>
+  </sources>
+</device>

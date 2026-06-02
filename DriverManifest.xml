@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<driverManifest>
+  <driver id="{A3BFA996-0FA8-4175-A6A5-EDB76D700C24}"
+          name="CBOX Multiview API"
+          author="Brandon Moore"
+          copyright="2026"
+          deviceManufacturer="AVPro Global"
+          deviceModel="IPCBox"
+          driverVersion="1.4"
+          minimumRuntimeVersion="20"
+          minimumSoftwareVersion="10.0"
+          processorType="XP-8"
+          configSettingsStream="ConfigSettings.xml"
+          systemVariablesStream="SystemVariables.xml"
+          systemFunctionsStream="SystemFunctions.xml"
+          helpTextStream="Help.rtf"
+          deviceDescriptionStream="DeviceDescription.xml">
+    <processorScript stream="USP_Driver.js" />
+  </driver>
+</driverManifest>

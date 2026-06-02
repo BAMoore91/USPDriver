@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <category name="Connection Settings">
+    <setting name="IP Address" variable="IPAddress" type="string" default="192.168.1.100" />
+    <setting name="USP Port" variable="USPPort" type="integer" default="24" />
+  </category>
+
+  <category name="Layout Definitions">
+    <setting name="Layout 1 ID" variable="L1" type="string" default="" />
+    <setting name="Layout 2 ID" variable="L2" type="string" default="" />
+    <setting name="Layout 3 ID" variable="L3" type="string" default="" />
+    <setting name="Layout 4 ID" variable="L4" type="string" default="" />
+    <setting name="Layout 5 ID" variable="L5" type="string" default="" />
+    <setting name="Layout 6 ID" variable="L6" type="string" default="" />
+    <setting name="Layout 7 ID" variable="L7" type="string" default="" />
+    <setting name="Layout 8 ID" variable="L8" type="string" default="" />
+    <setting name="Layout 9 ID" variable="L9" type="string" default="" />
+    <setting name="Layout 10 ID" variable="L10" type="string" default="" />
+  </category>
+
+  <category name="Output (Display) Definitions">
+    <setting name="Output 1 ID" variable="O1" type="string" default="" />
+    <setting name="Output 2 ID" variable="O2" type="string" default="" />
+    <setting name="Output 3 ID" variable="O3" type="string" default="" />
+    <setting name="Output 4 ID" variable="O4" type="string" default="" />
+    <setting name="Output 5 ID" variable="O5" type="string" default="" />
+    <setting name="Output 6 ID" variable="O6" type="string" default="" />
+    <setting name="Output 7 ID" variable="O7" type="string" default="" />
+    <setting name="Output 8 ID" variable="O8" type="string" default="" />
+    <setting name="Output 9 ID" variable="O9" type="string" default="" />
+    <setting name="Output 10 ID" variable="O10" type="string" default="" />
+  </category>
+
+  <category name="Input (Source) Definitions">
+    <setting name="Input 1 ID" variable="I1" type="string" default="" />
+    <setting name="Input 2 ID" variable="I2" type="string" default="" />
+    <setting name="Input 3 ID" variable="I3" type="string" default="" />
+    <setting name="Input 4 ID" variable="I4" type="string" default="" />
+    <setting name="Input 5 ID" variable="I5" type="string" default="" />
+    <setting name="Input 6 ID" variable="I6" type="string" default="" />
+    <setting name="Input 7 ID" variable="I7" type="string" default="" />
+    <setting name="Input 8 ID" variable="I8" type="string" default="" />
+    <setting name="Input 9 ID" variable="I9" type="string" default="" />
+    <setting name="Input 10 ID" variable="I10" type="string" default="" />
+    <setting name="Input 11 ID" variable="I11" type="string" default="" />
+    <setting name="Input 12 ID" variable="I12" type="string" default="" />
+    <setting name="Input 13 ID" variable="I13" type="string" default="" />
+    <setting name="Input 14 ID" variable="I14" type="string" default="" />
+    <setting name="Input 15 ID" variable="I15" type="string" default="" />
+    <setting name="Input 16 ID" variable="I16" type="string" default="" />
+    <setting name="Input 17 ID" variable="I17" type="string" default="" />
+    <setting name="Input 18 ID" variable="I18" type="string" default="" />
+    <setting name="Input 19 ID" variable="I19" type="string" default="" />
+    <setting name="Input 20 ID" variable="I20" type="string" default="" />
+  </category>
+</configuration>

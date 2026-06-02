@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <driverManifest>
-  <driver id="{A3BFA996-0FA8-4175-A6A5-EDB76D700C24}"
+  <driver id="{73603D43-7D8B-4525-9987-8EF2A7B86402}"
           name="AC-MXNET USP-CBOX Control"
           author="Brandon Moore"
           copyright="2026"

@@ -1,0 +1,32 @@
+{\rtf1\ansi\deff0{\fonttbl{\f0 Segoe UI;}}
+\fs20
+{\b\fs28 AC-MXNET USP-CBOX Control \line}
+{\fs18 Driver v2.0 \'96 AVPro Global IPCBox (USP API) \line}
+\line
+This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It supports Multiview, Matrix routing, Video Wall recall, the Media Player, and per-device / system control, with two-way feedback exposed as System Variables.\line
+\line
+{\b SETUP \line}
+1. In {\b Connection Settings} enter the CBOX {\b IP Address} and {\b USP Port} (24).\line
+2. Populate the definition slots with the IDs/names the CBOX already knows:\line
+\tab {\b Input (Source) Definitions} I1-I20: encoder (TX) IDs or MAC addresses.\line
+\tab {\b Output (Display) Definitions} O1-O10: decoder (RX) IDs or MAC addresses.\line
+\tab {\b Layout Definitions} L1-L10: Multiview layout names (mvid).\line
+\tab {\b Matrix Definitions} MX1-MX4: saved matrix preset names.\line
+\tab {\b Video Wall Definitions} VW1-VW4: video wall names.\line
+\tab {\b Video Wall Layout Definitions} WL1-WL8: wall layout names.\line
+\tab {\b Playlist Definitions} PL1-PL8: media playlist names.\line
+The drop-down lists in System Functions show these slot values by name.\line
+\line
+{\b SYSTEM FUNCTIONS \line}
+{\b Multiview:} Set Layout on Display; Switch Window Source.\line
+{\b Matrix:} Route Source to Display (video+audio, immediate); Route Source to Multiple Displays (up to 3); Recall Matrix Preset.\line
+{\b Video Wall:} Recall Wall Layout; Swap Wall Source (target a cell as Row:Col or All Cells).\line
+{\b Media Player:} Apply Playlist to Display; Upload Playlist to Displays (up to 3).\line
+{\b Device Control:} Reboot Device; Identify Light On/Off/Flash; OSD On/Off; Display Stream On/Off.\line
+{\b System:} Reboot CBOX; Query Device List; Query All Device Status; Send Raw Command (advanced \'96 sends any API string verbatim).\line
+\line
+{\b SYSTEM VARIABLES \line}
+{\b Status:} Connection Status (Connected/Disconnected).\line
+{\b Command Feedback:} Last Command Success (OK/Error), Last Command Sent, Last Response (Raw), Last Response Command, Last Response Info, Last Response Code.\line
+{\b System State:} Active Matrix Name, Active Layout Name, Active Video Wall, Active Wall Layout, Device Status (Raw). Active-state variables update from the CBOX reply to an activate command; use Query All Device Status to refresh Device Status (Raw).\line
+}

@@ -53,4 +53,40 @@
     <setting name="Input 19 ID" variable="I19" type="string" default="" />
     <setting name="Input 20 ID" variable="I20" type="string" default="" />
   </category>
+
+  <category name="Matrix Definitions" advanced="true">
+    <setting name="Matrix 1 Name" variable="MX1" type="string" default="" />
+    <setting name="Matrix 2 Name" variable="MX2" type="string" default="" />
+    <setting name="Matrix 3 Name" variable="MX3" type="string" default="" />
+    <setting name="Matrix 4 Name" variable="MX4" type="string" default="" />
+  </category>
+
+  <category name="Video Wall Definitions" advanced="true">
+    <setting name="Video Wall 1 Name" variable="VW1" type="string" default="" />
+    <setting name="Video Wall 2 Name" variable="VW2" type="string" default="" />
+    <setting name="Video Wall 3 Name" variable="VW3" type="string" default="" />
+    <setting name="Video Wall 4 Name" variable="VW4" type="string" default="" />
+  </category>
+
+  <category name="Video Wall Layout Definitions" advanced="true">
+    <setting name="Wall Layout 1 Name" variable="WL1" type="string" default="" />
+    <setting name="Wall Layout 2 Name" variable="WL2" type="string" default="" />
+    <setting name="Wall Layout 3 Name" variable="WL3" type="string" default="" />
+    <setting name="Wall Layout 4 Name" variable="WL4" type="string" default="" />
+    <setting name="Wall Layout 5 Name" variable="WL5" type="string" default="" />
+    <setting name="Wall Layout 6 Name" variable="WL6" type="string" default="" />
+    <setting name="Wall Layout 7 Name" variable="WL7" type="string" default="" />
+    <setting name="Wall Layout 8 Name" variable="WL8" type="string" default="" />
+  </category>
+
+  <category name="Playlist Definitions" advanced="true">
+    <setting name="Playlist 1 Name" variable="PL1" type="string" default="" />
+    <setting name="Playlist 2 Name" variable="PL2" type="string" default="" />
+    <setting name="Playlist 3 Name" variable="PL3" type="string" default="" />
+    <setting name="Playlist 4 Name" variable="PL4" type="string" default="" />
+    <setting name="Playlist 5 Name" variable="PL5" type="string" default="" />
+    <setting name="Playlist 6 Name" variable="PL6" type="string" default="" />
+    <setting name="Playlist 7 Name" variable="PL7" type="string" default="" />
+    <setting name="Playlist 8 Name" variable="PL8" type="string" default="" />
+  </category>
 </configuration>

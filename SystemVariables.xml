@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <variables>
   <category name="Status">
-    <variable name="Connection Status" sysvar="ConnStatus" type="boolean" />
+    <variable name="Connection Status" sysvar="ConnStatus" type="boolean" format="B:Disconnected:Connected" sample="Connected" />
+  </category>
+
+  <category name="Command Feedback">
+    <variable name="Last Command Success" sysvar="LastCommandSuccess" type="boolean" format="B:Error:OK" sample="OK" />
+    <variable name="Last Command Sent" sysvar="LastCommandSent" type="string" sample="matrix aset :av TX1 RX1" />
+    <variable name="Last Response (Raw)" sysvar="LastResponseRaw" type="string" sample="{&quot;cmd&quot;:&quot;matrix active mx1&quot;,&quot;info&quot;:&quot;OK&quot;,&quot;code&quot;:0}" />
+    <variable name="Last Response Command" sysvar="LastResponseCmd" type="string" sample="matrix active mx1" />
+    <variable name="Last Response Info" sysvar="LastResponseInfo" type="string" sample="OK" />
+    <variable name="Last Response Code" sysvar="LastResponseCode" type="integer" sample="0" />
+  </category>
+
+  <category name="System State">
+    <variable name="Active Matrix Name" sysvar="ActiveMatrix" type="string" sample="mx1" />
+    <variable name="Active Layout Name" sysvar="ActiveLayout" type="string" sample="15" />
+    <variable name="Active Video Wall" sysvar="ActiveWall" type="string" sample="videowall2" />
+    <variable name="Active Wall Layout" sysvar="ActiveWallLayout" type="string" sample="vlayout1" />
+    <variable name="Device Status (Raw)" sysvar="DeviceStatusRaw" type="string" sample="{&quot;cmd&quot;:&quot;config get device status ALL&quot;,...}" />
   </category>
 </variables>

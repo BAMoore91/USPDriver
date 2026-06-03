@@ -386,14 +386,8 @@ function PlayPlaylist(playlistKey, outputKey) {
         SendCommand("play pl start " + pl + " " + rx);
     }
 }
-
-/** Stop playback on a single RX (output) display. ("Stop Playing" in the web GUI.) */
-function StopPlaylist(outputKey) {
-    var rx = ResolveSlot(outputKey);
-    if (rx) {
-        SendCommand("play pl stop " + rx);
-    }
-}
+// NOTE: The CBOX has no playlist "stop" command. To stop playback on a display,
+// route a different source to it (Matrix "Route Source to Display").
 
 /** Upload a playlist's media to up to three RX displays (comma-separated list). */
 function UploadPlaylist(playlistKey, out1, out2, out3) {

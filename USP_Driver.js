@@ -545,7 +545,11 @@ function SelectLayoutItem(index, top) {
     if (index >= 0 && index < g_layouts.length) {
         var name = g_layouts[index];
         SystemVars.Write("LiveLayout", name);
+        // Also arm this layout for the window-routing workflow + refresh feedback.
+        g_selLayoutVal = name;
+        SystemVars.Write("SelectedLayout", name);
         SendCommand("mvid layout active " + name);   // recall on tap
+        SendCommand("mvid layout get " + name);      // refresh WinSrc feedback
     }
 }
 function SelectPlaylist(index, top) {
@@ -563,6 +567,26 @@ function RouteLive() {
         System.Print("[Error] RouteLive: select a source and a display first.\r\n");
     }
 }
+// Route the live-selected source into the armed multiview layout+window.
+// Combines the live Source list with the arm-then-route window/layout arming.
+function RouteLiveSourceToWindow() {
+    if (!g_selLayoutVal) {
+        System.Print("[Error] RouteLiveSourceToWindow: no layout armed (tap a layout first).\r\n");
+        return;
+    }
+    if (!g_selWindow) {
+        System.Print("[Error] RouteLiveSourceToWindow: no window armed (tap a window first).\r\n");
+        return;
+    }
+    if (!g_liveSrc) {
+        System.Print("[Error] RouteLiveSourceToWindow: no source selected (tap a source first).\r\n");
+        return;
+    }
+    SendCommand("mvid layout tx " + g_selLayoutVal + " " + g_selWindow + " " + g_liveSrc);
+    SendCommand("mvid layout active " + g_selLayoutVal);
+    SystemVars.Write("WinSrc" + g_selWindow, g_liveSrc);
+}
+
 function PlayLivePlaylist() {
     if (g_livePlaylist && g_liveDisp) {
         SendCommand("play pl start " + g_livePlaylist + " " + g_liveDisp);

@@ -2291,6 +2291,7 @@
     <function name="9. Route Selected Source to Display" export="RouteLive" />
     <function name="10. Play Selected Playlist on Display" export="PlayLivePlaylist" />
     <function name="11. Send Selected Playlist to Display" export="SendLivePlaylist" />
+    <function name="12. Route Selected Source to Selected Window (Multiview)" export="RouteLiveSourceToWindow" />
 
   </category>
 

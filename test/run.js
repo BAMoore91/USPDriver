@@ -268,8 +268,25 @@ const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   const d = loadDriver();
   d.feed('{"cmd":"mvid get layouts","info":{"15":{"windows":[]},"222":{"windows":[]}},"code":0}');
   check('mvid get -> LayoutList', eq(d.lists.LayoutList, ['15', '222']), JSON.stringify(d.lists.LayoutList));
-  d.call('SelectLayoutItem(1,0)');
-  check('SelectLayoutItem recalls layout', d.lastSent() === 'mvid layout active 222', d.lastSent());
+  d.feed('{"cmd":"config get devicelist","info":{"AAA":{"id":"TX-Apple","is_host":1}},"code":0}');
+  d.call('SelectLayoutItem(1,0)');                 // arms + recalls "222"
+  const a1 = d.allSent();
+  check('SelectLayoutItem recalls layout', a1.indexOf('mvid layout active 222') >= 0, a1.join(' | '));
+  check('SelectLayoutItem arms layout', d.vars.SelectedLayout === '222', d.vars.SelectedLayout);
+  check('SelectLayoutItem refreshes window sources', a1.indexOf('mvid layout get 222') >= 0, a1.join(' | '));
+  d.call('SelectWindow(2)');
+  d.call('SelectSource(0,0)');                      // live source TX-Apple
+  d.call('RouteLiveSourceToWindow()');
+  const a2 = d.allSent(); const n2 = a2.length;
+  check('RouteLiveSourceToWindow routes live source into armed window',
+    a2[n2 - 2] === 'mvid layout tx 222 2 TX-Apple' && a2[n2 - 1] === 'mvid layout active 222', a2.join(' | '));
+  check('RouteLiveSourceToWindow updates WinSrc2', d.vars.WinSrc2 === 'TX-Apple', d.vars.WinSrc2);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('RouteLiveSourceToWindow()');             // nothing armed/selected
+  check('RouteLiveSourceToWindow guards when unarmed', d.allSent().length === 0, d.allSent().join('|'));
 })();
 
 (function () {

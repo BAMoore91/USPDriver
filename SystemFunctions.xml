@@ -817,6 +817,64 @@
       </parameter>
     </function>
 
+    <function name="3. Swap Selected Source into Wall Cell" export="SwapWallSourceLive">
+      <parameter name="Select Video Wall" type="mcstring">
+        <choice name="%%VW1%%" value="VW1" condition="$WallCount >= 1" />
+        <choice name="%%VW2%%" value="VW2" condition="$WallCount >= 2" />
+        <choice name="%%VW3%%" value="VW3" condition="$WallCount >= 3" />
+        <choice name="%%VW4%%" value="VW4" condition="$WallCount >= 4" />
+        <choice name="%%VW5%%" value="VW5" condition="$WallCount >= 5" />
+        <choice name="%%VW6%%" value="VW6" condition="$WallCount >= 6" />
+        <choice name="%%VW7%%" value="VW7" condition="$WallCount >= 7" />
+        <choice name="%%VW8%%" value="VW8" condition="$WallCount >= 8" />
+        <choice name="%%VW9%%" value="VW9" condition="$WallCount >= 9" />
+        <choice name="%%VW10%%" value="VW10" condition="$WallCount >= 10" />
+        <choice name="%%VW11%%" value="VW11" condition="$WallCount >= 11" />
+        <choice name="%%VW12%%" value="VW12" condition="$WallCount >= 12" />
+        <choice name="%%VW13%%" value="VW13" condition="$WallCount >= 13" />
+        <choice name="%%VW14%%" value="VW14" condition="$WallCount >= 14" />
+        <choice name="%%VW15%%" value="VW15" condition="$WallCount >= 15" />
+        <choice name="%%VW16%%" value="VW16" condition="$WallCount >= 16" />
+      </parameter>
+      <parameter name="Select Wall Layout" type="mcstring">
+        <choice name="%%WL1%%" value="WL1" condition="$WallLayoutCount >= 1" />
+        <choice name="%%WL2%%" value="WL2" condition="$WallLayoutCount >= 2" />
+        <choice name="%%WL3%%" value="WL3" condition="$WallLayoutCount >= 3" />
+        <choice name="%%WL4%%" value="WL4" condition="$WallLayoutCount >= 4" />
+        <choice name="%%WL5%%" value="WL5" condition="$WallLayoutCount >= 5" />
+        <choice name="%%WL6%%" value="WL6" condition="$WallLayoutCount >= 6" />
+        <choice name="%%WL7%%" value="WL7" condition="$WallLayoutCount >= 7" />
+        <choice name="%%WL8%%" value="WL8" condition="$WallLayoutCount >= 8" />
+        <choice name="%%WL9%%" value="WL9" condition="$WallLayoutCount >= 9" />
+        <choice name="%%WL10%%" value="WL10" condition="$WallLayoutCount >= 10" />
+        <choice name="%%WL11%%" value="WL11" condition="$WallLayoutCount >= 11" />
+        <choice name="%%WL12%%" value="WL12" condition="$WallLayoutCount >= 12" />
+        <choice name="%%WL13%%" value="WL13" condition="$WallLayoutCount >= 13" />
+        <choice name="%%WL14%%" value="WL14" condition="$WallLayoutCount >= 14" />
+        <choice name="%%WL15%%" value="WL15" condition="$WallLayoutCount >= 15" />
+        <choice name="%%WL16%%" value="WL16" condition="$WallLayoutCount >= 16" />
+      </parameter>
+      <parameter name="Target Cell" type="mcstring">
+        <choice name="All Cells" value="ALL" />
+        <choice name="Row 1 : Col 1" value="1:1" />
+        <choice name="Row 1 : Col 2" value="1:2" />
+        <choice name="Row 1 : Col 3" value="1:3" />
+        <choice name="Row 1 : Col 4" value="1:4" />
+        <choice name="Row 2 : Col 1" value="2:1" />
+        <choice name="Row 2 : Col 2" value="2:2" />
+        <choice name="Row 2 : Col 3" value="2:3" />
+        <choice name="Row 2 : Col 4" value="2:4" />
+        <choice name="Row 3 : Col 1" value="3:1" />
+        <choice name="Row 3 : Col 2" value="3:2" />
+        <choice name="Row 3 : Col 3" value="3:3" />
+        <choice name="Row 3 : Col 4" value="3:4" />
+        <choice name="Row 4 : Col 1" value="4:1" />
+        <choice name="Row 4 : Col 2" value="4:2" />
+        <choice name="Row 4 : Col 3" value="4:3" />
+        <choice name="Row 4 : Col 4" value="4:4" />
+      </parameter>
+    </function>
+
   </category>
 
   <category name="IPCBox: Media Player">

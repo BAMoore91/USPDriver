@@ -430,6 +430,20 @@ function SwapWallSource(wallKey, layoutKey, target, inputKey) {
     }
 }
 
+/** Swap the live-selected source (SourceList) into a wall cell. target = "ALL" or "row:col". */
+function SwapWallSourceLive(wallKey, layoutKey, target) {
+    var wall = ResolveSlot(wallKey);
+    var lay = ResolveSlot(layoutKey);
+    if (!wall || !lay || !target) {
+        return;
+    }
+    if (!g_liveSrc) {
+        System.Print("[Error] SwapWallSourceLive: no source selected (tap a source first).\r\n");
+        return;
+    }
+    SendCommand("vwid layout tx " + wall + " " + lay + " " + target + " " + g_liveSrc);
+}
+
 // --- Media Player ---
 
 /** Play a playlist on a single RX (output) display now. ("Play Now" in the web GUI.) */

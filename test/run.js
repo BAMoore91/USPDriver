@@ -291,6 +291,21 @@ const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
 
 (function () {
   const d = loadDriver();
+  d.feed('{"cmd":"config get devicelist","info":{"AAA":{"id":"TX-Apple","is_host":1}},"code":0}');
+  d.call('SelectSource(0,0)');
+  d.call('SwapWallSourceLive("VW1","WL1","2:2")');
+  check('SwapWallSourceLive drops live source into wall cell',
+    d.lastSent() === 'vwid layout tx videowall2 vlayout1 2:2 TX-Apple', d.lastSent());
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SwapWallSourceLive("VW1","WL1","2:2")');  // no source selected
+  check('SwapWallSourceLive guards with no source', d.allSent().length === 0, d.allSent().join('|'));
+})();
+
+(function () {
+  const d = loadDriver();
   d.feed('{"cmd":"play pl get","info":{"CAZLogo":[{"url":"a.jpg","time":10,"index":1}],"LFLogo":[]},"code":0}');
   check('play pl get -> PlaylistList', eq(d.lists.PlaylistList, ['CAZLogo', 'LFLogo']), JSON.stringify(d.lists.PlaylistList));
   d.feed('{"cmd":"config get devicelist","info":{"BBB":{"id":"RX-LED","ch_v":"1"}},"code":0}');

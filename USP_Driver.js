@@ -98,6 +98,48 @@ function HandleResponseLine(line) {
     if (line.indexOf("device status") >= 0 || line.indexOf("devicelist") >= 0) {
         SystemVars.Write("DeviceStatusRaw", line);
     }
+    // Reply to "mvid layout get <name>" carries each window's current source.
+    if (StartsWith(cmd, "mvid layout get ")) {
+        ParseLayoutWindows(line);
+    }
+}
+
+// Parse the "windows":[{"host":..,"index":..},...] array from an
+// "mvid layout get" reply and publish each window's source as WinSrc<index>.
+function ParseLayoutWindows(line) {
+    var wp = line.indexOf("\"windows\"");
+    if (wp < 0) {
+        return;
+    }
+    var arrStart = line.indexOf("[", wp);
+    var arrEnd = (arrStart >= 0) ? line.indexOf("]", arrStart) : -1;
+    if (arrStart < 0 || arrEnd < 0) {
+        return;
+    }
+    var sub = line.substring(arrStart + 1, arrEnd);
+    // Clear all window-source labels first, then fill from the reply.
+    var i;
+    for (i = 1; i <= WIN_COUNT; i++) {
+        SystemVars.Write("WinSrc" + i, "");
+    }
+    var pos = 0;
+    while (true) {
+        var ob = sub.indexOf("{", pos);
+        if (ob < 0) {
+            break;
+        }
+        var cb = sub.indexOf("}", ob);
+        if (cb < 0) {
+            break;
+        }
+        var obj = sub.substring(ob, cb + 1);
+        var host = ExtractStr(obj, "host");
+        var idx = ExtractInt(obj, "index");
+        if (idx !== null && idx >= 1 && idx <= WIN_COUNT && host !== "") {
+            SystemVars.Write("WinSrc" + idx, host);
+        }
+        pos = cb + 1;
+    }
 }
 
 function DeriveActiveState(cmd) {
@@ -247,6 +289,7 @@ function UpdateWindowSource(layoutKey, winID, inputKey) {
         SendCommand("mvid layout tx " + layoutVal + " " + winID + " " + inputVal);
         // We activate as well to ensure the change is seen live on screen
         SendCommand("mvid layout active " + layoutVal);
+        SystemVars.Write("WinSrc" + winID, inputVal);
     } else {
         System.Print("[Error] UpdateWindowSource failed: Slot L or I is empty in Config.\r\n");
     }
@@ -273,6 +316,8 @@ function SelectLayout(layoutKey) {
     SystemVars.Write("SelectedLayout", v);
     SystemVars.Write("SelectedLayoutID", SlotIndex(layoutKey));
     System.Print("[Select] Layout armed: " + v + " (slot " + layoutKey + ")\r\n");
+    // Refresh per-window source feedback (WinSrcN) from the box for this layout.
+    SendCommand("mvid layout get " + v);
 }
 
 /** Arm the window that the next input tap will be routed into. winID is 1..N. */
@@ -308,6 +353,7 @@ function RouteSelectedInput(inputKey) {
     }
     SendCommand("mvid layout tx " + g_selLayoutVal + " " + g_selWindow + " " + input);
     SendCommand("mvid layout active " + g_selLayoutVal);
+    SystemVars.Write("WinSrc" + g_selWindow, input);
 }
 
 // --- Matrix ---

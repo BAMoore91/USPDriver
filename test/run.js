@@ -192,23 +192,27 @@ console.log('Multiview arm-then-route:');
   d.call('SelectWindow(3)');
   d.call('RouteSelectedInput("I1")');
   const a = d.allSent();
+  const n = a.length;
+  check('SelectLayout queries layout windows', a.indexOf('mvid layout get lay1') >= 0, a.join(' | '));
   check('routes into armed layout+window then activates',
-    a.length === 2 && a[0] === 'mvid layout tx lay1 3 TX1' && a[1] === 'mvid layout active lay1',
+    n >= 2 && a[n - 2] === 'mvid layout tx lay1 3 TX1' && a[n - 1] === 'mvid layout active lay1',
     a.join(' | '));
+  check('WinSrc3 reflects routed source', d.vars.WinSrc3 === 'TX1', d.vars.WinSrc3);
 })();
 
+const routes = (d) => d.allSent().filter((c) => c.indexOf('mvid layout tx') === 0);
 (function () {
   const d = loadDriver();
   d.call('SelectWindow(2)');            // no layout armed
   d.call('RouteSelectedInput("I1")');
-  check('route with no layout armed -> no command', d.allSent().length === 0, d.allSent().join('|'));
+  check('route with no layout armed -> no route command', routes(d).length === 0, d.allSent().join('|'));
 })();
 
 (function () {
   const d = loadDriver();
   d.call('SelectLayout("L1")');         // layout armed, no window
   d.call('RouteSelectedInput("I1")');
-  check('route with no window armed -> no command', d.allSent().length === 0, d.allSent().join('|'));
+  check('route with no window armed -> no route command', routes(d).length === 0, d.allSent().join('|'));
 })();
 
 (function () {
@@ -216,7 +220,15 @@ console.log('Multiview arm-then-route:');
   d.call('SelectLayout("L1")');
   d.call('SelectWindow(1)');
   d.call('RouteSelectedInput("I9")');   // I9 not in fixtures -> empty slot
-  check('route with empty input slot -> no command', d.allSent().length === 0, d.allSent().join('|'));
+  check('route with empty input slot -> no route command', routes(d).length === 0, d.allSent().join('|'));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed('{"cmd":"mvid layout get lay1","info":{"windows":[{"host":"TX1","index":1},{"host":"TX2","index":2}],"client":"RX1"},"code":0}');
+  check('layout-get populates WinSrc1', d.vars.WinSrc1 === 'TX1', d.vars.WinSrc1);
+  check('layout-get populates WinSrc2', d.vars.WinSrc2 === 'TX2', d.vars.WinSrc2);
+  check('layout-get clears empty windows', d.vars.WinSrc3 === '', JSON.stringify(d.vars.WinSrc3));
 })();
 
 console.log('');

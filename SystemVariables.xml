@@ -47,4 +47,24 @@
     <variable name="Window 15 Selected" sysvar="WinSel15" type="boolean" sample="false" />
     <variable name="Window 16 Selected" sysvar="WinSel16" type="boolean" sample="false" />
   </category>
+
+  <!-- Per-window current source (the TX/source shown in each window). -->
+  <category name="Multiview Window Source">
+    <variable name="Window 1 Source" sysvar="WinSrc1" type="string" sample="TX1" />
+    <variable name="Window 2 Source" sysvar="WinSrc2" type="string" sample="TX1" />
+    <variable name="Window 3 Source" sysvar="WinSrc3" type="string" sample="TX1" />
+    <variable name="Window 4 Source" sysvar="WinSrc4" type="string" sample="TX1" />
+    <variable name="Window 5 Source" sysvar="WinSrc5" type="string" sample="TX1" />
+    <variable name="Window 6 Source" sysvar="WinSrc6" type="string" sample="TX1" />
+    <variable name="Window 7 Source" sysvar="WinSrc7" type="string" sample="TX1" />
+    <variable name="Window 8 Source" sysvar="WinSrc8" type="string" sample="TX1" />
+    <variable name="Window 9 Source" sysvar="WinSrc9" type="string" sample="TX1" />
+    <variable name="Window 10 Source" sysvar="WinSrc10" type="string" sample="TX1" />
+    <variable name="Window 11 Source" sysvar="WinSrc11" type="string" sample="TX1" />
+    <variable name="Window 12 Source" sysvar="WinSrc12" type="string" sample="TX1" />
+    <variable name="Window 13 Source" sysvar="WinSrc13" type="string" sample="TX1" />
+    <variable name="Window 14 Source" sysvar="WinSrc14" type="string" sample="TX1" />
+    <variable name="Window 15 Source" sysvar="WinSrc15" type="string" sample="TX1" />
+    <variable name="Window 16 Source" sysvar="WinSrc16" type="string" sample="TX1" />
+  </category>
 </variables>

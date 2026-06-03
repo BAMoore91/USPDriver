@@ -15,6 +15,28 @@
         <choice name="%%L8%%" value="L8" condition="$LayoutCount >= 8" />
         <choice name="%%L9%%" value="L9" condition="$LayoutCount >= 9" />
         <choice name="%%L10%%" value="L10" condition="$LayoutCount >= 10" />
+        <choice name="%%L11%%" value="L11" condition="$LayoutCount >= 11" />
+        <choice name="%%L12%%" value="L12" condition="$LayoutCount >= 12" />
+        <choice name="%%L13%%" value="L13" condition="$LayoutCount >= 13" />
+        <choice name="%%L14%%" value="L14" condition="$LayoutCount >= 14" />
+        <choice name="%%L15%%" value="L15" condition="$LayoutCount >= 15" />
+        <choice name="%%L16%%" value="L16" condition="$LayoutCount >= 16" />
+        <choice name="%%L17%%" value="L17" condition="$LayoutCount >= 17" />
+        <choice name="%%L18%%" value="L18" condition="$LayoutCount >= 18" />
+        <choice name="%%L19%%" value="L19" condition="$LayoutCount >= 19" />
+        <choice name="%%L20%%" value="L20" condition="$LayoutCount >= 20" />
+        <choice name="%%L21%%" value="L21" condition="$LayoutCount >= 21" />
+        <choice name="%%L22%%" value="L22" condition="$LayoutCount >= 22" />
+        <choice name="%%L23%%" value="L23" condition="$LayoutCount >= 23" />
+        <choice name="%%L24%%" value="L24" condition="$LayoutCount >= 24" />
+        <choice name="%%L25%%" value="L25" condition="$LayoutCount >= 25" />
+        <choice name="%%L26%%" value="L26" condition="$LayoutCount >= 26" />
+        <choice name="%%L27%%" value="L27" condition="$LayoutCount >= 27" />
+        <choice name="%%L28%%" value="L28" condition="$LayoutCount >= 28" />
+        <choice name="%%L29%%" value="L29" condition="$LayoutCount >= 29" />
+        <choice name="%%L30%%" value="L30" condition="$LayoutCount >= 30" />
+        <choice name="%%L31%%" value="L31" condition="$LayoutCount >= 31" />
+        <choice name="%%L32%%" value="L32" condition="$LayoutCount >= 32" />
       </parameter>
       <parameter name="Select Output Slot" type="mcstring">
         <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
@@ -27,6 +49,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
     </function>
 
@@ -43,6 +119,28 @@
         <choice name="%%L8%%" value="L8" condition="$LayoutCount >= 8" />
         <choice name="%%L9%%" value="L9" condition="$LayoutCount >= 9" />
         <choice name="%%L10%%" value="L10" condition="$LayoutCount >= 10" />
+        <choice name="%%L11%%" value="L11" condition="$LayoutCount >= 11" />
+        <choice name="%%L12%%" value="L12" condition="$LayoutCount >= 12" />
+        <choice name="%%L13%%" value="L13" condition="$LayoutCount >= 13" />
+        <choice name="%%L14%%" value="L14" condition="$LayoutCount >= 14" />
+        <choice name="%%L15%%" value="L15" condition="$LayoutCount >= 15" />
+        <choice name="%%L16%%" value="L16" condition="$LayoutCount >= 16" />
+        <choice name="%%L17%%" value="L17" condition="$LayoutCount >= 17" />
+        <choice name="%%L18%%" value="L18" condition="$LayoutCount >= 18" />
+        <choice name="%%L19%%" value="L19" condition="$LayoutCount >= 19" />
+        <choice name="%%L20%%" value="L20" condition="$LayoutCount >= 20" />
+        <choice name="%%L21%%" value="L21" condition="$LayoutCount >= 21" />
+        <choice name="%%L22%%" value="L22" condition="$LayoutCount >= 22" />
+        <choice name="%%L23%%" value="L23" condition="$LayoutCount >= 23" />
+        <choice name="%%L24%%" value="L24" condition="$LayoutCount >= 24" />
+        <choice name="%%L25%%" value="L25" condition="$LayoutCount >= 25" />
+        <choice name="%%L26%%" value="L26" condition="$LayoutCount >= 26" />
+        <choice name="%%L27%%" value="L27" condition="$LayoutCount >= 27" />
+        <choice name="%%L28%%" value="L28" condition="$LayoutCount >= 28" />
+        <choice name="%%L29%%" value="L29" condition="$LayoutCount >= 29" />
+        <choice name="%%L30%%" value="L30" condition="$LayoutCount >= 30" />
+        <choice name="%%L31%%" value="L31" condition="$LayoutCount >= 31" />
+        <choice name="%%L32%%" value="L32" condition="$LayoutCount >= 32" />
       </parameter>
       <parameter name="Window ID" type="mcstring">
         <choice name="Win 1" value="1" /><choice name="Win 2" value="2" />
@@ -75,6 +173,50 @@
         <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
         <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
         <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%I21%%" value="I21" condition="$InputCount >= 21" />
+        <choice name="%%I22%%" value="I22" condition="$InputCount >= 22" />
+        <choice name="%%I23%%" value="I23" condition="$InputCount >= 23" />
+        <choice name="%%I24%%" value="I24" condition="$InputCount >= 24" />
+        <choice name="%%I25%%" value="I25" condition="$InputCount >= 25" />
+        <choice name="%%I26%%" value="I26" condition="$InputCount >= 26" />
+        <choice name="%%I27%%" value="I27" condition="$InputCount >= 27" />
+        <choice name="%%I28%%" value="I28" condition="$InputCount >= 28" />
+        <choice name="%%I29%%" value="I29" condition="$InputCount >= 29" />
+        <choice name="%%I30%%" value="I30" condition="$InputCount >= 30" />
+        <choice name="%%I31%%" value="I31" condition="$InputCount >= 31" />
+        <choice name="%%I32%%" value="I32" condition="$InputCount >= 32" />
+        <choice name="%%I33%%" value="I33" condition="$InputCount >= 33" />
+        <choice name="%%I34%%" value="I34" condition="$InputCount >= 34" />
+        <choice name="%%I35%%" value="I35" condition="$InputCount >= 35" />
+        <choice name="%%I36%%" value="I36" condition="$InputCount >= 36" />
+        <choice name="%%I37%%" value="I37" condition="$InputCount >= 37" />
+        <choice name="%%I38%%" value="I38" condition="$InputCount >= 38" />
+        <choice name="%%I39%%" value="I39" condition="$InputCount >= 39" />
+        <choice name="%%I40%%" value="I40" condition="$InputCount >= 40" />
+        <choice name="%%I41%%" value="I41" condition="$InputCount >= 41" />
+        <choice name="%%I42%%" value="I42" condition="$InputCount >= 42" />
+        <choice name="%%I43%%" value="I43" condition="$InputCount >= 43" />
+        <choice name="%%I44%%" value="I44" condition="$InputCount >= 44" />
+        <choice name="%%I45%%" value="I45" condition="$InputCount >= 45" />
+        <choice name="%%I46%%" value="I46" condition="$InputCount >= 46" />
+        <choice name="%%I47%%" value="I47" condition="$InputCount >= 47" />
+        <choice name="%%I48%%" value="I48" condition="$InputCount >= 48" />
+        <choice name="%%I49%%" value="I49" condition="$InputCount >= 49" />
+        <choice name="%%I50%%" value="I50" condition="$InputCount >= 50" />
+        <choice name="%%I51%%" value="I51" condition="$InputCount >= 51" />
+        <choice name="%%I52%%" value="I52" condition="$InputCount >= 52" />
+        <choice name="%%I53%%" value="I53" condition="$InputCount >= 53" />
+        <choice name="%%I54%%" value="I54" condition="$InputCount >= 54" />
+        <choice name="%%I55%%" value="I55" condition="$InputCount >= 55" />
+        <choice name="%%I56%%" value="I56" condition="$InputCount >= 56" />
+        <choice name="%%I57%%" value="I57" condition="$InputCount >= 57" />
+        <choice name="%%I58%%" value="I58" condition="$InputCount >= 58" />
+        <choice name="%%I59%%" value="I59" condition="$InputCount >= 59" />
+        <choice name="%%I60%%" value="I60" condition="$InputCount >= 60" />
+        <choice name="%%I61%%" value="I61" condition="$InputCount >= 61" />
+        <choice name="%%I62%%" value="I62" condition="$InputCount >= 62" />
+        <choice name="%%I63%%" value="I63" condition="$InputCount >= 63" />
+        <choice name="%%I64%%" value="I64" condition="$InputCount >= 64" />
       </parameter>
     </function>
 
@@ -104,6 +246,50 @@
         <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
         <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
         <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%I21%%" value="I21" condition="$InputCount >= 21" />
+        <choice name="%%I22%%" value="I22" condition="$InputCount >= 22" />
+        <choice name="%%I23%%" value="I23" condition="$InputCount >= 23" />
+        <choice name="%%I24%%" value="I24" condition="$InputCount >= 24" />
+        <choice name="%%I25%%" value="I25" condition="$InputCount >= 25" />
+        <choice name="%%I26%%" value="I26" condition="$InputCount >= 26" />
+        <choice name="%%I27%%" value="I27" condition="$InputCount >= 27" />
+        <choice name="%%I28%%" value="I28" condition="$InputCount >= 28" />
+        <choice name="%%I29%%" value="I29" condition="$InputCount >= 29" />
+        <choice name="%%I30%%" value="I30" condition="$InputCount >= 30" />
+        <choice name="%%I31%%" value="I31" condition="$InputCount >= 31" />
+        <choice name="%%I32%%" value="I32" condition="$InputCount >= 32" />
+        <choice name="%%I33%%" value="I33" condition="$InputCount >= 33" />
+        <choice name="%%I34%%" value="I34" condition="$InputCount >= 34" />
+        <choice name="%%I35%%" value="I35" condition="$InputCount >= 35" />
+        <choice name="%%I36%%" value="I36" condition="$InputCount >= 36" />
+        <choice name="%%I37%%" value="I37" condition="$InputCount >= 37" />
+        <choice name="%%I38%%" value="I38" condition="$InputCount >= 38" />
+        <choice name="%%I39%%" value="I39" condition="$InputCount >= 39" />
+        <choice name="%%I40%%" value="I40" condition="$InputCount >= 40" />
+        <choice name="%%I41%%" value="I41" condition="$InputCount >= 41" />
+        <choice name="%%I42%%" value="I42" condition="$InputCount >= 42" />
+        <choice name="%%I43%%" value="I43" condition="$InputCount >= 43" />
+        <choice name="%%I44%%" value="I44" condition="$InputCount >= 44" />
+        <choice name="%%I45%%" value="I45" condition="$InputCount >= 45" />
+        <choice name="%%I46%%" value="I46" condition="$InputCount >= 46" />
+        <choice name="%%I47%%" value="I47" condition="$InputCount >= 47" />
+        <choice name="%%I48%%" value="I48" condition="$InputCount >= 48" />
+        <choice name="%%I49%%" value="I49" condition="$InputCount >= 49" />
+        <choice name="%%I50%%" value="I50" condition="$InputCount >= 50" />
+        <choice name="%%I51%%" value="I51" condition="$InputCount >= 51" />
+        <choice name="%%I52%%" value="I52" condition="$InputCount >= 52" />
+        <choice name="%%I53%%" value="I53" condition="$InputCount >= 53" />
+        <choice name="%%I54%%" value="I54" condition="$InputCount >= 54" />
+        <choice name="%%I55%%" value="I55" condition="$InputCount >= 55" />
+        <choice name="%%I56%%" value="I56" condition="$InputCount >= 56" />
+        <choice name="%%I57%%" value="I57" condition="$InputCount >= 57" />
+        <choice name="%%I58%%" value="I58" condition="$InputCount >= 58" />
+        <choice name="%%I59%%" value="I59" condition="$InputCount >= 59" />
+        <choice name="%%I60%%" value="I60" condition="$InputCount >= 60" />
+        <choice name="%%I61%%" value="I61" condition="$InputCount >= 61" />
+        <choice name="%%I62%%" value="I62" condition="$InputCount >= 62" />
+        <choice name="%%I63%%" value="I63" condition="$InputCount >= 63" />
+        <choice name="%%I64%%" value="I64" condition="$InputCount >= 64" />
       </parameter>
       <parameter name="Select Display (Output)" type="mcstring">
         <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
@@ -116,6 +302,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
     </function>
 
@@ -141,6 +381,50 @@
         <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
         <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
         <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%I21%%" value="I21" condition="$InputCount >= 21" />
+        <choice name="%%I22%%" value="I22" condition="$InputCount >= 22" />
+        <choice name="%%I23%%" value="I23" condition="$InputCount >= 23" />
+        <choice name="%%I24%%" value="I24" condition="$InputCount >= 24" />
+        <choice name="%%I25%%" value="I25" condition="$InputCount >= 25" />
+        <choice name="%%I26%%" value="I26" condition="$InputCount >= 26" />
+        <choice name="%%I27%%" value="I27" condition="$InputCount >= 27" />
+        <choice name="%%I28%%" value="I28" condition="$InputCount >= 28" />
+        <choice name="%%I29%%" value="I29" condition="$InputCount >= 29" />
+        <choice name="%%I30%%" value="I30" condition="$InputCount >= 30" />
+        <choice name="%%I31%%" value="I31" condition="$InputCount >= 31" />
+        <choice name="%%I32%%" value="I32" condition="$InputCount >= 32" />
+        <choice name="%%I33%%" value="I33" condition="$InputCount >= 33" />
+        <choice name="%%I34%%" value="I34" condition="$InputCount >= 34" />
+        <choice name="%%I35%%" value="I35" condition="$InputCount >= 35" />
+        <choice name="%%I36%%" value="I36" condition="$InputCount >= 36" />
+        <choice name="%%I37%%" value="I37" condition="$InputCount >= 37" />
+        <choice name="%%I38%%" value="I38" condition="$InputCount >= 38" />
+        <choice name="%%I39%%" value="I39" condition="$InputCount >= 39" />
+        <choice name="%%I40%%" value="I40" condition="$InputCount >= 40" />
+        <choice name="%%I41%%" value="I41" condition="$InputCount >= 41" />
+        <choice name="%%I42%%" value="I42" condition="$InputCount >= 42" />
+        <choice name="%%I43%%" value="I43" condition="$InputCount >= 43" />
+        <choice name="%%I44%%" value="I44" condition="$InputCount >= 44" />
+        <choice name="%%I45%%" value="I45" condition="$InputCount >= 45" />
+        <choice name="%%I46%%" value="I46" condition="$InputCount >= 46" />
+        <choice name="%%I47%%" value="I47" condition="$InputCount >= 47" />
+        <choice name="%%I48%%" value="I48" condition="$InputCount >= 48" />
+        <choice name="%%I49%%" value="I49" condition="$InputCount >= 49" />
+        <choice name="%%I50%%" value="I50" condition="$InputCount >= 50" />
+        <choice name="%%I51%%" value="I51" condition="$InputCount >= 51" />
+        <choice name="%%I52%%" value="I52" condition="$InputCount >= 52" />
+        <choice name="%%I53%%" value="I53" condition="$InputCount >= 53" />
+        <choice name="%%I54%%" value="I54" condition="$InputCount >= 54" />
+        <choice name="%%I55%%" value="I55" condition="$InputCount >= 55" />
+        <choice name="%%I56%%" value="I56" condition="$InputCount >= 56" />
+        <choice name="%%I57%%" value="I57" condition="$InputCount >= 57" />
+        <choice name="%%I58%%" value="I58" condition="$InputCount >= 58" />
+        <choice name="%%I59%%" value="I59" condition="$InputCount >= 59" />
+        <choice name="%%I60%%" value="I60" condition="$InputCount >= 60" />
+        <choice name="%%I61%%" value="I61" condition="$InputCount >= 61" />
+        <choice name="%%I62%%" value="I62" condition="$InputCount >= 62" />
+        <choice name="%%I63%%" value="I63" condition="$InputCount >= 63" />
+        <choice name="%%I64%%" value="I64" condition="$InputCount >= 64" />
       </parameter>
       <parameter name="Display 1" type="mcstring">
         <choice name="(none)" value="" />
@@ -154,6 +438,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Display 2" type="mcstring">
         <choice name="(none)" value="" />
@@ -167,6 +505,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Display 3" type="mcstring">
         <choice name="(none)" value="" />
@@ -180,6 +572,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
     </function>
 
@@ -189,6 +635,18 @@
         <choice name="%%MX2%%" value="MX2" condition="$MatrixCount >= 2" />
         <choice name="%%MX3%%" value="MX3" condition="$MatrixCount >= 3" />
         <choice name="%%MX4%%" value="MX4" condition="$MatrixCount >= 4" />
+        <choice name="%%MX5%%" value="MX5" condition="$MatrixCount >= 5" />
+        <choice name="%%MX6%%" value="MX6" condition="$MatrixCount >= 6" />
+        <choice name="%%MX7%%" value="MX7" condition="$MatrixCount >= 7" />
+        <choice name="%%MX8%%" value="MX8" condition="$MatrixCount >= 8" />
+        <choice name="%%MX9%%" value="MX9" condition="$MatrixCount >= 9" />
+        <choice name="%%MX10%%" value="MX10" condition="$MatrixCount >= 10" />
+        <choice name="%%MX11%%" value="MX11" condition="$MatrixCount >= 11" />
+        <choice name="%%MX12%%" value="MX12" condition="$MatrixCount >= 12" />
+        <choice name="%%MX13%%" value="MX13" condition="$MatrixCount >= 13" />
+        <choice name="%%MX14%%" value="MX14" condition="$MatrixCount >= 14" />
+        <choice name="%%MX15%%" value="MX15" condition="$MatrixCount >= 15" />
+        <choice name="%%MX16%%" value="MX16" condition="$MatrixCount >= 16" />
       </parameter>
     </function>
 
@@ -202,6 +660,18 @@
         <choice name="%%VW2%%" value="VW2" condition="$WallCount >= 2" />
         <choice name="%%VW3%%" value="VW3" condition="$WallCount >= 3" />
         <choice name="%%VW4%%" value="VW4" condition="$WallCount >= 4" />
+        <choice name="%%VW5%%" value="VW5" condition="$WallCount >= 5" />
+        <choice name="%%VW6%%" value="VW6" condition="$WallCount >= 6" />
+        <choice name="%%VW7%%" value="VW7" condition="$WallCount >= 7" />
+        <choice name="%%VW8%%" value="VW8" condition="$WallCount >= 8" />
+        <choice name="%%VW9%%" value="VW9" condition="$WallCount >= 9" />
+        <choice name="%%VW10%%" value="VW10" condition="$WallCount >= 10" />
+        <choice name="%%VW11%%" value="VW11" condition="$WallCount >= 11" />
+        <choice name="%%VW12%%" value="VW12" condition="$WallCount >= 12" />
+        <choice name="%%VW13%%" value="VW13" condition="$WallCount >= 13" />
+        <choice name="%%VW14%%" value="VW14" condition="$WallCount >= 14" />
+        <choice name="%%VW15%%" value="VW15" condition="$WallCount >= 15" />
+        <choice name="%%VW16%%" value="VW16" condition="$WallCount >= 16" />
       </parameter>
       <parameter name="Select Wall Layout" type="mcstring">
         <choice name="%%WL1%%" value="WL1" condition="$WallLayoutCount >= 1" />
@@ -212,6 +682,14 @@
         <choice name="%%WL6%%" value="WL6" condition="$WallLayoutCount >= 6" />
         <choice name="%%WL7%%" value="WL7" condition="$WallLayoutCount >= 7" />
         <choice name="%%WL8%%" value="WL8" condition="$WallLayoutCount >= 8" />
+        <choice name="%%WL9%%" value="WL9" condition="$WallLayoutCount >= 9" />
+        <choice name="%%WL10%%" value="WL10" condition="$WallLayoutCount >= 10" />
+        <choice name="%%WL11%%" value="WL11" condition="$WallLayoutCount >= 11" />
+        <choice name="%%WL12%%" value="WL12" condition="$WallLayoutCount >= 12" />
+        <choice name="%%WL13%%" value="WL13" condition="$WallLayoutCount >= 13" />
+        <choice name="%%WL14%%" value="WL14" condition="$WallLayoutCount >= 14" />
+        <choice name="%%WL15%%" value="WL15" condition="$WallLayoutCount >= 15" />
+        <choice name="%%WL16%%" value="WL16" condition="$WallLayoutCount >= 16" />
       </parameter>
     </function>
 
@@ -221,6 +699,18 @@
         <choice name="%%VW2%%" value="VW2" condition="$WallCount >= 2" />
         <choice name="%%VW3%%" value="VW3" condition="$WallCount >= 3" />
         <choice name="%%VW4%%" value="VW4" condition="$WallCount >= 4" />
+        <choice name="%%VW5%%" value="VW5" condition="$WallCount >= 5" />
+        <choice name="%%VW6%%" value="VW6" condition="$WallCount >= 6" />
+        <choice name="%%VW7%%" value="VW7" condition="$WallCount >= 7" />
+        <choice name="%%VW8%%" value="VW8" condition="$WallCount >= 8" />
+        <choice name="%%VW9%%" value="VW9" condition="$WallCount >= 9" />
+        <choice name="%%VW10%%" value="VW10" condition="$WallCount >= 10" />
+        <choice name="%%VW11%%" value="VW11" condition="$WallCount >= 11" />
+        <choice name="%%VW12%%" value="VW12" condition="$WallCount >= 12" />
+        <choice name="%%VW13%%" value="VW13" condition="$WallCount >= 13" />
+        <choice name="%%VW14%%" value="VW14" condition="$WallCount >= 14" />
+        <choice name="%%VW15%%" value="VW15" condition="$WallCount >= 15" />
+        <choice name="%%VW16%%" value="VW16" condition="$WallCount >= 16" />
       </parameter>
       <parameter name="Select Wall Layout" type="mcstring">
         <choice name="%%WL1%%" value="WL1" condition="$WallLayoutCount >= 1" />
@@ -231,6 +721,14 @@
         <choice name="%%WL6%%" value="WL6" condition="$WallLayoutCount >= 6" />
         <choice name="%%WL7%%" value="WL7" condition="$WallLayoutCount >= 7" />
         <choice name="%%WL8%%" value="WL8" condition="$WallLayoutCount >= 8" />
+        <choice name="%%WL9%%" value="WL9" condition="$WallLayoutCount >= 9" />
+        <choice name="%%WL10%%" value="WL10" condition="$WallLayoutCount >= 10" />
+        <choice name="%%WL11%%" value="WL11" condition="$WallLayoutCount >= 11" />
+        <choice name="%%WL12%%" value="WL12" condition="$WallLayoutCount >= 12" />
+        <choice name="%%WL13%%" value="WL13" condition="$WallLayoutCount >= 13" />
+        <choice name="%%WL14%%" value="WL14" condition="$WallLayoutCount >= 14" />
+        <choice name="%%WL15%%" value="WL15" condition="$WallLayoutCount >= 15" />
+        <choice name="%%WL16%%" value="WL16" condition="$WallLayoutCount >= 16" />
       </parameter>
       <parameter name="Target Cell" type="mcstring">
         <choice name="All Cells" value="ALL" />
@@ -272,6 +770,50 @@
         <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
         <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
         <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%I21%%" value="I21" condition="$InputCount >= 21" />
+        <choice name="%%I22%%" value="I22" condition="$InputCount >= 22" />
+        <choice name="%%I23%%" value="I23" condition="$InputCount >= 23" />
+        <choice name="%%I24%%" value="I24" condition="$InputCount >= 24" />
+        <choice name="%%I25%%" value="I25" condition="$InputCount >= 25" />
+        <choice name="%%I26%%" value="I26" condition="$InputCount >= 26" />
+        <choice name="%%I27%%" value="I27" condition="$InputCount >= 27" />
+        <choice name="%%I28%%" value="I28" condition="$InputCount >= 28" />
+        <choice name="%%I29%%" value="I29" condition="$InputCount >= 29" />
+        <choice name="%%I30%%" value="I30" condition="$InputCount >= 30" />
+        <choice name="%%I31%%" value="I31" condition="$InputCount >= 31" />
+        <choice name="%%I32%%" value="I32" condition="$InputCount >= 32" />
+        <choice name="%%I33%%" value="I33" condition="$InputCount >= 33" />
+        <choice name="%%I34%%" value="I34" condition="$InputCount >= 34" />
+        <choice name="%%I35%%" value="I35" condition="$InputCount >= 35" />
+        <choice name="%%I36%%" value="I36" condition="$InputCount >= 36" />
+        <choice name="%%I37%%" value="I37" condition="$InputCount >= 37" />
+        <choice name="%%I38%%" value="I38" condition="$InputCount >= 38" />
+        <choice name="%%I39%%" value="I39" condition="$InputCount >= 39" />
+        <choice name="%%I40%%" value="I40" condition="$InputCount >= 40" />
+        <choice name="%%I41%%" value="I41" condition="$InputCount >= 41" />
+        <choice name="%%I42%%" value="I42" condition="$InputCount >= 42" />
+        <choice name="%%I43%%" value="I43" condition="$InputCount >= 43" />
+        <choice name="%%I44%%" value="I44" condition="$InputCount >= 44" />
+        <choice name="%%I45%%" value="I45" condition="$InputCount >= 45" />
+        <choice name="%%I46%%" value="I46" condition="$InputCount >= 46" />
+        <choice name="%%I47%%" value="I47" condition="$InputCount >= 47" />
+        <choice name="%%I48%%" value="I48" condition="$InputCount >= 48" />
+        <choice name="%%I49%%" value="I49" condition="$InputCount >= 49" />
+        <choice name="%%I50%%" value="I50" condition="$InputCount >= 50" />
+        <choice name="%%I51%%" value="I51" condition="$InputCount >= 51" />
+        <choice name="%%I52%%" value="I52" condition="$InputCount >= 52" />
+        <choice name="%%I53%%" value="I53" condition="$InputCount >= 53" />
+        <choice name="%%I54%%" value="I54" condition="$InputCount >= 54" />
+        <choice name="%%I55%%" value="I55" condition="$InputCount >= 55" />
+        <choice name="%%I56%%" value="I56" condition="$InputCount >= 56" />
+        <choice name="%%I57%%" value="I57" condition="$InputCount >= 57" />
+        <choice name="%%I58%%" value="I58" condition="$InputCount >= 58" />
+        <choice name="%%I59%%" value="I59" condition="$InputCount >= 59" />
+        <choice name="%%I60%%" value="I60" condition="$InputCount >= 60" />
+        <choice name="%%I61%%" value="I61" condition="$InputCount >= 61" />
+        <choice name="%%I62%%" value="I62" condition="$InputCount >= 62" />
+        <choice name="%%I63%%" value="I63" condition="$InputCount >= 63" />
+        <choice name="%%I64%%" value="I64" condition="$InputCount >= 64" />
       </parameter>
     </function>
 
@@ -289,6 +831,14 @@
         <choice name="%%PL6%%" value="PL6" condition="$PlaylistCount >= 6" />
         <choice name="%%PL7%%" value="PL7" condition="$PlaylistCount >= 7" />
         <choice name="%%PL8%%" value="PL8" condition="$PlaylistCount >= 8" />
+        <choice name="%%PL9%%" value="PL9" condition="$PlaylistCount >= 9" />
+        <choice name="%%PL10%%" value="PL10" condition="$PlaylistCount >= 10" />
+        <choice name="%%PL11%%" value="PL11" condition="$PlaylistCount >= 11" />
+        <choice name="%%PL12%%" value="PL12" condition="$PlaylistCount >= 12" />
+        <choice name="%%PL13%%" value="PL13" condition="$PlaylistCount >= 13" />
+        <choice name="%%PL14%%" value="PL14" condition="$PlaylistCount >= 14" />
+        <choice name="%%PL15%%" value="PL15" condition="$PlaylistCount >= 15" />
+        <choice name="%%PL16%%" value="PL16" condition="$PlaylistCount >= 16" />
       </parameter>
       <parameter name="Select Display (Output)" type="mcstring">
         <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
@@ -301,6 +851,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
     </function>
 
@@ -316,6 +920,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
     </function>
 
@@ -329,6 +987,14 @@
         <choice name="%%PL6%%" value="PL6" condition="$PlaylistCount >= 6" />
         <choice name="%%PL7%%" value="PL7" condition="$PlaylistCount >= 7" />
         <choice name="%%PL8%%" value="PL8" condition="$PlaylistCount >= 8" />
+        <choice name="%%PL9%%" value="PL9" condition="$PlaylistCount >= 9" />
+        <choice name="%%PL10%%" value="PL10" condition="$PlaylistCount >= 10" />
+        <choice name="%%PL11%%" value="PL11" condition="$PlaylistCount >= 11" />
+        <choice name="%%PL12%%" value="PL12" condition="$PlaylistCount >= 12" />
+        <choice name="%%PL13%%" value="PL13" condition="$PlaylistCount >= 13" />
+        <choice name="%%PL14%%" value="PL14" condition="$PlaylistCount >= 14" />
+        <choice name="%%PL15%%" value="PL15" condition="$PlaylistCount >= 15" />
+        <choice name="%%PL16%%" value="PL16" condition="$PlaylistCount >= 16" />
       </parameter>
       <parameter name="Display 1" type="mcstring">
         <choice name="(none)" value="" />
@@ -342,6 +1008,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Display 2" type="mcstring">
         <choice name="(none)" value="" />
@@ -355,6 +1075,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Display 3" type="mcstring">
         <choice name="(none)" value="" />
@@ -368,6 +1142,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
     </function>
 
@@ -397,6 +1225,50 @@
         <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
         <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
         <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%I21%%" value="I21" condition="$InputCount >= 21" />
+        <choice name="%%I22%%" value="I22" condition="$InputCount >= 22" />
+        <choice name="%%I23%%" value="I23" condition="$InputCount >= 23" />
+        <choice name="%%I24%%" value="I24" condition="$InputCount >= 24" />
+        <choice name="%%I25%%" value="I25" condition="$InputCount >= 25" />
+        <choice name="%%I26%%" value="I26" condition="$InputCount >= 26" />
+        <choice name="%%I27%%" value="I27" condition="$InputCount >= 27" />
+        <choice name="%%I28%%" value="I28" condition="$InputCount >= 28" />
+        <choice name="%%I29%%" value="I29" condition="$InputCount >= 29" />
+        <choice name="%%I30%%" value="I30" condition="$InputCount >= 30" />
+        <choice name="%%I31%%" value="I31" condition="$InputCount >= 31" />
+        <choice name="%%I32%%" value="I32" condition="$InputCount >= 32" />
+        <choice name="%%I33%%" value="I33" condition="$InputCount >= 33" />
+        <choice name="%%I34%%" value="I34" condition="$InputCount >= 34" />
+        <choice name="%%I35%%" value="I35" condition="$InputCount >= 35" />
+        <choice name="%%I36%%" value="I36" condition="$InputCount >= 36" />
+        <choice name="%%I37%%" value="I37" condition="$InputCount >= 37" />
+        <choice name="%%I38%%" value="I38" condition="$InputCount >= 38" />
+        <choice name="%%I39%%" value="I39" condition="$InputCount >= 39" />
+        <choice name="%%I40%%" value="I40" condition="$InputCount >= 40" />
+        <choice name="%%I41%%" value="I41" condition="$InputCount >= 41" />
+        <choice name="%%I42%%" value="I42" condition="$InputCount >= 42" />
+        <choice name="%%I43%%" value="I43" condition="$InputCount >= 43" />
+        <choice name="%%I44%%" value="I44" condition="$InputCount >= 44" />
+        <choice name="%%I45%%" value="I45" condition="$InputCount >= 45" />
+        <choice name="%%I46%%" value="I46" condition="$InputCount >= 46" />
+        <choice name="%%I47%%" value="I47" condition="$InputCount >= 47" />
+        <choice name="%%I48%%" value="I48" condition="$InputCount >= 48" />
+        <choice name="%%I49%%" value="I49" condition="$InputCount >= 49" />
+        <choice name="%%I50%%" value="I50" condition="$InputCount >= 50" />
+        <choice name="%%I51%%" value="I51" condition="$InputCount >= 51" />
+        <choice name="%%I52%%" value="I52" condition="$InputCount >= 52" />
+        <choice name="%%I53%%" value="I53" condition="$InputCount >= 53" />
+        <choice name="%%I54%%" value="I54" condition="$InputCount >= 54" />
+        <choice name="%%I55%%" value="I55" condition="$InputCount >= 55" />
+        <choice name="%%I56%%" value="I56" condition="$InputCount >= 56" />
+        <choice name="%%I57%%" value="I57" condition="$InputCount >= 57" />
+        <choice name="%%I58%%" value="I58" condition="$InputCount >= 58" />
+        <choice name="%%I59%%" value="I59" condition="$InputCount >= 59" />
+        <choice name="%%I60%%" value="I60" condition="$InputCount >= 60" />
+        <choice name="%%I61%%" value="I61" condition="$InputCount >= 61" />
+        <choice name="%%I62%%" value="I62" condition="$InputCount >= 62" />
+        <choice name="%%I63%%" value="I63" condition="$InputCount >= 63" />
+        <choice name="%%I64%%" value="I64" condition="$InputCount >= 64" />
         <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
         <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
         <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
@@ -407,6 +1279,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Action" type="string" default="reboot" hidden="true" />
     </function>
@@ -433,6 +1359,50 @@
         <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
         <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
         <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%I21%%" value="I21" condition="$InputCount >= 21" />
+        <choice name="%%I22%%" value="I22" condition="$InputCount >= 22" />
+        <choice name="%%I23%%" value="I23" condition="$InputCount >= 23" />
+        <choice name="%%I24%%" value="I24" condition="$InputCount >= 24" />
+        <choice name="%%I25%%" value="I25" condition="$InputCount >= 25" />
+        <choice name="%%I26%%" value="I26" condition="$InputCount >= 26" />
+        <choice name="%%I27%%" value="I27" condition="$InputCount >= 27" />
+        <choice name="%%I28%%" value="I28" condition="$InputCount >= 28" />
+        <choice name="%%I29%%" value="I29" condition="$InputCount >= 29" />
+        <choice name="%%I30%%" value="I30" condition="$InputCount >= 30" />
+        <choice name="%%I31%%" value="I31" condition="$InputCount >= 31" />
+        <choice name="%%I32%%" value="I32" condition="$InputCount >= 32" />
+        <choice name="%%I33%%" value="I33" condition="$InputCount >= 33" />
+        <choice name="%%I34%%" value="I34" condition="$InputCount >= 34" />
+        <choice name="%%I35%%" value="I35" condition="$InputCount >= 35" />
+        <choice name="%%I36%%" value="I36" condition="$InputCount >= 36" />
+        <choice name="%%I37%%" value="I37" condition="$InputCount >= 37" />
+        <choice name="%%I38%%" value="I38" condition="$InputCount >= 38" />
+        <choice name="%%I39%%" value="I39" condition="$InputCount >= 39" />
+        <choice name="%%I40%%" value="I40" condition="$InputCount >= 40" />
+        <choice name="%%I41%%" value="I41" condition="$InputCount >= 41" />
+        <choice name="%%I42%%" value="I42" condition="$InputCount >= 42" />
+        <choice name="%%I43%%" value="I43" condition="$InputCount >= 43" />
+        <choice name="%%I44%%" value="I44" condition="$InputCount >= 44" />
+        <choice name="%%I45%%" value="I45" condition="$InputCount >= 45" />
+        <choice name="%%I46%%" value="I46" condition="$InputCount >= 46" />
+        <choice name="%%I47%%" value="I47" condition="$InputCount >= 47" />
+        <choice name="%%I48%%" value="I48" condition="$InputCount >= 48" />
+        <choice name="%%I49%%" value="I49" condition="$InputCount >= 49" />
+        <choice name="%%I50%%" value="I50" condition="$InputCount >= 50" />
+        <choice name="%%I51%%" value="I51" condition="$InputCount >= 51" />
+        <choice name="%%I52%%" value="I52" condition="$InputCount >= 52" />
+        <choice name="%%I53%%" value="I53" condition="$InputCount >= 53" />
+        <choice name="%%I54%%" value="I54" condition="$InputCount >= 54" />
+        <choice name="%%I55%%" value="I55" condition="$InputCount >= 55" />
+        <choice name="%%I56%%" value="I56" condition="$InputCount >= 56" />
+        <choice name="%%I57%%" value="I57" condition="$InputCount >= 57" />
+        <choice name="%%I58%%" value="I58" condition="$InputCount >= 58" />
+        <choice name="%%I59%%" value="I59" condition="$InputCount >= 59" />
+        <choice name="%%I60%%" value="I60" condition="$InputCount >= 60" />
+        <choice name="%%I61%%" value="I61" condition="$InputCount >= 61" />
+        <choice name="%%I62%%" value="I62" condition="$InputCount >= 62" />
+        <choice name="%%I63%%" value="I63" condition="$InputCount >= 63" />
+        <choice name="%%I64%%" value="I64" condition="$InputCount >= 64" />
         <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
         <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
         <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
@@ -443,6 +1413,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Action" type="string" default="light on" hidden="true" />
     </function>
@@ -469,6 +1493,50 @@
         <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
         <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
         <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%I21%%" value="I21" condition="$InputCount >= 21" />
+        <choice name="%%I22%%" value="I22" condition="$InputCount >= 22" />
+        <choice name="%%I23%%" value="I23" condition="$InputCount >= 23" />
+        <choice name="%%I24%%" value="I24" condition="$InputCount >= 24" />
+        <choice name="%%I25%%" value="I25" condition="$InputCount >= 25" />
+        <choice name="%%I26%%" value="I26" condition="$InputCount >= 26" />
+        <choice name="%%I27%%" value="I27" condition="$InputCount >= 27" />
+        <choice name="%%I28%%" value="I28" condition="$InputCount >= 28" />
+        <choice name="%%I29%%" value="I29" condition="$InputCount >= 29" />
+        <choice name="%%I30%%" value="I30" condition="$InputCount >= 30" />
+        <choice name="%%I31%%" value="I31" condition="$InputCount >= 31" />
+        <choice name="%%I32%%" value="I32" condition="$InputCount >= 32" />
+        <choice name="%%I33%%" value="I33" condition="$InputCount >= 33" />
+        <choice name="%%I34%%" value="I34" condition="$InputCount >= 34" />
+        <choice name="%%I35%%" value="I35" condition="$InputCount >= 35" />
+        <choice name="%%I36%%" value="I36" condition="$InputCount >= 36" />
+        <choice name="%%I37%%" value="I37" condition="$InputCount >= 37" />
+        <choice name="%%I38%%" value="I38" condition="$InputCount >= 38" />
+        <choice name="%%I39%%" value="I39" condition="$InputCount >= 39" />
+        <choice name="%%I40%%" value="I40" condition="$InputCount >= 40" />
+        <choice name="%%I41%%" value="I41" condition="$InputCount >= 41" />
+        <choice name="%%I42%%" value="I42" condition="$InputCount >= 42" />
+        <choice name="%%I43%%" value="I43" condition="$InputCount >= 43" />
+        <choice name="%%I44%%" value="I44" condition="$InputCount >= 44" />
+        <choice name="%%I45%%" value="I45" condition="$InputCount >= 45" />
+        <choice name="%%I46%%" value="I46" condition="$InputCount >= 46" />
+        <choice name="%%I47%%" value="I47" condition="$InputCount >= 47" />
+        <choice name="%%I48%%" value="I48" condition="$InputCount >= 48" />
+        <choice name="%%I49%%" value="I49" condition="$InputCount >= 49" />
+        <choice name="%%I50%%" value="I50" condition="$InputCount >= 50" />
+        <choice name="%%I51%%" value="I51" condition="$InputCount >= 51" />
+        <choice name="%%I52%%" value="I52" condition="$InputCount >= 52" />
+        <choice name="%%I53%%" value="I53" condition="$InputCount >= 53" />
+        <choice name="%%I54%%" value="I54" condition="$InputCount >= 54" />
+        <choice name="%%I55%%" value="I55" condition="$InputCount >= 55" />
+        <choice name="%%I56%%" value="I56" condition="$InputCount >= 56" />
+        <choice name="%%I57%%" value="I57" condition="$InputCount >= 57" />
+        <choice name="%%I58%%" value="I58" condition="$InputCount >= 58" />
+        <choice name="%%I59%%" value="I59" condition="$InputCount >= 59" />
+        <choice name="%%I60%%" value="I60" condition="$InputCount >= 60" />
+        <choice name="%%I61%%" value="I61" condition="$InputCount >= 61" />
+        <choice name="%%I62%%" value="I62" condition="$InputCount >= 62" />
+        <choice name="%%I63%%" value="I63" condition="$InputCount >= 63" />
+        <choice name="%%I64%%" value="I64" condition="$InputCount >= 64" />
         <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
         <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
         <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
@@ -479,6 +1547,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Action" type="string" default="light off" hidden="true" />
     </function>
@@ -505,6 +1627,50 @@
         <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
         <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
         <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%I21%%" value="I21" condition="$InputCount >= 21" />
+        <choice name="%%I22%%" value="I22" condition="$InputCount >= 22" />
+        <choice name="%%I23%%" value="I23" condition="$InputCount >= 23" />
+        <choice name="%%I24%%" value="I24" condition="$InputCount >= 24" />
+        <choice name="%%I25%%" value="I25" condition="$InputCount >= 25" />
+        <choice name="%%I26%%" value="I26" condition="$InputCount >= 26" />
+        <choice name="%%I27%%" value="I27" condition="$InputCount >= 27" />
+        <choice name="%%I28%%" value="I28" condition="$InputCount >= 28" />
+        <choice name="%%I29%%" value="I29" condition="$InputCount >= 29" />
+        <choice name="%%I30%%" value="I30" condition="$InputCount >= 30" />
+        <choice name="%%I31%%" value="I31" condition="$InputCount >= 31" />
+        <choice name="%%I32%%" value="I32" condition="$InputCount >= 32" />
+        <choice name="%%I33%%" value="I33" condition="$InputCount >= 33" />
+        <choice name="%%I34%%" value="I34" condition="$InputCount >= 34" />
+        <choice name="%%I35%%" value="I35" condition="$InputCount >= 35" />
+        <choice name="%%I36%%" value="I36" condition="$InputCount >= 36" />
+        <choice name="%%I37%%" value="I37" condition="$InputCount >= 37" />
+        <choice name="%%I38%%" value="I38" condition="$InputCount >= 38" />
+        <choice name="%%I39%%" value="I39" condition="$InputCount >= 39" />
+        <choice name="%%I40%%" value="I40" condition="$InputCount >= 40" />
+        <choice name="%%I41%%" value="I41" condition="$InputCount >= 41" />
+        <choice name="%%I42%%" value="I42" condition="$InputCount >= 42" />
+        <choice name="%%I43%%" value="I43" condition="$InputCount >= 43" />
+        <choice name="%%I44%%" value="I44" condition="$InputCount >= 44" />
+        <choice name="%%I45%%" value="I45" condition="$InputCount >= 45" />
+        <choice name="%%I46%%" value="I46" condition="$InputCount >= 46" />
+        <choice name="%%I47%%" value="I47" condition="$InputCount >= 47" />
+        <choice name="%%I48%%" value="I48" condition="$InputCount >= 48" />
+        <choice name="%%I49%%" value="I49" condition="$InputCount >= 49" />
+        <choice name="%%I50%%" value="I50" condition="$InputCount >= 50" />
+        <choice name="%%I51%%" value="I51" condition="$InputCount >= 51" />
+        <choice name="%%I52%%" value="I52" condition="$InputCount >= 52" />
+        <choice name="%%I53%%" value="I53" condition="$InputCount >= 53" />
+        <choice name="%%I54%%" value="I54" condition="$InputCount >= 54" />
+        <choice name="%%I55%%" value="I55" condition="$InputCount >= 55" />
+        <choice name="%%I56%%" value="I56" condition="$InputCount >= 56" />
+        <choice name="%%I57%%" value="I57" condition="$InputCount >= 57" />
+        <choice name="%%I58%%" value="I58" condition="$InputCount >= 58" />
+        <choice name="%%I59%%" value="I59" condition="$InputCount >= 59" />
+        <choice name="%%I60%%" value="I60" condition="$InputCount >= 60" />
+        <choice name="%%I61%%" value="I61" condition="$InputCount >= 61" />
+        <choice name="%%I62%%" value="I62" condition="$InputCount >= 62" />
+        <choice name="%%I63%%" value="I63" condition="$InputCount >= 63" />
+        <choice name="%%I64%%" value="I64" condition="$InputCount >= 64" />
         <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
         <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
         <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
@@ -515,6 +1681,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Action" type="string" default="light flash" hidden="true" />
     </function>
@@ -541,6 +1761,50 @@
         <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
         <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
         <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%I21%%" value="I21" condition="$InputCount >= 21" />
+        <choice name="%%I22%%" value="I22" condition="$InputCount >= 22" />
+        <choice name="%%I23%%" value="I23" condition="$InputCount >= 23" />
+        <choice name="%%I24%%" value="I24" condition="$InputCount >= 24" />
+        <choice name="%%I25%%" value="I25" condition="$InputCount >= 25" />
+        <choice name="%%I26%%" value="I26" condition="$InputCount >= 26" />
+        <choice name="%%I27%%" value="I27" condition="$InputCount >= 27" />
+        <choice name="%%I28%%" value="I28" condition="$InputCount >= 28" />
+        <choice name="%%I29%%" value="I29" condition="$InputCount >= 29" />
+        <choice name="%%I30%%" value="I30" condition="$InputCount >= 30" />
+        <choice name="%%I31%%" value="I31" condition="$InputCount >= 31" />
+        <choice name="%%I32%%" value="I32" condition="$InputCount >= 32" />
+        <choice name="%%I33%%" value="I33" condition="$InputCount >= 33" />
+        <choice name="%%I34%%" value="I34" condition="$InputCount >= 34" />
+        <choice name="%%I35%%" value="I35" condition="$InputCount >= 35" />
+        <choice name="%%I36%%" value="I36" condition="$InputCount >= 36" />
+        <choice name="%%I37%%" value="I37" condition="$InputCount >= 37" />
+        <choice name="%%I38%%" value="I38" condition="$InputCount >= 38" />
+        <choice name="%%I39%%" value="I39" condition="$InputCount >= 39" />
+        <choice name="%%I40%%" value="I40" condition="$InputCount >= 40" />
+        <choice name="%%I41%%" value="I41" condition="$InputCount >= 41" />
+        <choice name="%%I42%%" value="I42" condition="$InputCount >= 42" />
+        <choice name="%%I43%%" value="I43" condition="$InputCount >= 43" />
+        <choice name="%%I44%%" value="I44" condition="$InputCount >= 44" />
+        <choice name="%%I45%%" value="I45" condition="$InputCount >= 45" />
+        <choice name="%%I46%%" value="I46" condition="$InputCount >= 46" />
+        <choice name="%%I47%%" value="I47" condition="$InputCount >= 47" />
+        <choice name="%%I48%%" value="I48" condition="$InputCount >= 48" />
+        <choice name="%%I49%%" value="I49" condition="$InputCount >= 49" />
+        <choice name="%%I50%%" value="I50" condition="$InputCount >= 50" />
+        <choice name="%%I51%%" value="I51" condition="$InputCount >= 51" />
+        <choice name="%%I52%%" value="I52" condition="$InputCount >= 52" />
+        <choice name="%%I53%%" value="I53" condition="$InputCount >= 53" />
+        <choice name="%%I54%%" value="I54" condition="$InputCount >= 54" />
+        <choice name="%%I55%%" value="I55" condition="$InputCount >= 55" />
+        <choice name="%%I56%%" value="I56" condition="$InputCount >= 56" />
+        <choice name="%%I57%%" value="I57" condition="$InputCount >= 57" />
+        <choice name="%%I58%%" value="I58" condition="$InputCount >= 58" />
+        <choice name="%%I59%%" value="I59" condition="$InputCount >= 59" />
+        <choice name="%%I60%%" value="I60" condition="$InputCount >= 60" />
+        <choice name="%%I61%%" value="I61" condition="$InputCount >= 61" />
+        <choice name="%%I62%%" value="I62" condition="$InputCount >= 62" />
+        <choice name="%%I63%%" value="I63" condition="$InputCount >= 63" />
+        <choice name="%%I64%%" value="I64" condition="$InputCount >= 64" />
         <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
         <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
         <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
@@ -551,6 +1815,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Action" type="string" default="osd on" hidden="true" />
     </function>
@@ -577,6 +1895,50 @@
         <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
         <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
         <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%I21%%" value="I21" condition="$InputCount >= 21" />
+        <choice name="%%I22%%" value="I22" condition="$InputCount >= 22" />
+        <choice name="%%I23%%" value="I23" condition="$InputCount >= 23" />
+        <choice name="%%I24%%" value="I24" condition="$InputCount >= 24" />
+        <choice name="%%I25%%" value="I25" condition="$InputCount >= 25" />
+        <choice name="%%I26%%" value="I26" condition="$InputCount >= 26" />
+        <choice name="%%I27%%" value="I27" condition="$InputCount >= 27" />
+        <choice name="%%I28%%" value="I28" condition="$InputCount >= 28" />
+        <choice name="%%I29%%" value="I29" condition="$InputCount >= 29" />
+        <choice name="%%I30%%" value="I30" condition="$InputCount >= 30" />
+        <choice name="%%I31%%" value="I31" condition="$InputCount >= 31" />
+        <choice name="%%I32%%" value="I32" condition="$InputCount >= 32" />
+        <choice name="%%I33%%" value="I33" condition="$InputCount >= 33" />
+        <choice name="%%I34%%" value="I34" condition="$InputCount >= 34" />
+        <choice name="%%I35%%" value="I35" condition="$InputCount >= 35" />
+        <choice name="%%I36%%" value="I36" condition="$InputCount >= 36" />
+        <choice name="%%I37%%" value="I37" condition="$InputCount >= 37" />
+        <choice name="%%I38%%" value="I38" condition="$InputCount >= 38" />
+        <choice name="%%I39%%" value="I39" condition="$InputCount >= 39" />
+        <choice name="%%I40%%" value="I40" condition="$InputCount >= 40" />
+        <choice name="%%I41%%" value="I41" condition="$InputCount >= 41" />
+        <choice name="%%I42%%" value="I42" condition="$InputCount >= 42" />
+        <choice name="%%I43%%" value="I43" condition="$InputCount >= 43" />
+        <choice name="%%I44%%" value="I44" condition="$InputCount >= 44" />
+        <choice name="%%I45%%" value="I45" condition="$InputCount >= 45" />
+        <choice name="%%I46%%" value="I46" condition="$InputCount >= 46" />
+        <choice name="%%I47%%" value="I47" condition="$InputCount >= 47" />
+        <choice name="%%I48%%" value="I48" condition="$InputCount >= 48" />
+        <choice name="%%I49%%" value="I49" condition="$InputCount >= 49" />
+        <choice name="%%I50%%" value="I50" condition="$InputCount >= 50" />
+        <choice name="%%I51%%" value="I51" condition="$InputCount >= 51" />
+        <choice name="%%I52%%" value="I52" condition="$InputCount >= 52" />
+        <choice name="%%I53%%" value="I53" condition="$InputCount >= 53" />
+        <choice name="%%I54%%" value="I54" condition="$InputCount >= 54" />
+        <choice name="%%I55%%" value="I55" condition="$InputCount >= 55" />
+        <choice name="%%I56%%" value="I56" condition="$InputCount >= 56" />
+        <choice name="%%I57%%" value="I57" condition="$InputCount >= 57" />
+        <choice name="%%I58%%" value="I58" condition="$InputCount >= 58" />
+        <choice name="%%I59%%" value="I59" condition="$InputCount >= 59" />
+        <choice name="%%I60%%" value="I60" condition="$InputCount >= 60" />
+        <choice name="%%I61%%" value="I61" condition="$InputCount >= 61" />
+        <choice name="%%I62%%" value="I62" condition="$InputCount >= 62" />
+        <choice name="%%I63%%" value="I63" condition="$InputCount >= 63" />
+        <choice name="%%I64%%" value="I64" condition="$InputCount >= 64" />
         <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
         <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
         <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
@@ -587,6 +1949,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Action" type="string" default="osd off" hidden="true" />
     </function>
@@ -603,6 +2019,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Action" type="string" default="stream on" hidden="true" />
     </function>
@@ -619,6 +2089,60 @@
         <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
         <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
         <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
+        <choice name="%%O11%%" value="O11" condition="$OutputCount >= 11" />
+        <choice name="%%O12%%" value="O12" condition="$OutputCount >= 12" />
+        <choice name="%%O13%%" value="O13" condition="$OutputCount >= 13" />
+        <choice name="%%O14%%" value="O14" condition="$OutputCount >= 14" />
+        <choice name="%%O15%%" value="O15" condition="$OutputCount >= 15" />
+        <choice name="%%O16%%" value="O16" condition="$OutputCount >= 16" />
+        <choice name="%%O17%%" value="O17" condition="$OutputCount >= 17" />
+        <choice name="%%O18%%" value="O18" condition="$OutputCount >= 18" />
+        <choice name="%%O19%%" value="O19" condition="$OutputCount >= 19" />
+        <choice name="%%O20%%" value="O20" condition="$OutputCount >= 20" />
+        <choice name="%%O21%%" value="O21" condition="$OutputCount >= 21" />
+        <choice name="%%O22%%" value="O22" condition="$OutputCount >= 22" />
+        <choice name="%%O23%%" value="O23" condition="$OutputCount >= 23" />
+        <choice name="%%O24%%" value="O24" condition="$OutputCount >= 24" />
+        <choice name="%%O25%%" value="O25" condition="$OutputCount >= 25" />
+        <choice name="%%O26%%" value="O26" condition="$OutputCount >= 26" />
+        <choice name="%%O27%%" value="O27" condition="$OutputCount >= 27" />
+        <choice name="%%O28%%" value="O28" condition="$OutputCount >= 28" />
+        <choice name="%%O29%%" value="O29" condition="$OutputCount >= 29" />
+        <choice name="%%O30%%" value="O30" condition="$OutputCount >= 30" />
+        <choice name="%%O31%%" value="O31" condition="$OutputCount >= 31" />
+        <choice name="%%O32%%" value="O32" condition="$OutputCount >= 32" />
+        <choice name="%%O33%%" value="O33" condition="$OutputCount >= 33" />
+        <choice name="%%O34%%" value="O34" condition="$OutputCount >= 34" />
+        <choice name="%%O35%%" value="O35" condition="$OutputCount >= 35" />
+        <choice name="%%O36%%" value="O36" condition="$OutputCount >= 36" />
+        <choice name="%%O37%%" value="O37" condition="$OutputCount >= 37" />
+        <choice name="%%O38%%" value="O38" condition="$OutputCount >= 38" />
+        <choice name="%%O39%%" value="O39" condition="$OutputCount >= 39" />
+        <choice name="%%O40%%" value="O40" condition="$OutputCount >= 40" />
+        <choice name="%%O41%%" value="O41" condition="$OutputCount >= 41" />
+        <choice name="%%O42%%" value="O42" condition="$OutputCount >= 42" />
+        <choice name="%%O43%%" value="O43" condition="$OutputCount >= 43" />
+        <choice name="%%O44%%" value="O44" condition="$OutputCount >= 44" />
+        <choice name="%%O45%%" value="O45" condition="$OutputCount >= 45" />
+        <choice name="%%O46%%" value="O46" condition="$OutputCount >= 46" />
+        <choice name="%%O47%%" value="O47" condition="$OutputCount >= 47" />
+        <choice name="%%O48%%" value="O48" condition="$OutputCount >= 48" />
+        <choice name="%%O49%%" value="O49" condition="$OutputCount >= 49" />
+        <choice name="%%O50%%" value="O50" condition="$OutputCount >= 50" />
+        <choice name="%%O51%%" value="O51" condition="$OutputCount >= 51" />
+        <choice name="%%O52%%" value="O52" condition="$OutputCount >= 52" />
+        <choice name="%%O53%%" value="O53" condition="$OutputCount >= 53" />
+        <choice name="%%O54%%" value="O54" condition="$OutputCount >= 54" />
+        <choice name="%%O55%%" value="O55" condition="$OutputCount >= 55" />
+        <choice name="%%O56%%" value="O56" condition="$OutputCount >= 56" />
+        <choice name="%%O57%%" value="O57" condition="$OutputCount >= 57" />
+        <choice name="%%O58%%" value="O58" condition="$OutputCount >= 58" />
+        <choice name="%%O59%%" value="O59" condition="$OutputCount >= 59" />
+        <choice name="%%O60%%" value="O60" condition="$OutputCount >= 60" />
+        <choice name="%%O61%%" value="O61" condition="$OutputCount >= 61" />
+        <choice name="%%O62%%" value="O62" condition="$OutputCount >= 62" />
+        <choice name="%%O63%%" value="O63" condition="$OutputCount >= 63" />
+        <choice name="%%O64%%" value="O64" condition="$OutputCount >= 64" />
       </parameter>
       <parameter name="Action" type="string" default="stream off" hidden="true" />
     </function>
@@ -662,6 +2186,28 @@
         <choice name="%%L8%%" value="L8" condition="$LayoutCount >= 8" />
         <choice name="%%L9%%" value="L9" condition="$LayoutCount >= 9" />
         <choice name="%%L10%%" value="L10" condition="$LayoutCount >= 10" />
+        <choice name="%%L11%%" value="L11" condition="$LayoutCount >= 11" />
+        <choice name="%%L12%%" value="L12" condition="$LayoutCount >= 12" />
+        <choice name="%%L13%%" value="L13" condition="$LayoutCount >= 13" />
+        <choice name="%%L14%%" value="L14" condition="$LayoutCount >= 14" />
+        <choice name="%%L15%%" value="L15" condition="$LayoutCount >= 15" />
+        <choice name="%%L16%%" value="L16" condition="$LayoutCount >= 16" />
+        <choice name="%%L17%%" value="L17" condition="$LayoutCount >= 17" />
+        <choice name="%%L18%%" value="L18" condition="$LayoutCount >= 18" />
+        <choice name="%%L19%%" value="L19" condition="$LayoutCount >= 19" />
+        <choice name="%%L20%%" value="L20" condition="$LayoutCount >= 20" />
+        <choice name="%%L21%%" value="L21" condition="$LayoutCount >= 21" />
+        <choice name="%%L22%%" value="L22" condition="$LayoutCount >= 22" />
+        <choice name="%%L23%%" value="L23" condition="$LayoutCount >= 23" />
+        <choice name="%%L24%%" value="L24" condition="$LayoutCount >= 24" />
+        <choice name="%%L25%%" value="L25" condition="$LayoutCount >= 25" />
+        <choice name="%%L26%%" value="L26" condition="$LayoutCount >= 26" />
+        <choice name="%%L27%%" value="L27" condition="$LayoutCount >= 27" />
+        <choice name="%%L28%%" value="L28" condition="$LayoutCount >= 28" />
+        <choice name="%%L29%%" value="L29" condition="$LayoutCount >= 29" />
+        <choice name="%%L30%%" value="L30" condition="$LayoutCount >= 30" />
+        <choice name="%%L31%%" value="L31" condition="$LayoutCount >= 31" />
+        <choice name="%%L32%%" value="L32" condition="$LayoutCount >= 32" />
       </parameter>
     </function>
 
@@ -738,6 +2284,50 @@
         <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
         <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
         <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%I21%%" value="I21" condition="$InputCount >= 21" />
+        <choice name="%%I22%%" value="I22" condition="$InputCount >= 22" />
+        <choice name="%%I23%%" value="I23" condition="$InputCount >= 23" />
+        <choice name="%%I24%%" value="I24" condition="$InputCount >= 24" />
+        <choice name="%%I25%%" value="I25" condition="$InputCount >= 25" />
+        <choice name="%%I26%%" value="I26" condition="$InputCount >= 26" />
+        <choice name="%%I27%%" value="I27" condition="$InputCount >= 27" />
+        <choice name="%%I28%%" value="I28" condition="$InputCount >= 28" />
+        <choice name="%%I29%%" value="I29" condition="$InputCount >= 29" />
+        <choice name="%%I30%%" value="I30" condition="$InputCount >= 30" />
+        <choice name="%%I31%%" value="I31" condition="$InputCount >= 31" />
+        <choice name="%%I32%%" value="I32" condition="$InputCount >= 32" />
+        <choice name="%%I33%%" value="I33" condition="$InputCount >= 33" />
+        <choice name="%%I34%%" value="I34" condition="$InputCount >= 34" />
+        <choice name="%%I35%%" value="I35" condition="$InputCount >= 35" />
+        <choice name="%%I36%%" value="I36" condition="$InputCount >= 36" />
+        <choice name="%%I37%%" value="I37" condition="$InputCount >= 37" />
+        <choice name="%%I38%%" value="I38" condition="$InputCount >= 38" />
+        <choice name="%%I39%%" value="I39" condition="$InputCount >= 39" />
+        <choice name="%%I40%%" value="I40" condition="$InputCount >= 40" />
+        <choice name="%%I41%%" value="I41" condition="$InputCount >= 41" />
+        <choice name="%%I42%%" value="I42" condition="$InputCount >= 42" />
+        <choice name="%%I43%%" value="I43" condition="$InputCount >= 43" />
+        <choice name="%%I44%%" value="I44" condition="$InputCount >= 44" />
+        <choice name="%%I45%%" value="I45" condition="$InputCount >= 45" />
+        <choice name="%%I46%%" value="I46" condition="$InputCount >= 46" />
+        <choice name="%%I47%%" value="I47" condition="$InputCount >= 47" />
+        <choice name="%%I48%%" value="I48" condition="$InputCount >= 48" />
+        <choice name="%%I49%%" value="I49" condition="$InputCount >= 49" />
+        <choice name="%%I50%%" value="I50" condition="$InputCount >= 50" />
+        <choice name="%%I51%%" value="I51" condition="$InputCount >= 51" />
+        <choice name="%%I52%%" value="I52" condition="$InputCount >= 52" />
+        <choice name="%%I53%%" value="I53" condition="$InputCount >= 53" />
+        <choice name="%%I54%%" value="I54" condition="$InputCount >= 54" />
+        <choice name="%%I55%%" value="I55" condition="$InputCount >= 55" />
+        <choice name="%%I56%%" value="I56" condition="$InputCount >= 56" />
+        <choice name="%%I57%%" value="I57" condition="$InputCount >= 57" />
+        <choice name="%%I58%%" value="I58" condition="$InputCount >= 58" />
+        <choice name="%%I59%%" value="I59" condition="$InputCount >= 59" />
+        <choice name="%%I60%%" value="I60" condition="$InputCount >= 60" />
+        <choice name="%%I61%%" value="I61" condition="$InputCount >= 61" />
+        <choice name="%%I62%%" value="I62" condition="$InputCount >= 62" />
+        <choice name="%%I63%%" value="I63" condition="$InputCount >= 63" />
+        <choice name="%%I64%%" value="I64" condition="$InputCount >= 64" />
       </parameter>
     </function>
 

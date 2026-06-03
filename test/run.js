@@ -43,12 +43,23 @@ function loadDriver() {
   }
   function Timer() { this.Start = function () { return true; }; }
 
+  const lists = {};
+  function SystemVarsList(name) {
+    this.name = name;
+    this._buf = null;
+    this.Open = function () { this._buf = (lists[name] || []).slice(); return true; };
+    this.RemoveAll = function () { this._buf = []; return true; };
+    this.Insert = function (d) { this._buf.push(d); return true; };
+    this.Close = function () { lists[name] = this._buf.slice(); return true; };
+  }
+
   const sandbox = {
     Config: { Get: function (k) { return Object.prototype.hasOwnProperty.call(CONFIG, k) ? CONFIG[k] : ''; } },
     SystemVars: { Write: function (n, v) { vars[n] = v; return true; }, Read: function (n) { return n in vars ? vars[n] : null; } },
     System: { Print: function () {} },
     TCP: TCP,
     Timer: Timer,
+    SystemVarsList: SystemVarsList,
   };
   vm.createContext(sandbox);
   vm.runInContext(code, sandbox, { filename: 'USP_Driver.js' });
@@ -59,6 +70,7 @@ function loadDriver() {
     lastSent: function () { return sent.length ? sent[sent.length - 1].replace(/\r\n$/, '') : null; },
     allSent: function () { return sent.map(function (s) { return s.replace(/\r\n$/, ''); }); },
     vars: vars,
+    lists: lists,
   };
 }
 
@@ -229,6 +241,59 @@ const routes = (d) => d.allSent().filter((c) => c.indexOf('mvid layout tx') === 
   check('layout-get populates WinSrc1', d.vars.WinSrc1 === 'TX1', d.vars.WinSrc1);
   check('layout-get populates WinSrc2', d.vars.WinSrc2 === 'TX2', d.vars.WinSrc2);
   check('layout-get clears empty windows', d.vars.WinSrc3 === '', JSON.stringify(d.vars.WinSrc3));
+})();
+
+// =====================================================================
+// 4. Live name lists pulled from the CBOX
+// =====================================================================
+console.log('Live name lists:');
+const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+(function () {
+  const d = loadDriver();
+  d.feed('{"cmd":"config get devicelist","info":{"AAA":{"id":"TX-Apple","mac":"AAA","is_host":1,"dtype":"x"},"BBB":{"id":"RX-LED","mac":"BBB","ch_v":"0002","ch_a":"0002"},"CCC":{"id":"TX-PC","mac":"CCC","is_host":1}},"code":0}');
+  check('devicelist -> SourceList', eq(d.lists.SourceList, ['TX-Apple', 'TX-PC']), JSON.stringify(d.lists.SourceList));
+  check('devicelist -> DisplayList', eq(d.lists.DisplayList, ['RX-LED']), JSON.stringify(d.lists.DisplayList));
+  d.call('SelectSource(0,0)');
+  d.call('SelectDisplay(0,0)');
+  check('SelectSource sets LiveSource', d.vars.LiveSource === 'TX-Apple', d.vars.LiveSource);
+  check('SelectDisplay sets LiveDisplay', d.vars.LiveDisplay === 'RX-LED', d.vars.LiveDisplay);
+  d.call('RouteLive()');
+  check('RouteLive routes the selection', d.lastSent() === 'matrix aset :av TX-Apple RX-LED', d.lastSent());
+  d.call('SelectSource(1,0)');
+  check('SelectSource index 1 -> TX-PC', d.vars.LiveSource === 'TX-PC', d.vars.LiveSource);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed('{"cmd":"mvid get layouts","info":{"15":{"windows":[]},"222":{"windows":[]}},"code":0}');
+  check('mvid get -> LayoutList', eq(d.lists.LayoutList, ['15', '222']), JSON.stringify(d.lists.LayoutList));
+  d.call('SelectLayoutItem(1,0)');
+  check('SelectLayoutItem recalls layout', d.lastSent() === 'mvid layout active 222', d.lastSent());
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed('{"cmd":"play pl get","info":{"CAZLogo":[{"url":"a.jpg","time":10,"index":1}],"LFLogo":[]},"code":0}');
+  check('play pl get -> PlaylistList', eq(d.lists.PlaylistList, ['CAZLogo', 'LFLogo']), JSON.stringify(d.lists.PlaylistList));
+  d.feed('{"cmd":"config get devicelist","info":{"BBB":{"id":"RX-LED","ch_v":"1"}},"code":0}');
+  d.call('SelectDisplay(0,0)');
+  d.call('SelectPlaylist(0,0)');
+  d.call('PlayLivePlaylist()');
+  check('PlayLivePlaylist uses live selections', d.lastSent() === 'play pl start CAZLogo RX-LED', d.lastSent());
+  d.call('SendLivePlaylist()');
+  check('SendLivePlaylist uploads to selection', d.lastSent() === 'play pl upload CAZLogo RX-LED', d.lastSent());
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('RouteLive()');
+  check('RouteLive guards with no selection', d.allSent().length === 0, d.allSent().join('|'));
+  d.call('RefreshAll()');
+  const a = d.allSent();
+  check('RefreshAll queries all three',
+    a.indexOf('config get devicelist') >= 0 && a.indexOf('mvid get layouts') >= 0 && a.indexOf('play pl get') >= 0,
+    a.join(' | '));
 })();
 
 console.log('');

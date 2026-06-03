@@ -102,6 +102,14 @@ function HandleResponseLine(line) {
     if (StartsWith(cmd, "mvid layout get ")) {
         ParseLayoutWindows(line);
     }
+    // Live name lists pulled from the CBOX.
+    if (StartsWith(cmd, "config get devicelist")) {
+        ParseDeviceList(line);
+    } else if (StartsWith(cmd, "mvid get")) {
+        ParseLayouts(line);
+    } else if (StartsWith(cmd, "play pl get")) {
+        ParsePlaylists(line);
+    }
 }
 
 // Parse the "windows":[{"host":..,"index":..},...] array from an
@@ -490,6 +498,202 @@ function SendRawCommand(cmd) {
     if (cmd) {
         SendCommand(cmd);
     }
+}
+
+// =====================================================================
+// LIVE NAME LISTS (pulled from the CBOX)
+// Query the box and publish its real device / layout / playlist names as
+// RTI Item Lists (type "list" system variables). The operator picks from a
+// live list; the driver maps the tapped row index back to the device id and
+// acts on it. No manual slot entry required; refresh on demand.
+// =====================================================================
+
+var g_sources = [];     // TX ids, parallel to SourceList rows
+var g_displays = [];    // RX ids, parallel to DisplayList rows
+var g_layouts = [];     // layout names, parallel to LayoutList rows
+var g_playlists = [];   // playlist names, parallel to PlaylistList rows
+
+var g_liveSrc = "";       // selected source id
+var g_liveDisp = "";      // selected display id
+var g_livePlaylist = "";  // selected playlist name
+
+// ---- Exported: refresh the lists from the box ----
+function RefreshDevices()   { SendCommand("config get devicelist"); }
+function RefreshLayouts()   { SendCommand("mvid get layouts"); }
+function RefreshPlaylists()  { SendCommand("play pl get"); }
+function RefreshAll() {
+    RefreshDevices();
+    RefreshLayouts();
+    RefreshPlaylists();
+}
+
+// ---- Exported: selection handlers (wired to the panel Item List objects) ----
+// The runtime appends the scroll-window-top index as a trailing arg (ignored).
+function SelectSource(index, top) {
+    if (index >= 0 && index < g_sources.length) {
+        g_liveSrc = g_sources[index];
+        SystemVars.Write("LiveSource", g_liveSrc);
+    }
+}
+function SelectDisplay(index, top) {
+    if (index >= 0 && index < g_displays.length) {
+        g_liveDisp = g_displays[index];
+        SystemVars.Write("LiveDisplay", g_liveDisp);
+    }
+}
+function SelectLayoutItem(index, top) {
+    if (index >= 0 && index < g_layouts.length) {
+        var name = g_layouts[index];
+        SystemVars.Write("LiveLayout", name);
+        SendCommand("mvid layout active " + name);   // recall on tap
+    }
+}
+function SelectPlaylist(index, top) {
+    if (index >= 0 && index < g_playlists.length) {
+        g_livePlaylist = g_playlists[index];
+        SystemVars.Write("LivePlaylist", g_livePlaylist);
+    }
+}
+
+// ---- Exported: actions that use the live selections ----
+function RouteLive() {
+    if (g_liveSrc && g_liveDisp) {
+        SendCommand("matrix aset :av " + g_liveSrc + " " + g_liveDisp);
+    } else {
+        System.Print("[Error] RouteLive: select a source and a display first.\r\n");
+    }
+}
+function PlayLivePlaylist() {
+    if (g_livePlaylist && g_liveDisp) {
+        SendCommand("play pl start " + g_livePlaylist + " " + g_liveDisp);
+    } else {
+        System.Print("[Error] PlayLivePlaylist: select a playlist and a display first.\r\n");
+    }
+}
+function SendLivePlaylist() {
+    if (g_livePlaylist && g_liveDisp) {
+        SendCommand("play pl upload " + g_livePlaylist + " " + g_liveDisp);
+    } else {
+        System.Print("[Error] SendLivePlaylist: select a playlist and a display first.\r\n");
+    }
+}
+
+// ---- List population + JSON-ish parsing (no native JSON / RegExp) ----
+function FillList(varname, arr) {
+    var lst = new SystemVarsList(varname);
+    if (!lst) {
+        return;
+    }
+    lst.Open();
+    lst.RemoveAll();
+    var i;
+    for (i = 0; i < arr.length; i++) {
+        lst.Insert(arr[i]);
+    }
+    lst.Close();   // propagate to panels
+}
+
+// Index of the matching close for the brace/bracket at position 'open'.
+function MatchBrace(str, open) {
+    var depth = 0, inStr = false, i, ch;
+    for (i = open; i < str.length; i++) {
+        ch = str.charAt(i);
+        if (inStr) {
+            if (ch === "\"") { inStr = false; }
+        } else if (ch === "\"") {
+            inStr = true;
+        } else if (ch === "{" || ch === "[") {
+            depth++;
+        } else if (ch === "}" || ch === "]") {
+            depth--;
+            if (depth === 0) { return i; }
+        }
+    }
+    return -1;
+}
+
+// Inner text (between braces) of the top-level "info" object, or null.
+function InfoInner(line) {
+    var k = line.indexOf("\"info\"");
+    if (k < 0) { return null; }
+    var open = line.indexOf("{", k);
+    if (open < 0) { return null; }
+    var close = MatchBrace(line, open);
+    if (close < 0) { return null; }
+    return line.substring(open + 1, close);
+}
+
+// Iterate top-level "key":value pairs of an object body; cb(key, valueStr).
+function ForEachEntry(inner, cb) {
+    var i = 0, n = inner.length;
+    while (i < n) {
+        if (inner.charAt(i) === "\"") {
+            var ke = inner.indexOf("\"", i + 1);
+            if (ke < 0) { break; }
+            var key = inner.substring(i + 1, ke);
+            var c = inner.indexOf(":", ke);
+            if (c < 0) { break; }
+            c++;
+            while (c < n && (inner.charAt(c) === " " || inner.charAt(c) === "\t")) { c++; }
+            var vc = inner.charAt(c), val, end;
+            if (vc === "{" || vc === "[") {
+                end = MatchBrace(inner, c);
+                if (end < 0) { break; }
+                val = inner.substring(c, end + 1);
+                i = end + 1;
+            } else if (vc === "\"") {
+                end = inner.indexOf("\"", c + 1);
+                if (end < 0) { break; }
+                val = inner.substring(c + 1, end);
+                i = end + 1;
+            } else {
+                end = c;
+                while (end < n && inner.charAt(end) !== ",") { end++; }
+                val = inner.substring(c, end);
+                i = end;
+            }
+            cb(key, val);
+        } else {
+            i++;
+        }
+    }
+}
+
+// devicelist -> Sources (is_host) and Displays (ch_v), by device id/name.
+function ParseDeviceList(line) {
+    var inner = InfoInner(line);
+    if (inner === null) { return; }
+    g_sources = [];
+    g_displays = [];
+    ForEachEntry(inner, function (mac, dev) {
+        var id = ExtractStr(dev, "id");
+        if (id === "") { id = mac; }
+        if (dev.indexOf("\"is_host\"") >= 0) { g_sources[g_sources.length] = id; }
+        if (dev.indexOf("\"ch_v\"") >= 0) { g_displays[g_displays.length] = id; }
+    });
+    FillList("SourceList", g_sources);
+    FillList("DisplayList", g_displays);
+    System.Print("[Lists] Sources: " + g_sources.length + ", Displays: " + g_displays.length + "\r\n");
+}
+
+// mvid get layouts -> layout names (the object keys).
+function ParseLayouts(line) {
+    var inner = InfoInner(line);
+    if (inner === null) { return; }
+    g_layouts = [];
+    ForEachEntry(inner, function (name, v) { g_layouts[g_layouts.length] = name; });
+    FillList("LayoutList", g_layouts);
+    System.Print("[Lists] Layouts: " + g_layouts.length + "\r\n");
+}
+
+// play pl get -> playlist names (the object keys).
+function ParsePlaylists(line) {
+    var inner = InfoInner(line);
+    if (inner === null) { return; }
+    g_playlists = [];
+    ForEachEntry(inner, function (name, v) { g_playlists[g_playlists.length] = name; });
+    FillList("PlaylistList", g_playlists);
+    System.Print("[Lists] Playlists: " + g_playlists.length + "\r\n");
 }
 
 Initialize();

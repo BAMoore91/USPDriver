@@ -67,4 +67,17 @@
     <variable name="Window 15 Source" sysvar="WinSrc15" type="string" sample="TX1" />
     <variable name="Window 16 Source" sysvar="WinSrc16" type="string" sample="TX1" />
   </category>
+
+  <!-- Live lists pulled from the CBOX. Bind a touchpanel Item List object to -->
+  <!-- each list variable; wire its select command to the matching Select fn. -->
+  <category name="Live Lists (from CBOX)">
+    <variable name="Source List" sysvar="SourceList" type="list" />
+    <variable name="Display List" sysvar="DisplayList" type="list" />
+    <variable name="Layout List" sysvar="LayoutList" type="list" />
+    <variable name="Playlist List" sysvar="PlaylistList" type="list" />
+    <variable name="Selected Source" sysvar="LiveSource" type="string" sample="TX1" />
+    <variable name="Selected Display" sysvar="LiveDisplay" type="string" sample="RX1" />
+    <variable name="Selected Layout" sysvar="LiveLayout" type="string" sample="15" />
+    <variable name="Selected Playlist" sysvar="LivePlaylist" type="string" sample="CAZLogo" />
+  </category>
 </variables>

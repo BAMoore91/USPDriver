@@ -2265,4 +2265,33 @@
 
   </category>
 
+  <!-- Live lists pulled from the CBOX. Refresh to query the box; bind each   -->
+  <!-- panel Item List object to the matching list variable and set its       -->
+  <!-- select command to the Select function below (index is passed by ID).   -->
+  <category name="IPCBox: Live Lists">
+
+    <function name="1. Refresh All Lists" export="RefreshAll" />
+    <function name="2. Refresh Devices" export="RefreshDevices" />
+    <function name="3. Refresh Layouts" export="RefreshLayouts" />
+    <function name="4. Refresh Playlists" export="RefreshPlaylists" />
+
+    <function name="5. Select Source (from list)" export="SelectSource" repeatrate="0">
+      <parameter name="index" type="integer" min="0" max="99999" default="0" description="list row index" />
+    </function>
+    <function name="6. Select Display (from list)" export="SelectDisplay" repeatrate="0">
+      <parameter name="index" type="integer" min="0" max="99999" default="0" description="list row index" />
+    </function>
+    <function name="7. Select Layout (from list, recalls it)" export="SelectLayoutItem" repeatrate="0">
+      <parameter name="index" type="integer" min="0" max="99999" default="0" description="list row index" />
+    </function>
+    <function name="8. Select Playlist (from list)" export="SelectPlaylist" repeatrate="0">
+      <parameter name="index" type="integer" min="0" max="99999" default="0" description="list row index" />
+    </function>
+
+    <function name="9. Route Selected Source to Display" export="RouteLive" />
+    <function name="10. Play Selected Playlist on Display" export="PlayLivePlaylist" />
+    <function name="11. Send Selected Playlist to Display" export="SendLivePlaylist" />
+
+  </category>
+
 </functions>

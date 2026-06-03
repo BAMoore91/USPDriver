@@ -279,7 +279,7 @@
 
   <category name="IPCBox: Media Player">
 
-    <function name="1. Apply Playlist to Display" export="ApplyPlaylist">
+    <function name="2. Play Playlist Now" export="PlayPlaylist">
       <parameter name="Select Playlist" type="mcstring">
         <choice name="%%PL1%%" value="PL1" />
         <choice name="%%PL2%%" value="PL2" />
@@ -304,7 +304,22 @@
       </parameter>
     </function>
 
-    <function name="2. Upload Playlist to Displays" export="UploadPlaylist">
+    <function name="3. Stop Playlist on Display" export="StopPlaylist">
+      <parameter name="Select Display (Output)" type="mcstring">
+        <choice name="%%O1%%" value="O1" />
+        <choice name="%%O2%%" value="O2" />
+        <choice name="%%O3%%" value="O3" />
+        <choice name="%%O4%%" value="O4" />
+        <choice name="%%O5%%" value="O5" />
+        <choice name="%%O6%%" value="O6" />
+        <choice name="%%O7%%" value="O7" />
+        <choice name="%%O8%%" value="O8" />
+        <choice name="%%O9%%" value="O9" />
+        <choice name="%%O10%%" value="O10" />
+      </parameter>
+    </function>
+
+    <function name="1. Send Playlist to Displays" export="UploadPlaylist">
       <parameter name="Select Playlist" type="mcstring">
         <choice name="%%PL1%%" value="PL1" />
         <choice name="%%PL2%%" value="PL2" />

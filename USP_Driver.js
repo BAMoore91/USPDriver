@@ -378,12 +378,20 @@ function SwapWallSource(wallKey, layoutKey, target, inputKey) {
 
 // --- Media Player ---
 
-/** Apply a playlist to a single RX (output) display. */
-function ApplyPlaylist(playlistKey, outputKey) {
+/** Play a playlist on a single RX (output) display now. ("Play Now" in the web GUI.) */
+function PlayPlaylist(playlistKey, outputKey) {
     var pl = ResolveSlot(playlistKey);
     var rx = ResolveSlot(outputKey);
     if (pl && rx) {
-        SendCommand("play pl apply " + pl + " " + rx);
+        SendCommand("play pl start " + pl + " " + rx);
+    }
+}
+
+/** Stop playback on a single RX (output) display. ("Stop Playing" in the web GUI.) */
+function StopPlaylist(outputKey) {
+    var rx = ResolveSlot(outputKey);
+    if (rx) {
+        SendCommand("play pl stop " + rx);
     }
 }
 

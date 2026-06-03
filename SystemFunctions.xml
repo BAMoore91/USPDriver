@@ -49,6 +49,10 @@
         <choice name="Win 3" value="3" /><choice name="Win 4" value="4" />
         <choice name="Win 5" value="5" /><choice name="Win 6" value="6" />
         <choice name="Win 7" value="7" /><choice name="Win 8" value="8" />
+        <choice name="Win 9" value="9" /><choice name="Win 10" value="10" />
+        <choice name="Win 11" value="11" /><choice name="Win 12" value="12" />
+        <choice name="Win 13" value="13" /><choice name="Win 14" value="14" />
+        <choice name="Win 15" value="15" /><choice name="Win 16" value="16" />
       </parameter>
       <parameter name="Select Input Slot" type="mcstring">
         <choice name="%%I1%%" value="I1" />
@@ -670,6 +674,30 @@
     </function>
     <function name="2. Select Window 8" export="SelectWindow:win8">
       <parameter name="Window ID" type="integer" default="8" hidden="true" />
+    </function>
+    <function name="2. Select Window 9" export="SelectWindow:win9">
+      <parameter name="Window ID" type="integer" default="9" hidden="true" />
+    </function>
+    <function name="2. Select Window 10" export="SelectWindow:win10">
+      <parameter name="Window ID" type="integer" default="10" hidden="true" />
+    </function>
+    <function name="2. Select Window 11" export="SelectWindow:win11">
+      <parameter name="Window ID" type="integer" default="11" hidden="true" />
+    </function>
+    <function name="2. Select Window 12" export="SelectWindow:win12">
+      <parameter name="Window ID" type="integer" default="12" hidden="true" />
+    </function>
+    <function name="2. Select Window 13" export="SelectWindow:win13">
+      <parameter name="Window ID" type="integer" default="13" hidden="true" />
+    </function>
+    <function name="2. Select Window 14" export="SelectWindow:win14">
+      <parameter name="Window ID" type="integer" default="14" hidden="true" />
+    </function>
+    <function name="2. Select Window 15" export="SelectWindow:win15">
+      <parameter name="Window ID" type="integer" default="15" hidden="true" />
+    </function>
+    <function name="2. Select Window 16" export="SelectWindow:win16">
+      <parameter name="Window ID" type="integer" default="16" hidden="true" />
     </function>
 
     <!-- Route the tapped input into the armed layout+window. -->

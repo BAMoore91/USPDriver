@@ -38,5 +38,13 @@
     <variable name="Window 6 Selected" sysvar="WinSel6" type="boolean" sample="false" />
     <variable name="Window 7 Selected" sysvar="WinSel7" type="boolean" sample="false" />
     <variable name="Window 8 Selected" sysvar="WinSel8" type="boolean" sample="false" />
+    <variable name="Window 9 Selected" sysvar="WinSel9" type="boolean" sample="false" />
+    <variable name="Window 10 Selected" sysvar="WinSel10" type="boolean" sample="false" />
+    <variable name="Window 11 Selected" sysvar="WinSel11" type="boolean" sample="false" />
+    <variable name="Window 12 Selected" sysvar="WinSel12" type="boolean" sample="false" />
+    <variable name="Window 13 Selected" sysvar="WinSel13" type="boolean" sample="false" />
+    <variable name="Window 14 Selected" sysvar="WinSel14" type="boolean" sample="false" />
+    <variable name="Window 15 Selected" sysvar="WinSel15" type="boolean" sample="false" />
+    <variable name="Window 16 Selected" sysvar="WinSel16" type="boolean" sample="false" />
   </category>
 </variables>

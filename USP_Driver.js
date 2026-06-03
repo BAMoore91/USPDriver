@@ -260,7 +260,7 @@ function UpdateWindowSource(layoutKey, winID, inputKey) {
 
 var g_selWindow = 0;     // armed window ID (0 = none)
 var g_selLayoutVal = ""; // armed layout name (resolved from a config slot)
-var WIN_COUNT = 8;       // number of Select Window buttons / WinSelN booleans
+var WIN_COUNT = 16;      // number of Select Window buttons / WinSelN booleans (Pro = 16-window MV)
 
 /** Arm the multiview layout to route within (call from the page's layout button). */
 function SelectLayout(layoutKey) {

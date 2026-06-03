@@ -183,6 +183,9 @@ console.log('Multiview arm-then-route:');
   d.call('SelectWindow(5)');
   check('re-arm clears old boolean (WinSel3 false)', d.vars.WinSel3 === false, '' + d.vars.WinSel3);
   check('re-arm sets new boolean (WinSel5 true)', d.vars.WinSel5 === true, '' + d.vars.WinSel5);
+  d.call('SelectWindow(16)');
+  check('supports window 16 (WinSel16 true)', d.vars.WinSel16 === true, '' + d.vars.WinSel16);
+  check('window 16 sets SelectedWindowID 16', d.vars.SelectedWindowID === 16, '' + d.vars.SelectedWindowID);
   d.call('SelectWindow("5")');
   check('SelectWindow accepts string arg', d.vars.SelectedWindowID === 5, '' + d.vars.SelectedWindowID);
   // re-arm window 3 and route input

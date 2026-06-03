@@ -5,44 +5,44 @@
     <!-- FUNCTION A: Layout Assignment and Activation -->
     <function name="1. Set Layout on Display" export="ShowLayoutOnDisplay">
       <parameter name="Select Layout Slot" type="mcstring">
-        <choice name="%%L1%%" value="L1" />
-        <choice name="%%L2%%" value="L2" />
-        <choice name="%%L3%%" value="L3" />
-        <choice name="%%L4%%" value="L4" />
-        <choice name="%%L5%%" value="L5" />
-        <choice name="%%L6%%" value="L6" />
-        <choice name="%%L7%%" value="L7" />
-        <choice name="%%L8%%" value="L8" />
-        <choice name="%%L9%%" value="L9" />
-        <choice name="%%L10%%" value="L10" />
+        <choice name="%%L1%%" value="L1" condition="$LayoutCount >= 1" />
+        <choice name="%%L2%%" value="L2" condition="$LayoutCount >= 2" />
+        <choice name="%%L3%%" value="L3" condition="$LayoutCount >= 3" />
+        <choice name="%%L4%%" value="L4" condition="$LayoutCount >= 4" />
+        <choice name="%%L5%%" value="L5" condition="$LayoutCount >= 5" />
+        <choice name="%%L6%%" value="L6" condition="$LayoutCount >= 6" />
+        <choice name="%%L7%%" value="L7" condition="$LayoutCount >= 7" />
+        <choice name="%%L8%%" value="L8" condition="$LayoutCount >= 8" />
+        <choice name="%%L9%%" value="L9" condition="$LayoutCount >= 9" />
+        <choice name="%%L10%%" value="L10" condition="$LayoutCount >= 10" />
       </parameter>
       <parameter name="Select Output Slot" type="mcstring">
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
     </function>
 
     <!-- FUNCTION B: Window Routing and Activation -->
     <function name="2. Switch Window Source" export="UpdateWindowSource">
       <parameter name="Select Layout Slot" type="mcstring">
-        <choice name="%%L1%%" value="L1" />
-        <choice name="%%L2%%" value="L2" />
-        <choice name="%%L3%%" value="L3" />
-        <choice name="%%L4%%" value="L4" />
-        <choice name="%%L5%%" value="L5" />
-        <choice name="%%L6%%" value="L6" />
-        <choice name="%%L7%%" value="L7" />
-        <choice name="%%L8%%" value="L8" />
-        <choice name="%%L9%%" value="L9" />
-        <choice name="%%L10%%" value="L10" />
+        <choice name="%%L1%%" value="L1" condition="$LayoutCount >= 1" />
+        <choice name="%%L2%%" value="L2" condition="$LayoutCount >= 2" />
+        <choice name="%%L3%%" value="L3" condition="$LayoutCount >= 3" />
+        <choice name="%%L4%%" value="L4" condition="$LayoutCount >= 4" />
+        <choice name="%%L5%%" value="L5" condition="$LayoutCount >= 5" />
+        <choice name="%%L6%%" value="L6" condition="$LayoutCount >= 6" />
+        <choice name="%%L7%%" value="L7" condition="$LayoutCount >= 7" />
+        <choice name="%%L8%%" value="L8" condition="$LayoutCount >= 8" />
+        <choice name="%%L9%%" value="L9" condition="$LayoutCount >= 9" />
+        <choice name="%%L10%%" value="L10" condition="$LayoutCount >= 10" />
       </parameter>
       <parameter name="Window ID" type="mcstring">
         <choice name="Win 1" value="1" /><choice name="Win 2" value="2" />
@@ -55,26 +55,26 @@
         <choice name="Win 15" value="15" /><choice name="Win 16" value="16" />
       </parameter>
       <parameter name="Select Input Slot" type="mcstring">
-        <choice name="%%I1%%" value="I1" />
-        <choice name="%%I2%%" value="I2" />
-        <choice name="%%I3%%" value="I3" />
-        <choice name="%%I4%%" value="I4" />
-        <choice name="%%I5%%" value="I5" />
-        <choice name="%%I6%%" value="I6" />
-        <choice name="%%I7%%" value="I7" />
-        <choice name="%%I8%%" value="I8" />
-        <choice name="%%I9%%" value="I9" />
-        <choice name="%%I10%%" value="I10" />
-        <choice name="%%I11%%" value="I11" />
-        <choice name="%%I12%%" value="I12" />
-        <choice name="%%I13%%" value="I13" />
-        <choice name="%%I14%%" value="I14" />
-        <choice name="%%I15%%" value="I15" />
-        <choice name="%%I16%%" value="I16" />
-        <choice name="%%I17%%" value="I17" />
-        <choice name="%%I18%%" value="I18" />
-        <choice name="%%I19%%" value="I19" />
-        <choice name="%%I20%%" value="I20" />
+        <choice name="%%I1%%" value="I1" condition="$InputCount >= 1" />
+        <choice name="%%I2%%" value="I2" condition="$InputCount >= 2" />
+        <choice name="%%I3%%" value="I3" condition="$InputCount >= 3" />
+        <choice name="%%I4%%" value="I4" condition="$InputCount >= 4" />
+        <choice name="%%I5%%" value="I5" condition="$InputCount >= 5" />
+        <choice name="%%I6%%" value="I6" condition="$InputCount >= 6" />
+        <choice name="%%I7%%" value="I7" condition="$InputCount >= 7" />
+        <choice name="%%I8%%" value="I8" condition="$InputCount >= 8" />
+        <choice name="%%I9%%" value="I9" condition="$InputCount >= 9" />
+        <choice name="%%I10%%" value="I10" condition="$InputCount >= 10" />
+        <choice name="%%I11%%" value="I11" condition="$InputCount >= 11" />
+        <choice name="%%I12%%" value="I12" condition="$InputCount >= 12" />
+        <choice name="%%I13%%" value="I13" condition="$InputCount >= 13" />
+        <choice name="%%I14%%" value="I14" condition="$InputCount >= 14" />
+        <choice name="%%I15%%" value="I15" condition="$InputCount >= 15" />
+        <choice name="%%I16%%" value="I16" condition="$InputCount >= 16" />
+        <choice name="%%I17%%" value="I17" condition="$InputCount >= 17" />
+        <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
+        <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
+        <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
       </parameter>
     </function>
 
@@ -84,111 +84,111 @@
 
     <function name="1. Route Source to Display" export="RouteSourceToDisplay">
       <parameter name="Select Source (Input)" type="mcstring">
-        <choice name="%%I1%%" value="I1" />
-        <choice name="%%I2%%" value="I2" />
-        <choice name="%%I3%%" value="I3" />
-        <choice name="%%I4%%" value="I4" />
-        <choice name="%%I5%%" value="I5" />
-        <choice name="%%I6%%" value="I6" />
-        <choice name="%%I7%%" value="I7" />
-        <choice name="%%I8%%" value="I8" />
-        <choice name="%%I9%%" value="I9" />
-        <choice name="%%I10%%" value="I10" />
-        <choice name="%%I11%%" value="I11" />
-        <choice name="%%I12%%" value="I12" />
-        <choice name="%%I13%%" value="I13" />
-        <choice name="%%I14%%" value="I14" />
-        <choice name="%%I15%%" value="I15" />
-        <choice name="%%I16%%" value="I16" />
-        <choice name="%%I17%%" value="I17" />
-        <choice name="%%I18%%" value="I18" />
-        <choice name="%%I19%%" value="I19" />
-        <choice name="%%I20%%" value="I20" />
+        <choice name="%%I1%%" value="I1" condition="$InputCount >= 1" />
+        <choice name="%%I2%%" value="I2" condition="$InputCount >= 2" />
+        <choice name="%%I3%%" value="I3" condition="$InputCount >= 3" />
+        <choice name="%%I4%%" value="I4" condition="$InputCount >= 4" />
+        <choice name="%%I5%%" value="I5" condition="$InputCount >= 5" />
+        <choice name="%%I6%%" value="I6" condition="$InputCount >= 6" />
+        <choice name="%%I7%%" value="I7" condition="$InputCount >= 7" />
+        <choice name="%%I8%%" value="I8" condition="$InputCount >= 8" />
+        <choice name="%%I9%%" value="I9" condition="$InputCount >= 9" />
+        <choice name="%%I10%%" value="I10" condition="$InputCount >= 10" />
+        <choice name="%%I11%%" value="I11" condition="$InputCount >= 11" />
+        <choice name="%%I12%%" value="I12" condition="$InputCount >= 12" />
+        <choice name="%%I13%%" value="I13" condition="$InputCount >= 13" />
+        <choice name="%%I14%%" value="I14" condition="$InputCount >= 14" />
+        <choice name="%%I15%%" value="I15" condition="$InputCount >= 15" />
+        <choice name="%%I16%%" value="I16" condition="$InputCount >= 16" />
+        <choice name="%%I17%%" value="I17" condition="$InputCount >= 17" />
+        <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
+        <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
+        <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
       </parameter>
       <parameter name="Select Display (Output)" type="mcstring">
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
     </function>
 
     <function name="2. Route Source to Multiple Displays" export="RouteSourceMulti">
       <parameter name="Select Source (Input)" type="mcstring">
-        <choice name="%%I1%%" value="I1" />
-        <choice name="%%I2%%" value="I2" />
-        <choice name="%%I3%%" value="I3" />
-        <choice name="%%I4%%" value="I4" />
-        <choice name="%%I5%%" value="I5" />
-        <choice name="%%I6%%" value="I6" />
-        <choice name="%%I7%%" value="I7" />
-        <choice name="%%I8%%" value="I8" />
-        <choice name="%%I9%%" value="I9" />
-        <choice name="%%I10%%" value="I10" />
-        <choice name="%%I11%%" value="I11" />
-        <choice name="%%I12%%" value="I12" />
-        <choice name="%%I13%%" value="I13" />
-        <choice name="%%I14%%" value="I14" />
-        <choice name="%%I15%%" value="I15" />
-        <choice name="%%I16%%" value="I16" />
-        <choice name="%%I17%%" value="I17" />
-        <choice name="%%I18%%" value="I18" />
-        <choice name="%%I19%%" value="I19" />
-        <choice name="%%I20%%" value="I20" />
+        <choice name="%%I1%%" value="I1" condition="$InputCount >= 1" />
+        <choice name="%%I2%%" value="I2" condition="$InputCount >= 2" />
+        <choice name="%%I3%%" value="I3" condition="$InputCount >= 3" />
+        <choice name="%%I4%%" value="I4" condition="$InputCount >= 4" />
+        <choice name="%%I5%%" value="I5" condition="$InputCount >= 5" />
+        <choice name="%%I6%%" value="I6" condition="$InputCount >= 6" />
+        <choice name="%%I7%%" value="I7" condition="$InputCount >= 7" />
+        <choice name="%%I8%%" value="I8" condition="$InputCount >= 8" />
+        <choice name="%%I9%%" value="I9" condition="$InputCount >= 9" />
+        <choice name="%%I10%%" value="I10" condition="$InputCount >= 10" />
+        <choice name="%%I11%%" value="I11" condition="$InputCount >= 11" />
+        <choice name="%%I12%%" value="I12" condition="$InputCount >= 12" />
+        <choice name="%%I13%%" value="I13" condition="$InputCount >= 13" />
+        <choice name="%%I14%%" value="I14" condition="$InputCount >= 14" />
+        <choice name="%%I15%%" value="I15" condition="$InputCount >= 15" />
+        <choice name="%%I16%%" value="I16" condition="$InputCount >= 16" />
+        <choice name="%%I17%%" value="I17" condition="$InputCount >= 17" />
+        <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
+        <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
+        <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
       </parameter>
       <parameter name="Display 1" type="mcstring">
         <choice name="(none)" value="" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Display 2" type="mcstring">
         <choice name="(none)" value="" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Display 3" type="mcstring">
         <choice name="(none)" value="" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
     </function>
 
     <function name="3. Recall Matrix Preset" export="RecallMatrix">
       <parameter name="Select Matrix" type="mcstring">
-        <choice name="%%MX1%%" value="MX1" />
-        <choice name="%%MX2%%" value="MX2" />
-        <choice name="%%MX3%%" value="MX3" />
-        <choice name="%%MX4%%" value="MX4" />
+        <choice name="%%MX1%%" value="MX1" condition="$MatrixCount >= 1" />
+        <choice name="%%MX2%%" value="MX2" condition="$MatrixCount >= 2" />
+        <choice name="%%MX3%%" value="MX3" condition="$MatrixCount >= 3" />
+        <choice name="%%MX4%%" value="MX4" condition="$MatrixCount >= 4" />
       </parameter>
     </function>
 
@@ -198,39 +198,39 @@
 
     <function name="1. Recall Wall Layout" export="RecallWallLayout">
       <parameter name="Select Video Wall" type="mcstring">
-        <choice name="%%VW1%%" value="VW1" />
-        <choice name="%%VW2%%" value="VW2" />
-        <choice name="%%VW3%%" value="VW3" />
-        <choice name="%%VW4%%" value="VW4" />
+        <choice name="%%VW1%%" value="VW1" condition="$WallCount >= 1" />
+        <choice name="%%VW2%%" value="VW2" condition="$WallCount >= 2" />
+        <choice name="%%VW3%%" value="VW3" condition="$WallCount >= 3" />
+        <choice name="%%VW4%%" value="VW4" condition="$WallCount >= 4" />
       </parameter>
       <parameter name="Select Wall Layout" type="mcstring">
-        <choice name="%%WL1%%" value="WL1" />
-        <choice name="%%WL2%%" value="WL2" />
-        <choice name="%%WL3%%" value="WL3" />
-        <choice name="%%WL4%%" value="WL4" />
-        <choice name="%%WL5%%" value="WL5" />
-        <choice name="%%WL6%%" value="WL6" />
-        <choice name="%%WL7%%" value="WL7" />
-        <choice name="%%WL8%%" value="WL8" />
+        <choice name="%%WL1%%" value="WL1" condition="$WallLayoutCount >= 1" />
+        <choice name="%%WL2%%" value="WL2" condition="$WallLayoutCount >= 2" />
+        <choice name="%%WL3%%" value="WL3" condition="$WallLayoutCount >= 3" />
+        <choice name="%%WL4%%" value="WL4" condition="$WallLayoutCount >= 4" />
+        <choice name="%%WL5%%" value="WL5" condition="$WallLayoutCount >= 5" />
+        <choice name="%%WL6%%" value="WL6" condition="$WallLayoutCount >= 6" />
+        <choice name="%%WL7%%" value="WL7" condition="$WallLayoutCount >= 7" />
+        <choice name="%%WL8%%" value="WL8" condition="$WallLayoutCount >= 8" />
       </parameter>
     </function>
 
     <function name="2. Swap Wall Source" export="SwapWallSource">
       <parameter name="Select Video Wall" type="mcstring">
-        <choice name="%%VW1%%" value="VW1" />
-        <choice name="%%VW2%%" value="VW2" />
-        <choice name="%%VW3%%" value="VW3" />
-        <choice name="%%VW4%%" value="VW4" />
+        <choice name="%%VW1%%" value="VW1" condition="$WallCount >= 1" />
+        <choice name="%%VW2%%" value="VW2" condition="$WallCount >= 2" />
+        <choice name="%%VW3%%" value="VW3" condition="$WallCount >= 3" />
+        <choice name="%%VW4%%" value="VW4" condition="$WallCount >= 4" />
       </parameter>
       <parameter name="Select Wall Layout" type="mcstring">
-        <choice name="%%WL1%%" value="WL1" />
-        <choice name="%%WL2%%" value="WL2" />
-        <choice name="%%WL3%%" value="WL3" />
-        <choice name="%%WL4%%" value="WL4" />
-        <choice name="%%WL5%%" value="WL5" />
-        <choice name="%%WL6%%" value="WL6" />
-        <choice name="%%WL7%%" value="WL7" />
-        <choice name="%%WL8%%" value="WL8" />
+        <choice name="%%WL1%%" value="WL1" condition="$WallLayoutCount >= 1" />
+        <choice name="%%WL2%%" value="WL2" condition="$WallLayoutCount >= 2" />
+        <choice name="%%WL3%%" value="WL3" condition="$WallLayoutCount >= 3" />
+        <choice name="%%WL4%%" value="WL4" condition="$WallLayoutCount >= 4" />
+        <choice name="%%WL5%%" value="WL5" condition="$WallLayoutCount >= 5" />
+        <choice name="%%WL6%%" value="WL6" condition="$WallLayoutCount >= 6" />
+        <choice name="%%WL7%%" value="WL7" condition="$WallLayoutCount >= 7" />
+        <choice name="%%WL8%%" value="WL8" condition="$WallLayoutCount >= 8" />
       </parameter>
       <parameter name="Target Cell" type="mcstring">
         <choice name="All Cells" value="ALL" />
@@ -252,26 +252,26 @@
         <choice name="Row 4 : Col 4" value="4:4" />
       </parameter>
       <parameter name="New Source (Input)" type="mcstring">
-        <choice name="%%I1%%" value="I1" />
-        <choice name="%%I2%%" value="I2" />
-        <choice name="%%I3%%" value="I3" />
-        <choice name="%%I4%%" value="I4" />
-        <choice name="%%I5%%" value="I5" />
-        <choice name="%%I6%%" value="I6" />
-        <choice name="%%I7%%" value="I7" />
-        <choice name="%%I8%%" value="I8" />
-        <choice name="%%I9%%" value="I9" />
-        <choice name="%%I10%%" value="I10" />
-        <choice name="%%I11%%" value="I11" />
-        <choice name="%%I12%%" value="I12" />
-        <choice name="%%I13%%" value="I13" />
-        <choice name="%%I14%%" value="I14" />
-        <choice name="%%I15%%" value="I15" />
-        <choice name="%%I16%%" value="I16" />
-        <choice name="%%I17%%" value="I17" />
-        <choice name="%%I18%%" value="I18" />
-        <choice name="%%I19%%" value="I19" />
-        <choice name="%%I20%%" value="I20" />
+        <choice name="%%I1%%" value="I1" condition="$InputCount >= 1" />
+        <choice name="%%I2%%" value="I2" condition="$InputCount >= 2" />
+        <choice name="%%I3%%" value="I3" condition="$InputCount >= 3" />
+        <choice name="%%I4%%" value="I4" condition="$InputCount >= 4" />
+        <choice name="%%I5%%" value="I5" condition="$InputCount >= 5" />
+        <choice name="%%I6%%" value="I6" condition="$InputCount >= 6" />
+        <choice name="%%I7%%" value="I7" condition="$InputCount >= 7" />
+        <choice name="%%I8%%" value="I8" condition="$InputCount >= 8" />
+        <choice name="%%I9%%" value="I9" condition="$InputCount >= 9" />
+        <choice name="%%I10%%" value="I10" condition="$InputCount >= 10" />
+        <choice name="%%I11%%" value="I11" condition="$InputCount >= 11" />
+        <choice name="%%I12%%" value="I12" condition="$InputCount >= 12" />
+        <choice name="%%I13%%" value="I13" condition="$InputCount >= 13" />
+        <choice name="%%I14%%" value="I14" condition="$InputCount >= 14" />
+        <choice name="%%I15%%" value="I15" condition="$InputCount >= 15" />
+        <choice name="%%I16%%" value="I16" condition="$InputCount >= 16" />
+        <choice name="%%I17%%" value="I17" condition="$InputCount >= 17" />
+        <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
+        <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
+        <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
       </parameter>
     </function>
 
@@ -281,93 +281,93 @@
 
     <function name="2. Play Playlist Now" export="PlayPlaylist">
       <parameter name="Select Playlist" type="mcstring">
-        <choice name="%%PL1%%" value="PL1" />
-        <choice name="%%PL2%%" value="PL2" />
-        <choice name="%%PL3%%" value="PL3" />
-        <choice name="%%PL4%%" value="PL4" />
-        <choice name="%%PL5%%" value="PL5" />
-        <choice name="%%PL6%%" value="PL6" />
-        <choice name="%%PL7%%" value="PL7" />
-        <choice name="%%PL8%%" value="PL8" />
+        <choice name="%%PL1%%" value="PL1" condition="$PlaylistCount >= 1" />
+        <choice name="%%PL2%%" value="PL2" condition="$PlaylistCount >= 2" />
+        <choice name="%%PL3%%" value="PL3" condition="$PlaylistCount >= 3" />
+        <choice name="%%PL4%%" value="PL4" condition="$PlaylistCount >= 4" />
+        <choice name="%%PL5%%" value="PL5" condition="$PlaylistCount >= 5" />
+        <choice name="%%PL6%%" value="PL6" condition="$PlaylistCount >= 6" />
+        <choice name="%%PL7%%" value="PL7" condition="$PlaylistCount >= 7" />
+        <choice name="%%PL8%%" value="PL8" condition="$PlaylistCount >= 8" />
       </parameter>
       <parameter name="Select Display (Output)" type="mcstring">
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
     </function>
 
     <function name="3. Stop Playlist on Display" export="StopPlaylist">
       <parameter name="Select Display (Output)" type="mcstring">
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
     </function>
 
     <function name="1. Send Playlist to Displays" export="UploadPlaylist">
       <parameter name="Select Playlist" type="mcstring">
-        <choice name="%%PL1%%" value="PL1" />
-        <choice name="%%PL2%%" value="PL2" />
-        <choice name="%%PL3%%" value="PL3" />
-        <choice name="%%PL4%%" value="PL4" />
-        <choice name="%%PL5%%" value="PL5" />
-        <choice name="%%PL6%%" value="PL6" />
-        <choice name="%%PL7%%" value="PL7" />
-        <choice name="%%PL8%%" value="PL8" />
+        <choice name="%%PL1%%" value="PL1" condition="$PlaylistCount >= 1" />
+        <choice name="%%PL2%%" value="PL2" condition="$PlaylistCount >= 2" />
+        <choice name="%%PL3%%" value="PL3" condition="$PlaylistCount >= 3" />
+        <choice name="%%PL4%%" value="PL4" condition="$PlaylistCount >= 4" />
+        <choice name="%%PL5%%" value="PL5" condition="$PlaylistCount >= 5" />
+        <choice name="%%PL6%%" value="PL6" condition="$PlaylistCount >= 6" />
+        <choice name="%%PL7%%" value="PL7" condition="$PlaylistCount >= 7" />
+        <choice name="%%PL8%%" value="PL8" condition="$PlaylistCount >= 8" />
       </parameter>
       <parameter name="Display 1" type="mcstring">
         <choice name="(none)" value="" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Display 2" type="mcstring">
         <choice name="(none)" value="" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Display 3" type="mcstring">
         <choice name="(none)" value="" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
     </function>
 
@@ -377,248 +377,248 @@
 
     <function name="1. Reboot Device" export="DeviceControl:reboot">
       <parameter name="Select Device" type="mcstring">
-        <choice name="%%I1%%" value="I1" />
-        <choice name="%%I2%%" value="I2" />
-        <choice name="%%I3%%" value="I3" />
-        <choice name="%%I4%%" value="I4" />
-        <choice name="%%I5%%" value="I5" />
-        <choice name="%%I6%%" value="I6" />
-        <choice name="%%I7%%" value="I7" />
-        <choice name="%%I8%%" value="I8" />
-        <choice name="%%I9%%" value="I9" />
-        <choice name="%%I10%%" value="I10" />
-        <choice name="%%I11%%" value="I11" />
-        <choice name="%%I12%%" value="I12" />
-        <choice name="%%I13%%" value="I13" />
-        <choice name="%%I14%%" value="I14" />
-        <choice name="%%I15%%" value="I15" />
-        <choice name="%%I16%%" value="I16" />
-        <choice name="%%I17%%" value="I17" />
-        <choice name="%%I18%%" value="I18" />
-        <choice name="%%I19%%" value="I19" />
-        <choice name="%%I20%%" value="I20" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%I1%%" value="I1" condition="$InputCount >= 1" />
+        <choice name="%%I2%%" value="I2" condition="$InputCount >= 2" />
+        <choice name="%%I3%%" value="I3" condition="$InputCount >= 3" />
+        <choice name="%%I4%%" value="I4" condition="$InputCount >= 4" />
+        <choice name="%%I5%%" value="I5" condition="$InputCount >= 5" />
+        <choice name="%%I6%%" value="I6" condition="$InputCount >= 6" />
+        <choice name="%%I7%%" value="I7" condition="$InputCount >= 7" />
+        <choice name="%%I8%%" value="I8" condition="$InputCount >= 8" />
+        <choice name="%%I9%%" value="I9" condition="$InputCount >= 9" />
+        <choice name="%%I10%%" value="I10" condition="$InputCount >= 10" />
+        <choice name="%%I11%%" value="I11" condition="$InputCount >= 11" />
+        <choice name="%%I12%%" value="I12" condition="$InputCount >= 12" />
+        <choice name="%%I13%%" value="I13" condition="$InputCount >= 13" />
+        <choice name="%%I14%%" value="I14" condition="$InputCount >= 14" />
+        <choice name="%%I15%%" value="I15" condition="$InputCount >= 15" />
+        <choice name="%%I16%%" value="I16" condition="$InputCount >= 16" />
+        <choice name="%%I17%%" value="I17" condition="$InputCount >= 17" />
+        <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
+        <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
+        <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Action" type="string" default="reboot" hidden="true" />
     </function>
 
     <function name="2. Identify Light On" export="DeviceControl:lighton">
       <parameter name="Select Device" type="mcstring">
-        <choice name="%%I1%%" value="I1" />
-        <choice name="%%I2%%" value="I2" />
-        <choice name="%%I3%%" value="I3" />
-        <choice name="%%I4%%" value="I4" />
-        <choice name="%%I5%%" value="I5" />
-        <choice name="%%I6%%" value="I6" />
-        <choice name="%%I7%%" value="I7" />
-        <choice name="%%I8%%" value="I8" />
-        <choice name="%%I9%%" value="I9" />
-        <choice name="%%I10%%" value="I10" />
-        <choice name="%%I11%%" value="I11" />
-        <choice name="%%I12%%" value="I12" />
-        <choice name="%%I13%%" value="I13" />
-        <choice name="%%I14%%" value="I14" />
-        <choice name="%%I15%%" value="I15" />
-        <choice name="%%I16%%" value="I16" />
-        <choice name="%%I17%%" value="I17" />
-        <choice name="%%I18%%" value="I18" />
-        <choice name="%%I19%%" value="I19" />
-        <choice name="%%I20%%" value="I20" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%I1%%" value="I1" condition="$InputCount >= 1" />
+        <choice name="%%I2%%" value="I2" condition="$InputCount >= 2" />
+        <choice name="%%I3%%" value="I3" condition="$InputCount >= 3" />
+        <choice name="%%I4%%" value="I4" condition="$InputCount >= 4" />
+        <choice name="%%I5%%" value="I5" condition="$InputCount >= 5" />
+        <choice name="%%I6%%" value="I6" condition="$InputCount >= 6" />
+        <choice name="%%I7%%" value="I7" condition="$InputCount >= 7" />
+        <choice name="%%I8%%" value="I8" condition="$InputCount >= 8" />
+        <choice name="%%I9%%" value="I9" condition="$InputCount >= 9" />
+        <choice name="%%I10%%" value="I10" condition="$InputCount >= 10" />
+        <choice name="%%I11%%" value="I11" condition="$InputCount >= 11" />
+        <choice name="%%I12%%" value="I12" condition="$InputCount >= 12" />
+        <choice name="%%I13%%" value="I13" condition="$InputCount >= 13" />
+        <choice name="%%I14%%" value="I14" condition="$InputCount >= 14" />
+        <choice name="%%I15%%" value="I15" condition="$InputCount >= 15" />
+        <choice name="%%I16%%" value="I16" condition="$InputCount >= 16" />
+        <choice name="%%I17%%" value="I17" condition="$InputCount >= 17" />
+        <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
+        <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
+        <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Action" type="string" default="light on" hidden="true" />
     </function>
 
     <function name="3. Identify Light Off" export="DeviceControl:lightoff">
       <parameter name="Select Device" type="mcstring">
-        <choice name="%%I1%%" value="I1" />
-        <choice name="%%I2%%" value="I2" />
-        <choice name="%%I3%%" value="I3" />
-        <choice name="%%I4%%" value="I4" />
-        <choice name="%%I5%%" value="I5" />
-        <choice name="%%I6%%" value="I6" />
-        <choice name="%%I7%%" value="I7" />
-        <choice name="%%I8%%" value="I8" />
-        <choice name="%%I9%%" value="I9" />
-        <choice name="%%I10%%" value="I10" />
-        <choice name="%%I11%%" value="I11" />
-        <choice name="%%I12%%" value="I12" />
-        <choice name="%%I13%%" value="I13" />
-        <choice name="%%I14%%" value="I14" />
-        <choice name="%%I15%%" value="I15" />
-        <choice name="%%I16%%" value="I16" />
-        <choice name="%%I17%%" value="I17" />
-        <choice name="%%I18%%" value="I18" />
-        <choice name="%%I19%%" value="I19" />
-        <choice name="%%I20%%" value="I20" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%I1%%" value="I1" condition="$InputCount >= 1" />
+        <choice name="%%I2%%" value="I2" condition="$InputCount >= 2" />
+        <choice name="%%I3%%" value="I3" condition="$InputCount >= 3" />
+        <choice name="%%I4%%" value="I4" condition="$InputCount >= 4" />
+        <choice name="%%I5%%" value="I5" condition="$InputCount >= 5" />
+        <choice name="%%I6%%" value="I6" condition="$InputCount >= 6" />
+        <choice name="%%I7%%" value="I7" condition="$InputCount >= 7" />
+        <choice name="%%I8%%" value="I8" condition="$InputCount >= 8" />
+        <choice name="%%I9%%" value="I9" condition="$InputCount >= 9" />
+        <choice name="%%I10%%" value="I10" condition="$InputCount >= 10" />
+        <choice name="%%I11%%" value="I11" condition="$InputCount >= 11" />
+        <choice name="%%I12%%" value="I12" condition="$InputCount >= 12" />
+        <choice name="%%I13%%" value="I13" condition="$InputCount >= 13" />
+        <choice name="%%I14%%" value="I14" condition="$InputCount >= 14" />
+        <choice name="%%I15%%" value="I15" condition="$InputCount >= 15" />
+        <choice name="%%I16%%" value="I16" condition="$InputCount >= 16" />
+        <choice name="%%I17%%" value="I17" condition="$InputCount >= 17" />
+        <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
+        <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
+        <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Action" type="string" default="light off" hidden="true" />
     </function>
 
     <function name="4. Identify Light Flash" export="DeviceControl:lightflash">
       <parameter name="Select Device" type="mcstring">
-        <choice name="%%I1%%" value="I1" />
-        <choice name="%%I2%%" value="I2" />
-        <choice name="%%I3%%" value="I3" />
-        <choice name="%%I4%%" value="I4" />
-        <choice name="%%I5%%" value="I5" />
-        <choice name="%%I6%%" value="I6" />
-        <choice name="%%I7%%" value="I7" />
-        <choice name="%%I8%%" value="I8" />
-        <choice name="%%I9%%" value="I9" />
-        <choice name="%%I10%%" value="I10" />
-        <choice name="%%I11%%" value="I11" />
-        <choice name="%%I12%%" value="I12" />
-        <choice name="%%I13%%" value="I13" />
-        <choice name="%%I14%%" value="I14" />
-        <choice name="%%I15%%" value="I15" />
-        <choice name="%%I16%%" value="I16" />
-        <choice name="%%I17%%" value="I17" />
-        <choice name="%%I18%%" value="I18" />
-        <choice name="%%I19%%" value="I19" />
-        <choice name="%%I20%%" value="I20" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%I1%%" value="I1" condition="$InputCount >= 1" />
+        <choice name="%%I2%%" value="I2" condition="$InputCount >= 2" />
+        <choice name="%%I3%%" value="I3" condition="$InputCount >= 3" />
+        <choice name="%%I4%%" value="I4" condition="$InputCount >= 4" />
+        <choice name="%%I5%%" value="I5" condition="$InputCount >= 5" />
+        <choice name="%%I6%%" value="I6" condition="$InputCount >= 6" />
+        <choice name="%%I7%%" value="I7" condition="$InputCount >= 7" />
+        <choice name="%%I8%%" value="I8" condition="$InputCount >= 8" />
+        <choice name="%%I9%%" value="I9" condition="$InputCount >= 9" />
+        <choice name="%%I10%%" value="I10" condition="$InputCount >= 10" />
+        <choice name="%%I11%%" value="I11" condition="$InputCount >= 11" />
+        <choice name="%%I12%%" value="I12" condition="$InputCount >= 12" />
+        <choice name="%%I13%%" value="I13" condition="$InputCount >= 13" />
+        <choice name="%%I14%%" value="I14" condition="$InputCount >= 14" />
+        <choice name="%%I15%%" value="I15" condition="$InputCount >= 15" />
+        <choice name="%%I16%%" value="I16" condition="$InputCount >= 16" />
+        <choice name="%%I17%%" value="I17" condition="$InputCount >= 17" />
+        <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
+        <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
+        <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Action" type="string" default="light flash" hidden="true" />
     </function>
 
     <function name="5. OSD On" export="DeviceControl:osdon">
       <parameter name="Select Device" type="mcstring">
-        <choice name="%%I1%%" value="I1" />
-        <choice name="%%I2%%" value="I2" />
-        <choice name="%%I3%%" value="I3" />
-        <choice name="%%I4%%" value="I4" />
-        <choice name="%%I5%%" value="I5" />
-        <choice name="%%I6%%" value="I6" />
-        <choice name="%%I7%%" value="I7" />
-        <choice name="%%I8%%" value="I8" />
-        <choice name="%%I9%%" value="I9" />
-        <choice name="%%I10%%" value="I10" />
-        <choice name="%%I11%%" value="I11" />
-        <choice name="%%I12%%" value="I12" />
-        <choice name="%%I13%%" value="I13" />
-        <choice name="%%I14%%" value="I14" />
-        <choice name="%%I15%%" value="I15" />
-        <choice name="%%I16%%" value="I16" />
-        <choice name="%%I17%%" value="I17" />
-        <choice name="%%I18%%" value="I18" />
-        <choice name="%%I19%%" value="I19" />
-        <choice name="%%I20%%" value="I20" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%I1%%" value="I1" condition="$InputCount >= 1" />
+        <choice name="%%I2%%" value="I2" condition="$InputCount >= 2" />
+        <choice name="%%I3%%" value="I3" condition="$InputCount >= 3" />
+        <choice name="%%I4%%" value="I4" condition="$InputCount >= 4" />
+        <choice name="%%I5%%" value="I5" condition="$InputCount >= 5" />
+        <choice name="%%I6%%" value="I6" condition="$InputCount >= 6" />
+        <choice name="%%I7%%" value="I7" condition="$InputCount >= 7" />
+        <choice name="%%I8%%" value="I8" condition="$InputCount >= 8" />
+        <choice name="%%I9%%" value="I9" condition="$InputCount >= 9" />
+        <choice name="%%I10%%" value="I10" condition="$InputCount >= 10" />
+        <choice name="%%I11%%" value="I11" condition="$InputCount >= 11" />
+        <choice name="%%I12%%" value="I12" condition="$InputCount >= 12" />
+        <choice name="%%I13%%" value="I13" condition="$InputCount >= 13" />
+        <choice name="%%I14%%" value="I14" condition="$InputCount >= 14" />
+        <choice name="%%I15%%" value="I15" condition="$InputCount >= 15" />
+        <choice name="%%I16%%" value="I16" condition="$InputCount >= 16" />
+        <choice name="%%I17%%" value="I17" condition="$InputCount >= 17" />
+        <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
+        <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
+        <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Action" type="string" default="osd on" hidden="true" />
     </function>
 
     <function name="6. OSD Off" export="DeviceControl:osdoff">
       <parameter name="Select Device" type="mcstring">
-        <choice name="%%I1%%" value="I1" />
-        <choice name="%%I2%%" value="I2" />
-        <choice name="%%I3%%" value="I3" />
-        <choice name="%%I4%%" value="I4" />
-        <choice name="%%I5%%" value="I5" />
-        <choice name="%%I6%%" value="I6" />
-        <choice name="%%I7%%" value="I7" />
-        <choice name="%%I8%%" value="I8" />
-        <choice name="%%I9%%" value="I9" />
-        <choice name="%%I10%%" value="I10" />
-        <choice name="%%I11%%" value="I11" />
-        <choice name="%%I12%%" value="I12" />
-        <choice name="%%I13%%" value="I13" />
-        <choice name="%%I14%%" value="I14" />
-        <choice name="%%I15%%" value="I15" />
-        <choice name="%%I16%%" value="I16" />
-        <choice name="%%I17%%" value="I17" />
-        <choice name="%%I18%%" value="I18" />
-        <choice name="%%I19%%" value="I19" />
-        <choice name="%%I20%%" value="I20" />
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%I1%%" value="I1" condition="$InputCount >= 1" />
+        <choice name="%%I2%%" value="I2" condition="$InputCount >= 2" />
+        <choice name="%%I3%%" value="I3" condition="$InputCount >= 3" />
+        <choice name="%%I4%%" value="I4" condition="$InputCount >= 4" />
+        <choice name="%%I5%%" value="I5" condition="$InputCount >= 5" />
+        <choice name="%%I6%%" value="I6" condition="$InputCount >= 6" />
+        <choice name="%%I7%%" value="I7" condition="$InputCount >= 7" />
+        <choice name="%%I8%%" value="I8" condition="$InputCount >= 8" />
+        <choice name="%%I9%%" value="I9" condition="$InputCount >= 9" />
+        <choice name="%%I10%%" value="I10" condition="$InputCount >= 10" />
+        <choice name="%%I11%%" value="I11" condition="$InputCount >= 11" />
+        <choice name="%%I12%%" value="I12" condition="$InputCount >= 12" />
+        <choice name="%%I13%%" value="I13" condition="$InputCount >= 13" />
+        <choice name="%%I14%%" value="I14" condition="$InputCount >= 14" />
+        <choice name="%%I15%%" value="I15" condition="$InputCount >= 15" />
+        <choice name="%%I16%%" value="I16" condition="$InputCount >= 16" />
+        <choice name="%%I17%%" value="I17" condition="$InputCount >= 17" />
+        <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
+        <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
+        <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Action" type="string" default="osd off" hidden="true" />
     </function>
 
     <function name="7. Display Stream On" export="DeviceControl:streamon">
       <parameter name="Select Display (Output)" type="mcstring">
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Action" type="string" default="stream on" hidden="true" />
     </function>
 
     <function name="8. Display Stream Off" export="DeviceControl:streamoff">
       <parameter name="Select Display (Output)" type="mcstring">
-        <choice name="%%O1%%" value="O1" />
-        <choice name="%%O2%%" value="O2" />
-        <choice name="%%O3%%" value="O3" />
-        <choice name="%%O4%%" value="O4" />
-        <choice name="%%O5%%" value="O5" />
-        <choice name="%%O6%%" value="O6" />
-        <choice name="%%O7%%" value="O7" />
-        <choice name="%%O8%%" value="O8" />
-        <choice name="%%O9%%" value="O9" />
-        <choice name="%%O10%%" value="O10" />
+        <choice name="%%O1%%" value="O1" condition="$OutputCount >= 1" />
+        <choice name="%%O2%%" value="O2" condition="$OutputCount >= 2" />
+        <choice name="%%O3%%" value="O3" condition="$OutputCount >= 3" />
+        <choice name="%%O4%%" value="O4" condition="$OutputCount >= 4" />
+        <choice name="%%O5%%" value="O5" condition="$OutputCount >= 5" />
+        <choice name="%%O6%%" value="O6" condition="$OutputCount >= 6" />
+        <choice name="%%O7%%" value="O7" condition="$OutputCount >= 7" />
+        <choice name="%%O8%%" value="O8" condition="$OutputCount >= 8" />
+        <choice name="%%O9%%" value="O9" condition="$OutputCount >= 9" />
+        <choice name="%%O10%%" value="O10" condition="$OutputCount >= 10" />
       </parameter>
       <parameter name="Action" type="string" default="stream off" hidden="true" />
     </function>
@@ -652,16 +652,16 @@
     <!-- Arm the layout. Attach to each top-of-page layout button (also flips page). -->
     <function name="1. Select Layout (Arm)" export="SelectLayout">
       <parameter name="Select Layout Slot" type="mcstring">
-        <choice name="%%L1%%" value="L1" />
-        <choice name="%%L2%%" value="L2" />
-        <choice name="%%L3%%" value="L3" />
-        <choice name="%%L4%%" value="L4" />
-        <choice name="%%L5%%" value="L5" />
-        <choice name="%%L6%%" value="L6" />
-        <choice name="%%L7%%" value="L7" />
-        <choice name="%%L8%%" value="L8" />
-        <choice name="%%L9%%" value="L9" />
-        <choice name="%%L10%%" value="L10" />
+        <choice name="%%L1%%" value="L1" condition="$LayoutCount >= 1" />
+        <choice name="%%L2%%" value="L2" condition="$LayoutCount >= 2" />
+        <choice name="%%L3%%" value="L3" condition="$LayoutCount >= 3" />
+        <choice name="%%L4%%" value="L4" condition="$LayoutCount >= 4" />
+        <choice name="%%L5%%" value="L5" condition="$LayoutCount >= 5" />
+        <choice name="%%L6%%" value="L6" condition="$LayoutCount >= 6" />
+        <choice name="%%L7%%" value="L7" condition="$LayoutCount >= 7" />
+        <choice name="%%L8%%" value="L8" condition="$LayoutCount >= 8" />
+        <choice name="%%L9%%" value="L9" condition="$LayoutCount >= 9" />
+        <choice name="%%L10%%" value="L10" condition="$LayoutCount >= 10" />
       </parameter>
     </function>
 
@@ -718,26 +718,26 @@
     <!-- Route the tapped input into the armed layout+window. -->
     <function name="3. Route Input to Selected Window" export="RouteSelectedInput">
       <parameter name="Select Input Slot" type="mcstring">
-        <choice name="%%I1%%" value="I1" />
-        <choice name="%%I2%%" value="I2" />
-        <choice name="%%I3%%" value="I3" />
-        <choice name="%%I4%%" value="I4" />
-        <choice name="%%I5%%" value="I5" />
-        <choice name="%%I6%%" value="I6" />
-        <choice name="%%I7%%" value="I7" />
-        <choice name="%%I8%%" value="I8" />
-        <choice name="%%I9%%" value="I9" />
-        <choice name="%%I10%%" value="I10" />
-        <choice name="%%I11%%" value="I11" />
-        <choice name="%%I12%%" value="I12" />
-        <choice name="%%I13%%" value="I13" />
-        <choice name="%%I14%%" value="I14" />
-        <choice name="%%I15%%" value="I15" />
-        <choice name="%%I16%%" value="I16" />
-        <choice name="%%I17%%" value="I17" />
-        <choice name="%%I18%%" value="I18" />
-        <choice name="%%I19%%" value="I19" />
-        <choice name="%%I20%%" value="I20" />
+        <choice name="%%I1%%" value="I1" condition="$InputCount >= 1" />
+        <choice name="%%I2%%" value="I2" condition="$InputCount >= 2" />
+        <choice name="%%I3%%" value="I3" condition="$InputCount >= 3" />
+        <choice name="%%I4%%" value="I4" condition="$InputCount >= 4" />
+        <choice name="%%I5%%" value="I5" condition="$InputCount >= 5" />
+        <choice name="%%I6%%" value="I6" condition="$InputCount >= 6" />
+        <choice name="%%I7%%" value="I7" condition="$InputCount >= 7" />
+        <choice name="%%I8%%" value="I8" condition="$InputCount >= 8" />
+        <choice name="%%I9%%" value="I9" condition="$InputCount >= 9" />
+        <choice name="%%I10%%" value="I10" condition="$InputCount >= 10" />
+        <choice name="%%I11%%" value="I11" condition="$InputCount >= 11" />
+        <choice name="%%I12%%" value="I12" condition="$InputCount >= 12" />
+        <choice name="%%I13%%" value="I13" condition="$InputCount >= 13" />
+        <choice name="%%I14%%" value="I14" condition="$InputCount >= 14" />
+        <choice name="%%I15%%" value="I15" condition="$InputCount >= 15" />
+        <choice name="%%I16%%" value="I16" condition="$InputCount >= 16" />
+        <choice name="%%I17%%" value="I17" condition="$InputCount >= 17" />
+        <choice name="%%I18%%" value="I18" condition="$InputCount >= 18" />
+        <choice name="%%I19%%" value="I19" condition="$InputCount >= 19" />
+        <choice name="%%I20%%" value="I20" condition="$InputCount >= 20" />
       </parameter>
     </function>
 

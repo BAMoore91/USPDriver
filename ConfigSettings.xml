@@ -5,88 +5,98 @@
     <setting name="USP Port" variable="USPPort" type="integer" default="24" />
   </category>
 
-  <category name="Layout Definitions">
-    <setting name="Layout 1 ID" variable="L1" type="string" default="" />
-    <setting name="Layout 2 ID" variable="L2" type="string" default="" />
-    <setting name="Layout 3 ID" variable="L3" type="string" default="" />
-    <setting name="Layout 4 ID" variable="L4" type="string" default="" />
-    <setting name="Layout 5 ID" variable="L5" type="string" default="" />
-    <setting name="Layout 6 ID" variable="L6" type="string" default="" />
-    <setting name="Layout 7 ID" variable="L7" type="string" default="" />
-    <setting name="Layout 8 ID" variable="L8" type="string" default="" />
-    <setting name="Layout 9 ID" variable="L9" type="string" default="" />
-    <setting name="Layout 10 ID" variable="L10" type="string" default="" />
+  <category name="Definition Counts">
+    <setting name="Number of Layouts" variable="LayoutCount" type="integer" default="10" description="How many Layout Definition fields to show (max 10)." />
+    <setting name="Number of Outputs (Displays)" variable="OutputCount" type="integer" default="10" description="How many Output (Display) Definition fields to show (max 10)." />
+    <setting name="Number of Inputs (Sources)" variable="InputCount" type="integer" default="20" description="How many Input (Source) Definition fields to show (max 20)." />
+    <setting name="Number of Matrix Presets" variable="MatrixCount" type="integer" default="4" description="How many Matrix Name fields to show (max 4)." />
+    <setting name="Number of Video Walls" variable="WallCount" type="integer" default="4" description="How many Video Wall Name fields to show (max 4)." />
+    <setting name="Number of Wall Layouts" variable="WallLayoutCount" type="integer" default="8" description="How many Wall Layout Name fields to show (max 8)." />
+    <setting name="Number of Playlists" variable="PlaylistCount" type="integer" default="8" description="How many Playlist Name fields to show (max 8)." />
   </category>
 
-  <category name="Output (Display) Definitions">
-    <setting name="Output 1 ID" variable="O1" type="string" default="" />
-    <setting name="Output 2 ID" variable="O2" type="string" default="" />
-    <setting name="Output 3 ID" variable="O3" type="string" default="" />
-    <setting name="Output 4 ID" variable="O4" type="string" default="" />
-    <setting name="Output 5 ID" variable="O5" type="string" default="" />
-    <setting name="Output 6 ID" variable="O6" type="string" default="" />
-    <setting name="Output 7 ID" variable="O7" type="string" default="" />
-    <setting name="Output 8 ID" variable="O8" type="string" default="" />
-    <setting name="Output 9 ID" variable="O9" type="string" default="" />
-    <setting name="Output 10 ID" variable="O10" type="string" default="" />
+  <category name="Layout Definitions" condition="$LayoutCount >= 1">
+    <setting name="Layout 1 ID" variable="L1" type="string" default="" condition="$LayoutCount >= 1" />
+    <setting name="Layout 2 ID" variable="L2" type="string" default="" condition="$LayoutCount >= 2" />
+    <setting name="Layout 3 ID" variable="L3" type="string" default="" condition="$LayoutCount >= 3" />
+    <setting name="Layout 4 ID" variable="L4" type="string" default="" condition="$LayoutCount >= 4" />
+    <setting name="Layout 5 ID" variable="L5" type="string" default="" condition="$LayoutCount >= 5" />
+    <setting name="Layout 6 ID" variable="L6" type="string" default="" condition="$LayoutCount >= 6" />
+    <setting name="Layout 7 ID" variable="L7" type="string" default="" condition="$LayoutCount >= 7" />
+    <setting name="Layout 8 ID" variable="L8" type="string" default="" condition="$LayoutCount >= 8" />
+    <setting name="Layout 9 ID" variable="L9" type="string" default="" condition="$LayoutCount >= 9" />
+    <setting name="Layout 10 ID" variable="L10" type="string" default="" condition="$LayoutCount >= 10" />
   </category>
 
-  <category name="Input (Source) Definitions">
-    <setting name="Input 1 ID" variable="I1" type="string" default="" />
-    <setting name="Input 2 ID" variable="I2" type="string" default="" />
-    <setting name="Input 3 ID" variable="I3" type="string" default="" />
-    <setting name="Input 4 ID" variable="I4" type="string" default="" />
-    <setting name="Input 5 ID" variable="I5" type="string" default="" />
-    <setting name="Input 6 ID" variable="I6" type="string" default="" />
-    <setting name="Input 7 ID" variable="I7" type="string" default="" />
-    <setting name="Input 8 ID" variable="I8" type="string" default="" />
-    <setting name="Input 9 ID" variable="I9" type="string" default="" />
-    <setting name="Input 10 ID" variable="I10" type="string" default="" />
-    <setting name="Input 11 ID" variable="I11" type="string" default="" />
-    <setting name="Input 12 ID" variable="I12" type="string" default="" />
-    <setting name="Input 13 ID" variable="I13" type="string" default="" />
-    <setting name="Input 14 ID" variable="I14" type="string" default="" />
-    <setting name="Input 15 ID" variable="I15" type="string" default="" />
-    <setting name="Input 16 ID" variable="I16" type="string" default="" />
-    <setting name="Input 17 ID" variable="I17" type="string" default="" />
-    <setting name="Input 18 ID" variable="I18" type="string" default="" />
-    <setting name="Input 19 ID" variable="I19" type="string" default="" />
-    <setting name="Input 20 ID" variable="I20" type="string" default="" />
+  <category name="Output (Display) Definitions" condition="$OutputCount >= 1">
+    <setting name="Output 1 ID" variable="O1" type="string" default="" condition="$OutputCount >= 1" />
+    <setting name="Output 2 ID" variable="O2" type="string" default="" condition="$OutputCount >= 2" />
+    <setting name="Output 3 ID" variable="O3" type="string" default="" condition="$OutputCount >= 3" />
+    <setting name="Output 4 ID" variable="O4" type="string" default="" condition="$OutputCount >= 4" />
+    <setting name="Output 5 ID" variable="O5" type="string" default="" condition="$OutputCount >= 5" />
+    <setting name="Output 6 ID" variable="O6" type="string" default="" condition="$OutputCount >= 6" />
+    <setting name="Output 7 ID" variable="O7" type="string" default="" condition="$OutputCount >= 7" />
+    <setting name="Output 8 ID" variable="O8" type="string" default="" condition="$OutputCount >= 8" />
+    <setting name="Output 9 ID" variable="O9" type="string" default="" condition="$OutputCount >= 9" />
+    <setting name="Output 10 ID" variable="O10" type="string" default="" condition="$OutputCount >= 10" />
   </category>
 
-  <category name="Matrix Definitions" advanced="true">
-    <setting name="Matrix 1 Name" variable="MX1" type="string" default="" />
-    <setting name="Matrix 2 Name" variable="MX2" type="string" default="" />
-    <setting name="Matrix 3 Name" variable="MX3" type="string" default="" />
-    <setting name="Matrix 4 Name" variable="MX4" type="string" default="" />
+  <category name="Input (Source) Definitions" condition="$InputCount >= 1">
+    <setting name="Input 1 ID" variable="I1" type="string" default="" condition="$InputCount >= 1" />
+    <setting name="Input 2 ID" variable="I2" type="string" default="" condition="$InputCount >= 2" />
+    <setting name="Input 3 ID" variable="I3" type="string" default="" condition="$InputCount >= 3" />
+    <setting name="Input 4 ID" variable="I4" type="string" default="" condition="$InputCount >= 4" />
+    <setting name="Input 5 ID" variable="I5" type="string" default="" condition="$InputCount >= 5" />
+    <setting name="Input 6 ID" variable="I6" type="string" default="" condition="$InputCount >= 6" />
+    <setting name="Input 7 ID" variable="I7" type="string" default="" condition="$InputCount >= 7" />
+    <setting name="Input 8 ID" variable="I8" type="string" default="" condition="$InputCount >= 8" />
+    <setting name="Input 9 ID" variable="I9" type="string" default="" condition="$InputCount >= 9" />
+    <setting name="Input 10 ID" variable="I10" type="string" default="" condition="$InputCount >= 10" />
+    <setting name="Input 11 ID" variable="I11" type="string" default="" condition="$InputCount >= 11" />
+    <setting name="Input 12 ID" variable="I12" type="string" default="" condition="$InputCount >= 12" />
+    <setting name="Input 13 ID" variable="I13" type="string" default="" condition="$InputCount >= 13" />
+    <setting name="Input 14 ID" variable="I14" type="string" default="" condition="$InputCount >= 14" />
+    <setting name="Input 15 ID" variable="I15" type="string" default="" condition="$InputCount >= 15" />
+    <setting name="Input 16 ID" variable="I16" type="string" default="" condition="$InputCount >= 16" />
+    <setting name="Input 17 ID" variable="I17" type="string" default="" condition="$InputCount >= 17" />
+    <setting name="Input 18 ID" variable="I18" type="string" default="" condition="$InputCount >= 18" />
+    <setting name="Input 19 ID" variable="I19" type="string" default="" condition="$InputCount >= 19" />
+    <setting name="Input 20 ID" variable="I20" type="string" default="" condition="$InputCount >= 20" />
   </category>
 
-  <category name="Video Wall Definitions" advanced="true">
-    <setting name="Video Wall 1 Name" variable="VW1" type="string" default="" />
-    <setting name="Video Wall 2 Name" variable="VW2" type="string" default="" />
-    <setting name="Video Wall 3 Name" variable="VW3" type="string" default="" />
-    <setting name="Video Wall 4 Name" variable="VW4" type="string" default="" />
+  <category name="Matrix Definitions" condition="$MatrixCount >= 1" advanced="true">
+    <setting name="Matrix 1 Name" variable="MX1" type="string" default="" condition="$MatrixCount >= 1" />
+    <setting name="Matrix 2 Name" variable="MX2" type="string" default="" condition="$MatrixCount >= 2" />
+    <setting name="Matrix 3 Name" variable="MX3" type="string" default="" condition="$MatrixCount >= 3" />
+    <setting name="Matrix 4 Name" variable="MX4" type="string" default="" condition="$MatrixCount >= 4" />
   </category>
 
-  <category name="Video Wall Layout Definitions" advanced="true">
-    <setting name="Wall Layout 1 Name" variable="WL1" type="string" default="" />
-    <setting name="Wall Layout 2 Name" variable="WL2" type="string" default="" />
-    <setting name="Wall Layout 3 Name" variable="WL3" type="string" default="" />
-    <setting name="Wall Layout 4 Name" variable="WL4" type="string" default="" />
-    <setting name="Wall Layout 5 Name" variable="WL5" type="string" default="" />
-    <setting name="Wall Layout 6 Name" variable="WL6" type="string" default="" />
-    <setting name="Wall Layout 7 Name" variable="WL7" type="string" default="" />
-    <setting name="Wall Layout 8 Name" variable="WL8" type="string" default="" />
+  <category name="Video Wall Definitions" condition="$WallCount >= 1" advanced="true">
+    <setting name="Video Wall 1 Name" variable="VW1" type="string" default="" condition="$WallCount >= 1" />
+    <setting name="Video Wall 2 Name" variable="VW2" type="string" default="" condition="$WallCount >= 2" />
+    <setting name="Video Wall 3 Name" variable="VW3" type="string" default="" condition="$WallCount >= 3" />
+    <setting name="Video Wall 4 Name" variable="VW4" type="string" default="" condition="$WallCount >= 4" />
   </category>
 
-  <category name="Playlist Definitions" advanced="true">
-    <setting name="Playlist 1 Name" variable="PL1" type="string" default="" />
-    <setting name="Playlist 2 Name" variable="PL2" type="string" default="" />
-    <setting name="Playlist 3 Name" variable="PL3" type="string" default="" />
-    <setting name="Playlist 4 Name" variable="PL4" type="string" default="" />
-    <setting name="Playlist 5 Name" variable="PL5" type="string" default="" />
-    <setting name="Playlist 6 Name" variable="PL6" type="string" default="" />
-    <setting name="Playlist 7 Name" variable="PL7" type="string" default="" />
-    <setting name="Playlist 8 Name" variable="PL8" type="string" default="" />
+  <category name="Video Wall Layout Definitions" condition="$WallLayoutCount >= 1" advanced="true">
+    <setting name="Wall Layout 1 Name" variable="WL1" type="string" default="" condition="$WallLayoutCount >= 1" />
+    <setting name="Wall Layout 2 Name" variable="WL2" type="string" default="" condition="$WallLayoutCount >= 2" />
+    <setting name="Wall Layout 3 Name" variable="WL3" type="string" default="" condition="$WallLayoutCount >= 3" />
+    <setting name="Wall Layout 4 Name" variable="WL4" type="string" default="" condition="$WallLayoutCount >= 4" />
+    <setting name="Wall Layout 5 Name" variable="WL5" type="string" default="" condition="$WallLayoutCount >= 5" />
+    <setting name="Wall Layout 6 Name" variable="WL6" type="string" default="" condition="$WallLayoutCount >= 6" />
+    <setting name="Wall Layout 7 Name" variable="WL7" type="string" default="" condition="$WallLayoutCount >= 7" />
+    <setting name="Wall Layout 8 Name" variable="WL8" type="string" default="" condition="$WallLayoutCount >= 8" />
+  </category>
+
+  <category name="Playlist Definitions" condition="$PlaylistCount >= 1" advanced="true">
+    <setting name="Playlist 1 Name" variable="PL1" type="string" default="" condition="$PlaylistCount >= 1" />
+    <setting name="Playlist 2 Name" variable="PL2" type="string" default="" condition="$PlaylistCount >= 2" />
+    <setting name="Playlist 3 Name" variable="PL3" type="string" default="" condition="$PlaylistCount >= 3" />
+    <setting name="Playlist 4 Name" variable="PL4" type="string" default="" condition="$PlaylistCount >= 4" />
+    <setting name="Playlist 5 Name" variable="PL5" type="string" default="" condition="$PlaylistCount >= 5" />
+    <setting name="Playlist 6 Name" variable="PL6" type="string" default="" condition="$PlaylistCount >= 6" />
+    <setting name="Playlist 7 Name" variable="PL7" type="string" default="" condition="$PlaylistCount >= 7" />
+    <setting name="Playlist 8 Name" variable="PL8" type="string" default="" condition="$PlaylistCount >= 8" />
   </category>
 </configuration>

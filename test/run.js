@@ -23,6 +23,7 @@ const CONFIG = {
   L1: 'lay1', L10: 'lay10', O1: 'RX1', O2: 'RX2', O3: 'RX3',
   I1: 'TX1', I2: 'TX2',
   MX1: 'mx1', VW1: 'videowall2', WL1: 'vlayout1', PL1: '444',
+  C1: '0036', C2: '0036, 0037', C3: 'POWERON',
 };
 
 // ---- Build a fresh sandbox + load the driver ----
@@ -95,6 +96,23 @@ const cases = [
   ['SystemControl("get devicelist")', 'config get devicelist'],
   ['SystemControl("get device status ALL")', 'config get device status ALL'],
   ['SendRawCommand("mvid layout add 14")', 'mvid layout add 14'],
+  // CEC: config set device cec {hexData}[,{hexData}...] {device_id/device_mac}
+  ['CECPower("O1","poweron")', 'config set device cec poweron RX1'],
+  ['CECPower("O1","poweroff")', 'config set device cec poweroff RX1'],
+  ['CECPowerScope("ALLRX","poweron")', 'config set device cec poweron ALLRX'],
+  ['CECPowerMulti("O1","O2","O3","poweroff")', 'config set device cec poweroff RX1:RX2:RX3'],
+  ['CECPowerMulti("O1","","O3","poweron")', 'config set device cec poweron RX1:RX3'],
+  ['CECSendSlot("C1","O1")', 'config set device cec 0036 RX1'],
+  ['CECSendSlot("C1","I1")', 'config set device cec 0036 TX1'],
+  ['CECSendSlotMulti("C1","O1","O2","")', 'config set device cec 0036 RX1:RX2'],
+  ['CECSendSlotScope("C1","ALL")', 'config set device cec 0036 ALL'],
+  ['CECSendRaw("0036","O1")', 'config set device cec 0036 RX1'],
+  // typed spaces collapse to the documented space-free block form
+  ['CECSendSlot("C2","O1")', 'config set device cec 0036,0037 RX1'],
+  ['CECSendRaw("00 36 , 00 37","O1")', 'config set device cec 0036,0037 RX1'],
+  // power keywords fold to the lower case the CBOX expects
+  ['CECSendSlot("C3","O1")', 'config set device cec poweron RX1'],
+  ['CECSendRaw("PowerOff","O1")', 'config set device cec poweroff RX1'],
   // original Multiview behavior preserved
   ['ShowLayoutOnDisplay("L1","O1")', 'mvid layout active lay1'],
 ];
@@ -326,6 +344,55 @@ const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   check('RefreshAll queries all three',
     a.indexOf('config get devicelist') >= 0 && a.indexOf('mvid get layouts') >= 0 && a.indexOf('play pl get') >= 0,
     a.join(' | '));
+})();
+
+// =====================================================================
+// 6. CEC
+// =====================================================================
+console.log('CEC:');
+(function () {
+  const d = loadDriver();
+  d.call('CECPower("O1","poweron")');
+  check('CEC writes LastCECData', d.vars.LastCECData === 'poweron', d.vars.LastCECData);
+  check('CEC writes LastCECTarget', d.vars.LastCECTarget === 'RX1', d.vars.LastCECTarget);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('CECPower("O9","poweron")');          // O9 not in fixtures -> empty slot
+  check('CEC empty device slot -> no command', d.allSent().length === 0, d.allSent().join('|'));
+  d.call('CECSendSlot("C9","O1")');            // C9 not in fixtures -> empty payload
+  check('CEC empty command slot -> no command', d.allSent().length === 0, d.allSent().join('|'));
+  d.call('CECSendRaw("","O1")');
+  check('CEC empty raw data -> no command', d.allSent().length === 0, d.allSent().join('|'));
+  d.call('CECPowerMulti("","","","poweron")');
+  check('CEC no targets -> no command', d.allSent().length === 0, d.allSent().join('|'));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed('{"cmd":"config get devicelist","info":{"BBB":{"id":"RX-LED","ch_v":"1"}},"code":0}');
+  d.call('SelectDisplay(0,0)');
+  d.call('CECPowerLive("poweron")');
+  check('CECPowerLive targets the live display',
+    d.lastSent() === 'config set device cec poweron RX-LED', d.lastSent());
+  d.call('CECSendSlotLive("C1")');
+  check('CECSendSlotLive targets the live display',
+    d.lastSent() === 'config set device cec 0036 RX-LED', d.lastSent());
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('CECPowerLive("poweron")');
+  check('CECPowerLive guards with no display selected', d.allSent().length === 0, d.allSent().join('|'));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed('{"cmd":"config set device cec poweron 188A6A45C4A5","info":"OK","code":0}');
+  check('CEC reply parses as success', d.vars.LastCommandSuccess === true);
+  check('CEC reply echoes cmd', d.vars.LastResponseCmd === 'config set device cec poweron 188A6A45C4A5',
+    d.vars.LastResponseCmd);
 })();
 
 console.log('');

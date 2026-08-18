@@ -3,7 +3,7 @@ var hostIP = Config.Get("IPAddress");
 var hostPort = Config.Get("USPPort");
 
 function Initialize() {
-    System.Print("--- IPCBox Driver V2.0 Initialized ---\r\n");
+    System.Print("--- IPCBox Driver V3.3 Initialized ---\r\n");
     Connect();
 }
 
@@ -515,6 +515,135 @@ function SendRawCommand(cmd) {
 }
 
 // =====================================================================
+// CEC
+// API: config set device cec {hexData}[,{hexData}...] {device_id/device_mac}
+//   - {hexData} is a single space-free block, e.g. "0036".
+//   - The literals "poweron" / "poweroff" ask the CBOX to emit its own set
+//     of common CEC power frames at the sink device from that endpoint.
+//     Display power buttons should use these rather than a hand-built frame.
+//   - Several frames ship in one command, separated by ",".
+//   - Several endpoints ship in one command, separated by ":", or use the
+//     ALL / ALLRX / ALLTX keywords. The API caps one command at fewer than
+//     50 endpoints.
+// The API exposes no CEC query, so there is no true display power state to
+// read back. The driver publishes what it last sent, not what the sink did.
+// =====================================================================
+
+// Strip whitespace so a typed "0036, 0037" becomes the documented block form
+// "0036,0037", and fold the power keywords to the lower case the CBOX expects.
+function NormalizeCEC(data) {
+    if (data == null) {
+        return "";
+    }
+    var s = "" + data;
+    var out = "";
+    for (var i = 0; i < s.length; i++) {
+        var ch = s.charAt(i);
+        if (ch !== " " && ch !== "\t" && ch !== "\r" && ch !== "\n") {
+            out += ch;
+        }
+    }
+    var lower = out.toLowerCase();
+    if (lower === "poweron" || lower === "poweroff") {
+        return lower;
+    }
+    return out;
+}
+
+// Resolve config slots to endpoint ids and join them with the API's ":".
+function JoinCECTargets(keys) {
+    var ids = "";
+    for (var i = 0; i < keys.length; i++) {
+        if (!keys[i]) {
+            continue;
+        }
+        var id = Config.Get(keys[i]);
+        if (id) {
+            ids += (ids === "" ? "" : ":") + id;
+        }
+    }
+    return ids;
+}
+
+/** Build and send one CEC command. payload is raw/keyword data, target an endpoint spec. */
+function SendCEC(payload, target) {
+    var data = NormalizeCEC(payload);
+    if (!data) {
+        System.Print("[Error] CEC: no command data.\r\n");
+        return;
+    }
+    if (!target) {
+        System.Print("[Error] CEC: no target endpoint.\r\n");
+        return;
+    }
+    SendCommand("config set device cec " + data + " " + target);
+    SystemVars.Write("LastCECData", data);
+    SystemVars.Write("LastCECTarget", target);
+}
+
+/** Power a sink on/off through one endpoint. action = "poweron" / "poweroff". */
+function CECPower(deviceKey, action) {
+    var id = ResolveSlot(deviceKey);
+    if (id) {
+        SendCEC(action, id);
+    }
+}
+
+/** Power every sink on/off. scope = "ALLRX" / "ALLTX" / "ALL". */
+function CECPowerScope(scope, action) {
+    SendCEC(action, scope);
+}
+
+/** Power sinks on/off through up to three endpoints in one command. */
+function CECPowerMulti(out1, out2, out3, action) {
+    var ids = JoinCECTargets([out1, out2, out3]);
+    if (!ids) {
+        System.Print("[Error] CECPowerMulti: no target displays selected.\r\n");
+        return;
+    }
+    SendCEC(action, ids);
+}
+
+/** Send a stored CEC command (config slot C1..C16) to one endpoint. */
+function CECSendSlot(cecKey, deviceKey) {
+    var data = ResolveSlot(cecKey);
+    var id = ResolveSlot(deviceKey);
+    if (data && id) {
+        SendCEC(data, id);
+    }
+}
+
+/** Send a stored CEC command to up to three endpoints in one command. */
+function CECSendSlotMulti(cecKey, out1, out2, out3) {
+    var data = ResolveSlot(cecKey);
+    if (!data) {
+        return;
+    }
+    var ids = JoinCECTargets([out1, out2, out3]);
+    if (!ids) {
+        System.Print("[Error] CECSendSlotMulti: no target displays selected.\r\n");
+        return;
+    }
+    SendCEC(data, ids);
+}
+
+/** Send a stored CEC command to every endpoint. scope = "ALLRX" / "ALLTX" / "ALL". */
+function CECSendSlotScope(cecKey, scope) {
+    var data = ResolveSlot(cecKey);
+    if (data) {
+        SendCEC(data, scope);
+    }
+}
+
+/** Escape hatch: type CEC data (hex block, comma list, or a power keyword). */
+function CECSendRaw(hexData, deviceKey) {
+    var id = ResolveSlot(deviceKey);
+    if (id) {
+        SendCEC(hexData, id);
+    }
+}
+
+// =====================================================================
 // LIVE NAME LISTS (pulled from the CBOX)
 // Query the box and publish its real device / layout / playlist names as
 // RTI Item Lists (type "list" system variables). The operator picks from a
@@ -599,6 +728,28 @@ function RouteLiveSourceToWindow() {
     SendCommand("mvid layout tx " + g_selLayoutVal + " " + g_selWindow + " " + g_liveSrc);
     SendCommand("mvid layout active " + g_selLayoutVal);
     SystemVars.Write("WinSrc" + g_selWindow, g_liveSrc);
+}
+
+// Power the live-selected display on/off. action = "poweron" / "poweroff".
+function CECPowerLive(action) {
+    if (!g_liveDisp) {
+        System.Print("[Error] CECPowerLive: no display selected (tap a display first).\r\n");
+        return;
+    }
+    SendCEC(action, g_liveDisp);
+}
+
+// Send a stored CEC command (config slot) to the live-selected display.
+function CECSendSlotLive(cecKey) {
+    var data = ResolveSlot(cecKey);
+    if (!data) {
+        return;
+    }
+    if (!g_liveDisp) {
+        System.Print("[Error] CECSendSlotLive: no display selected (tap a display first).\r\n");
+        return;
+    }
+    SendCEC(data, g_liveDisp);
 }
 
 function PlayLivePlaylist() {

@@ -1,9 +1,9 @@
 {\rtf1\ansi\deff0{\fonttbl{\f0 Segoe UI;}}
 \fs20
 {\b\fs28 AC-MXNET USP-CBOX Control \line}
-{\fs18 Driver v2.0 \'96 AVPro Global IPCBox (USP API) \line}
+{\fs18 Driver v3.3 \'96 AVPro Global IPCBox (USP API) \line}
 \line
-This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It supports Multiview, Matrix routing, Video Wall recall, the Media Player, and per-device / system control, with two-way feedback exposed as System Variables.\line
+This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It supports Multiview, Matrix routing, Video Wall recall, the Media Player, CEC display control, and per-device / system control, with two-way feedback exposed as System Variables.\line
 \line
 {\b SETUP \line}
 1. In {\b Connection Settings} enter the CBOX {\b IP Address} and {\b USP Port} (24).\line
@@ -15,6 +15,7 @@ This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It s
 \tab {\b Video Wall Definitions} VW1-VW4: video wall names.\line
 \tab {\b Video Wall Layout Definitions} WL1-WL8: wall layout names.\line
 \tab {\b Playlist Definitions} PL1-PL8: media playlist names.\line
+\tab {\b CEC Command Definitions} C1-C8: CEC payloads (see CEC below).\line
 The drop-down lists in System Functions show these slot values by name.\line
 \line
 {\b SYSTEM FUNCTIONS \line}
@@ -24,9 +25,18 @@ The drop-down lists in System Functions show these slot values by name.\line
 {\b Media Player:} Apply Playlist to Display; Upload Playlist to Displays (up to 3).\line
 {\b Device Control:} Reboot Device; Identify Light On/Off/Flash; OSD On/Off; Display Stream On/Off.\line
 {\b System:} Reboot CBOX; Query Device List; Query All Device Status; Send Raw Command (advanced \'96 sends any API string verbatim).\line
+{\b CEC:} Display Power On/Off (one device, up to 3 displays, or all displays); Send CEC Command (a stored C1-C16 payload to one device, up to 3 displays, or all displays); Send Raw CEC Data.\line
+\line
+{\b CEC DETAIL \line}
+CEC functions build {\i config set device cec \{hexData\} \{device\}}.\line
+\tab {\b Power buttons} send the {\i poweron} / {\i poweroff} keywords. The CBOX then emits its own set of the most commonly used CEC power frames at the sink device from that endpoint \'96 use these rather than hand-building a power frame.\line
+\tab {\b Stored payloads} (C1-C16) take CEC data as one space-free block, e.g. {\i 0036}. Send several frames in one command by separating them with commas, e.g. {\i 0036,0037}. A slot may also hold {\i poweron} or {\i poweroff}. Spaces you type are stripped, so {\i 0036, 0037} is sent as {\i 0036,0037}.\line
+\tab {\b Targets} may be an encoder (TX) or a decoder (RX) \'96 CEC goes out of that endpoint to whatever is connected to it. Multi-display functions join endpoints with a colon; the API accepts fewer than 50 endpoints per command. The All Displays functions use ALLRX.\line
+\tab The USP API has {\b no CEC query}, so the driver cannot read a display's real power state. Buttons are send-only.\line
 \line
 {\b SYSTEM VARIABLES \line}
 {\b Status:} Connection Status (Connected/Disconnected).\line
 {\b Command Feedback:} Last Command Success (OK/Error), Last Command Sent, Last Response (Raw), Last Response Command, Last Response Info, Last Response Code.\line
+{\b CEC:} Last CEC Data, Last CEC Target \'96 what the driver last sent, not the sink's actual state.\line
 {\b System State:} Active Matrix Name, Active Layout Name, Active Video Wall, Active Wall Layout, Device Status (Raw). Active-state variables update from the CBOX reply to an activate command; use Query All Device Status to refresh Device Status (Raw).\line
 }

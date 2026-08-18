@@ -21,6 +21,13 @@
     <variable name="Device Status (Raw)" sysvar="DeviceStatusRaw" type="string" sample="{&quot;cmd&quot;:&quot;config get device status ALL&quot;,...}" />
   </category>
 
+  <!-- The API has no CEC query, so these report what the driver last sent, -->
+  <!-- not the sink's actual power state.                                    -->
+  <category name="CEC">
+    <variable name="Last CEC Data" sysvar="LastCECData" type="string" sample="poweron" />
+    <variable name="Last CEC Target" sysvar="LastCECTarget" type="string" sample="RX1" />
+  </category>
+
   <category name="Multiview Routing">
     <variable name="Selected Window ID" sysvar="SelectedWindowID" type="integer" sample="1" />
     <variable name="Selected Layout ID" sysvar="SelectedLayoutID" type="integer" sample="1" />

@@ -8,21 +8,43 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 |------|---------|
 | `DriverManifest.xml` | Driver metadata + stream references |
 | `USP_Driver.js` | Processor script (connection, commands, feedback parsing) |
-| `ConfigSettings.xml` | Installer-editable settings (IP/port + device/layout/matrix/wall/playlist slots) |
+| `ConfigSettings.xml` | Installer-editable settings (IP/port + device/layout/matrix/wall/playlist/CEC slots) |
 | `SystemFunctions.xml` | Functions exposed in Integration Designer |
 | `SystemVariables.xml` | Two-way feedback variables |
 | `DeviceDescription.xml` | Source/template description |
 | `Help.rtf` | In-app help text |
 
-## Feature areas (v2.0)
+## Feature areas (v3.3)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – route a source to one display, to up to three displays, or recall a named matrix preset.
 - **Video Wall** – recall a wall layout, swap a source within a wall cell.
 - **Media Player** – apply / upload a playlist to displays.
 - **Device & System** – reboot, identify light, OSD, stream on/off; CBOX reboot and status queries; raw command passthrough.
+- **CEC** – display power on/off and stored CEC payloads sent out of any TX/RX
+  endpoint, to one device, up to three displays, or all displays.
 - **Two-way feedback** – command success/last response and active matrix/layout/wall state surfaced as System Variables.
 
 See `Help.rtf` for setup and the full function/variable list.
+
+
+## CEC
+
+CEC functions build the API's `config set device cec {hexData} {device_id/device_mac}`.
+
+- **Power** buttons send the documented `poweron` / `poweroff` keywords. The CBOX
+  responds by emitting its own set of the most commonly used CEC power frames at
+  the sink device from that endpoint, so these are preferred over a hand-built
+  power frame.
+- **Stored payloads** live in `ConfigSettings` slots `C1`..`C16`. A slot holds CEC
+  data as one space-free block (`0036`), several blocks separated by commas
+  (`0036,0037`), or a power keyword. Typed spaces are stripped before sending, so
+  `0036, 0037` goes out as `0036,0037`.
+- **Targets** may be an encoder (TX) or a decoder (RX) — CEC leaves that endpoint
+  toward whatever is connected to it. The multi-display functions join endpoints
+  with `:` (the API accepts fewer than 50 per command); the all-displays functions
+  use `ALLRX`.
+- The USP API has **no CEC query**, so there is no real display power state to read
+  back. `LastCECData` / `LastCECTarget` report what the driver last sent.
 
 ## Development
 Verification (no RTI hardware required) lives in `test/` and is **not** part of

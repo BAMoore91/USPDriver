@@ -13,6 +13,7 @@
     <setting name="Number of Video Walls" variable="WallCount" type="integer" default="4" description="How many fields to show (max 16)." />
     <setting name="Number of Wall Layouts" variable="WallLayoutCount" type="integer" default="8" description="How many fields to show (max 16)." />
     <setting name="Number of Playlists" variable="PlaylistCount" type="integer" default="8" description="How many fields to show (max 16)." />
+    <setting name="Number of CEC Commands" variable="CECCount" type="integer" default="8" description="How many fields to show (max 16)." />
   </category>
 
   <category name="Layout Definitions" condition="$LayoutCount >= 1">
@@ -258,5 +259,26 @@
     <setting name="Playlist 14 Name" variable="PL14" type="string" default="" condition="$PlaylistCount >= 14" />
     <setting name="Playlist 15 Name" variable="PL15" type="string" default="" condition="$PlaylistCount >= 15" />
     <setting name="Playlist 16 Name" variable="PL16" type="string" default="" condition="$PlaylistCount >= 16" />
+  </category>
+
+  <!-- Stored CEC payloads. Dedicated Power On/Off functions already send the -->
+  <!-- poweron/poweroff keywords, so these slots are for everything else.      -->
+  <category name="CEC Command Definitions" advanced="true" condition="$CECCount &gt;= 1">
+    <setting name="CEC Command 1" variable="C1" type="string" default="" condition="$CECCount &gt;= 1" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 2" variable="C2" type="string" default="" condition="$CECCount &gt;= 2" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 3" variable="C3" type="string" default="" condition="$CECCount &gt;= 3" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 4" variable="C4" type="string" default="" condition="$CECCount &gt;= 4" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 5" variable="C5" type="string" default="" condition="$CECCount &gt;= 5" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 6" variable="C6" type="string" default="" condition="$CECCount &gt;= 6" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 7" variable="C7" type="string" default="" condition="$CECCount &gt;= 7" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 8" variable="C8" type="string" default="" condition="$CECCount &gt;= 8" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 9" variable="C9" type="string" default="" condition="$CECCount &gt;= 9" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 10" variable="C10" type="string" default="" condition="$CECCount &gt;= 10" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 11" variable="C11" type="string" default="" condition="$CECCount &gt;= 11" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 12" variable="C12" type="string" default="" condition="$CECCount &gt;= 12" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 13" variable="C13" type="string" default="" condition="$CECCount &gt;= 13" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 14" variable="C14" type="string" default="" condition="$CECCount &gt;= 14" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 15" variable="C15" type="string" default="" condition="$CECCount &gt;= 15" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
+    <setting name="CEC Command 16" variable="C16" type="string" default="" condition="$CECCount &gt;= 16" description="CEC data as one space-free block (e.g. 0036), several blocks separated by commas (e.g. 0036,0037), or the keyword poweron / poweroff." />
   </category>
 </configuration>

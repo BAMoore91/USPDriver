@@ -3,7 +3,7 @@ var hostIP = Config.Get("IPAddress");
 var hostPort = Config.Get("USPPort");
 
 function Initialize() {
-    System.Print("--- IPCBox Driver V3.3 Initialized ---\r\n");
+    System.Print("--- IPCBox Driver V3.4 Initialized ---\r\n");
     Connect();
 }
 
@@ -12,6 +12,10 @@ function Connect() {
     tcpClient.OnConnectFunc = function() {
         SystemVars.Write("ConnStatus", true, "BOOLEAN");
         System.Print("[System] Connected to IPCBox at " + hostIP + "\r\n");
+        // Pull the device list now (it carries the MAC/id map the route
+        // feedback needs) and the routes once that reply has landed.
+        RefreshDevices();
+        ScheduleRouteRefresh();
     };
     tcpClient.OnDisconnectFunc = function() {
         SystemVars.Write("ConnStatus", false, "BOOLEAN");
@@ -101,6 +105,12 @@ function HandleResponseLine(line) {
     // Reply to "mvid layout get <name>" carries each window's current source.
     if (StartsWith(cmd, "mvid layout get ")) {
         ParseLayoutWindows(line);
+    }
+    // "config get device routes" answers with a Lua table rather than the
+    // JSON-ish shape every other reply uses, and the API doc shows it without
+    // the {"cmd":...,"code":0} envelope, so accept it by echo or by shape.
+    if (StartsWith(cmd, "config get device routes") || LooksLikeRoutes(line)) {
+        ParseRoutes(line);
     }
     // Live name lists pulled from the CBOX.
     if (StartsWith(cmd, "config get devicelist")) {
@@ -372,6 +382,7 @@ function RouteSourceToDisplay(inputKey, outputKey) {
     var rx = ResolveSlot(outputKey);
     if (tx && rx) {
         SendCommand("matrix aset :av " + tx + " " + rx);
+        ScheduleRouteRefresh();
     }
 }
 
@@ -396,6 +407,7 @@ function RouteSourceMulti(inputKey, out1, out2, out3) {
         return;
     }
     SendCommand("matrix aset :av " + tx + rxList);
+    ScheduleRouteRefresh();
 }
 
 /** Recall a previously-built named matrix preset. */
@@ -404,6 +416,7 @@ function RecallMatrix(matrixKey) {
     if (name) {
         SendCommand("matrix active " + name);
         SystemVars.Write("ActiveMatrix", name);
+        ScheduleRouteRefresh();
     }
 }
 
@@ -644,6 +657,187 @@ function CECSendRaw(hexData, deviceKey) {
 }
 
 // =====================================================================
+// MATRIX ROUTE FEEDBACK (which source each display is tuned to)
+// "config get device routes vaurs ALLRX" answers with a Lua table keyed by
+// decoder MAC, not JSON:
+//   { ["188a6a02c0b6"] = {audio = "188a11223368", ir = "none", rs232 =
+//     "none", usb = "none", video = "188a11223368"}, ... }
+// The doc only demonstrates the full "vaurs" selector, so the driver asks for
+// that rather than "v" alone and reads the video field.
+// Routes name devices by MAC; the panel wants names, so they are mapped back
+// through the id/MAC pairs captured from "config get devicelist".
+// =====================================================================
+
+var OUT_COUNT = 64;          // OutSrc1..N, matching the O1..O64 config slots
+var ROUTE_SETTLE_MS = 1500;  // let a route change land before re-reading it
+
+var g_routes = {};    // decoder MAC (upper) -> MAC of the source feeding video
+var g_macToId = {};   // device MAC (upper) -> friendly id
+var g_idToMac = {};   // friendly id (upper) -> device MAC (upper)
+
+// One timer instance, per the guide's one-per-usage rule. Start() requires an
+// idle timer, and stopping an idle timer is allowed, so always stop first.
+var g_routeTimer = new Timer();
+
+function RefreshRoutes() {
+    SendCommand("config get device routes vaurs ALLRX");
+}
+
+/** Re-read the routes shortly after something changes them. */
+function ScheduleRouteRefresh() {
+    g_routeTimer.Stop();
+    g_routeTimer.Start(RefreshRoutes, ROUTE_SETTLE_MS);
+}
+
+// Only a Lua table writes ["key"] = { ... }; a JSON reply that happens to hold
+// a string array gets as far as ["key"] but never the '= {' that follows, so
+// recognising a bare routes reply means finding one complete entry.
+function LooksLikeRoutes(line) {
+    var found = false;
+    ForEachLuaEntry(line, function () {
+        found = true;
+    });
+    return found;
+}
+
+function IsIdentChar(ch) {
+    return (ch >= "a" && ch <= "z") || (ch >= "A" && ch <= "Z") ||
+           (ch >= "0" && ch <= "9") || ch === "_";
+}
+
+// Iterate top-level ["key"] = { body } pairs of a Lua table; cb(key, body).
+function ForEachLuaEntry(str, cb) {
+    var i = 0;
+    while (i < str.length) {
+        var ks = str.indexOf("[\"", i);
+        if (ks < 0) {
+            break;
+        }
+        var ke = str.indexOf("\"]", ks + 2);
+        if (ke < 0) {
+            break;
+        }
+        var c = ke + 2;
+        while (c < str.length && (str.charAt(c) === " " || str.charAt(c) === "\t")) {
+            c++;
+        }
+        if (str.charAt(c) !== "=") {
+            i = ke + 2;
+            continue;
+        }
+        c++;
+        while (c < str.length && (str.charAt(c) === " " || str.charAt(c) === "\t")) {
+            c++;
+        }
+        if (str.charAt(c) !== "{") {
+            i = ke + 2;
+            continue;
+        }
+        var close = MatchBrace(str, c);
+        if (close < 0) {
+            break;
+        }
+        cb(str.substring(ks + 2, ke), str.substring(c + 1, close));
+        i = close + 1;
+    }
+}
+
+// Value of a  name = "value"  field inside a Lua table body ("" if absent).
+function LuaField(body, name) {
+    var i = 0;
+    while (i < body.length) {
+        if (!IsIdentChar(body.charAt(i))) {
+            i++;
+            continue;
+        }
+        var start = i;
+        while (i < body.length && IsIdentChar(body.charAt(i))) {
+            i++;
+        }
+        var key = body.substring(start, i);
+        while (i < body.length && (body.charAt(i) === " " || body.charAt(i) === "\t")) {
+            i++;
+        }
+        if (body.charAt(i) !== "=") {
+            continue;
+        }
+        i++;
+        while (i < body.length && (body.charAt(i) === " " || body.charAt(i) === "\t")) {
+            i++;
+        }
+        if (body.charAt(i) !== "\"") {
+            continue;
+        }
+        var vs = i + 1;
+        var ve = body.indexOf("\"", vs);
+        if (ve < 0) {
+            return "";
+        }
+        if (key === name) {
+            return body.substring(vs, ve);
+        }
+        i = ve + 1;
+    }
+    return "";
+}
+
+function ParseRoutes(line) {
+    var routes = {};
+    var seen = 0;
+    ForEachLuaEntry(line, function (mac, body) {
+        seen++;
+        var video = LuaField(body, "video");
+        if (video && video.toLowerCase() !== "none") {
+            routes[mac.toUpperCase()] = video.toUpperCase();
+        }
+    });
+    if (seen === 0) {
+        System.Print("[Routes] No decoders in reply; keeping previous state.\r\n");
+        return;
+    }
+    g_routes = routes;
+    PublishOutputSources();
+    System.Print("[Routes] " + seen + " decoder(s) reported.\r\n");
+}
+
+// Map lookups go through typeof so an odd device name can never pick up an
+// inherited Object property instead of a real entry.
+function MapGet(map, key) {
+    var v = map[("" + key).toUpperCase()];
+    return (typeof v === "string") ? v : "";
+}
+
+/** MAC of a device named by friendly id or MAC (falls back to what was given). */
+function DeviceMac(idOrMac) {
+    var mac = MapGet(g_idToMac, idOrMac);
+    return mac ? mac : ("" + idOrMac).toUpperCase();
+}
+
+/** Friendly id for a MAC (falls back to the MAC when the list has not loaded). */
+function DeviceId(mac) {
+    var id = MapGet(g_macToId, mac);
+    return id ? id : ("" + mac);
+}
+
+/** Source currently feeding a display, by friendly id or MAC. "" if none. */
+function SourceForDevice(idOrMac) {
+    if (!idOrMac) {
+        return "";
+    }
+    var src = MapGet(g_routes, DeviceMac(idOrMac));
+    return src ? DeviceId(src) : "";
+}
+
+// Publish the source feeding each configured output slot, plus the one
+// feeding the display selected in the live list.
+function PublishOutputSources() {
+    for (var i = 1; i <= OUT_COUNT; i++) {
+        SystemVars.Write("OutSrc" + i, SourceForDevice(Config.Get("O" + i)));
+    }
+    SystemVars.Write("LiveDisplaySource", SourceForDevice(g_liveDisp));
+}
+
+// =====================================================================
 // LIVE NAME LISTS (pulled from the CBOX)
 // Query the box and publish its real device / layout / playlist names as
 // RTI Item Lists (type "list" system variables). The operator picks from a
@@ -668,6 +862,7 @@ function RefreshAll() {
     RefreshDevices();
     RefreshLayouts();
     RefreshPlaylists();
+    RefreshRoutes();
 }
 
 // ---- Exported: selection handlers (wired to the panel Item List objects) ----
@@ -682,6 +877,7 @@ function SelectDisplay(index, top) {
     if (index >= 0 && index < g_displays.length) {
         g_liveDisp = g_displays[index];
         SystemVars.Write("LiveDisplay", g_liveDisp);
+        SystemVars.Write("LiveDisplaySource", SourceForDevice(g_liveDisp));
     }
 }
 function SelectLayoutItem(index, top) {
@@ -706,6 +902,7 @@ function SelectPlaylist(index, top) {
 function RouteLive() {
     if (g_liveSrc && g_liveDisp) {
         SendCommand("matrix aset :av " + g_liveSrc + " " + g_liveDisp);
+        ScheduleRouteRefresh();
     } else {
         System.Print("[Error] RouteLive: select a source and a display first.\r\n");
     }
@@ -854,14 +1051,20 @@ function ParseDeviceList(line) {
     if (inner === null) { return; }
     g_sources = [];
     g_displays = [];
+    g_macToId = {};
+    g_idToMac = {};
     ForEachEntry(inner, function (mac, dev) {
         var id = ExtractStr(dev, "id");
         if (id === "") { id = mac; }
+        g_macToId[mac.toUpperCase()] = id;
+        g_idToMac[("" + id).toUpperCase()] = mac.toUpperCase();
         if (dev.indexOf("\"is_host\"") >= 0) { g_sources[g_sources.length] = id; }
         if (dev.indexOf("\"ch_v\"") >= 0) { g_displays[g_displays.length] = id; }
     });
     FillList("SourceList", g_sources);
     FillList("DisplayList", g_displays);
+    // Names may have arrived after the routes did; restate them with real ids.
+    PublishOutputSources();
     System.Print("[Lists] Sources: " + g_sources.length + ", Displays: " + g_displays.length + "\r\n");
 }
 

@@ -1,7 +1,7 @@
 {\rtf1\ansi\deff0{\fonttbl{\f0 Segoe UI;}}
 \fs20
 {\b\fs28 AC-MXNET USP-CBOX Control \line}
-{\fs18 Driver v3.3 \'96 AVPro Global IPCBox (USP API) \line}
+{\fs18 Driver v3.4 \'96 AVPro Global IPCBox (USP API) \line}
 \line
 This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It supports Multiview, Matrix routing, Video Wall recall, the Media Player, CEC display control, and per-device / system control, with two-way feedback exposed as System Variables.\line
 \line
@@ -25,7 +25,14 @@ The drop-down lists in System Functions show these slot values by name.\line
 {\b Media Player:} Apply Playlist to Display; Upload Playlist to Displays (up to 3).\line
 {\b Device Control:} Reboot Device; Identify Light On/Off/Flash; OSD On/Off; Display Stream On/Off.\line
 {\b System:} Reboot CBOX; Query Device List; Query All Device Status; Send Raw Command (advanced \'96 sends any API string verbatim).\line
+{\b Live Lists:} Refresh Matrix Routes re-reads which source each display is tuned to.\line
 {\b CEC:} Display Power On/Off (one device, up to 3 displays, or all displays); Send CEC Command (a stored C1-C16 payload to one device, up to 3 displays, or all displays); Send Raw CEC Data.\line
+\line
+{\b MATRIX ROUTE FEEDBACK \line}
+{\b Output N Source} (OutSrc1-OutSrc64) reports the source currently feeding the display in each {\b Output (Display) Definitions} slot, read back from the CBOX with {\i config get device routes}. {\b Selected Display Source} does the same for the display picked in the live Display List.\line
+\tab The driver re-reads the routes automatically on connect, after Route Source to Display, Route Source to Multiple Displays, Recall Matrix Preset, and Route Selected Source to Display. {\b Refresh Matrix Routes} (Live Lists) re-reads them on demand.\line
+\tab Names come from the device list, so run {\b Refresh Devices} (or connect) at least once or the variables show raw MAC addresses instead of TX names.\line
+\tab A display with no route reports an empty string. These variables track video routing; audio breakaway is not surfaced.\line
 \line
 {\b CEC DETAIL \line}
 CEC functions build {\i config set device cec \{hexData\} \{device\}}.\line
@@ -37,6 +44,7 @@ CEC functions build {\i config set device cec \{hexData\} \{device\}}.\line
 {\b SYSTEM VARIABLES \line}
 {\b Status:} Connection Status (Connected/Disconnected).\line
 {\b Command Feedback:} Last Command Success (OK/Error), Last Command Sent, Last Response (Raw), Last Response Command, Last Response Info, Last Response Code.\line
+{\b Matrix Routing (per Output):} Output 1-64 Source \'96 the source feeding each output slot. Also Selected Display Source in Live Lists.\line
 {\b CEC:} Last CEC Data, Last CEC Target \'96 what the driver last sent, not the sink's actual state.\line
 {\b System State:} Active Matrix Name, Active Layout Name, Active Video Wall, Active Wall Layout, Device Status (Raw). Active-state variables update from the CBOX reply to an activate command; use Query All Device Status to refresh Device Status (Raw).\line
 }

@@ -3548,6 +3548,7 @@
     <function name="2. Refresh Devices" export="RefreshDevices" />
     <function name="3. Refresh Layouts" export="RefreshLayouts" />
     <function name="4. Refresh Playlists" export="RefreshPlaylists" />
+    <function name="4b. Refresh Matrix Routes" export="RefreshRoutes" />
 
     <function name="5. Select Source (from list)" export="SelectSource" repeatrate="0">
       <parameter name="index" type="integer" min="0" max="99999" default="0" description="list row index" />

@@ -28,6 +28,76 @@
     <variable name="Last CEC Target" sysvar="LastCECTarget" type="string" sample="RX1" />
   </category>
 
+  <!-- Source currently feeding each configured output slot (O1..O64),  -->
+  <!-- read back from "config get device routes". Empty when the display -->
+  <!-- has no route, its slot is blank, or the routes have not loaded.    -->
+  <category name="Matrix Routing (per Output)">
+    <variable name="Output 1 Source" sysvar="OutSrc1" type="string" sample="TX1" />
+    <variable name="Output 2 Source" sysvar="OutSrc2" type="string" sample="TX1" />
+    <variable name="Output 3 Source" sysvar="OutSrc3" type="string" sample="TX1" />
+    <variable name="Output 4 Source" sysvar="OutSrc4" type="string" sample="TX1" />
+    <variable name="Output 5 Source" sysvar="OutSrc5" type="string" sample="TX1" />
+    <variable name="Output 6 Source" sysvar="OutSrc6" type="string" sample="TX1" />
+    <variable name="Output 7 Source" sysvar="OutSrc7" type="string" sample="TX1" />
+    <variable name="Output 8 Source" sysvar="OutSrc8" type="string" sample="TX1" />
+    <variable name="Output 9 Source" sysvar="OutSrc9" type="string" sample="TX1" />
+    <variable name="Output 10 Source" sysvar="OutSrc10" type="string" sample="TX1" />
+    <variable name="Output 11 Source" sysvar="OutSrc11" type="string" sample="TX1" />
+    <variable name="Output 12 Source" sysvar="OutSrc12" type="string" sample="TX1" />
+    <variable name="Output 13 Source" sysvar="OutSrc13" type="string" sample="TX1" />
+    <variable name="Output 14 Source" sysvar="OutSrc14" type="string" sample="TX1" />
+    <variable name="Output 15 Source" sysvar="OutSrc15" type="string" sample="TX1" />
+    <variable name="Output 16 Source" sysvar="OutSrc16" type="string" sample="TX1" />
+    <variable name="Output 17 Source" sysvar="OutSrc17" type="string" sample="TX1" />
+    <variable name="Output 18 Source" sysvar="OutSrc18" type="string" sample="TX1" />
+    <variable name="Output 19 Source" sysvar="OutSrc19" type="string" sample="TX1" />
+    <variable name="Output 20 Source" sysvar="OutSrc20" type="string" sample="TX1" />
+    <variable name="Output 21 Source" sysvar="OutSrc21" type="string" sample="TX1" />
+    <variable name="Output 22 Source" sysvar="OutSrc22" type="string" sample="TX1" />
+    <variable name="Output 23 Source" sysvar="OutSrc23" type="string" sample="TX1" />
+    <variable name="Output 24 Source" sysvar="OutSrc24" type="string" sample="TX1" />
+    <variable name="Output 25 Source" sysvar="OutSrc25" type="string" sample="TX1" />
+    <variable name="Output 26 Source" sysvar="OutSrc26" type="string" sample="TX1" />
+    <variable name="Output 27 Source" sysvar="OutSrc27" type="string" sample="TX1" />
+    <variable name="Output 28 Source" sysvar="OutSrc28" type="string" sample="TX1" />
+    <variable name="Output 29 Source" sysvar="OutSrc29" type="string" sample="TX1" />
+    <variable name="Output 30 Source" sysvar="OutSrc30" type="string" sample="TX1" />
+    <variable name="Output 31 Source" sysvar="OutSrc31" type="string" sample="TX1" />
+    <variable name="Output 32 Source" sysvar="OutSrc32" type="string" sample="TX1" />
+    <variable name="Output 33 Source" sysvar="OutSrc33" type="string" sample="TX1" />
+    <variable name="Output 34 Source" sysvar="OutSrc34" type="string" sample="TX1" />
+    <variable name="Output 35 Source" sysvar="OutSrc35" type="string" sample="TX1" />
+    <variable name="Output 36 Source" sysvar="OutSrc36" type="string" sample="TX1" />
+    <variable name="Output 37 Source" sysvar="OutSrc37" type="string" sample="TX1" />
+    <variable name="Output 38 Source" sysvar="OutSrc38" type="string" sample="TX1" />
+    <variable name="Output 39 Source" sysvar="OutSrc39" type="string" sample="TX1" />
+    <variable name="Output 40 Source" sysvar="OutSrc40" type="string" sample="TX1" />
+    <variable name="Output 41 Source" sysvar="OutSrc41" type="string" sample="TX1" />
+    <variable name="Output 42 Source" sysvar="OutSrc42" type="string" sample="TX1" />
+    <variable name="Output 43 Source" sysvar="OutSrc43" type="string" sample="TX1" />
+    <variable name="Output 44 Source" sysvar="OutSrc44" type="string" sample="TX1" />
+    <variable name="Output 45 Source" sysvar="OutSrc45" type="string" sample="TX1" />
+    <variable name="Output 46 Source" sysvar="OutSrc46" type="string" sample="TX1" />
+    <variable name="Output 47 Source" sysvar="OutSrc47" type="string" sample="TX1" />
+    <variable name="Output 48 Source" sysvar="OutSrc48" type="string" sample="TX1" />
+    <variable name="Output 49 Source" sysvar="OutSrc49" type="string" sample="TX1" />
+    <variable name="Output 50 Source" sysvar="OutSrc50" type="string" sample="TX1" />
+    <variable name="Output 51 Source" sysvar="OutSrc51" type="string" sample="TX1" />
+    <variable name="Output 52 Source" sysvar="OutSrc52" type="string" sample="TX1" />
+    <variable name="Output 53 Source" sysvar="OutSrc53" type="string" sample="TX1" />
+    <variable name="Output 54 Source" sysvar="OutSrc54" type="string" sample="TX1" />
+    <variable name="Output 55 Source" sysvar="OutSrc55" type="string" sample="TX1" />
+    <variable name="Output 56 Source" sysvar="OutSrc56" type="string" sample="TX1" />
+    <variable name="Output 57 Source" sysvar="OutSrc57" type="string" sample="TX1" />
+    <variable name="Output 58 Source" sysvar="OutSrc58" type="string" sample="TX1" />
+    <variable name="Output 59 Source" sysvar="OutSrc59" type="string" sample="TX1" />
+    <variable name="Output 60 Source" sysvar="OutSrc60" type="string" sample="TX1" />
+    <variable name="Output 61 Source" sysvar="OutSrc61" type="string" sample="TX1" />
+    <variable name="Output 62 Source" sysvar="OutSrc62" type="string" sample="TX1" />
+    <variable name="Output 63 Source" sysvar="OutSrc63" type="string" sample="TX1" />
+    <variable name="Output 64 Source" sysvar="OutSrc64" type="string" sample="TX1" />
+  </category>
+
   <category name="Multiview Routing">
     <variable name="Selected Window ID" sysvar="SelectedWindowID" type="integer" sample="1" />
     <variable name="Selected Layout ID" sysvar="SelectedLayoutID" type="integer" sample="1" />
@@ -84,6 +154,7 @@
     <variable name="Playlist List" sysvar="PlaylistList" type="list" />
     <variable name="Selected Source" sysvar="LiveSource" type="string" sample="TX1" />
     <variable name="Selected Display" sysvar="LiveDisplay" type="string" sample="RX1" />
+    <variable name="Selected Display Source" sysvar="LiveDisplaySource" type="string" sample="TX1" />
     <variable name="Selected Layout" sysvar="LiveLayout" type="string" sample="15" />
     <variable name="Selected Playlist" sysvar="LivePlaylist" type="string" sample="CAZLogo" />
   </category>

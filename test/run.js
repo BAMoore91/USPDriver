@@ -24,6 +24,7 @@ const CONFIG = {
   I1: 'TX1', I2: 'TX2',
   MX1: 'mx1', VW1: 'videowall2', WL1: 'vlayout1', PL1: '444',
   C1: '0036', C2: '0036, 0037', C3: 'POWERON',
+  O4: '188a6a02c0d1', O5: '188a6a02c0ab',
 };
 
 // ---- Build a fresh sandbox + load the driver ----
@@ -42,7 +43,11 @@ function loadDriver() {
     this.Close = function () { return true; };
     return this;
   }
-  function Timer() { this.Start = function () { return true; }; }
+  const timers = [];
+  function Timer() {
+    this.Start = function (fn, ms) { timers.push({ fn: fn, ms: ms }); return true; };
+    this.Stop = function () { return true; };
+  }
 
   const lists = {};
   function SystemVarsList(name) {
@@ -72,6 +77,11 @@ function loadDriver() {
     allSent: function () { return sent.map(function (s) { return s.replace(/\r\n$/, ''); }); },
     vars: vars,
     lists: lists,
+    timers: timers,
+    runTimers: function () {
+      const due = timers.splice(0, timers.length);
+      due.forEach(function (t) { t.fn(); });
+    },
   };
 }
 
@@ -393,6 +403,124 @@ console.log('CEC:');
   check('CEC reply parses as success', d.vars.LastCommandSuccess === true);
   check('CEC reply echoes cmd', d.vars.LastResponseCmd === 'config set device cec poweron 188A6A45C4A5',
     d.vars.LastResponseCmd);
+})();
+
+// =====================================================================
+// 7. Matrix route feedback (which source each display is tuned to)
+// =====================================================================
+console.log('Matrix route feedback:');
+
+// The reply exactly as the API doc prints it (Lua table, no JSON envelope).
+const ROUTES = '{ ["188a6a02c0ab"] = {audio = "none", ir = "none",rs232 = "none",usb = "none",video = "none"  },'
+  + '  ["188a6a02c0b6"] = {audio = "188a11223368", ir = "none", rs232 = "none", usb = "none", video = "188a11223368"  },'
+  + ' ["188a6a02c0bd"] = {audio = "none", ir = "none", rs232 = "none", usb = "none", video = "none" },'
+  + '["188a6a02c0d1"] = { audio = "188a11223368", ir = "none",    rs232 = "none", usb = "none",  video = "188a11223368" },'
+  + ' ["188a6a02c0de"] = { audio = "none", ir = "none", rs232 = "none",    usb = "none", video = "none"} }';
+
+const DEVLIST = '{"cmd":"config get devicelist","info":{'
+  + '"188a6a02c0b6":{"id":"RX1","ch_v":"0002"},'
+  + '"188a11223368":{"id":"TX-MAIN","is_host":"1"}},"code":0}';
+
+(function () {
+  const d = loadDriver();
+  d.call('RefreshRoutes()');
+  check('RefreshRoutes queries all decoders',
+    d.lastSent() === 'config get device routes vaurs ALLRX', d.lastSent());
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed(DEVLIST);          // names first, then routes
+  d.feed(ROUTES);
+  check('OutSrc1 resolves slot id -> source name', d.vars.OutSrc1 === 'TX-MAIN', d.vars.OutSrc1);
+  check('OutSrc4 resolves a slot holding a raw MAC', d.vars.OutSrc4 === 'TX-MAIN', d.vars.OutSrc4);
+  check('video "none" -> empty OutSrc', d.vars.OutSrc5 === '', JSON.stringify(d.vars.OutSrc5));
+  check('unconfigured slot -> empty OutSrc', d.vars.OutSrc9 === '', JSON.stringify(d.vars.OutSrc9));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed(ROUTES);           // routes first: names not known yet
+  check('routes before devicelist fall back to the MAC',
+    d.vars.OutSrc4 === '188A11223368', d.vars.OutSrc4);
+  d.feed(DEVLIST);          // devicelist restates them with real ids
+  check('devicelist restates OutSrc with the friendly id',
+    d.vars.OutSrc4 === 'TX-MAIN', d.vars.OutSrc4);
+  check('devicelist restates OutSrc1 too', d.vars.OutSrc1 === 'TX-MAIN', d.vars.OutSrc1);
+})();
+
+(function () {
+  const d = loadDriver();
+  // Same table, but wrapped in the usual envelope in case firmware sends it that way.
+  d.feed('{"cmd":"config get device routes vaurs ALLRX","info":' + ROUTES + ',"code":0}');
+  d.feed(DEVLIST);
+  check('enveloped routes reply parses too', d.vars.OutSrc1 === 'TX-MAIN', d.vars.OutSrc1);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed('{"cmd":"matrix active mx1","info":"OK","code":0}');
+  check('a normal JSON reply is not mistaken for routes',
+    d.vars.OutSrc1 === undefined, JSON.stringify(d.vars.OutSrc1));
+  // A JSON array of strings also contains ["..."]; it must not look like Lua.
+  d.feed('{"cmd":"matrix add mx1 video","info":{"tx":["TX1","TX2"]},"code":0}');
+  check('a JSON string array is not mistaken for routes',
+    d.vars.OutSrc1 === undefined, JSON.stringify(d.vars.OutSrc1));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed(DEVLIST);
+  d.feed(ROUTES);
+  check('baseline OutSrc1 before a bad reply', d.vars.OutSrc1 === 'TX-MAIN', d.vars.OutSrc1);
+  // A truncated chunk that yields no entries must not blank live feedback.
+  d.feed('{"cmd":"config get device routes vaurs ALLRX","info":"","code":0}');
+  check('an empty routes reply keeps the previous state',
+    d.vars.OutSrc1 === 'TX-MAIN', d.vars.OutSrc1);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed(DEVLIST);
+  d.feed(ROUTES);
+  d.call('SelectDisplay(0,0)');   // devicelist gives one display: RX1
+  check('SelectDisplay publishes LiveDisplaySource',
+    d.vars.LiveDisplaySource === 'TX-MAIN', d.vars.LiveDisplaySource);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('RouteSourceToDisplay("I1","O1")');
+  check('routing schedules a route re-read', d.timers.length === 1, '' + d.timers.length);
+  d.runTimers();
+  check('the scheduled timer queries the routes',
+    d.lastSent() === 'config get device routes vaurs ALLRX', d.lastSent());
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('RecallMatrix("MX1")');
+  check('preset recall schedules a route re-read', d.timers.length === 1, '' + d.timers.length);
+  const e = loadDriver();
+  e.call('RouteSourceMulti("I1","O1","O2","O3")');
+  check('multi-route schedules a route re-read', e.timers.length === 1, '' + e.timers.length);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('tcpClient.OnConnectFunc()');
+  check('connect queries the device list', d.allSent().indexOf('config get devicelist') >= 0,
+    d.allSent().join(' | '));
+  d.runTimers();
+  check('connect then queries the routes',
+    d.lastSent() === 'config get device routes vaurs ALLRX', d.lastSent());
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('RefreshAll()');
+  check('RefreshAll includes the routes',
+    d.allSent().indexOf('config get device routes vaurs ALLRX') >= 0, d.allSent().join(' | '));
 })();
 
 console.log('');

@@ -1,7 +1,7 @@
 {\rtf1\ansi\deff0{\fonttbl{\f0 Segoe UI;}}
 \fs20
 {\b\fs28 AC-MXNET USP-CBOX Control \line}
-{\fs18 Driver v3.4 \'96 AVPro Global IPCBox (USP API) \line}
+{\fs18 Driver v3.5 \'96 AVPro Global IPCBox (USP API) \line}
 \line
 This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It supports Multiview, Matrix routing, Video Wall recall, the Media Player, CEC display control, and per-device / system control, with two-way feedback exposed as System Variables.\line
 \line
@@ -20,6 +20,7 @@ The drop-down lists in System Functions show these slot values by name.\line
 \line
 {\b SYSTEM FUNCTIONS \line}
 {\b Multiview:} Set Layout on Display; Switch Window Source.\line
+{\b Matrix Routing (recommended):} Select Source (Arm); Route to Display; Clear Source Selection. Tap a source once, then tap each destination.\line
 {\b Matrix:} Route Source to Display (video+audio, immediate); Route Source to Multiple Displays (up to 3); Recall Matrix Preset.\line
 {\b Video Wall:} Recall Wall Layout; Swap Wall Source (target a cell as Row:Col or All Cells).\line
 {\b Media Player:} Apply Playlist to Display; Upload Playlist to Displays (up to 3).\line
@@ -27,6 +28,13 @@ The drop-down lists in System Functions show these slot values by name.\line
 {\b System:} Reboot CBOX; Query Device List; Query All Device Status; Send Raw Command (advanced \'96 sends any API string verbatim).\line
 {\b Live Lists:} Refresh Matrix Routes re-reads which source each display is tuned to.\line
 {\b CEC:} Display Power On/Off (one device, up to 3 displays, or all displays); Send CEC Command (a stored C1-C16 payload to one device, up to 3 displays, or all displays); Send Raw CEC Data.\line
+\line
+{\b MATRIX ROUTING (SELECT SOURCE, THEN DESTINATIONS) \line}
+Attach {\b Select Source (Arm)} to each source button and {\b Route to Display} to each destination button. The operator taps a source once, then taps TV 1, TV 3, TV 4 and each routes the armed source immediately \'96 one source tap, not one per destination. The source stays armed until another is tapped or {\b Clear Source Selection} runs.\line
+\tab {\b Selected Source ID} is the armed input slot number; bind each source button's Reversed state to its matching {\b SrcSelN} boolean to highlight it.\line
+\tab A destination tap with no source armed does nothing, so a stray press cannot route.\line
+\tab The armed source is shared with the live Source List, so a source armed either way works with both the slot destination buttons and {\b Select Display and Route} in the Live Lists. Arming from the list sets Selected Source ID to 0 (no slot highlighted).\line
+\tab The original {\b Matrix} functions (Route Source to Display, and to Multiple Displays) still work for pages already built around them.\line
 \line
 {\b MATRIX ROUTE FEEDBACK \line}
 {\b Output N Source} (OutSrc1-OutSrc64) reports the source currently feeding the display in each {\b Output (Display) Definitions} slot, read back from the CBOX with {\i config get device routes}. {\b Selected Display Source} does the same for the display picked in the live Display List.\line
@@ -44,6 +52,7 @@ CEC functions build {\i config set device cec \{hexData\} \{device\}}.\line
 {\b SYSTEM VARIABLES \line}
 {\b Status:} Connection Status (Connected/Disconnected).\line
 {\b Command Feedback:} Last Command Success (OK/Error), Last Command Sent, Last Response (Raw), Last Response Command, Last Response Info, Last Response Code.\line
+{\b Matrix Routing:} Selected Source ID, plus Source 1-64 Selected (SrcSelN) for source-button highlighting.\line
 {\b Matrix Routing (per Output):} Output 1-64 Source \'96 the source feeding each output slot. Also Selected Display Source in Live Lists.\line
 {\b CEC:} Last CEC Data, Last CEC Target \'96 what the driver last sent, not the sink's actual state.\line
 {\b System State:} Active Matrix Name, Active Layout Name, Active Video Wall, Active Wall Layout, Device Status (Raw). Active-state variables update from the CBOX reply to an activate command; use Query All Device Status to refresh Device Status (Raw).\line

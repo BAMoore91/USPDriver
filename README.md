@@ -14,9 +14,10 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 | `DeviceDescription.xml` | Source/template description |
 | `Help.rtf` | In-app help text |
 
-## Feature areas (v3.4)
+## Feature areas (v3.5)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
-- **Matrix** – route a source to one display, to up to three displays, or recall a named matrix preset.
+- **Matrix** – arm a source, then tap each destination to route it; also the
+  original direct routes (one display, up to three) and named preset recall.
 - **Video Wall** – recall a wall layout, swap a source within a wall cell.
 - **Media Player** – apply / upload a playlist to displays.
 - **Device & System** – reboot, identify light, OSD, stream on/off; CBOX reboot and status queries; raw command passthrough.
@@ -47,6 +48,32 @@ CEC functions build the API's `config set device cec {hexData} {device_id/device
 - The USP API has **no CEC query**, so there is no real display power state to read
   back. `LastCECData` / `LastCECTarget` report what the driver last sent.
 
+
+## Matrix routing (select source, then destinations)
+
+The primary matrix workflow mirrors the multiview arm-then-route pattern:
+
+1. **Select Source (Arm)** on each source button — arms it, sends nothing.
+2. **Route to Display** on each destination button — routes the armed source
+   immediately.
+
+So one source tap followed by TV 1, TV 3, TV 4 issues three
+`matrix aset :av` commands, one per destination. The source stays armed across
+the run until another is armed or **Clear Source Selection** runs; a
+destination tap with nothing armed is a no-op rather than a stray route.
+
+`SelectedSourceID` holds the armed input slot number for highlighting, with
+`SrcSel1`..`SrcSel64` as per-source booleans to bind a button's Reversed state
+to.
+
+The armed source is the same value the live Source List sets, so the two
+workflows interoperate: arm from a config slot and route by tapping the live
+Display List (**Select Display and Route**), or arm from the list and route to
+slot destination buttons. Arming from the list sets `SelectedSourceID` to 0,
+since no config slot owns that source.
+
+The original `RouteSourceToDisplay` / `RouteSourceMulti` functions are
+unchanged, so pages already built around them keep working.
 
 ## Matrix route feedback
 

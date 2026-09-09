@@ -98,6 +98,81 @@
     <variable name="Output 64 Source" sysvar="OutSrc64" type="string" sample="TX1" />
   </category>
 
+  <!-- Matrix arm-then-route: tap a source to arm it, then tap each        -->
+  <!-- destination. Selected Source ID is the armed input slot (0 when the  -->
+  <!-- source came from the live list); bind a source button's Reversed     -->
+  <!-- state to its matching SrcSelN.                                       -->
+  <category name="Matrix Routing">
+    <variable name="Selected Source ID" sysvar="SelectedSourceID" type="integer" sample="1" />
+  </category>
+
+  <category name="Matrix Source Selected">
+    <variable name="Source 1 Selected" sysvar="SrcSel1" type="boolean" sample="false" />
+    <variable name="Source 2 Selected" sysvar="SrcSel2" type="boolean" sample="false" />
+    <variable name="Source 3 Selected" sysvar="SrcSel3" type="boolean" sample="false" />
+    <variable name="Source 4 Selected" sysvar="SrcSel4" type="boolean" sample="false" />
+    <variable name="Source 5 Selected" sysvar="SrcSel5" type="boolean" sample="false" />
+    <variable name="Source 6 Selected" sysvar="SrcSel6" type="boolean" sample="false" />
+    <variable name="Source 7 Selected" sysvar="SrcSel7" type="boolean" sample="false" />
+    <variable name="Source 8 Selected" sysvar="SrcSel8" type="boolean" sample="false" />
+    <variable name="Source 9 Selected" sysvar="SrcSel9" type="boolean" sample="false" />
+    <variable name="Source 10 Selected" sysvar="SrcSel10" type="boolean" sample="false" />
+    <variable name="Source 11 Selected" sysvar="SrcSel11" type="boolean" sample="false" />
+    <variable name="Source 12 Selected" sysvar="SrcSel12" type="boolean" sample="false" />
+    <variable name="Source 13 Selected" sysvar="SrcSel13" type="boolean" sample="false" />
+    <variable name="Source 14 Selected" sysvar="SrcSel14" type="boolean" sample="false" />
+    <variable name="Source 15 Selected" sysvar="SrcSel15" type="boolean" sample="false" />
+    <variable name="Source 16 Selected" sysvar="SrcSel16" type="boolean" sample="false" />
+    <variable name="Source 17 Selected" sysvar="SrcSel17" type="boolean" sample="false" />
+    <variable name="Source 18 Selected" sysvar="SrcSel18" type="boolean" sample="false" />
+    <variable name="Source 19 Selected" sysvar="SrcSel19" type="boolean" sample="false" />
+    <variable name="Source 20 Selected" sysvar="SrcSel20" type="boolean" sample="false" />
+    <variable name="Source 21 Selected" sysvar="SrcSel21" type="boolean" sample="false" />
+    <variable name="Source 22 Selected" sysvar="SrcSel22" type="boolean" sample="false" />
+    <variable name="Source 23 Selected" sysvar="SrcSel23" type="boolean" sample="false" />
+    <variable name="Source 24 Selected" sysvar="SrcSel24" type="boolean" sample="false" />
+    <variable name="Source 25 Selected" sysvar="SrcSel25" type="boolean" sample="false" />
+    <variable name="Source 26 Selected" sysvar="SrcSel26" type="boolean" sample="false" />
+    <variable name="Source 27 Selected" sysvar="SrcSel27" type="boolean" sample="false" />
+    <variable name="Source 28 Selected" sysvar="SrcSel28" type="boolean" sample="false" />
+    <variable name="Source 29 Selected" sysvar="SrcSel29" type="boolean" sample="false" />
+    <variable name="Source 30 Selected" sysvar="SrcSel30" type="boolean" sample="false" />
+    <variable name="Source 31 Selected" sysvar="SrcSel31" type="boolean" sample="false" />
+    <variable name="Source 32 Selected" sysvar="SrcSel32" type="boolean" sample="false" />
+    <variable name="Source 33 Selected" sysvar="SrcSel33" type="boolean" sample="false" />
+    <variable name="Source 34 Selected" sysvar="SrcSel34" type="boolean" sample="false" />
+    <variable name="Source 35 Selected" sysvar="SrcSel35" type="boolean" sample="false" />
+    <variable name="Source 36 Selected" sysvar="SrcSel36" type="boolean" sample="false" />
+    <variable name="Source 37 Selected" sysvar="SrcSel37" type="boolean" sample="false" />
+    <variable name="Source 38 Selected" sysvar="SrcSel38" type="boolean" sample="false" />
+    <variable name="Source 39 Selected" sysvar="SrcSel39" type="boolean" sample="false" />
+    <variable name="Source 40 Selected" sysvar="SrcSel40" type="boolean" sample="false" />
+    <variable name="Source 41 Selected" sysvar="SrcSel41" type="boolean" sample="false" />
+    <variable name="Source 42 Selected" sysvar="SrcSel42" type="boolean" sample="false" />
+    <variable name="Source 43 Selected" sysvar="SrcSel43" type="boolean" sample="false" />
+    <variable name="Source 44 Selected" sysvar="SrcSel44" type="boolean" sample="false" />
+    <variable name="Source 45 Selected" sysvar="SrcSel45" type="boolean" sample="false" />
+    <variable name="Source 46 Selected" sysvar="SrcSel46" type="boolean" sample="false" />
+    <variable name="Source 47 Selected" sysvar="SrcSel47" type="boolean" sample="false" />
+    <variable name="Source 48 Selected" sysvar="SrcSel48" type="boolean" sample="false" />
+    <variable name="Source 49 Selected" sysvar="SrcSel49" type="boolean" sample="false" />
+    <variable name="Source 50 Selected" sysvar="SrcSel50" type="boolean" sample="false" />
+    <variable name="Source 51 Selected" sysvar="SrcSel51" type="boolean" sample="false" />
+    <variable name="Source 52 Selected" sysvar="SrcSel52" type="boolean" sample="false" />
+    <variable name="Source 53 Selected" sysvar="SrcSel53" type="boolean" sample="false" />
+    <variable name="Source 54 Selected" sysvar="SrcSel54" type="boolean" sample="false" />
+    <variable name="Source 55 Selected" sysvar="SrcSel55" type="boolean" sample="false" />
+    <variable name="Source 56 Selected" sysvar="SrcSel56" type="boolean" sample="false" />
+    <variable name="Source 57 Selected" sysvar="SrcSel57" type="boolean" sample="false" />
+    <variable name="Source 58 Selected" sysvar="SrcSel58" type="boolean" sample="false" />
+    <variable name="Source 59 Selected" sysvar="SrcSel59" type="boolean" sample="false" />
+    <variable name="Source 60 Selected" sysvar="SrcSel60" type="boolean" sample="false" />
+    <variable name="Source 61 Selected" sysvar="SrcSel61" type="boolean" sample="false" />
+    <variable name="Source 62 Selected" sysvar="SrcSel62" type="boolean" sample="false" />
+    <variable name="Source 63 Selected" sysvar="SrcSel63" type="boolean" sample="false" />
+    <variable name="Source 64 Selected" sysvar="SrcSel64" type="boolean" sample="false" />
+  </category>
+
   <category name="Multiview Routing">
     <variable name="Selected Window ID" sysvar="SelectedWindowID" type="integer" sample="1" />
     <variable name="Selected Layout ID" sysvar="SelectedLayoutID" type="integer" sample="1" />

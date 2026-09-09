@@ -3,7 +3,7 @@ var hostIP = Config.Get("IPAddress");
 var hostPort = Config.Get("USPPort");
 
 function Initialize() {
-    System.Print("--- IPCBox Driver V3.4 Initialized ---\r\n");
+    System.Print("--- IPCBox Driver V3.5 Initialized ---\r\n");
     Connect();
 }
 
@@ -418,6 +418,58 @@ function RecallMatrix(matrixKey) {
         SystemVars.Write("ActiveMatrix", name);
         ScheduleRouteRefresh();
     }
+}
+
+// --- Matrix arm-then-route (select a source, then tap each destination) ---
+// Tap a source once to arm it, then tap TV 1, TV 3, TV 4 and each routes the
+// armed source immediately. The armed source stays armed until it is changed
+// or cleared, so a run of destinations needs one source tap, not one each.
+//
+// The armed source is the same g_liveSrc the live Source List sets, so a
+// source armed from a config slot also works with the live-list actions
+// (and vice versa) rather than the two workflows each keeping their own.
+
+var IN_COUNT = 64;   // SrcSel1..N booleans, matching the I1..I64 config slots
+
+// Arm a source. slotIndex drives the per-source highlight booleans; pass 0
+// when the source came from the live list and no config slot owns it.
+function ArmSource(value, slotIndex) {
+    g_liveSrc = value;
+    SystemVars.Write("LiveSource", value);
+    SystemVars.Write("SelectedSourceID", slotIndex);
+    for (var i = 1; i <= IN_COUNT; i++) {
+        SystemVars.Write("SrcSel" + i, (i === slotIndex), "BOOLEAN");
+    }
+}
+
+/** Arm the source a following destination tap will route. */
+function SelectMatrixSource(inputKey) {
+    var tx = Config.Get(inputKey);
+    if (!tx) {
+        System.Print("[Error] SelectMatrixSource: config slot '" + inputKey + "' is empty.\r\n");
+        return;
+    }
+    ArmSource(tx, SlotIndex(inputKey));
+    System.Print("[Select] Source armed: " + tx + " (slot " + inputKey + ")\r\n");
+}
+
+/** Route the armed source to this display. Tap a run of these to fan out. */
+function RouteSelectedToDisplay(outputKey) {
+    var rx = ResolveSlot(outputKey);
+    if (!rx) {
+        return;
+    }
+    if (!g_liveSrc) {
+        System.Print("[Error] RouteSelectedToDisplay: no source armed. Tap a source first.\r\n");
+        return;
+    }
+    SendCommand("matrix aset :av " + g_liveSrc + " " + rx);
+    ScheduleRouteRefresh();
+}
+
+/** Drop the armed source, so a stray destination tap cannot route. */
+function ClearMatrixSelection() {
+    ArmSource("", 0);
 }
 
 // --- Video Wall ---
@@ -869,8 +921,8 @@ function RefreshAll() {
 // The runtime appends the scroll-window-top index as a trailing arg (ignored).
 function SelectSource(index, top) {
     if (index >= 0 && index < g_sources.length) {
-        g_liveSrc = g_sources[index];
-        SystemVars.Write("LiveSource", g_liveSrc);
+        // Slot 0: armed from the list, so no config slot is highlighted.
+        ArmSource(g_sources[index], 0);
     }
 }
 function SelectDisplay(index, top) {
@@ -879,6 +931,19 @@ function SelectDisplay(index, top) {
         SystemVars.Write("LiveDisplay", g_liveDisp);
         SystemVars.Write("LiveDisplaySource", SourceForDevice(g_liveDisp));
     }
+}
+// Tap a display in the live list to route the armed source straight to it.
+function SelectDisplayAndRoute(index, top) {
+    if (index < 0 || index >= g_displays.length) {
+        return;
+    }
+    SelectDisplay(index, top);
+    if (!g_liveSrc) {
+        System.Print("[Error] SelectDisplayAndRoute: no source armed. Tap a source first.\r\n");
+        return;
+    }
+    SendCommand("matrix aset :av " + g_liveSrc + " " + g_liveDisp);
+    ScheduleRouteRefresh();
 }
 function SelectLayoutItem(index, top) {
     if (index >= 0 && index < g_layouts.length) {

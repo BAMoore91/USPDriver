@@ -523,6 +523,110 @@ const DEVLIST = '{"cmd":"config get devicelist","info":{'
     d.allSent().indexOf('config get device routes vaurs ALLRX') >= 0, d.allSent().join(' | '));
 })();
 
+// =====================================================================
+// 8. Matrix arm-then-route (select source, then tap destinations)
+// =====================================================================
+console.log('Matrix arm-then-route:');
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectMatrixSource("I1")');
+  check('arming writes LiveSource', d.vars.LiveSource === 'TX1', d.vars.LiveSource);
+  check('arming writes SelectedSourceID', d.vars.SelectedSourceID === 1, '' + d.vars.SelectedSourceID);
+  check('arming sets that source boolean', d.vars.SrcSel1 === true, '' + d.vars.SrcSel1);
+  check('arming clears the others', d.vars.SrcSel2 === false, '' + d.vars.SrcSel2);
+  check('arming sends nothing on its own', d.allSent().length === 0, d.allSent().join('|'));
+})();
+
+(function () {
+  const d = loadDriver();
+  // The whole point: one source tap, then a run of destinations.
+  d.call('SelectMatrixSource("I1")');
+  d.call('RouteSelectedToDisplay("O1")');
+  d.call('RouteSelectedToDisplay("O2")');
+  d.call('RouteSelectedToDisplay("O3")');
+  const a = d.allSent();
+  check('each destination tap routes the armed source',
+    a.length === 3 &&
+    a[0] === 'matrix aset :av TX1 RX1' &&
+    a[1] === 'matrix aset :av TX1 RX2' &&
+    a[2] === 'matrix aset :av TX1 RX3', a.join(' | '));
+  check('the source stays armed across the run', d.vars.LiveSource === 'TX1', d.vars.LiveSource);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectMatrixSource("I1")');
+  d.call('SelectMatrixSource("I2")');
+  check('re-arming moves the highlight off the old source', d.vars.SrcSel1 === false, '' + d.vars.SrcSel1);
+  check('re-arming highlights the new source', d.vars.SrcSel2 === true, '' + d.vars.SrcSel2);
+  d.call('RouteSelectedToDisplay("O1")');
+  check('routing follows the re-armed source',
+    d.lastSent() === 'matrix aset :av TX2 RX1', d.lastSent());
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('RouteSelectedToDisplay("O1")');
+  check('destination tap with no source armed does nothing',
+    d.allSent().length === 0, d.allSent().join('|'));
+  d.call('SelectMatrixSource("I9")');           // empty slot
+  check('arming an empty slot arms nothing', !d.vars.LiveSource, d.vars.LiveSource);
+  d.call('SelectMatrixSource("I1")');
+  d.call('RouteSelectedToDisplay("O9")');       // empty slot
+  check('routing to an empty display slot does nothing',
+    d.allSent().length === 0, d.allSent().join('|'));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectMatrixSource("I1")');
+  d.call('ClearMatrixSelection()');
+  check('clearing drops the armed source', d.vars.LiveSource === '', JSON.stringify(d.vars.LiveSource));
+  check('clearing drops the highlight', d.vars.SrcSel1 === false, '' + d.vars.SrcSel1);
+  d.call('RouteSelectedToDisplay("O1")');
+  check('a stray tap after clearing does nothing', d.allSent().length === 0, d.allSent().join('|'));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectMatrixSource("I1")');
+  d.call('RouteSelectedToDisplay("O1")');
+  check('routing schedules a route re-read', d.timers.length === 1, '' + d.timers.length);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed(DEVLIST);
+  // Arm from a config slot, then route by tapping the live Display List.
+  d.call('SelectMatrixSource("I1")');
+  d.call('SelectDisplayAndRoute(0,0)');
+  check('display-list tap routes the slot-armed source',
+    d.lastSent() === 'matrix aset :av TX1 RX1', d.lastSent());
+  check('display-list tap still sets LiveDisplay', d.vars.LiveDisplay === 'RX1', d.vars.LiveDisplay);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed(DEVLIST);
+  d.call('SelectDisplayAndRoute(0,0)');
+  check('display-list tap with no source armed does nothing',
+    d.allSent().length === 0, d.allSent().join('|'));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed(DEVLIST);
+  // Arm from the live Source List instead; the same destination taps work.
+  d.call('SelectSource(0,0)');
+  check('list-armed source clears the slot highlight',
+    d.vars.SelectedSourceID === 0 && d.vars.SrcSel1 === false,
+    d.vars.SelectedSourceID + '/' + d.vars.SrcSel1);
+  d.call('RouteSelectedToDisplay("O1")');
+  check('list-armed source routes to a slot destination',
+    d.lastSent() === 'matrix aset :av TX-MAIN RX1', d.lastSent());
+})();
+
 console.log('');
 if (failures) { console.log(failures + ' FAILURE(S)'); process.exit(1); }
 console.log('All assertions passed.');

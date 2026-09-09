@@ -1,0 +1,7 @@
+# Batch files must keep CRLF endings to run correctly on Windows.
+*.bat text eol=crlf
+
+# Tooling and reference material are binary; never line-ending-converted.
+*.exe binary
+*.pdf binary
+*.rtf -text

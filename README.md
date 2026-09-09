@@ -14,6 +14,8 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 | `DeviceDescription.xml` | Source/template description |
 | `Help.rtf` | In-app help text |
 
+Build tooling (not shipped to the processor): `PackageDriver.exe`, `Build.bat`.
+
 ## Feature areas (v3.5)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – arm a source, then tap each destination to route it; also the
@@ -101,6 +103,27 @@ recall, and the live-list route), and on demand via **Refresh Matrix Routes**.
 Only video routing is surfaced — the query asks for `vaurs` because that is the
 only selector form the API doc demonstrates, but audio/USB/IR/serial are parsed
 and discarded.
+
+## Building the driver package
+
+Double-click **`Build.bat`** (Windows). It changes to its own directory and runs:
+
+```bat
+PackageDriver.exe -o USPDRIVER.RTIDRIVER
+```
+
+producing `USPDRIVER.RTIDRIVER` for Integration Designer. `PackageDriver.exe`
+is committed alongside it, so a ZIP export of this repo carries everything
+needed to build. `-m` is omitted because PackageDriver defaults to
+`DriverManifest.xml`.
+
+The script reports the exit code and pauses, because PackageDriver
+schema-validates every XML file and refuses to build if any fails — you need to
+read those messages before the window closes. Note this is stricter than the
+well-formedness check in `test/run.sh`.
+
+`PackageDriver.exe`, `Build.bat` and `test/` are not part of the built package;
+PackageDriver bundles only the streams named in `DriverManifest.xml`.
 
 ## Development
 Verification (no RTI hardware required) lives in `test/` and is **not** part of

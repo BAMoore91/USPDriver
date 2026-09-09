@@ -28,149 +28,152 @@
     <variable name="Last CEC Target" sysvar="LastCECTarget" type="string" sample="RX1" />
   </category>
 
-  <!-- Source currently feeding each configured output slot (O1..O64),  -->
-  <!-- read back from "config get device routes". Empty when the display -->
-  <!-- has no route, its slot is blank, or the routes have not loaded.    -->
-  <category name="Matrix Routing (per Output)">
-    <variable name="Output 1 Source" sysvar="OutSrc1" type="string" sample="TX1" />
-    <variable name="Output 2 Source" sysvar="OutSrc2" type="string" sample="TX1" />
-    <variable name="Output 3 Source" sysvar="OutSrc3" type="string" sample="TX1" />
-    <variable name="Output 4 Source" sysvar="OutSrc4" type="string" sample="TX1" />
-    <variable name="Output 5 Source" sysvar="OutSrc5" type="string" sample="TX1" />
-    <variable name="Output 6 Source" sysvar="OutSrc6" type="string" sample="TX1" />
-    <variable name="Output 7 Source" sysvar="OutSrc7" type="string" sample="TX1" />
-    <variable name="Output 8 Source" sysvar="OutSrc8" type="string" sample="TX1" />
-    <variable name="Output 9 Source" sysvar="OutSrc9" type="string" sample="TX1" />
-    <variable name="Output 10 Source" sysvar="OutSrc10" type="string" sample="TX1" />
-    <variable name="Output 11 Source" sysvar="OutSrc11" type="string" sample="TX1" />
-    <variable name="Output 12 Source" sysvar="OutSrc12" type="string" sample="TX1" />
-    <variable name="Output 13 Source" sysvar="OutSrc13" type="string" sample="TX1" />
-    <variable name="Output 14 Source" sysvar="OutSrc14" type="string" sample="TX1" />
-    <variable name="Output 15 Source" sysvar="OutSrc15" type="string" sample="TX1" />
-    <variable name="Output 16 Source" sysvar="OutSrc16" type="string" sample="TX1" />
-    <variable name="Output 17 Source" sysvar="OutSrc17" type="string" sample="TX1" />
-    <variable name="Output 18 Source" sysvar="OutSrc18" type="string" sample="TX1" />
-    <variable name="Output 19 Source" sysvar="OutSrc19" type="string" sample="TX1" />
-    <variable name="Output 20 Source" sysvar="OutSrc20" type="string" sample="TX1" />
-    <variable name="Output 21 Source" sysvar="OutSrc21" type="string" sample="TX1" />
-    <variable name="Output 22 Source" sysvar="OutSrc22" type="string" sample="TX1" />
-    <variable name="Output 23 Source" sysvar="OutSrc23" type="string" sample="TX1" />
-    <variable name="Output 24 Source" sysvar="OutSrc24" type="string" sample="TX1" />
-    <variable name="Output 25 Source" sysvar="OutSrc25" type="string" sample="TX1" />
-    <variable name="Output 26 Source" sysvar="OutSrc26" type="string" sample="TX1" />
-    <variable name="Output 27 Source" sysvar="OutSrc27" type="string" sample="TX1" />
-    <variable name="Output 28 Source" sysvar="OutSrc28" type="string" sample="TX1" />
-    <variable name="Output 29 Source" sysvar="OutSrc29" type="string" sample="TX1" />
-    <variable name="Output 30 Source" sysvar="OutSrc30" type="string" sample="TX1" />
-    <variable name="Output 31 Source" sysvar="OutSrc31" type="string" sample="TX1" />
-    <variable name="Output 32 Source" sysvar="OutSrc32" type="string" sample="TX1" />
-    <variable name="Output 33 Source" sysvar="OutSrc33" type="string" sample="TX1" />
-    <variable name="Output 34 Source" sysvar="OutSrc34" type="string" sample="TX1" />
-    <variable name="Output 35 Source" sysvar="OutSrc35" type="string" sample="TX1" />
-    <variable name="Output 36 Source" sysvar="OutSrc36" type="string" sample="TX1" />
-    <variable name="Output 37 Source" sysvar="OutSrc37" type="string" sample="TX1" />
-    <variable name="Output 38 Source" sysvar="OutSrc38" type="string" sample="TX1" />
-    <variable name="Output 39 Source" sysvar="OutSrc39" type="string" sample="TX1" />
-    <variable name="Output 40 Source" sysvar="OutSrc40" type="string" sample="TX1" />
-    <variable name="Output 41 Source" sysvar="OutSrc41" type="string" sample="TX1" />
-    <variable name="Output 42 Source" sysvar="OutSrc42" type="string" sample="TX1" />
-    <variable name="Output 43 Source" sysvar="OutSrc43" type="string" sample="TX1" />
-    <variable name="Output 44 Source" sysvar="OutSrc44" type="string" sample="TX1" />
-    <variable name="Output 45 Source" sysvar="OutSrc45" type="string" sample="TX1" />
-    <variable name="Output 46 Source" sysvar="OutSrc46" type="string" sample="TX1" />
-    <variable name="Output 47 Source" sysvar="OutSrc47" type="string" sample="TX1" />
-    <variable name="Output 48 Source" sysvar="OutSrc48" type="string" sample="TX1" />
-    <variable name="Output 49 Source" sysvar="OutSrc49" type="string" sample="TX1" />
-    <variable name="Output 50 Source" sysvar="OutSrc50" type="string" sample="TX1" />
-    <variable name="Output 51 Source" sysvar="OutSrc51" type="string" sample="TX1" />
-    <variable name="Output 52 Source" sysvar="OutSrc52" type="string" sample="TX1" />
-    <variable name="Output 53 Source" sysvar="OutSrc53" type="string" sample="TX1" />
-    <variable name="Output 54 Source" sysvar="OutSrc54" type="string" sample="TX1" />
-    <variable name="Output 55 Source" sysvar="OutSrc55" type="string" sample="TX1" />
-    <variable name="Output 56 Source" sysvar="OutSrc56" type="string" sample="TX1" />
-    <variable name="Output 57 Source" sysvar="OutSrc57" type="string" sample="TX1" />
-    <variable name="Output 58 Source" sysvar="OutSrc58" type="string" sample="TX1" />
-    <variable name="Output 59 Source" sysvar="OutSrc59" type="string" sample="TX1" />
-    <variable name="Output 60 Source" sysvar="OutSrc60" type="string" sample="TX1" />
-    <variable name="Output 61 Source" sysvar="OutSrc61" type="string" sample="TX1" />
-    <variable name="Output 62 Source" sysvar="OutSrc62" type="string" sample="TX1" />
-    <variable name="Output 63 Source" sysvar="OutSrc63" type="string" sample="TX1" />
-    <variable name="Output 64 Source" sysvar="OutSrc64" type="string" sample="TX1" />
+  <!-- Source currently feeding each configured output, read back from     -->
+  <!-- "config get device routes". Each row is named after its Output       -->
+  <!-- (Display) Definition slot and only appears while Number of Outputs   -->
+  <!-- covers it, so the list matches the real system rather than showing   -->
+  <!-- 64 generic rows. Empty when the display has no route, its slot is    -->
+  <!-- blank, or the routes have not loaded yet.                            -->
+  <category name="Matrix Routing (per Output)" condition="$OutputCount &gt;= 1">
+    <variable name="%%O1%% Source" sysvar="OutSrc1" type="string" sample="TX1" condition="$OutputCount &gt;= 1" />
+    <variable name="%%O2%% Source" sysvar="OutSrc2" type="string" sample="TX1" condition="$OutputCount &gt;= 2" />
+    <variable name="%%O3%% Source" sysvar="OutSrc3" type="string" sample="TX1" condition="$OutputCount &gt;= 3" />
+    <variable name="%%O4%% Source" sysvar="OutSrc4" type="string" sample="TX1" condition="$OutputCount &gt;= 4" />
+    <variable name="%%O5%% Source" sysvar="OutSrc5" type="string" sample="TX1" condition="$OutputCount &gt;= 5" />
+    <variable name="%%O6%% Source" sysvar="OutSrc6" type="string" sample="TX1" condition="$OutputCount &gt;= 6" />
+    <variable name="%%O7%% Source" sysvar="OutSrc7" type="string" sample="TX1" condition="$OutputCount &gt;= 7" />
+    <variable name="%%O8%% Source" sysvar="OutSrc8" type="string" sample="TX1" condition="$OutputCount &gt;= 8" />
+    <variable name="%%O9%% Source" sysvar="OutSrc9" type="string" sample="TX1" condition="$OutputCount &gt;= 9" />
+    <variable name="%%O10%% Source" sysvar="OutSrc10" type="string" sample="TX1" condition="$OutputCount &gt;= 10" />
+    <variable name="%%O11%% Source" sysvar="OutSrc11" type="string" sample="TX1" condition="$OutputCount &gt;= 11" />
+    <variable name="%%O12%% Source" sysvar="OutSrc12" type="string" sample="TX1" condition="$OutputCount &gt;= 12" />
+    <variable name="%%O13%% Source" sysvar="OutSrc13" type="string" sample="TX1" condition="$OutputCount &gt;= 13" />
+    <variable name="%%O14%% Source" sysvar="OutSrc14" type="string" sample="TX1" condition="$OutputCount &gt;= 14" />
+    <variable name="%%O15%% Source" sysvar="OutSrc15" type="string" sample="TX1" condition="$OutputCount &gt;= 15" />
+    <variable name="%%O16%% Source" sysvar="OutSrc16" type="string" sample="TX1" condition="$OutputCount &gt;= 16" />
+    <variable name="%%O17%% Source" sysvar="OutSrc17" type="string" sample="TX1" condition="$OutputCount &gt;= 17" />
+    <variable name="%%O18%% Source" sysvar="OutSrc18" type="string" sample="TX1" condition="$OutputCount &gt;= 18" />
+    <variable name="%%O19%% Source" sysvar="OutSrc19" type="string" sample="TX1" condition="$OutputCount &gt;= 19" />
+    <variable name="%%O20%% Source" sysvar="OutSrc20" type="string" sample="TX1" condition="$OutputCount &gt;= 20" />
+    <variable name="%%O21%% Source" sysvar="OutSrc21" type="string" sample="TX1" condition="$OutputCount &gt;= 21" />
+    <variable name="%%O22%% Source" sysvar="OutSrc22" type="string" sample="TX1" condition="$OutputCount &gt;= 22" />
+    <variable name="%%O23%% Source" sysvar="OutSrc23" type="string" sample="TX1" condition="$OutputCount &gt;= 23" />
+    <variable name="%%O24%% Source" sysvar="OutSrc24" type="string" sample="TX1" condition="$OutputCount &gt;= 24" />
+    <variable name="%%O25%% Source" sysvar="OutSrc25" type="string" sample="TX1" condition="$OutputCount &gt;= 25" />
+    <variable name="%%O26%% Source" sysvar="OutSrc26" type="string" sample="TX1" condition="$OutputCount &gt;= 26" />
+    <variable name="%%O27%% Source" sysvar="OutSrc27" type="string" sample="TX1" condition="$OutputCount &gt;= 27" />
+    <variable name="%%O28%% Source" sysvar="OutSrc28" type="string" sample="TX1" condition="$OutputCount &gt;= 28" />
+    <variable name="%%O29%% Source" sysvar="OutSrc29" type="string" sample="TX1" condition="$OutputCount &gt;= 29" />
+    <variable name="%%O30%% Source" sysvar="OutSrc30" type="string" sample="TX1" condition="$OutputCount &gt;= 30" />
+    <variable name="%%O31%% Source" sysvar="OutSrc31" type="string" sample="TX1" condition="$OutputCount &gt;= 31" />
+    <variable name="%%O32%% Source" sysvar="OutSrc32" type="string" sample="TX1" condition="$OutputCount &gt;= 32" />
+    <variable name="%%O33%% Source" sysvar="OutSrc33" type="string" sample="TX1" condition="$OutputCount &gt;= 33" />
+    <variable name="%%O34%% Source" sysvar="OutSrc34" type="string" sample="TX1" condition="$OutputCount &gt;= 34" />
+    <variable name="%%O35%% Source" sysvar="OutSrc35" type="string" sample="TX1" condition="$OutputCount &gt;= 35" />
+    <variable name="%%O36%% Source" sysvar="OutSrc36" type="string" sample="TX1" condition="$OutputCount &gt;= 36" />
+    <variable name="%%O37%% Source" sysvar="OutSrc37" type="string" sample="TX1" condition="$OutputCount &gt;= 37" />
+    <variable name="%%O38%% Source" sysvar="OutSrc38" type="string" sample="TX1" condition="$OutputCount &gt;= 38" />
+    <variable name="%%O39%% Source" sysvar="OutSrc39" type="string" sample="TX1" condition="$OutputCount &gt;= 39" />
+    <variable name="%%O40%% Source" sysvar="OutSrc40" type="string" sample="TX1" condition="$OutputCount &gt;= 40" />
+    <variable name="%%O41%% Source" sysvar="OutSrc41" type="string" sample="TX1" condition="$OutputCount &gt;= 41" />
+    <variable name="%%O42%% Source" sysvar="OutSrc42" type="string" sample="TX1" condition="$OutputCount &gt;= 42" />
+    <variable name="%%O43%% Source" sysvar="OutSrc43" type="string" sample="TX1" condition="$OutputCount &gt;= 43" />
+    <variable name="%%O44%% Source" sysvar="OutSrc44" type="string" sample="TX1" condition="$OutputCount &gt;= 44" />
+    <variable name="%%O45%% Source" sysvar="OutSrc45" type="string" sample="TX1" condition="$OutputCount &gt;= 45" />
+    <variable name="%%O46%% Source" sysvar="OutSrc46" type="string" sample="TX1" condition="$OutputCount &gt;= 46" />
+    <variable name="%%O47%% Source" sysvar="OutSrc47" type="string" sample="TX1" condition="$OutputCount &gt;= 47" />
+    <variable name="%%O48%% Source" sysvar="OutSrc48" type="string" sample="TX1" condition="$OutputCount &gt;= 48" />
+    <variable name="%%O49%% Source" sysvar="OutSrc49" type="string" sample="TX1" condition="$OutputCount &gt;= 49" />
+    <variable name="%%O50%% Source" sysvar="OutSrc50" type="string" sample="TX1" condition="$OutputCount &gt;= 50" />
+    <variable name="%%O51%% Source" sysvar="OutSrc51" type="string" sample="TX1" condition="$OutputCount &gt;= 51" />
+    <variable name="%%O52%% Source" sysvar="OutSrc52" type="string" sample="TX1" condition="$OutputCount &gt;= 52" />
+    <variable name="%%O53%% Source" sysvar="OutSrc53" type="string" sample="TX1" condition="$OutputCount &gt;= 53" />
+    <variable name="%%O54%% Source" sysvar="OutSrc54" type="string" sample="TX1" condition="$OutputCount &gt;= 54" />
+    <variable name="%%O55%% Source" sysvar="OutSrc55" type="string" sample="TX1" condition="$OutputCount &gt;= 55" />
+    <variable name="%%O56%% Source" sysvar="OutSrc56" type="string" sample="TX1" condition="$OutputCount &gt;= 56" />
+    <variable name="%%O57%% Source" sysvar="OutSrc57" type="string" sample="TX1" condition="$OutputCount &gt;= 57" />
+    <variable name="%%O58%% Source" sysvar="OutSrc58" type="string" sample="TX1" condition="$OutputCount &gt;= 58" />
+    <variable name="%%O59%% Source" sysvar="OutSrc59" type="string" sample="TX1" condition="$OutputCount &gt;= 59" />
+    <variable name="%%O60%% Source" sysvar="OutSrc60" type="string" sample="TX1" condition="$OutputCount &gt;= 60" />
+    <variable name="%%O61%% Source" sysvar="OutSrc61" type="string" sample="TX1" condition="$OutputCount &gt;= 61" />
+    <variable name="%%O62%% Source" sysvar="OutSrc62" type="string" sample="TX1" condition="$OutputCount &gt;= 62" />
+    <variable name="%%O63%% Source" sysvar="OutSrc63" type="string" sample="TX1" condition="$OutputCount &gt;= 63" />
+    <variable name="%%O64%% Source" sysvar="OutSrc64" type="string" sample="TX1" condition="$OutputCount &gt;= 64" />
   </category>
 
   <!-- Matrix arm-then-route: tap a source to arm it, then tap each        -->
   <!-- destination. Selected Source ID is the armed input slot (0 when the  -->
   <!-- source came from the live list); bind a source button's Reversed     -->
-  <!-- state to its matching SrcSelN.                                       -->
+  <!-- state to the SrcSel row named after its Input (Source) Definition.   -->
   <category name="Matrix Routing">
     <variable name="Selected Source ID" sysvar="SelectedSourceID" type="integer" sample="1" />
   </category>
 
-  <category name="Matrix Source Selected">
-    <variable name="Source 1 Selected" sysvar="SrcSel1" type="boolean" sample="false" />
-    <variable name="Source 2 Selected" sysvar="SrcSel2" type="boolean" sample="false" />
-    <variable name="Source 3 Selected" sysvar="SrcSel3" type="boolean" sample="false" />
-    <variable name="Source 4 Selected" sysvar="SrcSel4" type="boolean" sample="false" />
-    <variable name="Source 5 Selected" sysvar="SrcSel5" type="boolean" sample="false" />
-    <variable name="Source 6 Selected" sysvar="SrcSel6" type="boolean" sample="false" />
-    <variable name="Source 7 Selected" sysvar="SrcSel7" type="boolean" sample="false" />
-    <variable name="Source 8 Selected" sysvar="SrcSel8" type="boolean" sample="false" />
-    <variable name="Source 9 Selected" sysvar="SrcSel9" type="boolean" sample="false" />
-    <variable name="Source 10 Selected" sysvar="SrcSel10" type="boolean" sample="false" />
-    <variable name="Source 11 Selected" sysvar="SrcSel11" type="boolean" sample="false" />
-    <variable name="Source 12 Selected" sysvar="SrcSel12" type="boolean" sample="false" />
-    <variable name="Source 13 Selected" sysvar="SrcSel13" type="boolean" sample="false" />
-    <variable name="Source 14 Selected" sysvar="SrcSel14" type="boolean" sample="false" />
-    <variable name="Source 15 Selected" sysvar="SrcSel15" type="boolean" sample="false" />
-    <variable name="Source 16 Selected" sysvar="SrcSel16" type="boolean" sample="false" />
-    <variable name="Source 17 Selected" sysvar="SrcSel17" type="boolean" sample="false" />
-    <variable name="Source 18 Selected" sysvar="SrcSel18" type="boolean" sample="false" />
-    <variable name="Source 19 Selected" sysvar="SrcSel19" type="boolean" sample="false" />
-    <variable name="Source 20 Selected" sysvar="SrcSel20" type="boolean" sample="false" />
-    <variable name="Source 21 Selected" sysvar="SrcSel21" type="boolean" sample="false" />
-    <variable name="Source 22 Selected" sysvar="SrcSel22" type="boolean" sample="false" />
-    <variable name="Source 23 Selected" sysvar="SrcSel23" type="boolean" sample="false" />
-    <variable name="Source 24 Selected" sysvar="SrcSel24" type="boolean" sample="false" />
-    <variable name="Source 25 Selected" sysvar="SrcSel25" type="boolean" sample="false" />
-    <variable name="Source 26 Selected" sysvar="SrcSel26" type="boolean" sample="false" />
-    <variable name="Source 27 Selected" sysvar="SrcSel27" type="boolean" sample="false" />
-    <variable name="Source 28 Selected" sysvar="SrcSel28" type="boolean" sample="false" />
-    <variable name="Source 29 Selected" sysvar="SrcSel29" type="boolean" sample="false" />
-    <variable name="Source 30 Selected" sysvar="SrcSel30" type="boolean" sample="false" />
-    <variable name="Source 31 Selected" sysvar="SrcSel31" type="boolean" sample="false" />
-    <variable name="Source 32 Selected" sysvar="SrcSel32" type="boolean" sample="false" />
-    <variable name="Source 33 Selected" sysvar="SrcSel33" type="boolean" sample="false" />
-    <variable name="Source 34 Selected" sysvar="SrcSel34" type="boolean" sample="false" />
-    <variable name="Source 35 Selected" sysvar="SrcSel35" type="boolean" sample="false" />
-    <variable name="Source 36 Selected" sysvar="SrcSel36" type="boolean" sample="false" />
-    <variable name="Source 37 Selected" sysvar="SrcSel37" type="boolean" sample="false" />
-    <variable name="Source 38 Selected" sysvar="SrcSel38" type="boolean" sample="false" />
-    <variable name="Source 39 Selected" sysvar="SrcSel39" type="boolean" sample="false" />
-    <variable name="Source 40 Selected" sysvar="SrcSel40" type="boolean" sample="false" />
-    <variable name="Source 41 Selected" sysvar="SrcSel41" type="boolean" sample="false" />
-    <variable name="Source 42 Selected" sysvar="SrcSel42" type="boolean" sample="false" />
-    <variable name="Source 43 Selected" sysvar="SrcSel43" type="boolean" sample="false" />
-    <variable name="Source 44 Selected" sysvar="SrcSel44" type="boolean" sample="false" />
-    <variable name="Source 45 Selected" sysvar="SrcSel45" type="boolean" sample="false" />
-    <variable name="Source 46 Selected" sysvar="SrcSel46" type="boolean" sample="false" />
-    <variable name="Source 47 Selected" sysvar="SrcSel47" type="boolean" sample="false" />
-    <variable name="Source 48 Selected" sysvar="SrcSel48" type="boolean" sample="false" />
-    <variable name="Source 49 Selected" sysvar="SrcSel49" type="boolean" sample="false" />
-    <variable name="Source 50 Selected" sysvar="SrcSel50" type="boolean" sample="false" />
-    <variable name="Source 51 Selected" sysvar="SrcSel51" type="boolean" sample="false" />
-    <variable name="Source 52 Selected" sysvar="SrcSel52" type="boolean" sample="false" />
-    <variable name="Source 53 Selected" sysvar="SrcSel53" type="boolean" sample="false" />
-    <variable name="Source 54 Selected" sysvar="SrcSel54" type="boolean" sample="false" />
-    <variable name="Source 55 Selected" sysvar="SrcSel55" type="boolean" sample="false" />
-    <variable name="Source 56 Selected" sysvar="SrcSel56" type="boolean" sample="false" />
-    <variable name="Source 57 Selected" sysvar="SrcSel57" type="boolean" sample="false" />
-    <variable name="Source 58 Selected" sysvar="SrcSel58" type="boolean" sample="false" />
-    <variable name="Source 59 Selected" sysvar="SrcSel59" type="boolean" sample="false" />
-    <variable name="Source 60 Selected" sysvar="SrcSel60" type="boolean" sample="false" />
-    <variable name="Source 61 Selected" sysvar="SrcSel61" type="boolean" sample="false" />
-    <variable name="Source 62 Selected" sysvar="SrcSel62" type="boolean" sample="false" />
-    <variable name="Source 63 Selected" sysvar="SrcSel63" type="boolean" sample="false" />
-    <variable name="Source 64 Selected" sysvar="SrcSel64" type="boolean" sample="false" />
+  <category name="Matrix Source Selected" condition="$InputCount &gt;= 1">
+    <variable name="%%I1%% Selected" sysvar="SrcSel1" type="boolean" sample="false" condition="$InputCount &gt;= 1" />
+    <variable name="%%I2%% Selected" sysvar="SrcSel2" type="boolean" sample="false" condition="$InputCount &gt;= 2" />
+    <variable name="%%I3%% Selected" sysvar="SrcSel3" type="boolean" sample="false" condition="$InputCount &gt;= 3" />
+    <variable name="%%I4%% Selected" sysvar="SrcSel4" type="boolean" sample="false" condition="$InputCount &gt;= 4" />
+    <variable name="%%I5%% Selected" sysvar="SrcSel5" type="boolean" sample="false" condition="$InputCount &gt;= 5" />
+    <variable name="%%I6%% Selected" sysvar="SrcSel6" type="boolean" sample="false" condition="$InputCount &gt;= 6" />
+    <variable name="%%I7%% Selected" sysvar="SrcSel7" type="boolean" sample="false" condition="$InputCount &gt;= 7" />
+    <variable name="%%I8%% Selected" sysvar="SrcSel8" type="boolean" sample="false" condition="$InputCount &gt;= 8" />
+    <variable name="%%I9%% Selected" sysvar="SrcSel9" type="boolean" sample="false" condition="$InputCount &gt;= 9" />
+    <variable name="%%I10%% Selected" sysvar="SrcSel10" type="boolean" sample="false" condition="$InputCount &gt;= 10" />
+    <variable name="%%I11%% Selected" sysvar="SrcSel11" type="boolean" sample="false" condition="$InputCount &gt;= 11" />
+    <variable name="%%I12%% Selected" sysvar="SrcSel12" type="boolean" sample="false" condition="$InputCount &gt;= 12" />
+    <variable name="%%I13%% Selected" sysvar="SrcSel13" type="boolean" sample="false" condition="$InputCount &gt;= 13" />
+    <variable name="%%I14%% Selected" sysvar="SrcSel14" type="boolean" sample="false" condition="$InputCount &gt;= 14" />
+    <variable name="%%I15%% Selected" sysvar="SrcSel15" type="boolean" sample="false" condition="$InputCount &gt;= 15" />
+    <variable name="%%I16%% Selected" sysvar="SrcSel16" type="boolean" sample="false" condition="$InputCount &gt;= 16" />
+    <variable name="%%I17%% Selected" sysvar="SrcSel17" type="boolean" sample="false" condition="$InputCount &gt;= 17" />
+    <variable name="%%I18%% Selected" sysvar="SrcSel18" type="boolean" sample="false" condition="$InputCount &gt;= 18" />
+    <variable name="%%I19%% Selected" sysvar="SrcSel19" type="boolean" sample="false" condition="$InputCount &gt;= 19" />
+    <variable name="%%I20%% Selected" sysvar="SrcSel20" type="boolean" sample="false" condition="$InputCount &gt;= 20" />
+    <variable name="%%I21%% Selected" sysvar="SrcSel21" type="boolean" sample="false" condition="$InputCount &gt;= 21" />
+    <variable name="%%I22%% Selected" sysvar="SrcSel22" type="boolean" sample="false" condition="$InputCount &gt;= 22" />
+    <variable name="%%I23%% Selected" sysvar="SrcSel23" type="boolean" sample="false" condition="$InputCount &gt;= 23" />
+    <variable name="%%I24%% Selected" sysvar="SrcSel24" type="boolean" sample="false" condition="$InputCount &gt;= 24" />
+    <variable name="%%I25%% Selected" sysvar="SrcSel25" type="boolean" sample="false" condition="$InputCount &gt;= 25" />
+    <variable name="%%I26%% Selected" sysvar="SrcSel26" type="boolean" sample="false" condition="$InputCount &gt;= 26" />
+    <variable name="%%I27%% Selected" sysvar="SrcSel27" type="boolean" sample="false" condition="$InputCount &gt;= 27" />
+    <variable name="%%I28%% Selected" sysvar="SrcSel28" type="boolean" sample="false" condition="$InputCount &gt;= 28" />
+    <variable name="%%I29%% Selected" sysvar="SrcSel29" type="boolean" sample="false" condition="$InputCount &gt;= 29" />
+    <variable name="%%I30%% Selected" sysvar="SrcSel30" type="boolean" sample="false" condition="$InputCount &gt;= 30" />
+    <variable name="%%I31%% Selected" sysvar="SrcSel31" type="boolean" sample="false" condition="$InputCount &gt;= 31" />
+    <variable name="%%I32%% Selected" sysvar="SrcSel32" type="boolean" sample="false" condition="$InputCount &gt;= 32" />
+    <variable name="%%I33%% Selected" sysvar="SrcSel33" type="boolean" sample="false" condition="$InputCount &gt;= 33" />
+    <variable name="%%I34%% Selected" sysvar="SrcSel34" type="boolean" sample="false" condition="$InputCount &gt;= 34" />
+    <variable name="%%I35%% Selected" sysvar="SrcSel35" type="boolean" sample="false" condition="$InputCount &gt;= 35" />
+    <variable name="%%I36%% Selected" sysvar="SrcSel36" type="boolean" sample="false" condition="$InputCount &gt;= 36" />
+    <variable name="%%I37%% Selected" sysvar="SrcSel37" type="boolean" sample="false" condition="$InputCount &gt;= 37" />
+    <variable name="%%I38%% Selected" sysvar="SrcSel38" type="boolean" sample="false" condition="$InputCount &gt;= 38" />
+    <variable name="%%I39%% Selected" sysvar="SrcSel39" type="boolean" sample="false" condition="$InputCount &gt;= 39" />
+    <variable name="%%I40%% Selected" sysvar="SrcSel40" type="boolean" sample="false" condition="$InputCount &gt;= 40" />
+    <variable name="%%I41%% Selected" sysvar="SrcSel41" type="boolean" sample="false" condition="$InputCount &gt;= 41" />
+    <variable name="%%I42%% Selected" sysvar="SrcSel42" type="boolean" sample="false" condition="$InputCount &gt;= 42" />
+    <variable name="%%I43%% Selected" sysvar="SrcSel43" type="boolean" sample="false" condition="$InputCount &gt;= 43" />
+    <variable name="%%I44%% Selected" sysvar="SrcSel44" type="boolean" sample="false" condition="$InputCount &gt;= 44" />
+    <variable name="%%I45%% Selected" sysvar="SrcSel45" type="boolean" sample="false" condition="$InputCount &gt;= 45" />
+    <variable name="%%I46%% Selected" sysvar="SrcSel46" type="boolean" sample="false" condition="$InputCount &gt;= 46" />
+    <variable name="%%I47%% Selected" sysvar="SrcSel47" type="boolean" sample="false" condition="$InputCount &gt;= 47" />
+    <variable name="%%I48%% Selected" sysvar="SrcSel48" type="boolean" sample="false" condition="$InputCount &gt;= 48" />
+    <variable name="%%I49%% Selected" sysvar="SrcSel49" type="boolean" sample="false" condition="$InputCount &gt;= 49" />
+    <variable name="%%I50%% Selected" sysvar="SrcSel50" type="boolean" sample="false" condition="$InputCount &gt;= 50" />
+    <variable name="%%I51%% Selected" sysvar="SrcSel51" type="boolean" sample="false" condition="$InputCount &gt;= 51" />
+    <variable name="%%I52%% Selected" sysvar="SrcSel52" type="boolean" sample="false" condition="$InputCount &gt;= 52" />
+    <variable name="%%I53%% Selected" sysvar="SrcSel53" type="boolean" sample="false" condition="$InputCount &gt;= 53" />
+    <variable name="%%I54%% Selected" sysvar="SrcSel54" type="boolean" sample="false" condition="$InputCount &gt;= 54" />
+    <variable name="%%I55%% Selected" sysvar="SrcSel55" type="boolean" sample="false" condition="$InputCount &gt;= 55" />
+    <variable name="%%I56%% Selected" sysvar="SrcSel56" type="boolean" sample="false" condition="$InputCount &gt;= 56" />
+    <variable name="%%I57%% Selected" sysvar="SrcSel57" type="boolean" sample="false" condition="$InputCount &gt;= 57" />
+    <variable name="%%I58%% Selected" sysvar="SrcSel58" type="boolean" sample="false" condition="$InputCount &gt;= 58" />
+    <variable name="%%I59%% Selected" sysvar="SrcSel59" type="boolean" sample="false" condition="$InputCount &gt;= 59" />
+    <variable name="%%I60%% Selected" sysvar="SrcSel60" type="boolean" sample="false" condition="$InputCount &gt;= 60" />
+    <variable name="%%I61%% Selected" sysvar="SrcSel61" type="boolean" sample="false" condition="$InputCount &gt;= 61" />
+    <variable name="%%I62%% Selected" sysvar="SrcSel62" type="boolean" sample="false" condition="$InputCount &gt;= 62" />
+    <variable name="%%I63%% Selected" sysvar="SrcSel63" type="boolean" sample="false" condition="$InputCount &gt;= 63" />
+    <variable name="%%I64%% Selected" sysvar="SrcSel64" type="boolean" sample="false" condition="$InputCount &gt;= 64" />
   </category>
 
   <category name="Multiview Routing">

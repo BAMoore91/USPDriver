@@ -9,6 +9,9 @@ node --check USP_Driver.js
 echo "== Behavioral harness =="
 node test/run.js
 
+echo "== Driver metadata =="
+python3 test/metadata.py
+
 echo "== XML well-formedness =="
 if command -v xmllint >/dev/null 2>&1; then
   xmllint --noout ConfigSettings.xml SystemVariables.xml SystemFunctions.xml DeviceDescription.xml DriverManifest.xml

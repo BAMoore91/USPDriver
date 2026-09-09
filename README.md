@@ -16,7 +16,7 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 
 Build tooling (not shipped to the processor): `PackageDriver.exe`, `Build.bat`.
 
-## Feature areas (v3.5)
+## Feature areas (v3.6)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – arm a source, then tap each destination to route it; also the
   original direct routes (one display, up to three) and named preset recall.
@@ -66,7 +66,7 @@ destination tap with nothing armed is a no-op rather than a stray route.
 
 `SelectedSourceID` holds the armed input slot number for highlighting, with
 `SrcSel1`..`SrcSel64` as per-source booleans to bind a button's Reversed state
-to.
+to — each named after its input definition slot.
 
 The armed source is the same value the live Source List sets, so the two
 workflows interoperate: arm from a config slot and route by tapping the live
@@ -82,6 +82,15 @@ unchanged, so pages already built around them keep working.
 `OutSrc1`..`OutSrc64` report the source currently feeding the display in each
 `O1`..`O64` config slot; `LiveDisplaySource` does the same for the display
 selected in the live Display List.
+
+In Integration Designer each of these is **named after its config slot** using
+dynamic naming (`name="%%O1%% Source"`), so an output defined as `RX-Bar` shows
+as *RX-Bar Source* rather than *Output 1 Source*, and each carries
+`condition="$OutputCount >= N"` so only outputs the installer actually defined
+appear. The same applies to the `SrcSel` booleans, which are named from the
+`I1`..`I64` input slots. This is the treatment `SystemFunctions.xml` already
+gave its dropdowns; it needs `minimumSoftwareVersion` 9.0 or higher in the
+manifest (this driver is at 10.0).
 
 The driver reads this with `config get device routes vaurs ALLRX`. Two things
 about that reply shaped the implementation:
@@ -137,3 +146,10 @@ The harness (`test/run.js`) loads `USP_Driver.js` in a sandbox that stubs the
 RTI runtime (`TCP`, `Config`, `SystemVars`, `System`, `Timer`), asserts each
 exported function emits the exact CBOX command, and exercises the feedback
 parser. The reference SDK is `XPDriverGuide_v25.pdf`.
+
+`test/metadata.py` covers what neither the harness nor PackageDriver checks:
+that every `export` in `SystemFunctions.xml` resolves to a function in the
+script (PackageDriver validates XML but never reads the script, so a typo here
+would only surface on hardware), that hidden parameters come last, that the
+per-output and per-source variables stay slot-named and conditioned, and that
+the config slots the script reads are declared.

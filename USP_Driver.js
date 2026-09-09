@@ -3,7 +3,7 @@ var hostIP = Config.Get("IPAddress");
 var hostPort = Config.Get("USPPort");
 
 function Initialize() {
-    System.Print("--- IPCBox Driver V3.5 Initialized ---\r\n");
+    System.Print("--- IPCBox Driver V3.6 Initialized ---\r\n");
     Connect();
 }
 

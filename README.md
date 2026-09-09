@@ -16,7 +16,7 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 
 Build tooling (not shipped to the processor): `PackageDriver.exe`, `Build.bat`.
 
-## Feature areas (v3.8)
+## Feature areas (v3.9)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – arm a source, then tap each destination to route it; also the
   original direct routes (one display, up to three) and named preset recall.
@@ -78,6 +78,10 @@ Text tags, which label a button rather than command it:
 | `InputName1`..`64` | 64 | The name entered in input slot `I1`..`I64` |
 | `OutputName1`..`64` | 64 | The name entered in output slot `O1`..`O64` |
 | `OutputSource1`..`64` | 64 | The source currently feeding output `O1`..`O64` (live) |
+| `MVIDWinSource1`..`16` | 16 | The source currently in multiview window 1..16 (live) |
+| `SelectedInputName` | 1 | The armed source (live) |
+| `SelectedOutputName` | 1 | The display selected in the Display List (live) |
+| `SelectedOutputSource` | 1 | The source feeding that selected display (live) |
 
 So a button can carry a command tag *and* a text tag: tag it `SelectInput3` and
 `InputName3` and it arms input 3, lights when armed, and labels itself with
@@ -105,7 +109,10 @@ How this is expressed in the XML:
   `buttontag` and no `tagtype` — `tagtype` is documented as boolean-only, so on a
   string variable the variable attaches to the tagged button itself and supplies
   its text. `InName`/`OutName` are published once at startup from the config
-  slots (`PublishSlotNames`); `OutputSource` is live route feedback.
+  slots (`PublishSlotNames`); every other text tag is live feedback the driver
+  already maintained — `OutputSource` from the route query, `MVIDWinSource` from
+  `mvid layout get`, and the three `Selected*` singletons from the arm-then-route
+  and live-list selections.
 
 Tag counts follow the config-slot ceilings (64 inputs, 64 outputs, 16 windows),
 and the per-choice tags inherit each choice's `condition`, so tags for slots

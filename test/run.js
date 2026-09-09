@@ -28,7 +28,8 @@ const CONFIG = {
 };
 
 // ---- Build a fresh sandbox + load the driver ----
-function loadDriver() {
+function loadDriver(overrides) {
+  const cfg = Object.assign({}, CONFIG, overrides || {});
   const sent = [];
   const vars = {};
   let rxFunc = null;
@@ -60,7 +61,7 @@ function loadDriver() {
   }
 
   const sandbox = {
-    Config: { Get: function (k) { return Object.prototype.hasOwnProperty.call(CONFIG, k) ? CONFIG[k] : ''; } },
+    Config: { Get: function (k) { return Object.prototype.hasOwnProperty.call(cfg, k) ? cfg[k] : ''; } },
     SystemVars: { Write: function (n, v) { vars[n] = v; return true; }, Read: function (n) { return n in vars ? vars[n] : null; } },
     System: { Print: function () {} },
     TCP: TCP,
@@ -639,6 +640,31 @@ console.log('Slot name publishing:');
   check('unconfigured slot publishes empty', d.vars.InName9 === '', JSON.stringify(d.vars.InName9));
   check('names cover the full ceiling', d.vars.OutName64 === '', JSON.stringify(d.vars.OutName64));
   check('publishing names sends no commands', d.allSent().length === 0, d.allSent().join('|'));
+})();
+
+// =====================================================================
+// 10. Combined output label (one tag supplies command and both text lines)
+// =====================================================================
+console.log('Combined output label:');
+(function () {
+  const d = loadDriver();
+  check('unrouted display labels with its name alone', d.vars.OutLabel1 === 'RX1', d.vars.OutLabel1);
+  check('unconfigured slot labels empty', d.vars.OutLabel9 === '', JSON.stringify(d.vars.OutLabel9));
+  d.feed(DEVLIST);
+  d.feed(ROUTES);
+  check('routed display labels name + source', d.vars.OutLabel1 === 'RX1\rTX-MAIN', JSON.stringify(d.vars.OutLabel1));
+  check('label follows a MAC-valued slot', d.vars.OutLabel4 === '188a6a02c0d1\rTX-MAIN', JSON.stringify(d.vars.OutLabel4));
+  check('display with no route keeps name only', d.vars.OutLabel5 === '188a6a02c0ab', JSON.stringify(d.vars.OutLabel5));
+})();
+
+(function () {
+  const seps = { dash: 'RX1 - TX-MAIN', colon: 'RX1: TX-MAIN', slash: 'RX1 / TX-MAIN', lf: 'RX1\nTX-MAIN' };
+  Object.keys(seps).forEach(function (choice) {
+    const d = loadDriver({ LabelSep: choice });
+    d.feed(DEVLIST);
+    d.feed(ROUTES);
+    check('separator "' + choice + '"', d.vars.OutLabel1 === seps[choice], JSON.stringify(d.vars.OutLabel1));
+  });
 })();
 
 console.log('');

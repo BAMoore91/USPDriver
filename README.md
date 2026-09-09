@@ -16,7 +16,7 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 
 Build tooling (not shipped to the processor): `PackageDriver.exe`, `Build.bat`.
 
-## Feature areas (v4.0)
+## Feature areas (v4.1)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – arm a source, then tap each destination to route it; also the
   original direct routes (one display, up to three) and named preset recall.
@@ -79,6 +79,7 @@ button can carry a command tag plus two text tags — the usual display button i
 
 | Tag | Count | Puts on the button |
 |-----|-------|--------------------|
+| `RouteToDisplay1`..`64` | 64 | **Both lines at once** — the output's name and the source it is subscribed to |
 | `DisplayName1`..`64` | 64 | The name entered in output slot `O1`..`O64` |
 | `SourceName1`..`64` | 64 | The source that output is subscribed to (live) |
 | `InputName1`..`64` | 64 | The name entered in input slot `I1`..`I64` |
@@ -86,6 +87,20 @@ button can carry a command tag plus two text tags — the usual display button i
 | `SelectedInputName` | 1 | The armed source (live) |
 | `SelectedDisplayName` | 1 | The display selected in the Display List (live) |
 | `SelectedDisplaySource` | 1 | The source feeding that selected display (live) |
+
+`RouteToDisplay{N}` is deliberately both a command tag and a text tag. A tag's
+variable can fill any one of the button's Text / Reversed / Inactive / Visible
+slots, and a command and a variable on the same tag do not collide — so a
+display button tagged only `RouteToDisplay16` gets the route command *and* a
+label reading `RX-Bar` over `Apple TV`, with no second tag. The combined string
+is published as `OutLabel1`..`64`.
+
+A tag has one Text slot, so the two halves arrive as one string. **Label
+Separator** in the driver configuration joins them: a line break by default,
+with an alternate line break and visible ` - ` / `: ` / ` / ` options, because
+the runtime's line-break character for button text is not documented — if the
+label comes out on one line, switch the setting rather than rebuilding. A
+display with no current route shows its name alone, never a dangling separator.
 
 **Text tags carry their own number.** A tag is matched as an exact string, so a
 bare `SourceName` cannot pick up the `16` from a `RouteToDisplay16` tag sitting

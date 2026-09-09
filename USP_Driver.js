@@ -3,7 +3,7 @@ var hostIP = Config.Get("IPAddress");
 var hostPort = Config.Get("USPPort");
 
 function Initialize() {
-    System.Print("--- IPCBox Driver V4.0 Initialized ---\r\n");
+    System.Print("--- IPCBox Driver V4.1 Initialized ---\r\n");
     PublishSlotNames();
     Connect();
 }
@@ -22,6 +22,7 @@ function PublishSlotNames() {
         v = Config.Get("O" + i);
         SystemVars.Write("OutName" + i, v ? v : "");
     }
+    PublishOutputLabels();
 }
 
 function Connect() {
@@ -904,6 +905,48 @@ function PublishOutputSources() {
         SystemVars.Write("OutSrc" + i, SourceForDevice(Config.Get("O" + i)));
     }
     SystemVars.Write("LiveDisplaySource", SourceForDevice(g_liveDisp));
+    PublishOutputLabels();
+}
+
+// Separator between the two halves of a combined label. Config is static, so
+// resolve it once. The runtime's line-break character for button text is not
+// documented, hence the alternate and the visible fallbacks.
+var g_labelSep = null;
+
+function LabelSeparator() {
+    if (g_labelSep === null) {
+        var choice = Config.Get("LabelSep");
+        if (choice === "lf") {
+            g_labelSep = "\n";
+        } else if (choice === "dash") {
+            g_labelSep = " - ";
+        } else if (choice === "colon") {
+            g_labelSep = ": ";
+        } else if (choice === "slash") {
+            g_labelSep = " / ";
+        } else {
+            g_labelSep = "\r";
+        }
+    }
+    return g_labelSep;
+}
+
+// "<display name><sep><source it is subscribed to>", for a button that carries
+// only its RouteToDisplay tag and gets both lines of text from it. An unrouted
+// display shows its name alone rather than a dangling separator.
+function OutputLabel(slotIndex) {
+    var name = Config.Get("O" + slotIndex);
+    if (!name) {
+        return "";
+    }
+    var src = SourceForDevice(name);
+    return src ? (name + LabelSeparator() + src) : name;
+}
+
+function PublishOutputLabels() {
+    for (var i = 1; i <= OUT_COUNT; i++) {
+        SystemVars.Write("OutLabel" + i, OutputLabel(i));
+    }
 }
 
 // =====================================================================

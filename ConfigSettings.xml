@@ -5,6 +5,20 @@
     <setting name="USP Port" variable="USPPort" type="integer" default="24" />
   </category>
 
+  <!-- How the combined RouteToDisplay button label joins the display name to -->
+  <!-- the source feeding it. A line break is the intent; the visible          -->
+  <!-- separators are there in case the panel renders the label on one line.   -->
+  <category name="Display Button Label">
+    <setting name="Label Separator" variable="LabelSep" type="mcstring" default="cr"
+             description="Joins the display name and its current source in the combined label.">
+      <choice name="New line" value="cr" />
+      <choice name="New line (alternate)" value="lf" />
+      <choice name="Dash ( - )" value="dash" />
+      <choice name="Colon ( : )" value="colon" />
+      <choice name="Slash ( / )" value="slash" />
+    </setting>
+  </category>
+
   <category name="Definition Counts">
     <setting name="Number of Layouts" variable="LayoutCount" type="integer" default="10" description="How many fields to show (max 32)." />
     <setting name="Number of Outputs (Displays)" variable="OutputCount" type="integer" default="10" description="How many fields to show (max 64)." />

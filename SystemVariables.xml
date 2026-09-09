@@ -175,6 +175,76 @@
     <variable name="%%O64%% Name" sysvar="OutName64" type="string" sample="RX1" condition="$OutputCount &gt;= 64" buttontag="DisplayName64" />
   </category>
 
+  <!-- Combined "name + current source" label, tagged with the same          -->
+  <!-- RouteToDisplay tag that carries the route command, so a button needs   -->
+  <!-- only that one tag to get both its command and both lines of its text.  -->
+  <category name="Output Labels" condition="$OutputCount &gt;= 1">
+    <variable name="%%O1%% Label" sysvar="OutLabel1" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 1" buttontag="RouteToDisplay1" />
+    <variable name="%%O2%% Label" sysvar="OutLabel2" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 2" buttontag="RouteToDisplay2" />
+    <variable name="%%O3%% Label" sysvar="OutLabel3" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 3" buttontag="RouteToDisplay3" />
+    <variable name="%%O4%% Label" sysvar="OutLabel4" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 4" buttontag="RouteToDisplay4" />
+    <variable name="%%O5%% Label" sysvar="OutLabel5" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 5" buttontag="RouteToDisplay5" />
+    <variable name="%%O6%% Label" sysvar="OutLabel6" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 6" buttontag="RouteToDisplay6" />
+    <variable name="%%O7%% Label" sysvar="OutLabel7" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 7" buttontag="RouteToDisplay7" />
+    <variable name="%%O8%% Label" sysvar="OutLabel8" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 8" buttontag="RouteToDisplay8" />
+    <variable name="%%O9%% Label" sysvar="OutLabel9" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 9" buttontag="RouteToDisplay9" />
+    <variable name="%%O10%% Label" sysvar="OutLabel10" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 10" buttontag="RouteToDisplay10" />
+    <variable name="%%O11%% Label" sysvar="OutLabel11" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 11" buttontag="RouteToDisplay11" />
+    <variable name="%%O12%% Label" sysvar="OutLabel12" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 12" buttontag="RouteToDisplay12" />
+    <variable name="%%O13%% Label" sysvar="OutLabel13" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 13" buttontag="RouteToDisplay13" />
+    <variable name="%%O14%% Label" sysvar="OutLabel14" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 14" buttontag="RouteToDisplay14" />
+    <variable name="%%O15%% Label" sysvar="OutLabel15" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 15" buttontag="RouteToDisplay15" />
+    <variable name="%%O16%% Label" sysvar="OutLabel16" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 16" buttontag="RouteToDisplay16" />
+    <variable name="%%O17%% Label" sysvar="OutLabel17" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 17" buttontag="RouteToDisplay17" />
+    <variable name="%%O18%% Label" sysvar="OutLabel18" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 18" buttontag="RouteToDisplay18" />
+    <variable name="%%O19%% Label" sysvar="OutLabel19" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 19" buttontag="RouteToDisplay19" />
+    <variable name="%%O20%% Label" sysvar="OutLabel20" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 20" buttontag="RouteToDisplay20" />
+    <variable name="%%O21%% Label" sysvar="OutLabel21" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 21" buttontag="RouteToDisplay21" />
+    <variable name="%%O22%% Label" sysvar="OutLabel22" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 22" buttontag="RouteToDisplay22" />
+    <variable name="%%O23%% Label" sysvar="OutLabel23" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 23" buttontag="RouteToDisplay23" />
+    <variable name="%%O24%% Label" sysvar="OutLabel24" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 24" buttontag="RouteToDisplay24" />
+    <variable name="%%O25%% Label" sysvar="OutLabel25" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 25" buttontag="RouteToDisplay25" />
+    <variable name="%%O26%% Label" sysvar="OutLabel26" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 26" buttontag="RouteToDisplay26" />
+    <variable name="%%O27%% Label" sysvar="OutLabel27" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 27" buttontag="RouteToDisplay27" />
+    <variable name="%%O28%% Label" sysvar="OutLabel28" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 28" buttontag="RouteToDisplay28" />
+    <variable name="%%O29%% Label" sysvar="OutLabel29" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 29" buttontag="RouteToDisplay29" />
+    <variable name="%%O30%% Label" sysvar="OutLabel30" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 30" buttontag="RouteToDisplay30" />
+    <variable name="%%O31%% Label" sysvar="OutLabel31" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 31" buttontag="RouteToDisplay31" />
+    <variable name="%%O32%% Label" sysvar="OutLabel32" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 32" buttontag="RouteToDisplay32" />
+    <variable name="%%O33%% Label" sysvar="OutLabel33" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 33" buttontag="RouteToDisplay33" />
+    <variable name="%%O34%% Label" sysvar="OutLabel34" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 34" buttontag="RouteToDisplay34" />
+    <variable name="%%O35%% Label" sysvar="OutLabel35" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 35" buttontag="RouteToDisplay35" />
+    <variable name="%%O36%% Label" sysvar="OutLabel36" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 36" buttontag="RouteToDisplay36" />
+    <variable name="%%O37%% Label" sysvar="OutLabel37" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 37" buttontag="RouteToDisplay37" />
+    <variable name="%%O38%% Label" sysvar="OutLabel38" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 38" buttontag="RouteToDisplay38" />
+    <variable name="%%O39%% Label" sysvar="OutLabel39" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 39" buttontag="RouteToDisplay39" />
+    <variable name="%%O40%% Label" sysvar="OutLabel40" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 40" buttontag="RouteToDisplay40" />
+    <variable name="%%O41%% Label" sysvar="OutLabel41" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 41" buttontag="RouteToDisplay41" />
+    <variable name="%%O42%% Label" sysvar="OutLabel42" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 42" buttontag="RouteToDisplay42" />
+    <variable name="%%O43%% Label" sysvar="OutLabel43" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 43" buttontag="RouteToDisplay43" />
+    <variable name="%%O44%% Label" sysvar="OutLabel44" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 44" buttontag="RouteToDisplay44" />
+    <variable name="%%O45%% Label" sysvar="OutLabel45" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 45" buttontag="RouteToDisplay45" />
+    <variable name="%%O46%% Label" sysvar="OutLabel46" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 46" buttontag="RouteToDisplay46" />
+    <variable name="%%O47%% Label" sysvar="OutLabel47" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 47" buttontag="RouteToDisplay47" />
+    <variable name="%%O48%% Label" sysvar="OutLabel48" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 48" buttontag="RouteToDisplay48" />
+    <variable name="%%O49%% Label" sysvar="OutLabel49" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 49" buttontag="RouteToDisplay49" />
+    <variable name="%%O50%% Label" sysvar="OutLabel50" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 50" buttontag="RouteToDisplay50" />
+    <variable name="%%O51%% Label" sysvar="OutLabel51" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 51" buttontag="RouteToDisplay51" />
+    <variable name="%%O52%% Label" sysvar="OutLabel52" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 52" buttontag="RouteToDisplay52" />
+    <variable name="%%O53%% Label" sysvar="OutLabel53" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 53" buttontag="RouteToDisplay53" />
+    <variable name="%%O54%% Label" sysvar="OutLabel54" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 54" buttontag="RouteToDisplay54" />
+    <variable name="%%O55%% Label" sysvar="OutLabel55" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 55" buttontag="RouteToDisplay55" />
+    <variable name="%%O56%% Label" sysvar="OutLabel56" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 56" buttontag="RouteToDisplay56" />
+    <variable name="%%O57%% Label" sysvar="OutLabel57" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 57" buttontag="RouteToDisplay57" />
+    <variable name="%%O58%% Label" sysvar="OutLabel58" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 58" buttontag="RouteToDisplay58" />
+    <variable name="%%O59%% Label" sysvar="OutLabel59" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 59" buttontag="RouteToDisplay59" />
+    <variable name="%%O60%% Label" sysvar="OutLabel60" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 60" buttontag="RouteToDisplay60" />
+    <variable name="%%O61%% Label" sysvar="OutLabel61" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 61" buttontag="RouteToDisplay61" />
+    <variable name="%%O62%% Label" sysvar="OutLabel62" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 62" buttontag="RouteToDisplay62" />
+    <variable name="%%O63%% Label" sysvar="OutLabel63" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 63" buttontag="RouteToDisplay63" />
+    <variable name="%%O64%% Label" sysvar="OutLabel64" type="string" sample="RX1 / TX1" condition="$OutputCount &gt;= 64" buttontag="RouteToDisplay64" />
+  </category>
+
   <category name="Matrix Routing (per Output)" condition="$OutputCount &gt;= 1">
     <variable name="%%O1%% Source" sysvar="OutSrc1" type="string" sample="TX1" condition="$OutputCount &gt;= 1" buttontag="SourceName1" />
     <variable name="%%O2%% Source" sysvar="OutSrc2" type="string" sample="TX1" condition="$OutputCount &gt;= 2" buttontag="SourceName2" />

@@ -77,7 +77,8 @@ check_slot_named("SrcSel", "I", "Selected", "InputCount", 64)
 
 # 4. Config slots the script reads must actually be declared.
 settings = {s.get("variable") for s in ET.parse("ConfigSettings.xml").getroot().iter("setting")}
-for slot in ("O64", "I64", "C16", "L32", "MX16", "VW16", "WL16", "PL16", "IPAddress", "USPPort"):
+for slot in ("O64", "I64", "C16", "L32", "MX16", "VW16", "WL16", "PL16", "IPAddress",
+             "USPPort", "LabelSep"):
     check("config slot %s declared" % slot, slot in settings)
 
 # 5. Autoprogramming tags. The scheme is non-standard, so it is pinned here and
@@ -137,6 +138,7 @@ def check_text_series(tag_fmt, sysvar, n):
 check_text_series("InputName%d", "InName", 64)      # input name on the button
 check_text_series("DisplayName%d", "OutName", 64)   # the display itself
 check_text_series("SourceName%d", "OutSrc", 64)     # what that display is subscribed to
+check_text_series("RouteToDisplay%d", "OutLabel", 64)  # name + source on the command tag
 
 check_text_series("MVIDWinSource%d", "WinSrc", 16)   # source in each multiview window
 

@@ -1,7 +1,7 @@
 {\rtf1\ansi\deff0{\fonttbl{\f0 Segoe UI;}}
 \fs20
 {\b\fs28 AC-MXNET USP-CBOX Control \line}
-{\fs18 Driver v4.1 \'96 AVPro Global IPCBox (USP API) \line}
+{\fs18 Driver v4.2 \'96 AVPro Global IPCBox (USP API) \line}
 \line
 This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It supports Multiview, Matrix routing, Video Wall recall, the Media Player, CEC display control, and per-device / system control, with two-way feedback exposed as System Variables.\line
 \line
@@ -63,6 +63,7 @@ CEC functions build {\i config set device cec \{hexData\} \{device\}}.\line
 \tab {\b Power buttons} send the {\i poweron} / {\i poweroff} keywords. The CBOX then emits its own set of the most commonly used CEC power frames at the sink device from that endpoint \'96 use these rather than hand-building a power frame.\line
 \tab {\b Stored payloads} (C1-C16) take CEC data as one space-free block, e.g. {\i 0036}. Send several frames in one command by separating them with commas, e.g. {\i 0036,0037}. A slot may also hold {\i poweron} or {\i poweroff}. Spaces you type are stripped, so {\i 0036, 0037} is sent as {\i 0036,0037}.\line
 \tab {\b Targets} may be an encoder (TX) or a decoder (RX) \'96 CEC goes out of that endpoint to whatever is connected to it. Multi-display functions join endpoints with a colon; the API accepts fewer than 50 endpoints per command. The All Displays functions use ALLRX.\line
+\tab If the per-output source feedback stays blank, check {\b Routes Reply (Raw)} in System Variables \'96 it holds the CBOX's last answer to the routes query, and shows whether the reply is arriving and in what shape.\line
 \tab The USP API has {\b no CEC query}, so the driver cannot read a display's real power state. Buttons are send-only.\line
 \line
 {\b SYSTEM VARIABLES \line}

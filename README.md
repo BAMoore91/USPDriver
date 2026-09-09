@@ -16,7 +16,7 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 
 Build tooling (not shipped to the processor): `PackageDriver.exe`, `Build.bat`.
 
-## Feature areas (v4.1)
+## Feature areas (v4.2)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – arm a source, then tap each destination to route it; also the
   original direct routes (one display, up to three) and named preset recall.
@@ -191,12 +191,21 @@ manifest (this driver is at 10.0).
 The driver reads this with `config get device routes vaurs ALLRX`. Two things
 about that reply shaped the implementation:
 
+- **It arrives over several TCP reads.** `OnData` reassembles rather than
+  splitting straight on newlines: a reply ends at a newline that is not inside
+  braces/brackets or a quoted string, so a large table is held until complete
+  and its own internal newlines do not split it. Not every reply is
+  newline-terminated, so a balanced tail is flushed once the socket goes quiet.
+  Short replies behave exactly as before, since they balance at their first
+  newline.
 - **It is a Lua table, not JSON** — `{ ["mac"] = {video = "mac", ...} }` — so it
   gets its own parser (`ForEachLuaEntry` / `LuaField`) rather than the JSON-ish
   helpers every other reply uses. The API doc shows it arriving without the
   usual `{"cmd":...,"code":0}` envelope, so it is recognised either by the
   echoed command or by shape; a reply that yields no entries is ignored rather
-  than allowed to blank live feedback.
+  than allowed to blank live feedback. If the Lua reading finds nothing, the
+  JSON-ish shape is tried as well, in case firmware answers that way. The raw
+  reply is published as `RoutesRaw` for diagnosis.
 - **It names devices by MAC.** `config get devicelist` is keyed by MAC and
   carries each device's `id`, so `ParseDeviceList` now records both directions
   of that map and route feedback resolves through it. Until the device list has

@@ -3,7 +3,7 @@ var hostIP = Config.Get("IPAddress");
 var hostPort = Config.Get("USPPort");
 
 function Initialize() {
-    System.Print("--- IPCBox Driver V4.1 Initialized ---\r\n");
+    System.Print("--- IPCBox Driver V4.2 Initialized ---\r\n");
     PublishSlotNames();
     Connect();
 }
@@ -70,20 +70,94 @@ function ResolveSlot(key) {
 // only (no JSON.parse, no RegExp dependency).
 // =====================================================================
 
+// Replies are reassembled rather than split straight on newlines: the routes
+// and device-list tables are big enough to arrive over several TCP reads, and
+// a fragment of one parses to nothing. A reply therefore ends at a newline that
+// is NOT inside braces/brackets or a quoted string.
+var g_rxBuf = "";
+var RX_BUF_MAX = 65536;      // stop an unterminated reply growing without bound
+var RX_FLUSH_MS = 250;       // settle time before treating a tail as complete
+var g_rxTimer = new Timer();
+
 function OnData(data) {
-    System.Print("[IPCBox -> RTI] " + data + "\r\n");
     if (!data) {
         return;
     }
-    // A single callback may carry several newline-separated replies.
-    var lines = ("" + data).split("\n");
-    for (var i = 0; i < lines.length; i++) {
-        var line = TrimStr(lines[i]);
-        if (line.length === 0) {
-            continue;
-        }
-        HandleResponseLine(line);
+    System.Print("[IPCBox -> RTI] " + data + "\r\n");
+    g_rxTimer.Stop();
+    g_rxBuf += data;
+    if (g_rxBuf.length > RX_BUF_MAX) {
+        System.Print("[Warning] Receive buffer over " + RX_BUF_MAX + " bytes; discarding.\r\n");
+        g_rxBuf = "";
+        return;
     }
+    DrainRxBuffer();
+    // Not every reply is newline-terminated. If what is left already balances,
+    // treat it as a complete reply once the socket goes quiet.
+    if (TrimStr(g_rxBuf).length > 0 && RxDepth(g_rxBuf) === 0) {
+        g_rxTimer.Start(FlushRxBuffer, RX_FLUSH_MS);
+    }
+}
+
+// Hand off every complete reply currently in the buffer.
+function DrainRxBuffer() {
+    while (true) {
+        var msg = TakeMessage();
+        if (msg === null) {
+            break;
+        }
+        if (msg.length > 0) {
+            HandleResponseLine(msg);
+        }
+    }
+}
+
+function FlushRxBuffer() {
+    var msg = TrimStr(g_rxBuf);
+    g_rxBuf = "";
+    if (msg.length > 0) {
+        HandleResponseLine(msg);
+    }
+}
+
+// Nesting depth of a fragment, ignoring anything inside quotes.
+function RxDepth(str) {
+    var depth = 0, inStr = false, i, ch;
+    for (i = 0; i < str.length; i++) {
+        ch = str.charAt(i);
+        if (inStr) {
+            if (ch === "\"") { inStr = false; }
+        } else if (ch === "\"") {
+            inStr = true;
+        } else if (ch === "{" || ch === "[") {
+            depth++;
+        } else if (ch === "}" || ch === "]") {
+            if (depth > 0) { depth--; }
+        }
+    }
+    return depth;
+}
+
+// Remove and return the next complete reply, or null if none is complete yet.
+function TakeMessage() {
+    var depth = 0, inStr = false, i, ch;
+    for (i = 0; i < g_rxBuf.length; i++) {
+        ch = g_rxBuf.charAt(i);
+        if (inStr) {
+            if (ch === "\"") { inStr = false; }
+        } else if (ch === "\"") {
+            inStr = true;
+        } else if (ch === "{" || ch === "[") {
+            depth++;
+        } else if (ch === "}" || ch === "]") {
+            if (depth > 0) { depth--; }
+        } else if ((ch === "\n" || ch === "\r") && depth === 0) {
+            var msg = TrimStr(g_rxBuf.substring(0, i));
+            g_rxBuf = g_rxBuf.substring(i + 1);
+            return msg;
+        }
+    }
+    return null;
 }
 
 function HandleResponseLine(line) {
@@ -851,7 +925,27 @@ function LuaField(body, name) {
     return "";
 }
 
+// Same reading, for firmware that answers in the JSON-ish shape the rest of
+// the API uses instead of a Lua table. Returns null when the line is not that.
+function ParseRoutesJson(line) {
+    var inner = InfoInner(line);
+    if (inner === null) {
+        return null;
+    }
+    var routes = {};
+    var seen = 0;
+    ForEachEntry(inner, function (mac, dev) {
+        seen++;
+        var video = ExtractStr(dev, "video");
+        if (video && video.toLowerCase() !== "none") {
+            routes[mac.toUpperCase()] = video.toUpperCase();
+        }
+    });
+    return seen ? { routes: routes, seen: seen } : null;
+}
+
 function ParseRoutes(line) {
+    SystemVars.Write("RoutesRaw", line);
     var routes = {};
     var seen = 0;
     ForEachLuaEntry(line, function (mac, body) {
@@ -861,6 +955,13 @@ function ParseRoutes(line) {
             routes[mac.toUpperCase()] = video.toUpperCase();
         }
     });
+    if (seen === 0) {
+        var asJson = ParseRoutesJson(line);
+        if (asJson !== null) {
+            routes = asJson.routes;
+            seen = asJson.seen;
+        }
+    }
     if (seen === 0) {
         System.Print("[Routes] No decoders in reply; keeping previous state.\r\n");
         return;

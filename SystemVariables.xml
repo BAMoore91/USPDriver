@@ -18,6 +18,7 @@
     <variable name="Active Layout Name" sysvar="ActiveLayout" type="string" sample="15" />
     <variable name="Active Video Wall" sysvar="ActiveWall" type="string" sample="videowall2" />
     <variable name="Active Wall Layout" sysvar="ActiveWallLayout" type="string" sample="vlayout1" />
+    <variable name="Routes Reply (Raw)" sysvar="RoutesRaw" type="string" sample="{ [&quot;188a6a02c0b6&quot;] = {video = &quot;188a11223368&quot;} }" />
     <variable name="Device Status (Raw)" sysvar="DeviceStatusRaw" type="string" sample="{&quot;cmd&quot;:&quot;config get device status ALL&quot;,...}" />
   </category>
 

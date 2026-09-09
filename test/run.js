@@ -73,7 +73,9 @@ function loadDriver(overrides) {
 
   return {
     call: function (fn) { return vm.runInContext(fn, sandbox, { filename: 'call' }); },
-    feed: function (data) { rxFunc(data); },
+    // The box terminates replies; feed models that unless a test opts out.
+    feed: function (data) { rxFunc(/\r|\n$/.test(data) ? data : data + '\r\n'); },
+    feedRaw: function (data) { rxFunc(data); },
     lastSent: function () { return sent.length ? sent[sent.length - 1].replace(/\r\n$/, '') : null; },
     allSent: function () { return sent.map(function (s) { return s.replace(/\r\n$/, ''); }); },
     vars: vars,
@@ -665,6 +667,61 @@ console.log('Combined output label:');
     d.feed(ROUTES);
     check('separator "' + choice + '"', d.vars.OutLabel1 === seps[choice], JSON.stringify(d.vars.OutLabel1));
   });
+})();
+
+// =====================================================================
+// 11. Reply reassembly (large tables arrive over several TCP reads)
+// =====================================================================
+console.log('Reply reassembly:');
+(function () {
+  const d = loadDriver();
+  d.feed(DEVLIST);
+  // Same routes table, delivered in three arbitrary slices.
+  const mid = Math.floor(ROUTES.length / 3);
+  d.feedRaw(ROUTES.slice(0, mid));
+  check('a partial table publishes nothing yet', d.vars.OutSrc1 === '', JSON.stringify(d.vars.OutSrc1));
+  d.feedRaw(ROUTES.slice(mid, mid * 2));
+  d.feedRaw(ROUTES.slice(mid * 2) + '\r\n');
+  check('reassembled table parses', d.vars.OutSrc1 === 'TX-MAIN', d.vars.OutSrc1);
+  check('reassembled label built', d.vars.OutLabel1 === 'RX1\rTX-MAIN', JSON.stringify(d.vars.OutLabel1));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed(DEVLIST);
+  // Newlines *inside* the table must not end the reply.
+  d.feed(ROUTES.replace(/, /g, ',\n  '));
+  check('newlines inside the table do not split it', d.vars.OutSrc1 === 'TX-MAIN', d.vars.OutSrc1);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed(DEVLIST);
+  d.feedRaw(ROUTES);                 // complete, but no terminator
+  check('unterminated reply waits', d.vars.OutSrc1 === '', JSON.stringify(d.vars.OutSrc1));
+  d.runTimers();                     // socket goes quiet -> flush
+  check('quiet socket flushes the tail', d.vars.OutSrc1 === 'TX-MAIN', d.vars.OutSrc1);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed('{"cmd":"matrix active mx1","info":"OK","code":0}\n{"cmd":"config get device routes vaurs ALLRX","info":"","code":0}');
+  check('two replies in one read still both parse',
+    d.vars.ActiveMatrix === 'mx1' && d.vars.LastResponseCmd === 'config get device routes vaurs ALLRX',
+    d.vars.ActiveMatrix + ' / ' + d.vars.LastResponseCmd);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed(DEVLIST);
+  d.feed(ROUTES);
+  check('routes reply captured for diagnosis', (d.vars.RoutesRaw || '').indexOf('188a6a02c0b6') >= 0,
+    JSON.stringify((d.vars.RoutesRaw || '').slice(0, 40)));
+  // A firmware that answers in the JSON shape instead of a Lua table.
+  const e = loadDriver();
+  e.feed(DEVLIST);
+  e.feed('{"cmd":"config get device routes vaurs ALLRX","info":{"188a6a02c0b6":{"video":"188a11223368","audio":"none"}},"code":0}');
+  check('JSON-shaped routes reply also parses', e.vars.OutSrc1 === 'TX-MAIN', e.vars.OutSrc1);
 })();
 
 console.log('');

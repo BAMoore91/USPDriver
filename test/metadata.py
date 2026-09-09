@@ -135,8 +135,8 @@ def check_text_series(tag_fmt, sysvar, n):
 
 
 check_text_series("InputName%d", "InName", 64)      # input name on the button
-check_text_series("OutputName%d", "OutName", 64)    # output name on the button
-check_text_series("OutputSource%d", "OutSrc", 64)   # source currently on that output
+check_text_series("DisplayName%d", "OutName", 64)   # the display itself
+check_text_series("SourceName%d", "OutSrc", 64)     # what that display is subscribed to
 
 check_text_series("MVIDWinSource%d", "WinSrc", 16)   # source in each multiview window
 
@@ -150,8 +150,8 @@ def check_text_single(tag, sysvar):
 
 
 check_text_single("SelectedInputName", "LiveSource")
-check_text_single("SelectedOutputName", "LiveDisplay")
-check_text_single("SelectedOutputSource", "LiveDisplaySource")
+check_text_single("SelectedDisplayName", "LiveDisplay")
+check_text_single("SelectedDisplaySource", "LiveDisplaySource")
 
 check_series("SelectInput%d", 64, reversed_var="SrcSel")     # arm a matrix source
 check_series("RouteToDisplay%d", 64)                         # route it to a destination

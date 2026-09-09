@@ -1,7 +1,7 @@
 {\rtf1\ansi\deff0{\fonttbl{\f0 Segoe UI;}}
 \fs20
 {\b\fs28 AC-MXNET USP-CBOX Control \line}
-{\fs18 Driver v3.9 \'96 AVPro Global IPCBox (USP API) \line}
+{\fs18 Driver v4.0 \'96 AVPro Global IPCBox (USP API) \line}
 \line
 This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It supports Multiview, Matrix routing, Video Wall recall, the Media Player, CEC display control, and per-device / system control, with two-way feedback exposed as System Variables.\line
 \line
@@ -36,10 +36,11 @@ Tag template buttons with these and Integration Designer assigns the commands au
 \tab {\b SelectWinID1-SelectWinID16} \'96 arm Multiview window 1-16. The button's Reversed state lights while that window is armed.\line
 \tab {\b MVIDInput1-MVIDInput64} \'96 route Input slot 1-64 into the armed Multiview window.\line
 \tab {\b InputName1-InputName64} \'96 puts the name entered in Input slot 1-64 on the button.\line
-\tab {\b OutputName1-OutputName64} \'96 puts the name entered in Output slot 1-64 on the button.\line
-\tab {\b OutputSource1-OutputSource64} \'96 puts the source currently feeding Output 1-64 on the button, updating live.\line
+\tab {\b DisplayName1-DisplayName64} \'96 puts the name entered in Output slot 1-64 on the button.\line
+\tab {\b SourceName1-SourceName64} \'96 puts the source that Output 1-64 is subscribed to on the button, updating live.\line
+\tab A display button normally uses both: tag the button {\b RouteToDisplay16} and put {\b DisplayName16} and {\b SourceName16} on two lines of its text. Text tags carry their own number \'96 a bare {\b SourceName} cannot inherit the 16 from the button's tag, because tags are matched as exact strings.\line
 \tab {\b MVIDWinSource1-MVIDWinSource16} \'96 puts the source currently in Multiview window 1-16 on the button, updating live.\line
-\tab {\b SelectedInputName} \'96 the armed source. {\b SelectedOutputName} \'96 the display picked in the Display List. {\b SelectedOutputSource} \'96 the source feeding that display. Useful for a "now routing X to Y" banner.\line
+\tab {\b SelectedInputName} \'96 the armed source. {\b SelectedDisplayName} \'96 the display picked in the Display List. {\b SelectedDisplaySource} \'96 the source feeding that display. Useful for a "now routing X to Y" banner.\line
 \tab A button can carry a command tag and a text tag together: tag it {\b SelectInput3} and {\b InputName3} and it arms input 3, lights while armed, and labels itself from the driver configuration.\line
 \tab Tags for slots past the configured Number of Inputs / Number of Outputs are not offered, so the tag list follows the system size.\line
 \line

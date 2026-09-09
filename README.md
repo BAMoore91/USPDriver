@@ -16,7 +16,7 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 
 Build tooling (not shipped to the processor): `PackageDriver.exe`, `Build.bat`.
 
-## Feature areas (v3.9)
+## Feature areas (v4.0)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – arm a source, then tap each destination to route it; also the
   original direct routes (one display, up to three) and named preset recall.
@@ -71,19 +71,32 @@ it still describes the ID 9-era features (dynamic naming) the driver uses.
 | `SelectWinID1`..`16` | 16 | Multiview: arm window 1..16 | `WinSel1`..`16` |
 | `MVIDInput1`..`64` | 64 | Multiview: route slot `I1`..`I64` into the armed window | — |
 
-Text tags, which label a button rather than command it:
+Text tags, which label a button rather than command it. Integration Designer
+shows these as **TEXT TAG** entries and binds them to a button's text, so one
+button can carry a command tag plus two text tags — the usual display button is
+`{DisplayName16}` over `{SourceName16}` with the button itself tagged
+`RouteToDisplay16`:
 
 | Tag | Count | Puts on the button |
 |-----|-------|--------------------|
+| `DisplayName1`..`64` | 64 | The name entered in output slot `O1`..`O64` |
+| `SourceName1`..`64` | 64 | The source that output is subscribed to (live) |
 | `InputName1`..`64` | 64 | The name entered in input slot `I1`..`I64` |
-| `OutputName1`..`64` | 64 | The name entered in output slot `O1`..`O64` |
-| `OutputSource1`..`64` | 64 | The source currently feeding output `O1`..`O64` (live) |
 | `MVIDWinSource1`..`16` | 16 | The source currently in multiview window 1..16 (live) |
 | `SelectedInputName` | 1 | The armed source (live) |
-| `SelectedOutputName` | 1 | The display selected in the Display List (live) |
-| `SelectedOutputSource` | 1 | The source feeding that selected display (live) |
+| `SelectedDisplayName` | 1 | The display selected in the Display List (live) |
+| `SelectedDisplaySource` | 1 | The source feeding that selected display (live) |
 
-So a button can carry a command tag *and* a text tag: tag it `SelectInput3` and
+**Text tags carry their own number.** A tag is matched as an exact string, so a
+bare `SourceName` cannot pick up the `16` from a `RouteToDisplay16` tag sitting
+on the same button — there is no cross-tag context in the tag system, and tag
+parameters (`Tag:#PARAMETER1`) are documented as valid only on functions, so they
+cannot drive button text. Tag the text `DisplayName16` / `SourceName16` to match
+the button's `RouteToDisplay16`. Making a bare `SourceName` resolve per button
+would require the multi-instance restructure (each output its own `sourceid`),
+which this driver does not currently use.
+
+So a button can carry a command tag *and* text tags: tag it `SelectInput3` and
 `InputName3` and it arms input 3, lights when armed, and labels itself with
 whatever that slot is configured as — all from the driver.
 

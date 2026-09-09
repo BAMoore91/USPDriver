@@ -343,22 +343,22 @@
 
   <!-- Per-window current source (the TX/source shown in each window). -->
   <category name="Multiview Window Source">
-    <variable name="Window 1 Source" sysvar="WinSrc1" type="string" sample="TX1" />
-    <variable name="Window 2 Source" sysvar="WinSrc2" type="string" sample="TX1" />
-    <variable name="Window 3 Source" sysvar="WinSrc3" type="string" sample="TX1" />
-    <variable name="Window 4 Source" sysvar="WinSrc4" type="string" sample="TX1" />
-    <variable name="Window 5 Source" sysvar="WinSrc5" type="string" sample="TX1" />
-    <variable name="Window 6 Source" sysvar="WinSrc6" type="string" sample="TX1" />
-    <variable name="Window 7 Source" sysvar="WinSrc7" type="string" sample="TX1" />
-    <variable name="Window 8 Source" sysvar="WinSrc8" type="string" sample="TX1" />
-    <variable name="Window 9 Source" sysvar="WinSrc9" type="string" sample="TX1" />
-    <variable name="Window 10 Source" sysvar="WinSrc10" type="string" sample="TX1" />
-    <variable name="Window 11 Source" sysvar="WinSrc11" type="string" sample="TX1" />
-    <variable name="Window 12 Source" sysvar="WinSrc12" type="string" sample="TX1" />
-    <variable name="Window 13 Source" sysvar="WinSrc13" type="string" sample="TX1" />
-    <variable name="Window 14 Source" sysvar="WinSrc14" type="string" sample="TX1" />
-    <variable name="Window 15 Source" sysvar="WinSrc15" type="string" sample="TX1" />
-    <variable name="Window 16 Source" sysvar="WinSrc16" type="string" sample="TX1" />
+    <variable name="Window 1 Source" sysvar="WinSrc1" type="string" sample="TX1" buttontag="MVIDWinSource1" />
+    <variable name="Window 2 Source" sysvar="WinSrc2" type="string" sample="TX1" buttontag="MVIDWinSource2" />
+    <variable name="Window 3 Source" sysvar="WinSrc3" type="string" sample="TX1" buttontag="MVIDWinSource3" />
+    <variable name="Window 4 Source" sysvar="WinSrc4" type="string" sample="TX1" buttontag="MVIDWinSource4" />
+    <variable name="Window 5 Source" sysvar="WinSrc5" type="string" sample="TX1" buttontag="MVIDWinSource5" />
+    <variable name="Window 6 Source" sysvar="WinSrc6" type="string" sample="TX1" buttontag="MVIDWinSource6" />
+    <variable name="Window 7 Source" sysvar="WinSrc7" type="string" sample="TX1" buttontag="MVIDWinSource7" />
+    <variable name="Window 8 Source" sysvar="WinSrc8" type="string" sample="TX1" buttontag="MVIDWinSource8" />
+    <variable name="Window 9 Source" sysvar="WinSrc9" type="string" sample="TX1" buttontag="MVIDWinSource9" />
+    <variable name="Window 10 Source" sysvar="WinSrc10" type="string" sample="TX1" buttontag="MVIDWinSource10" />
+    <variable name="Window 11 Source" sysvar="WinSrc11" type="string" sample="TX1" buttontag="MVIDWinSource11" />
+    <variable name="Window 12 Source" sysvar="WinSrc12" type="string" sample="TX1" buttontag="MVIDWinSource12" />
+    <variable name="Window 13 Source" sysvar="WinSrc13" type="string" sample="TX1" buttontag="MVIDWinSource13" />
+    <variable name="Window 14 Source" sysvar="WinSrc14" type="string" sample="TX1" buttontag="MVIDWinSource14" />
+    <variable name="Window 15 Source" sysvar="WinSrc15" type="string" sample="TX1" buttontag="MVIDWinSource15" />
+    <variable name="Window 16 Source" sysvar="WinSrc16" type="string" sample="TX1" buttontag="MVIDWinSource16" />
   </category>
 
   <!-- Live lists pulled from the CBOX. Bind a touchpanel Item List object to -->
@@ -368,9 +368,9 @@
     <variable name="Display List" sysvar="DisplayList" type="list" />
     <variable name="Layout List" sysvar="LayoutList" type="list" />
     <variable name="Playlist List" sysvar="PlaylistList" type="list" />
-    <variable name="Selected Source" sysvar="LiveSource" type="string" sample="TX1" />
-    <variable name="Selected Display" sysvar="LiveDisplay" type="string" sample="RX1" />
-    <variable name="Selected Display Source" sysvar="LiveDisplaySource" type="string" sample="TX1" />
+    <variable name="Selected Source" sysvar="LiveSource" type="string" sample="TX1" buttontag="SelectedInputName" />
+    <variable name="Selected Display" sysvar="LiveDisplay" type="string" sample="RX1" buttontag="SelectedOutputName" />
+    <variable name="Selected Display Source" sysvar="LiveDisplaySource" type="string" sample="TX1" buttontag="SelectedOutputSource" />
     <variable name="Selected Layout" sysvar="LiveLayout" type="string" sample="15" />
     <variable name="Selected Playlist" sysvar="LivePlaylist" type="string" sample="CAZLogo" />
   </category>

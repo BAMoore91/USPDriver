@@ -138,6 +138,21 @@ check_text_series("InputName%d", "InName", 64)      # input name on the button
 check_text_series("OutputName%d", "OutName", 64)    # output name on the button
 check_text_series("OutputSource%d", "OutSrc", 64)   # source currently on that output
 
+check_text_series("MVIDWinSource%d", "WinSrc", 16)   # source in each multiview window
+
+
+def check_text_single(tag, sysvar):
+    v = by_sysvar.get(sysvar)
+    ok = (v is not None and v.get("buttontag") == tag
+          and v.get("type") == "string" and not v.get("tagtype"))
+    check("%s supplies %s button text" % (tag, sysvar), ok,
+          repr(v is not None and (v.get("buttontag"), v.get("type"), v.get("tagtype"))))
+
+
+check_text_single("SelectedInputName", "LiveSource")
+check_text_single("SelectedOutputName", "LiveDisplay")
+check_text_single("SelectedOutputSource", "LiveDisplaySource")
+
 check_series("SelectInput%d", 64, reversed_var="SrcSel")     # arm a matrix source
 check_series("RouteToDisplay%d", 64)                         # route it to a destination
 check_series("MVIDInput%d", 64)                              # route into the armed window

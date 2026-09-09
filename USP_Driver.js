@@ -3,8 +3,25 @@ var hostIP = Config.Get("IPAddress");
 var hostPort = Config.Get("USPPort");
 
 function Initialize() {
-    System.Print("--- IPCBox Driver V3.7 Initialized ---\r\n");
+    System.Print("--- IPCBox Driver V3.8 Initialized ---\r\n");
+    PublishSlotNames();
     Connect();
+}
+
+// Publish the configured input/output names as system variables so a tagged
+// button can label itself from the driver configuration (a string variable
+// with a buttontag attaches to the button's text). Config is read once at
+// startup, so these are written once and never change at runtime.
+function PublishSlotNames() {
+    var i, v;
+    for (i = 1; i <= IN_COUNT; i++) {
+        v = Config.Get("I" + i);
+        SystemVars.Write("InName" + i, v ? v : "");
+    }
+    for (i = 1; i <= OUT_COUNT; i++) {
+        v = Config.Get("O" + i);
+        SystemVars.Write("OutName" + i, v ? v : "");
+    }
 }
 
 function Connect() {

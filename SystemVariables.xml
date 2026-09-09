@@ -34,71 +34,209 @@
   <!-- covers it, so the list matches the real system rather than showing   -->
   <!-- 64 generic rows. Empty when the display has no route, its slot is    -->
   <!-- blank, or the routes have not loaded yet.                            -->
+  <!-- Button-text names, published from the driver configuration at startup. -->
+  <!-- A string variable with a buttontag attaches to the tagged button itself, -->
+  <!-- so a button tagged InputName3 labels itself with whatever Input slot 3   -->
+  <!-- holds. tagtype is not set: it is boolean-only and would be invalid here. -->
+  <category name="Input Names" condition="$InputCount &gt;= 1">
+    <variable name="%%I1%% Name" sysvar="InName1" type="string" sample="TX1" condition="$InputCount &gt;= 1" buttontag="InputName1" />
+    <variable name="%%I2%% Name" sysvar="InName2" type="string" sample="TX1" condition="$InputCount &gt;= 2" buttontag="InputName2" />
+    <variable name="%%I3%% Name" sysvar="InName3" type="string" sample="TX1" condition="$InputCount &gt;= 3" buttontag="InputName3" />
+    <variable name="%%I4%% Name" sysvar="InName4" type="string" sample="TX1" condition="$InputCount &gt;= 4" buttontag="InputName4" />
+    <variable name="%%I5%% Name" sysvar="InName5" type="string" sample="TX1" condition="$InputCount &gt;= 5" buttontag="InputName5" />
+    <variable name="%%I6%% Name" sysvar="InName6" type="string" sample="TX1" condition="$InputCount &gt;= 6" buttontag="InputName6" />
+    <variable name="%%I7%% Name" sysvar="InName7" type="string" sample="TX1" condition="$InputCount &gt;= 7" buttontag="InputName7" />
+    <variable name="%%I8%% Name" sysvar="InName8" type="string" sample="TX1" condition="$InputCount &gt;= 8" buttontag="InputName8" />
+    <variable name="%%I9%% Name" sysvar="InName9" type="string" sample="TX1" condition="$InputCount &gt;= 9" buttontag="InputName9" />
+    <variable name="%%I10%% Name" sysvar="InName10" type="string" sample="TX1" condition="$InputCount &gt;= 10" buttontag="InputName10" />
+    <variable name="%%I11%% Name" sysvar="InName11" type="string" sample="TX1" condition="$InputCount &gt;= 11" buttontag="InputName11" />
+    <variable name="%%I12%% Name" sysvar="InName12" type="string" sample="TX1" condition="$InputCount &gt;= 12" buttontag="InputName12" />
+    <variable name="%%I13%% Name" sysvar="InName13" type="string" sample="TX1" condition="$InputCount &gt;= 13" buttontag="InputName13" />
+    <variable name="%%I14%% Name" sysvar="InName14" type="string" sample="TX1" condition="$InputCount &gt;= 14" buttontag="InputName14" />
+    <variable name="%%I15%% Name" sysvar="InName15" type="string" sample="TX1" condition="$InputCount &gt;= 15" buttontag="InputName15" />
+    <variable name="%%I16%% Name" sysvar="InName16" type="string" sample="TX1" condition="$InputCount &gt;= 16" buttontag="InputName16" />
+    <variable name="%%I17%% Name" sysvar="InName17" type="string" sample="TX1" condition="$InputCount &gt;= 17" buttontag="InputName17" />
+    <variable name="%%I18%% Name" sysvar="InName18" type="string" sample="TX1" condition="$InputCount &gt;= 18" buttontag="InputName18" />
+    <variable name="%%I19%% Name" sysvar="InName19" type="string" sample="TX1" condition="$InputCount &gt;= 19" buttontag="InputName19" />
+    <variable name="%%I20%% Name" sysvar="InName20" type="string" sample="TX1" condition="$InputCount &gt;= 20" buttontag="InputName20" />
+    <variable name="%%I21%% Name" sysvar="InName21" type="string" sample="TX1" condition="$InputCount &gt;= 21" buttontag="InputName21" />
+    <variable name="%%I22%% Name" sysvar="InName22" type="string" sample="TX1" condition="$InputCount &gt;= 22" buttontag="InputName22" />
+    <variable name="%%I23%% Name" sysvar="InName23" type="string" sample="TX1" condition="$InputCount &gt;= 23" buttontag="InputName23" />
+    <variable name="%%I24%% Name" sysvar="InName24" type="string" sample="TX1" condition="$InputCount &gt;= 24" buttontag="InputName24" />
+    <variable name="%%I25%% Name" sysvar="InName25" type="string" sample="TX1" condition="$InputCount &gt;= 25" buttontag="InputName25" />
+    <variable name="%%I26%% Name" sysvar="InName26" type="string" sample="TX1" condition="$InputCount &gt;= 26" buttontag="InputName26" />
+    <variable name="%%I27%% Name" sysvar="InName27" type="string" sample="TX1" condition="$InputCount &gt;= 27" buttontag="InputName27" />
+    <variable name="%%I28%% Name" sysvar="InName28" type="string" sample="TX1" condition="$InputCount &gt;= 28" buttontag="InputName28" />
+    <variable name="%%I29%% Name" sysvar="InName29" type="string" sample="TX1" condition="$InputCount &gt;= 29" buttontag="InputName29" />
+    <variable name="%%I30%% Name" sysvar="InName30" type="string" sample="TX1" condition="$InputCount &gt;= 30" buttontag="InputName30" />
+    <variable name="%%I31%% Name" sysvar="InName31" type="string" sample="TX1" condition="$InputCount &gt;= 31" buttontag="InputName31" />
+    <variable name="%%I32%% Name" sysvar="InName32" type="string" sample="TX1" condition="$InputCount &gt;= 32" buttontag="InputName32" />
+    <variable name="%%I33%% Name" sysvar="InName33" type="string" sample="TX1" condition="$InputCount &gt;= 33" buttontag="InputName33" />
+    <variable name="%%I34%% Name" sysvar="InName34" type="string" sample="TX1" condition="$InputCount &gt;= 34" buttontag="InputName34" />
+    <variable name="%%I35%% Name" sysvar="InName35" type="string" sample="TX1" condition="$InputCount &gt;= 35" buttontag="InputName35" />
+    <variable name="%%I36%% Name" sysvar="InName36" type="string" sample="TX1" condition="$InputCount &gt;= 36" buttontag="InputName36" />
+    <variable name="%%I37%% Name" sysvar="InName37" type="string" sample="TX1" condition="$InputCount &gt;= 37" buttontag="InputName37" />
+    <variable name="%%I38%% Name" sysvar="InName38" type="string" sample="TX1" condition="$InputCount &gt;= 38" buttontag="InputName38" />
+    <variable name="%%I39%% Name" sysvar="InName39" type="string" sample="TX1" condition="$InputCount &gt;= 39" buttontag="InputName39" />
+    <variable name="%%I40%% Name" sysvar="InName40" type="string" sample="TX1" condition="$InputCount &gt;= 40" buttontag="InputName40" />
+    <variable name="%%I41%% Name" sysvar="InName41" type="string" sample="TX1" condition="$InputCount &gt;= 41" buttontag="InputName41" />
+    <variable name="%%I42%% Name" sysvar="InName42" type="string" sample="TX1" condition="$InputCount &gt;= 42" buttontag="InputName42" />
+    <variable name="%%I43%% Name" sysvar="InName43" type="string" sample="TX1" condition="$InputCount &gt;= 43" buttontag="InputName43" />
+    <variable name="%%I44%% Name" sysvar="InName44" type="string" sample="TX1" condition="$InputCount &gt;= 44" buttontag="InputName44" />
+    <variable name="%%I45%% Name" sysvar="InName45" type="string" sample="TX1" condition="$InputCount &gt;= 45" buttontag="InputName45" />
+    <variable name="%%I46%% Name" sysvar="InName46" type="string" sample="TX1" condition="$InputCount &gt;= 46" buttontag="InputName46" />
+    <variable name="%%I47%% Name" sysvar="InName47" type="string" sample="TX1" condition="$InputCount &gt;= 47" buttontag="InputName47" />
+    <variable name="%%I48%% Name" sysvar="InName48" type="string" sample="TX1" condition="$InputCount &gt;= 48" buttontag="InputName48" />
+    <variable name="%%I49%% Name" sysvar="InName49" type="string" sample="TX1" condition="$InputCount &gt;= 49" buttontag="InputName49" />
+    <variable name="%%I50%% Name" sysvar="InName50" type="string" sample="TX1" condition="$InputCount &gt;= 50" buttontag="InputName50" />
+    <variable name="%%I51%% Name" sysvar="InName51" type="string" sample="TX1" condition="$InputCount &gt;= 51" buttontag="InputName51" />
+    <variable name="%%I52%% Name" sysvar="InName52" type="string" sample="TX1" condition="$InputCount &gt;= 52" buttontag="InputName52" />
+    <variable name="%%I53%% Name" sysvar="InName53" type="string" sample="TX1" condition="$InputCount &gt;= 53" buttontag="InputName53" />
+    <variable name="%%I54%% Name" sysvar="InName54" type="string" sample="TX1" condition="$InputCount &gt;= 54" buttontag="InputName54" />
+    <variable name="%%I55%% Name" sysvar="InName55" type="string" sample="TX1" condition="$InputCount &gt;= 55" buttontag="InputName55" />
+    <variable name="%%I56%% Name" sysvar="InName56" type="string" sample="TX1" condition="$InputCount &gt;= 56" buttontag="InputName56" />
+    <variable name="%%I57%% Name" sysvar="InName57" type="string" sample="TX1" condition="$InputCount &gt;= 57" buttontag="InputName57" />
+    <variable name="%%I58%% Name" sysvar="InName58" type="string" sample="TX1" condition="$InputCount &gt;= 58" buttontag="InputName58" />
+    <variable name="%%I59%% Name" sysvar="InName59" type="string" sample="TX1" condition="$InputCount &gt;= 59" buttontag="InputName59" />
+    <variable name="%%I60%% Name" sysvar="InName60" type="string" sample="TX1" condition="$InputCount &gt;= 60" buttontag="InputName60" />
+    <variable name="%%I61%% Name" sysvar="InName61" type="string" sample="TX1" condition="$InputCount &gt;= 61" buttontag="InputName61" />
+    <variable name="%%I62%% Name" sysvar="InName62" type="string" sample="TX1" condition="$InputCount &gt;= 62" buttontag="InputName62" />
+    <variable name="%%I63%% Name" sysvar="InName63" type="string" sample="TX1" condition="$InputCount &gt;= 63" buttontag="InputName63" />
+    <variable name="%%I64%% Name" sysvar="InName64" type="string" sample="TX1" condition="$InputCount &gt;= 64" buttontag="InputName64" />
+  </category>
+
+  <category name="Output Names" condition="$OutputCount &gt;= 1">
+    <variable name="%%O1%% Name" sysvar="OutName1" type="string" sample="RX1" condition="$OutputCount &gt;= 1" buttontag="OutputName1" />
+    <variable name="%%O2%% Name" sysvar="OutName2" type="string" sample="RX1" condition="$OutputCount &gt;= 2" buttontag="OutputName2" />
+    <variable name="%%O3%% Name" sysvar="OutName3" type="string" sample="RX1" condition="$OutputCount &gt;= 3" buttontag="OutputName3" />
+    <variable name="%%O4%% Name" sysvar="OutName4" type="string" sample="RX1" condition="$OutputCount &gt;= 4" buttontag="OutputName4" />
+    <variable name="%%O5%% Name" sysvar="OutName5" type="string" sample="RX1" condition="$OutputCount &gt;= 5" buttontag="OutputName5" />
+    <variable name="%%O6%% Name" sysvar="OutName6" type="string" sample="RX1" condition="$OutputCount &gt;= 6" buttontag="OutputName6" />
+    <variable name="%%O7%% Name" sysvar="OutName7" type="string" sample="RX1" condition="$OutputCount &gt;= 7" buttontag="OutputName7" />
+    <variable name="%%O8%% Name" sysvar="OutName8" type="string" sample="RX1" condition="$OutputCount &gt;= 8" buttontag="OutputName8" />
+    <variable name="%%O9%% Name" sysvar="OutName9" type="string" sample="RX1" condition="$OutputCount &gt;= 9" buttontag="OutputName9" />
+    <variable name="%%O10%% Name" sysvar="OutName10" type="string" sample="RX1" condition="$OutputCount &gt;= 10" buttontag="OutputName10" />
+    <variable name="%%O11%% Name" sysvar="OutName11" type="string" sample="RX1" condition="$OutputCount &gt;= 11" buttontag="OutputName11" />
+    <variable name="%%O12%% Name" sysvar="OutName12" type="string" sample="RX1" condition="$OutputCount &gt;= 12" buttontag="OutputName12" />
+    <variable name="%%O13%% Name" sysvar="OutName13" type="string" sample="RX1" condition="$OutputCount &gt;= 13" buttontag="OutputName13" />
+    <variable name="%%O14%% Name" sysvar="OutName14" type="string" sample="RX1" condition="$OutputCount &gt;= 14" buttontag="OutputName14" />
+    <variable name="%%O15%% Name" sysvar="OutName15" type="string" sample="RX1" condition="$OutputCount &gt;= 15" buttontag="OutputName15" />
+    <variable name="%%O16%% Name" sysvar="OutName16" type="string" sample="RX1" condition="$OutputCount &gt;= 16" buttontag="OutputName16" />
+    <variable name="%%O17%% Name" sysvar="OutName17" type="string" sample="RX1" condition="$OutputCount &gt;= 17" buttontag="OutputName17" />
+    <variable name="%%O18%% Name" sysvar="OutName18" type="string" sample="RX1" condition="$OutputCount &gt;= 18" buttontag="OutputName18" />
+    <variable name="%%O19%% Name" sysvar="OutName19" type="string" sample="RX1" condition="$OutputCount &gt;= 19" buttontag="OutputName19" />
+    <variable name="%%O20%% Name" sysvar="OutName20" type="string" sample="RX1" condition="$OutputCount &gt;= 20" buttontag="OutputName20" />
+    <variable name="%%O21%% Name" sysvar="OutName21" type="string" sample="RX1" condition="$OutputCount &gt;= 21" buttontag="OutputName21" />
+    <variable name="%%O22%% Name" sysvar="OutName22" type="string" sample="RX1" condition="$OutputCount &gt;= 22" buttontag="OutputName22" />
+    <variable name="%%O23%% Name" sysvar="OutName23" type="string" sample="RX1" condition="$OutputCount &gt;= 23" buttontag="OutputName23" />
+    <variable name="%%O24%% Name" sysvar="OutName24" type="string" sample="RX1" condition="$OutputCount &gt;= 24" buttontag="OutputName24" />
+    <variable name="%%O25%% Name" sysvar="OutName25" type="string" sample="RX1" condition="$OutputCount &gt;= 25" buttontag="OutputName25" />
+    <variable name="%%O26%% Name" sysvar="OutName26" type="string" sample="RX1" condition="$OutputCount &gt;= 26" buttontag="OutputName26" />
+    <variable name="%%O27%% Name" sysvar="OutName27" type="string" sample="RX1" condition="$OutputCount &gt;= 27" buttontag="OutputName27" />
+    <variable name="%%O28%% Name" sysvar="OutName28" type="string" sample="RX1" condition="$OutputCount &gt;= 28" buttontag="OutputName28" />
+    <variable name="%%O29%% Name" sysvar="OutName29" type="string" sample="RX1" condition="$OutputCount &gt;= 29" buttontag="OutputName29" />
+    <variable name="%%O30%% Name" sysvar="OutName30" type="string" sample="RX1" condition="$OutputCount &gt;= 30" buttontag="OutputName30" />
+    <variable name="%%O31%% Name" sysvar="OutName31" type="string" sample="RX1" condition="$OutputCount &gt;= 31" buttontag="OutputName31" />
+    <variable name="%%O32%% Name" sysvar="OutName32" type="string" sample="RX1" condition="$OutputCount &gt;= 32" buttontag="OutputName32" />
+    <variable name="%%O33%% Name" sysvar="OutName33" type="string" sample="RX1" condition="$OutputCount &gt;= 33" buttontag="OutputName33" />
+    <variable name="%%O34%% Name" sysvar="OutName34" type="string" sample="RX1" condition="$OutputCount &gt;= 34" buttontag="OutputName34" />
+    <variable name="%%O35%% Name" sysvar="OutName35" type="string" sample="RX1" condition="$OutputCount &gt;= 35" buttontag="OutputName35" />
+    <variable name="%%O36%% Name" sysvar="OutName36" type="string" sample="RX1" condition="$OutputCount &gt;= 36" buttontag="OutputName36" />
+    <variable name="%%O37%% Name" sysvar="OutName37" type="string" sample="RX1" condition="$OutputCount &gt;= 37" buttontag="OutputName37" />
+    <variable name="%%O38%% Name" sysvar="OutName38" type="string" sample="RX1" condition="$OutputCount &gt;= 38" buttontag="OutputName38" />
+    <variable name="%%O39%% Name" sysvar="OutName39" type="string" sample="RX1" condition="$OutputCount &gt;= 39" buttontag="OutputName39" />
+    <variable name="%%O40%% Name" sysvar="OutName40" type="string" sample="RX1" condition="$OutputCount &gt;= 40" buttontag="OutputName40" />
+    <variable name="%%O41%% Name" sysvar="OutName41" type="string" sample="RX1" condition="$OutputCount &gt;= 41" buttontag="OutputName41" />
+    <variable name="%%O42%% Name" sysvar="OutName42" type="string" sample="RX1" condition="$OutputCount &gt;= 42" buttontag="OutputName42" />
+    <variable name="%%O43%% Name" sysvar="OutName43" type="string" sample="RX1" condition="$OutputCount &gt;= 43" buttontag="OutputName43" />
+    <variable name="%%O44%% Name" sysvar="OutName44" type="string" sample="RX1" condition="$OutputCount &gt;= 44" buttontag="OutputName44" />
+    <variable name="%%O45%% Name" sysvar="OutName45" type="string" sample="RX1" condition="$OutputCount &gt;= 45" buttontag="OutputName45" />
+    <variable name="%%O46%% Name" sysvar="OutName46" type="string" sample="RX1" condition="$OutputCount &gt;= 46" buttontag="OutputName46" />
+    <variable name="%%O47%% Name" sysvar="OutName47" type="string" sample="RX1" condition="$OutputCount &gt;= 47" buttontag="OutputName47" />
+    <variable name="%%O48%% Name" sysvar="OutName48" type="string" sample="RX1" condition="$OutputCount &gt;= 48" buttontag="OutputName48" />
+    <variable name="%%O49%% Name" sysvar="OutName49" type="string" sample="RX1" condition="$OutputCount &gt;= 49" buttontag="OutputName49" />
+    <variable name="%%O50%% Name" sysvar="OutName50" type="string" sample="RX1" condition="$OutputCount &gt;= 50" buttontag="OutputName50" />
+    <variable name="%%O51%% Name" sysvar="OutName51" type="string" sample="RX1" condition="$OutputCount &gt;= 51" buttontag="OutputName51" />
+    <variable name="%%O52%% Name" sysvar="OutName52" type="string" sample="RX1" condition="$OutputCount &gt;= 52" buttontag="OutputName52" />
+    <variable name="%%O53%% Name" sysvar="OutName53" type="string" sample="RX1" condition="$OutputCount &gt;= 53" buttontag="OutputName53" />
+    <variable name="%%O54%% Name" sysvar="OutName54" type="string" sample="RX1" condition="$OutputCount &gt;= 54" buttontag="OutputName54" />
+    <variable name="%%O55%% Name" sysvar="OutName55" type="string" sample="RX1" condition="$OutputCount &gt;= 55" buttontag="OutputName55" />
+    <variable name="%%O56%% Name" sysvar="OutName56" type="string" sample="RX1" condition="$OutputCount &gt;= 56" buttontag="OutputName56" />
+    <variable name="%%O57%% Name" sysvar="OutName57" type="string" sample="RX1" condition="$OutputCount &gt;= 57" buttontag="OutputName57" />
+    <variable name="%%O58%% Name" sysvar="OutName58" type="string" sample="RX1" condition="$OutputCount &gt;= 58" buttontag="OutputName58" />
+    <variable name="%%O59%% Name" sysvar="OutName59" type="string" sample="RX1" condition="$OutputCount &gt;= 59" buttontag="OutputName59" />
+    <variable name="%%O60%% Name" sysvar="OutName60" type="string" sample="RX1" condition="$OutputCount &gt;= 60" buttontag="OutputName60" />
+    <variable name="%%O61%% Name" sysvar="OutName61" type="string" sample="RX1" condition="$OutputCount &gt;= 61" buttontag="OutputName61" />
+    <variable name="%%O62%% Name" sysvar="OutName62" type="string" sample="RX1" condition="$OutputCount &gt;= 62" buttontag="OutputName62" />
+    <variable name="%%O63%% Name" sysvar="OutName63" type="string" sample="RX1" condition="$OutputCount &gt;= 63" buttontag="OutputName63" />
+    <variable name="%%O64%% Name" sysvar="OutName64" type="string" sample="RX1" condition="$OutputCount &gt;= 64" buttontag="OutputName64" />
+  </category>
+
   <category name="Matrix Routing (per Output)" condition="$OutputCount &gt;= 1">
-    <variable name="%%O1%% Source" sysvar="OutSrc1" type="string" sample="TX1" condition="$OutputCount &gt;= 1" />
-    <variable name="%%O2%% Source" sysvar="OutSrc2" type="string" sample="TX1" condition="$OutputCount &gt;= 2" />
-    <variable name="%%O3%% Source" sysvar="OutSrc3" type="string" sample="TX1" condition="$OutputCount &gt;= 3" />
-    <variable name="%%O4%% Source" sysvar="OutSrc4" type="string" sample="TX1" condition="$OutputCount &gt;= 4" />
-    <variable name="%%O5%% Source" sysvar="OutSrc5" type="string" sample="TX1" condition="$OutputCount &gt;= 5" />
-    <variable name="%%O6%% Source" sysvar="OutSrc6" type="string" sample="TX1" condition="$OutputCount &gt;= 6" />
-    <variable name="%%O7%% Source" sysvar="OutSrc7" type="string" sample="TX1" condition="$OutputCount &gt;= 7" />
-    <variable name="%%O8%% Source" sysvar="OutSrc8" type="string" sample="TX1" condition="$OutputCount &gt;= 8" />
-    <variable name="%%O9%% Source" sysvar="OutSrc9" type="string" sample="TX1" condition="$OutputCount &gt;= 9" />
-    <variable name="%%O10%% Source" sysvar="OutSrc10" type="string" sample="TX1" condition="$OutputCount &gt;= 10" />
-    <variable name="%%O11%% Source" sysvar="OutSrc11" type="string" sample="TX1" condition="$OutputCount &gt;= 11" />
-    <variable name="%%O12%% Source" sysvar="OutSrc12" type="string" sample="TX1" condition="$OutputCount &gt;= 12" />
-    <variable name="%%O13%% Source" sysvar="OutSrc13" type="string" sample="TX1" condition="$OutputCount &gt;= 13" />
-    <variable name="%%O14%% Source" sysvar="OutSrc14" type="string" sample="TX1" condition="$OutputCount &gt;= 14" />
-    <variable name="%%O15%% Source" sysvar="OutSrc15" type="string" sample="TX1" condition="$OutputCount &gt;= 15" />
-    <variable name="%%O16%% Source" sysvar="OutSrc16" type="string" sample="TX1" condition="$OutputCount &gt;= 16" />
-    <variable name="%%O17%% Source" sysvar="OutSrc17" type="string" sample="TX1" condition="$OutputCount &gt;= 17" />
-    <variable name="%%O18%% Source" sysvar="OutSrc18" type="string" sample="TX1" condition="$OutputCount &gt;= 18" />
-    <variable name="%%O19%% Source" sysvar="OutSrc19" type="string" sample="TX1" condition="$OutputCount &gt;= 19" />
-    <variable name="%%O20%% Source" sysvar="OutSrc20" type="string" sample="TX1" condition="$OutputCount &gt;= 20" />
-    <variable name="%%O21%% Source" sysvar="OutSrc21" type="string" sample="TX1" condition="$OutputCount &gt;= 21" />
-    <variable name="%%O22%% Source" sysvar="OutSrc22" type="string" sample="TX1" condition="$OutputCount &gt;= 22" />
-    <variable name="%%O23%% Source" sysvar="OutSrc23" type="string" sample="TX1" condition="$OutputCount &gt;= 23" />
-    <variable name="%%O24%% Source" sysvar="OutSrc24" type="string" sample="TX1" condition="$OutputCount &gt;= 24" />
-    <variable name="%%O25%% Source" sysvar="OutSrc25" type="string" sample="TX1" condition="$OutputCount &gt;= 25" />
-    <variable name="%%O26%% Source" sysvar="OutSrc26" type="string" sample="TX1" condition="$OutputCount &gt;= 26" />
-    <variable name="%%O27%% Source" sysvar="OutSrc27" type="string" sample="TX1" condition="$OutputCount &gt;= 27" />
-    <variable name="%%O28%% Source" sysvar="OutSrc28" type="string" sample="TX1" condition="$OutputCount &gt;= 28" />
-    <variable name="%%O29%% Source" sysvar="OutSrc29" type="string" sample="TX1" condition="$OutputCount &gt;= 29" />
-    <variable name="%%O30%% Source" sysvar="OutSrc30" type="string" sample="TX1" condition="$OutputCount &gt;= 30" />
-    <variable name="%%O31%% Source" sysvar="OutSrc31" type="string" sample="TX1" condition="$OutputCount &gt;= 31" />
-    <variable name="%%O32%% Source" sysvar="OutSrc32" type="string" sample="TX1" condition="$OutputCount &gt;= 32" />
-    <variable name="%%O33%% Source" sysvar="OutSrc33" type="string" sample="TX1" condition="$OutputCount &gt;= 33" />
-    <variable name="%%O34%% Source" sysvar="OutSrc34" type="string" sample="TX1" condition="$OutputCount &gt;= 34" />
-    <variable name="%%O35%% Source" sysvar="OutSrc35" type="string" sample="TX1" condition="$OutputCount &gt;= 35" />
-    <variable name="%%O36%% Source" sysvar="OutSrc36" type="string" sample="TX1" condition="$OutputCount &gt;= 36" />
-    <variable name="%%O37%% Source" sysvar="OutSrc37" type="string" sample="TX1" condition="$OutputCount &gt;= 37" />
-    <variable name="%%O38%% Source" sysvar="OutSrc38" type="string" sample="TX1" condition="$OutputCount &gt;= 38" />
-    <variable name="%%O39%% Source" sysvar="OutSrc39" type="string" sample="TX1" condition="$OutputCount &gt;= 39" />
-    <variable name="%%O40%% Source" sysvar="OutSrc40" type="string" sample="TX1" condition="$OutputCount &gt;= 40" />
-    <variable name="%%O41%% Source" sysvar="OutSrc41" type="string" sample="TX1" condition="$OutputCount &gt;= 41" />
-    <variable name="%%O42%% Source" sysvar="OutSrc42" type="string" sample="TX1" condition="$OutputCount &gt;= 42" />
-    <variable name="%%O43%% Source" sysvar="OutSrc43" type="string" sample="TX1" condition="$OutputCount &gt;= 43" />
-    <variable name="%%O44%% Source" sysvar="OutSrc44" type="string" sample="TX1" condition="$OutputCount &gt;= 44" />
-    <variable name="%%O45%% Source" sysvar="OutSrc45" type="string" sample="TX1" condition="$OutputCount &gt;= 45" />
-    <variable name="%%O46%% Source" sysvar="OutSrc46" type="string" sample="TX1" condition="$OutputCount &gt;= 46" />
-    <variable name="%%O47%% Source" sysvar="OutSrc47" type="string" sample="TX1" condition="$OutputCount &gt;= 47" />
-    <variable name="%%O48%% Source" sysvar="OutSrc48" type="string" sample="TX1" condition="$OutputCount &gt;= 48" />
-    <variable name="%%O49%% Source" sysvar="OutSrc49" type="string" sample="TX1" condition="$OutputCount &gt;= 49" />
-    <variable name="%%O50%% Source" sysvar="OutSrc50" type="string" sample="TX1" condition="$OutputCount &gt;= 50" />
-    <variable name="%%O51%% Source" sysvar="OutSrc51" type="string" sample="TX1" condition="$OutputCount &gt;= 51" />
-    <variable name="%%O52%% Source" sysvar="OutSrc52" type="string" sample="TX1" condition="$OutputCount &gt;= 52" />
-    <variable name="%%O53%% Source" sysvar="OutSrc53" type="string" sample="TX1" condition="$OutputCount &gt;= 53" />
-    <variable name="%%O54%% Source" sysvar="OutSrc54" type="string" sample="TX1" condition="$OutputCount &gt;= 54" />
-    <variable name="%%O55%% Source" sysvar="OutSrc55" type="string" sample="TX1" condition="$OutputCount &gt;= 55" />
-    <variable name="%%O56%% Source" sysvar="OutSrc56" type="string" sample="TX1" condition="$OutputCount &gt;= 56" />
-    <variable name="%%O57%% Source" sysvar="OutSrc57" type="string" sample="TX1" condition="$OutputCount &gt;= 57" />
-    <variable name="%%O58%% Source" sysvar="OutSrc58" type="string" sample="TX1" condition="$OutputCount &gt;= 58" />
-    <variable name="%%O59%% Source" sysvar="OutSrc59" type="string" sample="TX1" condition="$OutputCount &gt;= 59" />
-    <variable name="%%O60%% Source" sysvar="OutSrc60" type="string" sample="TX1" condition="$OutputCount &gt;= 60" />
-    <variable name="%%O61%% Source" sysvar="OutSrc61" type="string" sample="TX1" condition="$OutputCount &gt;= 61" />
-    <variable name="%%O62%% Source" sysvar="OutSrc62" type="string" sample="TX1" condition="$OutputCount &gt;= 62" />
-    <variable name="%%O63%% Source" sysvar="OutSrc63" type="string" sample="TX1" condition="$OutputCount &gt;= 63" />
-    <variable name="%%O64%% Source" sysvar="OutSrc64" type="string" sample="TX1" condition="$OutputCount &gt;= 64" />
+    <variable name="%%O1%% Source" sysvar="OutSrc1" type="string" sample="TX1" condition="$OutputCount &gt;= 1" buttontag="OutputSource1" />
+    <variable name="%%O2%% Source" sysvar="OutSrc2" type="string" sample="TX1" condition="$OutputCount &gt;= 2" buttontag="OutputSource2" />
+    <variable name="%%O3%% Source" sysvar="OutSrc3" type="string" sample="TX1" condition="$OutputCount &gt;= 3" buttontag="OutputSource3" />
+    <variable name="%%O4%% Source" sysvar="OutSrc4" type="string" sample="TX1" condition="$OutputCount &gt;= 4" buttontag="OutputSource4" />
+    <variable name="%%O5%% Source" sysvar="OutSrc5" type="string" sample="TX1" condition="$OutputCount &gt;= 5" buttontag="OutputSource5" />
+    <variable name="%%O6%% Source" sysvar="OutSrc6" type="string" sample="TX1" condition="$OutputCount &gt;= 6" buttontag="OutputSource6" />
+    <variable name="%%O7%% Source" sysvar="OutSrc7" type="string" sample="TX1" condition="$OutputCount &gt;= 7" buttontag="OutputSource7" />
+    <variable name="%%O8%% Source" sysvar="OutSrc8" type="string" sample="TX1" condition="$OutputCount &gt;= 8" buttontag="OutputSource8" />
+    <variable name="%%O9%% Source" sysvar="OutSrc9" type="string" sample="TX1" condition="$OutputCount &gt;= 9" buttontag="OutputSource9" />
+    <variable name="%%O10%% Source" sysvar="OutSrc10" type="string" sample="TX1" condition="$OutputCount &gt;= 10" buttontag="OutputSource10" />
+    <variable name="%%O11%% Source" sysvar="OutSrc11" type="string" sample="TX1" condition="$OutputCount &gt;= 11" buttontag="OutputSource11" />
+    <variable name="%%O12%% Source" sysvar="OutSrc12" type="string" sample="TX1" condition="$OutputCount &gt;= 12" buttontag="OutputSource12" />
+    <variable name="%%O13%% Source" sysvar="OutSrc13" type="string" sample="TX1" condition="$OutputCount &gt;= 13" buttontag="OutputSource13" />
+    <variable name="%%O14%% Source" sysvar="OutSrc14" type="string" sample="TX1" condition="$OutputCount &gt;= 14" buttontag="OutputSource14" />
+    <variable name="%%O15%% Source" sysvar="OutSrc15" type="string" sample="TX1" condition="$OutputCount &gt;= 15" buttontag="OutputSource15" />
+    <variable name="%%O16%% Source" sysvar="OutSrc16" type="string" sample="TX1" condition="$OutputCount &gt;= 16" buttontag="OutputSource16" />
+    <variable name="%%O17%% Source" sysvar="OutSrc17" type="string" sample="TX1" condition="$OutputCount &gt;= 17" buttontag="OutputSource17" />
+    <variable name="%%O18%% Source" sysvar="OutSrc18" type="string" sample="TX1" condition="$OutputCount &gt;= 18" buttontag="OutputSource18" />
+    <variable name="%%O19%% Source" sysvar="OutSrc19" type="string" sample="TX1" condition="$OutputCount &gt;= 19" buttontag="OutputSource19" />
+    <variable name="%%O20%% Source" sysvar="OutSrc20" type="string" sample="TX1" condition="$OutputCount &gt;= 20" buttontag="OutputSource20" />
+    <variable name="%%O21%% Source" sysvar="OutSrc21" type="string" sample="TX1" condition="$OutputCount &gt;= 21" buttontag="OutputSource21" />
+    <variable name="%%O22%% Source" sysvar="OutSrc22" type="string" sample="TX1" condition="$OutputCount &gt;= 22" buttontag="OutputSource22" />
+    <variable name="%%O23%% Source" sysvar="OutSrc23" type="string" sample="TX1" condition="$OutputCount &gt;= 23" buttontag="OutputSource23" />
+    <variable name="%%O24%% Source" sysvar="OutSrc24" type="string" sample="TX1" condition="$OutputCount &gt;= 24" buttontag="OutputSource24" />
+    <variable name="%%O25%% Source" sysvar="OutSrc25" type="string" sample="TX1" condition="$OutputCount &gt;= 25" buttontag="OutputSource25" />
+    <variable name="%%O26%% Source" sysvar="OutSrc26" type="string" sample="TX1" condition="$OutputCount &gt;= 26" buttontag="OutputSource26" />
+    <variable name="%%O27%% Source" sysvar="OutSrc27" type="string" sample="TX1" condition="$OutputCount &gt;= 27" buttontag="OutputSource27" />
+    <variable name="%%O28%% Source" sysvar="OutSrc28" type="string" sample="TX1" condition="$OutputCount &gt;= 28" buttontag="OutputSource28" />
+    <variable name="%%O29%% Source" sysvar="OutSrc29" type="string" sample="TX1" condition="$OutputCount &gt;= 29" buttontag="OutputSource29" />
+    <variable name="%%O30%% Source" sysvar="OutSrc30" type="string" sample="TX1" condition="$OutputCount &gt;= 30" buttontag="OutputSource30" />
+    <variable name="%%O31%% Source" sysvar="OutSrc31" type="string" sample="TX1" condition="$OutputCount &gt;= 31" buttontag="OutputSource31" />
+    <variable name="%%O32%% Source" sysvar="OutSrc32" type="string" sample="TX1" condition="$OutputCount &gt;= 32" buttontag="OutputSource32" />
+    <variable name="%%O33%% Source" sysvar="OutSrc33" type="string" sample="TX1" condition="$OutputCount &gt;= 33" buttontag="OutputSource33" />
+    <variable name="%%O34%% Source" sysvar="OutSrc34" type="string" sample="TX1" condition="$OutputCount &gt;= 34" buttontag="OutputSource34" />
+    <variable name="%%O35%% Source" sysvar="OutSrc35" type="string" sample="TX1" condition="$OutputCount &gt;= 35" buttontag="OutputSource35" />
+    <variable name="%%O36%% Source" sysvar="OutSrc36" type="string" sample="TX1" condition="$OutputCount &gt;= 36" buttontag="OutputSource36" />
+    <variable name="%%O37%% Source" sysvar="OutSrc37" type="string" sample="TX1" condition="$OutputCount &gt;= 37" buttontag="OutputSource37" />
+    <variable name="%%O38%% Source" sysvar="OutSrc38" type="string" sample="TX1" condition="$OutputCount &gt;= 38" buttontag="OutputSource38" />
+    <variable name="%%O39%% Source" sysvar="OutSrc39" type="string" sample="TX1" condition="$OutputCount &gt;= 39" buttontag="OutputSource39" />
+    <variable name="%%O40%% Source" sysvar="OutSrc40" type="string" sample="TX1" condition="$OutputCount &gt;= 40" buttontag="OutputSource40" />
+    <variable name="%%O41%% Source" sysvar="OutSrc41" type="string" sample="TX1" condition="$OutputCount &gt;= 41" buttontag="OutputSource41" />
+    <variable name="%%O42%% Source" sysvar="OutSrc42" type="string" sample="TX1" condition="$OutputCount &gt;= 42" buttontag="OutputSource42" />
+    <variable name="%%O43%% Source" sysvar="OutSrc43" type="string" sample="TX1" condition="$OutputCount &gt;= 43" buttontag="OutputSource43" />
+    <variable name="%%O44%% Source" sysvar="OutSrc44" type="string" sample="TX1" condition="$OutputCount &gt;= 44" buttontag="OutputSource44" />
+    <variable name="%%O45%% Source" sysvar="OutSrc45" type="string" sample="TX1" condition="$OutputCount &gt;= 45" buttontag="OutputSource45" />
+    <variable name="%%O46%% Source" sysvar="OutSrc46" type="string" sample="TX1" condition="$OutputCount &gt;= 46" buttontag="OutputSource46" />
+    <variable name="%%O47%% Source" sysvar="OutSrc47" type="string" sample="TX1" condition="$OutputCount &gt;= 47" buttontag="OutputSource47" />
+    <variable name="%%O48%% Source" sysvar="OutSrc48" type="string" sample="TX1" condition="$OutputCount &gt;= 48" buttontag="OutputSource48" />
+    <variable name="%%O49%% Source" sysvar="OutSrc49" type="string" sample="TX1" condition="$OutputCount &gt;= 49" buttontag="OutputSource49" />
+    <variable name="%%O50%% Source" sysvar="OutSrc50" type="string" sample="TX1" condition="$OutputCount &gt;= 50" buttontag="OutputSource50" />
+    <variable name="%%O51%% Source" sysvar="OutSrc51" type="string" sample="TX1" condition="$OutputCount &gt;= 51" buttontag="OutputSource51" />
+    <variable name="%%O52%% Source" sysvar="OutSrc52" type="string" sample="TX1" condition="$OutputCount &gt;= 52" buttontag="OutputSource52" />
+    <variable name="%%O53%% Source" sysvar="OutSrc53" type="string" sample="TX1" condition="$OutputCount &gt;= 53" buttontag="OutputSource53" />
+    <variable name="%%O54%% Source" sysvar="OutSrc54" type="string" sample="TX1" condition="$OutputCount &gt;= 54" buttontag="OutputSource54" />
+    <variable name="%%O55%% Source" sysvar="OutSrc55" type="string" sample="TX1" condition="$OutputCount &gt;= 55" buttontag="OutputSource55" />
+    <variable name="%%O56%% Source" sysvar="OutSrc56" type="string" sample="TX1" condition="$OutputCount &gt;= 56" buttontag="OutputSource56" />
+    <variable name="%%O57%% Source" sysvar="OutSrc57" type="string" sample="TX1" condition="$OutputCount &gt;= 57" buttontag="OutputSource57" />
+    <variable name="%%O58%% Source" sysvar="OutSrc58" type="string" sample="TX1" condition="$OutputCount &gt;= 58" buttontag="OutputSource58" />
+    <variable name="%%O59%% Source" sysvar="OutSrc59" type="string" sample="TX1" condition="$OutputCount &gt;= 59" buttontag="OutputSource59" />
+    <variable name="%%O60%% Source" sysvar="OutSrc60" type="string" sample="TX1" condition="$OutputCount &gt;= 60" buttontag="OutputSource60" />
+    <variable name="%%O61%% Source" sysvar="OutSrc61" type="string" sample="TX1" condition="$OutputCount &gt;= 61" buttontag="OutputSource61" />
+    <variable name="%%O62%% Source" sysvar="OutSrc62" type="string" sample="TX1" condition="$OutputCount &gt;= 62" buttontag="OutputSource62" />
+    <variable name="%%O63%% Source" sysvar="OutSrc63" type="string" sample="TX1" condition="$OutputCount &gt;= 63" buttontag="OutputSource63" />
+    <variable name="%%O64%% Source" sysvar="OutSrc64" type="string" sample="TX1" condition="$OutputCount &gt;= 64" buttontag="OutputSource64" />
   </category>
 
   <!-- Matrix arm-then-route: tap a source to arm it, then tap each        -->

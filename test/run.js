@@ -627,6 +627,20 @@ console.log('Matrix arm-then-route:');
     d.lastSent() === 'matrix aset :av TX-MAIN RX1', d.lastSent());
 })();
 
+// =====================================================================
+// 9. Button-text names published from the configuration
+// =====================================================================
+console.log('Slot name publishing:');
+(function () {
+  const d = loadDriver();
+  check('input name published at startup', d.vars.InName1 === 'TX1', d.vars.InName1);
+  check('output name published at startup', d.vars.OutName1 === 'RX1', d.vars.OutName1);
+  check('output slot holding a MAC publishes it', d.vars.OutName4 === '188a6a02c0d1', d.vars.OutName4);
+  check('unconfigured slot publishes empty', d.vars.InName9 === '', JSON.stringify(d.vars.InName9));
+  check('names cover the full ceiling', d.vars.OutName64 === '', JSON.stringify(d.vars.OutName64));
+  check('publishing names sends no commands', d.allSent().length === 0, d.allSent().join('|'));
+})();
+
 console.log('');
 if (failures) { console.log(failures + ' FAILURE(S)'); process.exit(1); }
 console.log('All assertions passed.');

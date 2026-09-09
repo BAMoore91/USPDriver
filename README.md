@@ -16,7 +16,7 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 
 Build tooling (not shipped to the processor): `PackageDriver.exe`, `Build.bat`.
 
-## Feature areas (v3.7)
+## Feature areas (v3.8)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – arm a source, then tap each destination to route it; also the
   original direct routes (one display, up to three) and named preset recall.
@@ -71,6 +71,18 @@ it still describes the ID 9-era features (dynamic naming) the driver uses.
 | `SelectWinID1`..`16` | 16 | Multiview: arm window 1..16 | `WinSel1`..`16` |
 | `MVIDInput1`..`64` | 64 | Multiview: route slot `I1`..`I64` into the armed window | — |
 
+Text tags, which label a button rather than command it:
+
+| Tag | Count | Puts on the button |
+|-----|-------|--------------------|
+| `InputName1`..`64` | 64 | The name entered in input slot `I1`..`I64` |
+| `OutputName1`..`64` | 64 | The name entered in output slot `O1`..`O64` |
+| `OutputSource1`..`64` | 64 | The source currently feeding output `O1`..`O64` (live) |
+
+So a button can carry a command tag *and* a text tag: tag it `SelectInput3` and
+`InputName3` and it arms input 3, lights when armed, and labels itself with
+whatever that slot is configured as — all from the driver.
+
 So a source button tagged `SelectInput1` gets the arm command *and* lights up
 when armed, with no manual wiring; a destination button tagged `RouteToDisplay3`
 routes the armed source to whatever output `O3` names.
@@ -89,6 +101,11 @@ How this is expressed in the XML:
 - **Reversed state.** `SrcSel`/`WinSel` booleans carry the same tag plus
   `tagtype="reversed"`, which binds them to the Reversed state of the button
   holding that tag.
+- **Button text.** `InName`/`OutName`/`OutSrc` are *string* variables carrying a
+  `buttontag` and no `tagtype` — `tagtype` is documented as boolean-only, so on a
+  string variable the variable attaches to the tagged button itself and supplies
+  its text. `InName`/`OutName` are published once at startup from the config
+  slots (`PublishSlotNames`); `OutputSource` is live route feedback.
 
 Tag counts follow the config-slot ceilings (64 inputs, 64 outputs, 16 windows),
 and the per-choice tags inherit each choice's `condition`, so tags for slots

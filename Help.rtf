@@ -1,7 +1,7 @@
 {\rtf1\ansi\deff0{\fonttbl{\f0 Segoe UI;}}
 \fs20
 {\b\fs28 AC-MXNET USP-CBOX Control \line}
-{\fs18 Driver v3.7 \'96 AVPro Global IPCBox (USP API) \line}
+{\fs18 Driver v3.8 \'96 AVPro Global IPCBox (USP API) \line}
 \line
 This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It supports Multiview, Matrix routing, Video Wall recall, the Media Player, CEC display control, and per-device / system control, with two-way feedback exposed as System Variables.\line
 \line
@@ -35,6 +35,10 @@ Tag template buttons with these and Integration Designer assigns the commands au
 \tab {\b RouteToDisplay1-RouteToDisplay64} \'96 route the armed source to Output slot 1-64. The destination follows the name and number entered in that Output (Display) Definition.\line
 \tab {\b SelectWinID1-SelectWinID16} \'96 arm Multiview window 1-16. The button's Reversed state lights while that window is armed.\line
 \tab {\b MVIDInput1-MVIDInput64} \'96 route Input slot 1-64 into the armed Multiview window.\line
+\tab {\b InputName1-InputName64} \'96 puts the name entered in Input slot 1-64 on the button.\line
+\tab {\b OutputName1-OutputName64} \'96 puts the name entered in Output slot 1-64 on the button.\line
+\tab {\b OutputSource1-OutputSource64} \'96 puts the source currently feeding Output 1-64 on the button, updating live.\line
+\tab A button can carry a command tag and a text tag together: tag it {\b SelectInput3} and {\b InputName3} and it arms input 3, lights while armed, and labels itself from the driver configuration.\line
 \tab Tags for slots past the configured Number of Inputs / Number of Outputs are not offered, so the tag list follows the system size.\line
 \line
 {\b MATRIX ROUTING (SELECT SOURCE, THEN DESTINATIONS) \line}

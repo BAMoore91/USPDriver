@@ -118,6 +118,26 @@ def check_series(tag_fmt, n, in_commands=True, reversed_var=None):
                 bad.append("%s%d tagtype=%r" % (reversed_var, i, v.get("tagtype")))
         check("%s drives %s Reversed state" % (label, reversed_var), not bad, "; ".join(bad[:4]))
 
+def check_text_series(tag_fmt, sysvar, n):
+    """String variables carrying a buttontag attach to the tagged button's
+    text. tagtype is boolean-only, so it must NOT be set on these."""
+    label = tag_fmt % 1 + ".." + tag_fmt % n
+    bad = []
+    for i in range(1, n + 1):
+        v = by_sysvar.get("%s%d" % (sysvar, i))
+        if v is None or v.get("buttontag") != tag_fmt % i:
+            bad.append("%s%d buttontag=%r" % (sysvar, i, v and v.get("buttontag")))
+        elif v.get("type") != "string":
+            bad.append("%s%d type=%r" % (sysvar, i, v.get("type")))
+        elif v.get("tagtype"):
+            bad.append("%s%d has tagtype=%r (boolean-only)" % (sysvar, i, v.get("tagtype")))
+    check("%s supplies %s button text" % (label, sysvar), not bad, "; ".join(bad[:4]))
+
+
+check_text_series("InputName%d", "InName", 64)      # input name on the button
+check_text_series("OutputName%d", "OutName", 64)    # output name on the button
+check_text_series("OutputSource%d", "OutSrc", 64)   # source currently on that output
+
 check_series("SelectInput%d", 64, reversed_var="SrcSel")     # arm a matrix source
 check_series("RouteToDisplay%d", 64)                         # route it to a destination
 check_series("MVIDInput%d", 64)                              # route into the armed window

@@ -110,70 +110,70 @@
   </category>
 
   <category name="Matrix Source Selected" condition="$InputCount &gt;= 1">
-    <variable name="%%I1%% Selected" sysvar="SrcSel1" type="boolean" sample="false" condition="$InputCount &gt;= 1" />
-    <variable name="%%I2%% Selected" sysvar="SrcSel2" type="boolean" sample="false" condition="$InputCount &gt;= 2" />
-    <variable name="%%I3%% Selected" sysvar="SrcSel3" type="boolean" sample="false" condition="$InputCount &gt;= 3" />
-    <variable name="%%I4%% Selected" sysvar="SrcSel4" type="boolean" sample="false" condition="$InputCount &gt;= 4" />
-    <variable name="%%I5%% Selected" sysvar="SrcSel5" type="boolean" sample="false" condition="$InputCount &gt;= 5" />
-    <variable name="%%I6%% Selected" sysvar="SrcSel6" type="boolean" sample="false" condition="$InputCount &gt;= 6" />
-    <variable name="%%I7%% Selected" sysvar="SrcSel7" type="boolean" sample="false" condition="$InputCount &gt;= 7" />
-    <variable name="%%I8%% Selected" sysvar="SrcSel8" type="boolean" sample="false" condition="$InputCount &gt;= 8" />
-    <variable name="%%I9%% Selected" sysvar="SrcSel9" type="boolean" sample="false" condition="$InputCount &gt;= 9" />
-    <variable name="%%I10%% Selected" sysvar="SrcSel10" type="boolean" sample="false" condition="$InputCount &gt;= 10" />
-    <variable name="%%I11%% Selected" sysvar="SrcSel11" type="boolean" sample="false" condition="$InputCount &gt;= 11" />
-    <variable name="%%I12%% Selected" sysvar="SrcSel12" type="boolean" sample="false" condition="$InputCount &gt;= 12" />
-    <variable name="%%I13%% Selected" sysvar="SrcSel13" type="boolean" sample="false" condition="$InputCount &gt;= 13" />
-    <variable name="%%I14%% Selected" sysvar="SrcSel14" type="boolean" sample="false" condition="$InputCount &gt;= 14" />
-    <variable name="%%I15%% Selected" sysvar="SrcSel15" type="boolean" sample="false" condition="$InputCount &gt;= 15" />
-    <variable name="%%I16%% Selected" sysvar="SrcSel16" type="boolean" sample="false" condition="$InputCount &gt;= 16" />
-    <variable name="%%I17%% Selected" sysvar="SrcSel17" type="boolean" sample="false" condition="$InputCount &gt;= 17" />
-    <variable name="%%I18%% Selected" sysvar="SrcSel18" type="boolean" sample="false" condition="$InputCount &gt;= 18" />
-    <variable name="%%I19%% Selected" sysvar="SrcSel19" type="boolean" sample="false" condition="$InputCount &gt;= 19" />
-    <variable name="%%I20%% Selected" sysvar="SrcSel20" type="boolean" sample="false" condition="$InputCount &gt;= 20" />
-    <variable name="%%I21%% Selected" sysvar="SrcSel21" type="boolean" sample="false" condition="$InputCount &gt;= 21" />
-    <variable name="%%I22%% Selected" sysvar="SrcSel22" type="boolean" sample="false" condition="$InputCount &gt;= 22" />
-    <variable name="%%I23%% Selected" sysvar="SrcSel23" type="boolean" sample="false" condition="$InputCount &gt;= 23" />
-    <variable name="%%I24%% Selected" sysvar="SrcSel24" type="boolean" sample="false" condition="$InputCount &gt;= 24" />
-    <variable name="%%I25%% Selected" sysvar="SrcSel25" type="boolean" sample="false" condition="$InputCount &gt;= 25" />
-    <variable name="%%I26%% Selected" sysvar="SrcSel26" type="boolean" sample="false" condition="$InputCount &gt;= 26" />
-    <variable name="%%I27%% Selected" sysvar="SrcSel27" type="boolean" sample="false" condition="$InputCount &gt;= 27" />
-    <variable name="%%I28%% Selected" sysvar="SrcSel28" type="boolean" sample="false" condition="$InputCount &gt;= 28" />
-    <variable name="%%I29%% Selected" sysvar="SrcSel29" type="boolean" sample="false" condition="$InputCount &gt;= 29" />
-    <variable name="%%I30%% Selected" sysvar="SrcSel30" type="boolean" sample="false" condition="$InputCount &gt;= 30" />
-    <variable name="%%I31%% Selected" sysvar="SrcSel31" type="boolean" sample="false" condition="$InputCount &gt;= 31" />
-    <variable name="%%I32%% Selected" sysvar="SrcSel32" type="boolean" sample="false" condition="$InputCount &gt;= 32" />
-    <variable name="%%I33%% Selected" sysvar="SrcSel33" type="boolean" sample="false" condition="$InputCount &gt;= 33" />
-    <variable name="%%I34%% Selected" sysvar="SrcSel34" type="boolean" sample="false" condition="$InputCount &gt;= 34" />
-    <variable name="%%I35%% Selected" sysvar="SrcSel35" type="boolean" sample="false" condition="$InputCount &gt;= 35" />
-    <variable name="%%I36%% Selected" sysvar="SrcSel36" type="boolean" sample="false" condition="$InputCount &gt;= 36" />
-    <variable name="%%I37%% Selected" sysvar="SrcSel37" type="boolean" sample="false" condition="$InputCount &gt;= 37" />
-    <variable name="%%I38%% Selected" sysvar="SrcSel38" type="boolean" sample="false" condition="$InputCount &gt;= 38" />
-    <variable name="%%I39%% Selected" sysvar="SrcSel39" type="boolean" sample="false" condition="$InputCount &gt;= 39" />
-    <variable name="%%I40%% Selected" sysvar="SrcSel40" type="boolean" sample="false" condition="$InputCount &gt;= 40" />
-    <variable name="%%I41%% Selected" sysvar="SrcSel41" type="boolean" sample="false" condition="$InputCount &gt;= 41" />
-    <variable name="%%I42%% Selected" sysvar="SrcSel42" type="boolean" sample="false" condition="$InputCount &gt;= 42" />
-    <variable name="%%I43%% Selected" sysvar="SrcSel43" type="boolean" sample="false" condition="$InputCount &gt;= 43" />
-    <variable name="%%I44%% Selected" sysvar="SrcSel44" type="boolean" sample="false" condition="$InputCount &gt;= 44" />
-    <variable name="%%I45%% Selected" sysvar="SrcSel45" type="boolean" sample="false" condition="$InputCount &gt;= 45" />
-    <variable name="%%I46%% Selected" sysvar="SrcSel46" type="boolean" sample="false" condition="$InputCount &gt;= 46" />
-    <variable name="%%I47%% Selected" sysvar="SrcSel47" type="boolean" sample="false" condition="$InputCount &gt;= 47" />
-    <variable name="%%I48%% Selected" sysvar="SrcSel48" type="boolean" sample="false" condition="$InputCount &gt;= 48" />
-    <variable name="%%I49%% Selected" sysvar="SrcSel49" type="boolean" sample="false" condition="$InputCount &gt;= 49" />
-    <variable name="%%I50%% Selected" sysvar="SrcSel50" type="boolean" sample="false" condition="$InputCount &gt;= 50" />
-    <variable name="%%I51%% Selected" sysvar="SrcSel51" type="boolean" sample="false" condition="$InputCount &gt;= 51" />
-    <variable name="%%I52%% Selected" sysvar="SrcSel52" type="boolean" sample="false" condition="$InputCount &gt;= 52" />
-    <variable name="%%I53%% Selected" sysvar="SrcSel53" type="boolean" sample="false" condition="$InputCount &gt;= 53" />
-    <variable name="%%I54%% Selected" sysvar="SrcSel54" type="boolean" sample="false" condition="$InputCount &gt;= 54" />
-    <variable name="%%I55%% Selected" sysvar="SrcSel55" type="boolean" sample="false" condition="$InputCount &gt;= 55" />
-    <variable name="%%I56%% Selected" sysvar="SrcSel56" type="boolean" sample="false" condition="$InputCount &gt;= 56" />
-    <variable name="%%I57%% Selected" sysvar="SrcSel57" type="boolean" sample="false" condition="$InputCount &gt;= 57" />
-    <variable name="%%I58%% Selected" sysvar="SrcSel58" type="boolean" sample="false" condition="$InputCount &gt;= 58" />
-    <variable name="%%I59%% Selected" sysvar="SrcSel59" type="boolean" sample="false" condition="$InputCount &gt;= 59" />
-    <variable name="%%I60%% Selected" sysvar="SrcSel60" type="boolean" sample="false" condition="$InputCount &gt;= 60" />
-    <variable name="%%I61%% Selected" sysvar="SrcSel61" type="boolean" sample="false" condition="$InputCount &gt;= 61" />
-    <variable name="%%I62%% Selected" sysvar="SrcSel62" type="boolean" sample="false" condition="$InputCount &gt;= 62" />
-    <variable name="%%I63%% Selected" sysvar="SrcSel63" type="boolean" sample="false" condition="$InputCount &gt;= 63" />
-    <variable name="%%I64%% Selected" sysvar="SrcSel64" type="boolean" sample="false" condition="$InputCount &gt;= 64" />
+    <variable name="%%I1%% Selected" sysvar="SrcSel1" type="boolean" sample="false" condition="$InputCount &gt;= 1" buttontag="SelectInput1" tagtype="reversed" />
+    <variable name="%%I2%% Selected" sysvar="SrcSel2" type="boolean" sample="false" condition="$InputCount &gt;= 2" buttontag="SelectInput2" tagtype="reversed" />
+    <variable name="%%I3%% Selected" sysvar="SrcSel3" type="boolean" sample="false" condition="$InputCount &gt;= 3" buttontag="SelectInput3" tagtype="reversed" />
+    <variable name="%%I4%% Selected" sysvar="SrcSel4" type="boolean" sample="false" condition="$InputCount &gt;= 4" buttontag="SelectInput4" tagtype="reversed" />
+    <variable name="%%I5%% Selected" sysvar="SrcSel5" type="boolean" sample="false" condition="$InputCount &gt;= 5" buttontag="SelectInput5" tagtype="reversed" />
+    <variable name="%%I6%% Selected" sysvar="SrcSel6" type="boolean" sample="false" condition="$InputCount &gt;= 6" buttontag="SelectInput6" tagtype="reversed" />
+    <variable name="%%I7%% Selected" sysvar="SrcSel7" type="boolean" sample="false" condition="$InputCount &gt;= 7" buttontag="SelectInput7" tagtype="reversed" />
+    <variable name="%%I8%% Selected" sysvar="SrcSel8" type="boolean" sample="false" condition="$InputCount &gt;= 8" buttontag="SelectInput8" tagtype="reversed" />
+    <variable name="%%I9%% Selected" sysvar="SrcSel9" type="boolean" sample="false" condition="$InputCount &gt;= 9" buttontag="SelectInput9" tagtype="reversed" />
+    <variable name="%%I10%% Selected" sysvar="SrcSel10" type="boolean" sample="false" condition="$InputCount &gt;= 10" buttontag="SelectInput10" tagtype="reversed" />
+    <variable name="%%I11%% Selected" sysvar="SrcSel11" type="boolean" sample="false" condition="$InputCount &gt;= 11" buttontag="SelectInput11" tagtype="reversed" />
+    <variable name="%%I12%% Selected" sysvar="SrcSel12" type="boolean" sample="false" condition="$InputCount &gt;= 12" buttontag="SelectInput12" tagtype="reversed" />
+    <variable name="%%I13%% Selected" sysvar="SrcSel13" type="boolean" sample="false" condition="$InputCount &gt;= 13" buttontag="SelectInput13" tagtype="reversed" />
+    <variable name="%%I14%% Selected" sysvar="SrcSel14" type="boolean" sample="false" condition="$InputCount &gt;= 14" buttontag="SelectInput14" tagtype="reversed" />
+    <variable name="%%I15%% Selected" sysvar="SrcSel15" type="boolean" sample="false" condition="$InputCount &gt;= 15" buttontag="SelectInput15" tagtype="reversed" />
+    <variable name="%%I16%% Selected" sysvar="SrcSel16" type="boolean" sample="false" condition="$InputCount &gt;= 16" buttontag="SelectInput16" tagtype="reversed" />
+    <variable name="%%I17%% Selected" sysvar="SrcSel17" type="boolean" sample="false" condition="$InputCount &gt;= 17" buttontag="SelectInput17" tagtype="reversed" />
+    <variable name="%%I18%% Selected" sysvar="SrcSel18" type="boolean" sample="false" condition="$InputCount &gt;= 18" buttontag="SelectInput18" tagtype="reversed" />
+    <variable name="%%I19%% Selected" sysvar="SrcSel19" type="boolean" sample="false" condition="$InputCount &gt;= 19" buttontag="SelectInput19" tagtype="reversed" />
+    <variable name="%%I20%% Selected" sysvar="SrcSel20" type="boolean" sample="false" condition="$InputCount &gt;= 20" buttontag="SelectInput20" tagtype="reversed" />
+    <variable name="%%I21%% Selected" sysvar="SrcSel21" type="boolean" sample="false" condition="$InputCount &gt;= 21" buttontag="SelectInput21" tagtype="reversed" />
+    <variable name="%%I22%% Selected" sysvar="SrcSel22" type="boolean" sample="false" condition="$InputCount &gt;= 22" buttontag="SelectInput22" tagtype="reversed" />
+    <variable name="%%I23%% Selected" sysvar="SrcSel23" type="boolean" sample="false" condition="$InputCount &gt;= 23" buttontag="SelectInput23" tagtype="reversed" />
+    <variable name="%%I24%% Selected" sysvar="SrcSel24" type="boolean" sample="false" condition="$InputCount &gt;= 24" buttontag="SelectInput24" tagtype="reversed" />
+    <variable name="%%I25%% Selected" sysvar="SrcSel25" type="boolean" sample="false" condition="$InputCount &gt;= 25" buttontag="SelectInput25" tagtype="reversed" />
+    <variable name="%%I26%% Selected" sysvar="SrcSel26" type="boolean" sample="false" condition="$InputCount &gt;= 26" buttontag="SelectInput26" tagtype="reversed" />
+    <variable name="%%I27%% Selected" sysvar="SrcSel27" type="boolean" sample="false" condition="$InputCount &gt;= 27" buttontag="SelectInput27" tagtype="reversed" />
+    <variable name="%%I28%% Selected" sysvar="SrcSel28" type="boolean" sample="false" condition="$InputCount &gt;= 28" buttontag="SelectInput28" tagtype="reversed" />
+    <variable name="%%I29%% Selected" sysvar="SrcSel29" type="boolean" sample="false" condition="$InputCount &gt;= 29" buttontag="SelectInput29" tagtype="reversed" />
+    <variable name="%%I30%% Selected" sysvar="SrcSel30" type="boolean" sample="false" condition="$InputCount &gt;= 30" buttontag="SelectInput30" tagtype="reversed" />
+    <variable name="%%I31%% Selected" sysvar="SrcSel31" type="boolean" sample="false" condition="$InputCount &gt;= 31" buttontag="SelectInput31" tagtype="reversed" />
+    <variable name="%%I32%% Selected" sysvar="SrcSel32" type="boolean" sample="false" condition="$InputCount &gt;= 32" buttontag="SelectInput32" tagtype="reversed" />
+    <variable name="%%I33%% Selected" sysvar="SrcSel33" type="boolean" sample="false" condition="$InputCount &gt;= 33" buttontag="SelectInput33" tagtype="reversed" />
+    <variable name="%%I34%% Selected" sysvar="SrcSel34" type="boolean" sample="false" condition="$InputCount &gt;= 34" buttontag="SelectInput34" tagtype="reversed" />
+    <variable name="%%I35%% Selected" sysvar="SrcSel35" type="boolean" sample="false" condition="$InputCount &gt;= 35" buttontag="SelectInput35" tagtype="reversed" />
+    <variable name="%%I36%% Selected" sysvar="SrcSel36" type="boolean" sample="false" condition="$InputCount &gt;= 36" buttontag="SelectInput36" tagtype="reversed" />
+    <variable name="%%I37%% Selected" sysvar="SrcSel37" type="boolean" sample="false" condition="$InputCount &gt;= 37" buttontag="SelectInput37" tagtype="reversed" />
+    <variable name="%%I38%% Selected" sysvar="SrcSel38" type="boolean" sample="false" condition="$InputCount &gt;= 38" buttontag="SelectInput38" tagtype="reversed" />
+    <variable name="%%I39%% Selected" sysvar="SrcSel39" type="boolean" sample="false" condition="$InputCount &gt;= 39" buttontag="SelectInput39" tagtype="reversed" />
+    <variable name="%%I40%% Selected" sysvar="SrcSel40" type="boolean" sample="false" condition="$InputCount &gt;= 40" buttontag="SelectInput40" tagtype="reversed" />
+    <variable name="%%I41%% Selected" sysvar="SrcSel41" type="boolean" sample="false" condition="$InputCount &gt;= 41" buttontag="SelectInput41" tagtype="reversed" />
+    <variable name="%%I42%% Selected" sysvar="SrcSel42" type="boolean" sample="false" condition="$InputCount &gt;= 42" buttontag="SelectInput42" tagtype="reversed" />
+    <variable name="%%I43%% Selected" sysvar="SrcSel43" type="boolean" sample="false" condition="$InputCount &gt;= 43" buttontag="SelectInput43" tagtype="reversed" />
+    <variable name="%%I44%% Selected" sysvar="SrcSel44" type="boolean" sample="false" condition="$InputCount &gt;= 44" buttontag="SelectInput44" tagtype="reversed" />
+    <variable name="%%I45%% Selected" sysvar="SrcSel45" type="boolean" sample="false" condition="$InputCount &gt;= 45" buttontag="SelectInput45" tagtype="reversed" />
+    <variable name="%%I46%% Selected" sysvar="SrcSel46" type="boolean" sample="false" condition="$InputCount &gt;= 46" buttontag="SelectInput46" tagtype="reversed" />
+    <variable name="%%I47%% Selected" sysvar="SrcSel47" type="boolean" sample="false" condition="$InputCount &gt;= 47" buttontag="SelectInput47" tagtype="reversed" />
+    <variable name="%%I48%% Selected" sysvar="SrcSel48" type="boolean" sample="false" condition="$InputCount &gt;= 48" buttontag="SelectInput48" tagtype="reversed" />
+    <variable name="%%I49%% Selected" sysvar="SrcSel49" type="boolean" sample="false" condition="$InputCount &gt;= 49" buttontag="SelectInput49" tagtype="reversed" />
+    <variable name="%%I50%% Selected" sysvar="SrcSel50" type="boolean" sample="false" condition="$InputCount &gt;= 50" buttontag="SelectInput50" tagtype="reversed" />
+    <variable name="%%I51%% Selected" sysvar="SrcSel51" type="boolean" sample="false" condition="$InputCount &gt;= 51" buttontag="SelectInput51" tagtype="reversed" />
+    <variable name="%%I52%% Selected" sysvar="SrcSel52" type="boolean" sample="false" condition="$InputCount &gt;= 52" buttontag="SelectInput52" tagtype="reversed" />
+    <variable name="%%I53%% Selected" sysvar="SrcSel53" type="boolean" sample="false" condition="$InputCount &gt;= 53" buttontag="SelectInput53" tagtype="reversed" />
+    <variable name="%%I54%% Selected" sysvar="SrcSel54" type="boolean" sample="false" condition="$InputCount &gt;= 54" buttontag="SelectInput54" tagtype="reversed" />
+    <variable name="%%I55%% Selected" sysvar="SrcSel55" type="boolean" sample="false" condition="$InputCount &gt;= 55" buttontag="SelectInput55" tagtype="reversed" />
+    <variable name="%%I56%% Selected" sysvar="SrcSel56" type="boolean" sample="false" condition="$InputCount &gt;= 56" buttontag="SelectInput56" tagtype="reversed" />
+    <variable name="%%I57%% Selected" sysvar="SrcSel57" type="boolean" sample="false" condition="$InputCount &gt;= 57" buttontag="SelectInput57" tagtype="reversed" />
+    <variable name="%%I58%% Selected" sysvar="SrcSel58" type="boolean" sample="false" condition="$InputCount &gt;= 58" buttontag="SelectInput58" tagtype="reversed" />
+    <variable name="%%I59%% Selected" sysvar="SrcSel59" type="boolean" sample="false" condition="$InputCount &gt;= 59" buttontag="SelectInput59" tagtype="reversed" />
+    <variable name="%%I60%% Selected" sysvar="SrcSel60" type="boolean" sample="false" condition="$InputCount &gt;= 60" buttontag="SelectInput60" tagtype="reversed" />
+    <variable name="%%I61%% Selected" sysvar="SrcSel61" type="boolean" sample="false" condition="$InputCount &gt;= 61" buttontag="SelectInput61" tagtype="reversed" />
+    <variable name="%%I62%% Selected" sysvar="SrcSel62" type="boolean" sample="false" condition="$InputCount &gt;= 62" buttontag="SelectInput62" tagtype="reversed" />
+    <variable name="%%I63%% Selected" sysvar="SrcSel63" type="boolean" sample="false" condition="$InputCount &gt;= 63" buttontag="SelectInput63" tagtype="reversed" />
+    <variable name="%%I64%% Selected" sysvar="SrcSel64" type="boolean" sample="false" condition="$InputCount &gt;= 64" buttontag="SelectInput64" tagtype="reversed" />
   </category>
 
   <category name="Multiview Routing">
@@ -185,22 +185,22 @@
   <!-- Per-window booleans: true only for the armed window. Bind a Select -->
   <!-- Window button's Reversed state directly to its matching WinSelN.    -->
   <category name="Multiview Window Selected">
-    <variable name="Window 1 Selected" sysvar="WinSel1" type="boolean" sample="false" />
-    <variable name="Window 2 Selected" sysvar="WinSel2" type="boolean" sample="false" />
-    <variable name="Window 3 Selected" sysvar="WinSel3" type="boolean" sample="false" />
-    <variable name="Window 4 Selected" sysvar="WinSel4" type="boolean" sample="false" />
-    <variable name="Window 5 Selected" sysvar="WinSel5" type="boolean" sample="false" />
-    <variable name="Window 6 Selected" sysvar="WinSel6" type="boolean" sample="false" />
-    <variable name="Window 7 Selected" sysvar="WinSel7" type="boolean" sample="false" />
-    <variable name="Window 8 Selected" sysvar="WinSel8" type="boolean" sample="false" />
-    <variable name="Window 9 Selected" sysvar="WinSel9" type="boolean" sample="false" />
-    <variable name="Window 10 Selected" sysvar="WinSel10" type="boolean" sample="false" />
-    <variable name="Window 11 Selected" sysvar="WinSel11" type="boolean" sample="false" />
-    <variable name="Window 12 Selected" sysvar="WinSel12" type="boolean" sample="false" />
-    <variable name="Window 13 Selected" sysvar="WinSel13" type="boolean" sample="false" />
-    <variable name="Window 14 Selected" sysvar="WinSel14" type="boolean" sample="false" />
-    <variable name="Window 15 Selected" sysvar="WinSel15" type="boolean" sample="false" />
-    <variable name="Window 16 Selected" sysvar="WinSel16" type="boolean" sample="false" />
+    <variable name="Window 1 Selected" sysvar="WinSel1" type="boolean" sample="false" buttontag="SelectWinID1" tagtype="reversed" />
+    <variable name="Window 2 Selected" sysvar="WinSel2" type="boolean" sample="false" buttontag="SelectWinID2" tagtype="reversed" />
+    <variable name="Window 3 Selected" sysvar="WinSel3" type="boolean" sample="false" buttontag="SelectWinID3" tagtype="reversed" />
+    <variable name="Window 4 Selected" sysvar="WinSel4" type="boolean" sample="false" buttontag="SelectWinID4" tagtype="reversed" />
+    <variable name="Window 5 Selected" sysvar="WinSel5" type="boolean" sample="false" buttontag="SelectWinID5" tagtype="reversed" />
+    <variable name="Window 6 Selected" sysvar="WinSel6" type="boolean" sample="false" buttontag="SelectWinID6" tagtype="reversed" />
+    <variable name="Window 7 Selected" sysvar="WinSel7" type="boolean" sample="false" buttontag="SelectWinID7" tagtype="reversed" />
+    <variable name="Window 8 Selected" sysvar="WinSel8" type="boolean" sample="false" buttontag="SelectWinID8" tagtype="reversed" />
+    <variable name="Window 9 Selected" sysvar="WinSel9" type="boolean" sample="false" buttontag="SelectWinID9" tagtype="reversed" />
+    <variable name="Window 10 Selected" sysvar="WinSel10" type="boolean" sample="false" buttontag="SelectWinID10" tagtype="reversed" />
+    <variable name="Window 11 Selected" sysvar="WinSel11" type="boolean" sample="false" buttontag="SelectWinID11" tagtype="reversed" />
+    <variable name="Window 12 Selected" sysvar="WinSel12" type="boolean" sample="false" buttontag="SelectWinID12" tagtype="reversed" />
+    <variable name="Window 13 Selected" sysvar="WinSel13" type="boolean" sample="false" buttontag="SelectWinID13" tagtype="reversed" />
+    <variable name="Window 14 Selected" sysvar="WinSel14" type="boolean" sample="false" buttontag="SelectWinID14" tagtype="reversed" />
+    <variable name="Window 15 Selected" sysvar="WinSel15" type="boolean" sample="false" buttontag="SelectWinID15" tagtype="reversed" />
+    <variable name="Window 16 Selected" sysvar="WinSel16" type="boolean" sample="false" buttontag="SelectWinID16" tagtype="reversed" />
   </category>
 
   <!-- Per-window current source (the TX/source shown in each window). -->

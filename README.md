@@ -16,7 +16,7 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 
 Build tooling (not shipped to the processor): `PackageDriver.exe`, `Build.bat`.
 
-## Feature areas (v3.6)
+## Feature areas (v3.7)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – arm a source, then tap each destination to route it; also the
   original direct routes (one display, up to three) and named preset recall.
@@ -50,6 +50,50 @@ CEC functions build the API's `config set device cec {hexData} {device_id/device
 - The USP API has **no CEC query**, so there is no real display power state to read
   back. `LastCECData` / `LastCECTarget` report what the driver last sent.
 
+
+## Autoprogramming tags
+
+The driver tags its commands and selection feedback so Integration Designer can
+assign them to tagged template buttons. **These tags are non-standard** (they are
+not on the RTI Developer Site's standard list, so PackageDriver warns about them
+and stock RTI templates will not match them) — they are defined here, and
+templates must carry the same tags.
+
+Requires `minimumApexVersion="10.0"` in `DriverManifest.xml`; without it
+Integration Designer ignores every autoprogramming attribute in the driver.
+`minimumSoftwareVersion` stays at 10.0 and is unrelated — ID 10+ ignores it and
+it still describes the ID 9-era features (dynamic naming) the driver uses.
+
+| Tag | Count | Assigns | Reversed state |
+|-----|-------|---------|----------------|
+| `SelectInput1`..`64` | 64 | Matrix: arm the source in slot `I1`..`I64` | `SrcSel1`..`64` |
+| `RouteToDisplay1`..`64` | 64 | Matrix: route the armed source to `O1`..`O64` | — |
+| `SelectWinID1`..`16` | 16 | Multiview: arm window 1..16 | `WinSel1`..`16` |
+| `MVIDInput1`..`64` | 64 | Multiview: route slot `I1`..`I64` into the armed window | — |
+
+So a source button tagged `SelectInput1` gets the arm command *and* lights up
+when armed, with no manual wiring; a destination button tagged `RouteToDisplay3`
+routes the armed source to whatever output `O3` names.
+
+How this is expressed in the XML:
+
+- **Per-choice tags.** `SelectInput`, `RouteToDisplay` and `MVIDInput` are
+  `buttontag` attributes on individual `<choice>` elements inside one function's
+  multiple-choice parameter. Integration Designer treats each choice as its own
+  command, setting that parameter to the choice's value and leaving other
+  parameters at their defaults — so one function covers all 64 tags rather than
+  64 near-duplicate function entries.
+- **Per-function tags.** `SelectWinID` sits on the function itself, since window
+  arming is already 16 separate functions each carrying its window number as a
+  hidden parameter.
+- **Reversed state.** `SrcSel`/`WinSel` booleans carry the same tag plus
+  `tagtype="reversed"`, which binds them to the Reversed state of the button
+  holding that tag.
+
+Tag counts follow the config-slot ceilings (64 inputs, 64 outputs, 16 windows),
+and the per-choice tags inherit each choice's `condition`, so tags for slots
+beyond the configured counts are not offered. `test/metadata.py` pins the whole
+scheme.
 
 ## Matrix routing (select source, then destinations)
 
@@ -151,5 +195,7 @@ parser. The reference SDK is `XPDriverGuide_v25.pdf`.
 that every `export` in `SystemFunctions.xml` resolves to a function in the
 script (PackageDriver validates XML but never reads the script, so a typo here
 would only surface on hardware), that hidden parameters come last, that the
-per-output and per-source variables stay slot-named and conditioned, and that
-the config slots the script reads are declared.
+per-output and per-source variables stay slot-named and conditioned, that the
+config slots the script reads are declared, and that the autoprogramming tag
+scheme above is complete, uniquely assigned, and backed by
+`minimumApexVersion`.

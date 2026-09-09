@@ -1,7 +1,7 @@
 {\rtf1\ansi\deff0{\fonttbl{\f0 Segoe UI;}}
 \fs20
 {\b\fs28 AC-MXNET USP-CBOX Control \line}
-{\fs18 Driver v3.6 \'96 AVPro Global IPCBox (USP API) \line}
+{\fs18 Driver v3.7 \'96 AVPro Global IPCBox (USP API) \line}
 \line
 This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It supports Multiview, Matrix routing, Video Wall recall, the Media Player, CEC display control, and per-device / system control, with two-way feedback exposed as System Variables.\line
 \line
@@ -28,6 +28,14 @@ The drop-down lists in System Functions show these slot values by name.\line
 {\b System:} Reboot CBOX; Query Device List; Query All Device Status; Send Raw Command (advanced \'96 sends any API string verbatim).\line
 {\b Live Lists:} Refresh Matrix Routes re-reads which source each display is tuned to.\line
 {\b CEC:} Display Power On/Off (one device, up to 3 displays, or all displays); Send CEC Command (a stored C1-C16 payload to one device, up to 3 displays, or all displays); Send Raw CEC Data.\line
+\line
+{\b AUTOPROGRAMMING TAGS \line}
+Tag template buttons with these and Integration Designer assigns the commands automatically. These tags are custom to this driver, so PackageDriver warns about them and stock RTI templates will not match \'96 your template must use the same names.\line
+\tab {\b SelectInput1-SelectInput64} \'96 arm the matrix source in Input slot 1-64. The button's Reversed state lights while that source is armed.\line
+\tab {\b RouteToDisplay1-RouteToDisplay64} \'96 route the armed source to Output slot 1-64. The destination follows the name and number entered in that Output (Display) Definition.\line
+\tab {\b SelectWinID1-SelectWinID16} \'96 arm Multiview window 1-16. The button's Reversed state lights while that window is armed.\line
+\tab {\b MVIDInput1-MVIDInput64} \'96 route Input slot 1-64 into the armed Multiview window.\line
+\tab Tags for slots past the configured Number of Inputs / Number of Outputs are not offered, so the tag list follows the system size.\line
 \line
 {\b MATRIX ROUTING (SELECT SOURCE, THEN DESTINATIONS) \line}
 Attach {\b Select Source (Arm)} to each source button and {\b Route to Display} to each destination button. The operator taps a source once, then taps TV 1, TV 3, TV 4 and each routes the armed source immediately \'96 one source tap, not one per destination. The source stays armed until another is tapped or {\b Clear Source Selection} runs.\line

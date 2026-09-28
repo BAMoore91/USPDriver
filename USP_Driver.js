@@ -3,7 +3,7 @@ var hostIP = Config.Get("IPAddress");
 var hostPort = Config.Get("USPPort");
 
 function Initialize() {
-    System.Print("--- IPCBox Driver V4.2 Initialized ---\r\n");
+    System.Print("--- IPCBox Driver V4.3 Initialized ---\r\n");
     PublishSlotNames();
     Connect();
 }
@@ -196,7 +196,7 @@ function HandleResponseLine(line) {
     }
     // Reply to "mvid layout get <name>" carries each window's current source.
     if (StartsWith(cmd, "mvid layout get ")) {
-        ParseLayoutWindows(line);
+        ParseLayoutWindows(line, TrimStr(cmd.substring("mvid layout get ".length)));
     }
     // "config get device routes" answers with a Lua table rather than the
     // JSON-ish shape every other reply uses, and the API doc shows it without
@@ -214,15 +214,36 @@ function HandleResponseLine(line) {
     }
 }
 
+// Which window IDs each layout actually contains, keyed by upper-case layout
+// name, as "|1|3|5|". The driver must never send "mvid layout tx" for a window
+// a layout does not have: there is no separate "create window" in that call
+// path, so the box is left to invent one, which shows up as an stray layer
+// behind the saved design.
+var g_layoutWindows = {};
+
+function KnownWindows(layout) {
+    var v = g_layoutWindows[("" + layout).toUpperCase()];
+    return (typeof v === "string") ? v : null;
+}
+
+// true / false when the layout's windows are known, null when they are not.
+function WindowExists(layout, win) {
+    var list = KnownWindows(layout);
+    if (list === null) {
+        return null;
+    }
+    return list.indexOf("|" + win + "|") >= 0;
+}
+
 // Parse the "windows":[{"host":..,"index":..},...] array from an
 // "mvid layout get" reply and publish each window's source as WinSrc<index>.
-function ParseLayoutWindows(line) {
+function ParseLayoutWindows(line, layoutName) {
     var wp = line.indexOf("\"windows\"");
     if (wp < 0) {
         return;
     }
     var arrStart = line.indexOf("[", wp);
-    var arrEnd = (arrStart >= 0) ? line.indexOf("]", arrStart) : -1;
+    var arrEnd = (arrStart >= 0) ? MatchBrace(line, arrStart) : -1;
     if (arrStart < 0 || arrEnd < 0) {
         return;
     }
@@ -233,6 +254,7 @@ function ParseLayoutWindows(line) {
         SystemVars.Write("WinSrc" + i, "");
     }
     var pos = 0;
+    var found = "";
     while (true) {
         var ob = sub.indexOf("{", pos);
         if (ob < 0) {
@@ -245,10 +267,20 @@ function ParseLayoutWindows(line) {
         var obj = sub.substring(ob, cb + 1);
         var host = ExtractStr(obj, "host");
         var idx = ExtractInt(obj, "index");
-        if (idx !== null && idx >= 1 && idx <= WIN_COUNT && host !== "") {
-            SystemVars.Write("WinSrc" + idx, host);
+        if (idx !== null && idx >= 1) {
+            found += "|" + idx;
+            if (idx <= WIN_COUNT && host !== "") {
+                SystemVars.Write("WinSrc" + idx, host);
+            }
         }
         pos = cb + 1;
+    }
+    if (layoutName) {
+        g_layoutWindows[("" + layoutName).toUpperCase()] = found + "|";
+        if (("" + layoutName).toUpperCase() === ("" + g_selLayoutVal).toUpperCase()) {
+            SystemVars.Write("LayoutWindowList", found.length > 1 ? found.substring(1) : "");
+        }
+        System.Print("[Layout] " + layoutName + " windows: " + (found.length > 1 ? found.substring(1) : "(none)") + "\r\n");
     }
 }
 
@@ -396,6 +428,9 @@ function UpdateWindowSource(layoutKey, winID, inputKey) {
     var inputVal = Config.Get(inputKey);
 
     if (layoutVal && inputVal) {
+        if (!CanRouteWindow(layoutVal, winID, "UpdateWindowSource")) {
+            return;
+        }
         SendCommand("mvid layout tx " + layoutVal + " " + winID + " " + inputVal);
         // We activate as well to ensure the change is seen live on screen
         SendCommand("mvid layout active " + layoutVal);
@@ -422,9 +457,15 @@ function SelectLayout(layoutKey) {
         System.Print("[Error] SelectLayout: config slot '" + layoutKey + "' is empty.\r\n");
         return;
     }
+    // A window armed against the previous layout may not exist in this one;
+    // carrying it over is what routes into a window the layout never had.
+    if (v !== g_selLayoutVal) {
+        ArmWindow(0);
+    }
     g_selLayoutVal = v;
     SystemVars.Write("SelectedLayout", v);
     SystemVars.Write("SelectedLayoutID", SlotIndex(layoutKey));
+    SystemVars.Write("LayoutWindowList", "");
     System.Print("[Select] Layout armed: " + v + " (slot " + layoutKey + ")\r\n");
     // Refresh per-window source feedback (WinSrcN) from the box for this layout.
     SendCommand("mvid layout get " + v);
@@ -433,17 +474,38 @@ function SelectLayout(layoutKey) {
 /** Arm the window that the next input tap will be routed into. winID is 1..N. */
 function SelectWindow(winID) {
     var w = parseInt("" + winID, 10);
-    if (!(w >= 1)) {
-        System.Print("[Error] SelectWindow: invalid window '" + winID + "'.\r\n");
+    if (!(w >= 1) || w > WIN_COUNT) {
+        System.Print("[Error] SelectWindow: window '" + winID + "' outside 1-" + WIN_COUNT + ".\r\n");
         return;
     }
-    g_selWindow = w;
-    SystemVars.Write("SelectedWindowID", w);
-    // Per-window booleans for direct "Reversed" button binding: true only for w.
-    for (var i = 1; i <= WIN_COUNT; i++) {
-        SystemVars.Write("WinSel" + i, (i === w), "BOOLEAN");
+    if (g_selLayoutVal && WindowExists(g_selLayoutVal, w) === false) {
+        System.Print("[Error] SelectWindow: layout '" + g_selLayoutVal +
+                     "' has no window " + w + " (has " + KnownWindows(g_selLayoutVal) +
+                     "). Not arming; routing there would add a window to the layout.\r\n");
+        return;
     }
+    ArmWindow(w);
     System.Print("[Select] Window armed: " + w + "\r\n");
+}
+
+// Refuse to set a source on a window the layout does not have. "mvid layout
+// tx" is the only call in this driver that can alter a layout's structure, and
+// only by naming a window that is not there. When the layout's windows are not
+// known yet the send is allowed but flagged, so a failed "mvid layout get"
+// cannot silently disable multiview routing.
+function CanRouteWindow(layout, win, who) {
+    var exists = WindowExists(layout, win);
+    if (exists === false) {
+        System.Print("[Error] " + who + ": layout '" + layout + "' has no window " + win +
+                     " (has " + KnownWindows(layout) + "). Refusing, to avoid creating one.\r\n");
+        return false;
+    }
+    if (exists === null) {
+        System.Print("[Warning] " + who + ": windows of '" + layout +
+                     "' not known yet; sending unchecked and re-reading the layout.\r\n");
+        SendCommand("mvid layout get " + layout);
+    }
+    return true;
 }
 
 /** Route the tapped input into the armed layout+window, then activate it live. */
@@ -459,6 +521,9 @@ function RouteSelectedInput(inputKey) {
     }
     if (!g_selWindow) {
         System.Print("[Error] RouteSelectedInput: no window armed. Tap a window first.\r\n");
+        return;
+    }
+    if (!CanRouteWindow(g_selLayoutVal, g_selWindow, "RouteSelectedInput")) {
         return;
     }
     SendCommand("mvid layout tx " + g_selLayoutVal + " " + g_selWindow + " " + input);
@@ -525,6 +590,15 @@ var IN_COUNT = 64;   // SrcSel1..N booleans, matching the I1..I64 config slots
 
 // Arm a source. slotIndex drives the per-source highlight booleans; pass 0
 // when the source came from the live list and no config slot owns it.
+// Clear (or set) the armed window and its highlight booleans.
+function ArmWindow(w) {
+    g_selWindow = w;
+    SystemVars.Write("SelectedWindowID", w);
+    for (var i = 1; i <= WIN_COUNT; i++) {
+        SystemVars.Write("WinSel" + i, (i === w), "BOOLEAN");
+    }
+}
+
 function ArmSource(value, slotIndex) {
     g_liveSrc = value;
     SystemVars.Write("LiveSource", value);
@@ -1111,8 +1185,12 @@ function SelectLayoutItem(index, top) {
         var name = g_layouts[index];
         SystemVars.Write("LiveLayout", name);
         // Also arm this layout for the window-routing workflow + refresh feedback.
+        if (name !== g_selLayoutVal) {
+            ArmWindow(0);
+        }
         g_selLayoutVal = name;
         SystemVars.Write("SelectedLayout", name);
+        SystemVars.Write("LayoutWindowList", "");
         SendCommand("mvid layout active " + name);   // recall on tap
         SendCommand("mvid layout get " + name);      // refresh WinSrc feedback
     }
@@ -1146,6 +1224,9 @@ function RouteLiveSourceToWindow() {
     }
     if (!g_liveSrc) {
         System.Print("[Error] RouteLiveSourceToWindow: no source selected (tap a source first).\r\n");
+        return;
+    }
+    if (!CanRouteWindow(g_selLayoutVal, g_selWindow, "RouteLiveSourceToWindow")) {
         return;
     }
     SendCommand("mvid layout tx " + g_selLayoutVal + " " + g_selWindow + " " + g_liveSrc);

@@ -16,7 +16,7 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 
 Build tooling (not shipped to the processor): `PackageDriver.exe`, `Build.bat`.
 
-## Feature areas (v4.2)
+## Feature areas (v4.3)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – arm a source, then tap each destination to route it; also the
   original direct routes (one display, up to three) and named preset recall.
@@ -146,6 +146,35 @@ Tag counts follow the config-slot ceilings (64 inputs, 64 outputs, 16 windows),
 and the per-choice tags inherit each choice's `condition`, so tags for slots
 beyond the configured counts are not offered. `test/metadata.py` pins the whole
 scheme.
+
+## Multiview layout integrity
+
+The driver never alters a saved layout's structure. It emits only `mvid get
+layouts`, `mvid layout get`, `mvid layout rx`, `mvid layout tx` and `mvid layout
+active` — never `add`, `rm`, `window`, `rmwindow`, `layer`, `resolution`,
+`template`, or any `mvid template` verb. `test/metadata.py` aside, a harness
+assertion pins that list so a structural verb cannot creep in.
+
+That leaves one way to change a layout by accident: `mvid layout tx {layout}
+{windowID} {tx}` naming a window the layout does not contain. Nothing in that
+call path creates a window explicitly, so the box is left to invent one — which
+appears as a stray layer behind the saved design. Three guards close it:
+
+- **The window set is read and remembered.** Every `mvid layout get` reply
+  records that layout's real window IDs (`g_layoutWindows`), published for the
+  armed layout as `LayoutWindowList`.
+- **Arming a different layout disarms the window.** A window armed against the
+  previous layout used to survive the switch, so the next input tap routed into
+  a window the new layout may never have had. Both the config-slot and
+  live-list layout arming now clear it.
+- **Every `mvid layout tx` is gated.** `CanRouteWindow()` refuses the send when
+  the window is known not to exist. When the window set is not known yet it
+  allows the send but logs it and re-reads the layout, so a failed
+  `mvid layout get` degrades to the old behaviour rather than disabling
+  multiview routing outright.
+
+`SelectWindow` is also bounded to 1..`WIN_COUNT` and will not arm a window the
+armed layout lacks.
 
 ## Matrix routing (select source, then destinations)
 

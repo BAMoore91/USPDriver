@@ -1,7 +1,7 @@
 {\rtf1\ansi\deff0{\fonttbl{\f0 Segoe UI;}}
 \fs20
 {\b\fs28 AC-MXNET USP-CBOX Control \line}
-{\fs18 Driver v4.2 \'96 AVPro Global IPCBox (USP API) \line}
+{\fs18 Driver v4.3 \'96 AVPro Global IPCBox (USP API) \line}
 \line
 This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It supports Multiview, Matrix routing, Video Wall recall, the Media Player, CEC display control, and per-device / system control, with two-way feedback exposed as System Variables.\line
 \line
@@ -44,6 +44,11 @@ Tag template buttons with these and Integration Designer assigns the commands au
 \tab {\b SelectedInputName} \'96 the armed source. {\b SelectedDisplayName} \'96 the display picked in the Display List. {\b SelectedDisplaySource} \'96 the source feeding that display. Useful for a "now routing X to Y" banner.\line
 \tab A button can carry a command tag and a text tag together: tag it {\b SelectInput3} and {\b InputName3} and it arms input 3, lights while armed, and labels itself from the driver configuration.\line
 \tab Tags for slots past the configured Number of Inputs / Number of Outputs are not offered, so the tag list follows the system size.\line
+\line
+{\b MULTIVIEW LAYOUT SAFETY \line}
+The driver only reads layouts and sets window sources \'96 it never adds, removes or re-shapes a layout, a window or a layer.\line
+\tab Routing into a window a layout does not have is the one thing that could make the CBOX invent one, so it is blocked. Tapping a window number the armed layout lacks is refused, and changing the armed layout clears the armed window rather than carrying it into a layout that may not have it.\line
+\tab {\b Armed Layout Windows} shows which window numbers the armed layout actually has, as reported by the CBOX.\line
 \line
 {\b MATRIX ROUTING (SELECT SOURCE, THEN DESTINATIONS) \line}
 Attach {\b Select Source (Arm)} to each source button and {\b Route to Display} to each destination button. The operator taps a source once, then taps TV 1, TV 3, TV 4 and each routes the armed source immediately \'96 one source tap, not one per destination. The source stays armed until another is tapped or {\b Clear Source Selection} runs.\line

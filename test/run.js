@@ -724,6 +724,108 @@ console.log('Reply reassembly:');
   check('JSON-shaped routes reply also parses', e.vars.OutSrc1 === 'TX-MAIN', e.vars.OutSrc1);
 })();
 
+// =====================================================================
+// 12. Multiview: never add a window to a saved layout
+// =====================================================================
+console.log('Multiview layout integrity:');
+
+// "mvid layout get lay1" reply for a four-window layout.
+const LAY1 = '{"cmd":"mvid layout get lay1","info":{"windows":[' +
+  '{"host":"TX1","index":1},{"host":"TX2","index":2},' +
+  '{"host":"TX3","index":3},{"host":"TX4","index":4}]},"code":0}';
+// lay10 is a two-window layout.
+const LAY10 = '{"cmd":"mvid layout get lay10","info":{"windows":[' +
+  '{"host":"TX1","index":1},{"host":"TX2","index":2}]},"code":0}';
+
+(function () {
+  const d = loadDriver();
+  const structural = ['mvid layout add', 'mvid layout rm', 'mvid layout window',
+    'mvid layout rmwindow', 'mvid layout layer', 'mvid layout resolution',
+    'mvid layout template', 'mvid template'];
+  d.call('SelectLayout("L1")');
+  d.feed(LAY1);
+  d.call('SelectWindow(2)');
+  d.call('RouteSelectedInput("I1")');
+  d.call('ShowLayoutOnDisplay("L1","O1")');
+  d.call('UpdateWindowSource("L1",3,"I2")');
+  const all = d.allSent().join(' | ');
+  check('no structural layout command is ever emitted',
+    structural.every(function (v) { return all.indexOf(v) < 0; }), all);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectLayout("L1")');
+  d.feed(LAY1);
+  check('layout get records the window set', d.vars.LayoutWindowList === '1|2|3|4', d.vars.LayoutWindowList);
+  d.call('SelectWindow(3)');
+  d.call('RouteSelectedInput("I1")');
+  check('routing into a real window still works',
+    d.allSent().indexOf('mvid layout tx lay1 3 TX1') >= 0, d.allSent().join(' | '));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectLayout("L1")');
+  d.feed(LAY1);
+  d.call('SelectWindow(7)');           // lay1 has only windows 1-4
+  check('cannot arm a window the layout lacks', d.vars.SelectedWindowID !== 7,
+    '' + d.vars.SelectedWindowID);
+  d.call('RouteSelectedInput("I1")');
+  check('no tx emitted for a missing window',
+    d.allSent().join(' | ').indexOf('mvid layout tx lay1 7') < 0, d.allSent().join(' | '));
+})();
+
+(function () {
+  const d = loadDriver();
+  // The regression: arm a window in one layout, switch layouts, tap an input.
+  d.call('SelectLayout("L1")');
+  d.feed(LAY1);
+  d.call('SelectWindow(4)');
+  check('window 4 armed in lay1', d.vars.SelectedWindowID === 4, '' + d.vars.SelectedWindowID);
+  d.call('SelectLayout("L10")');       // lay10 has only windows 1-2
+  check('switching layout disarms the window', d.vars.SelectedWindowID === 0,
+    '' + d.vars.SelectedWindowID);
+  check('switching layout clears the highlight', d.vars.WinSel4 === false, '' + d.vars.WinSel4);
+  d.feed(LAY10);
+  d.call('RouteSelectedInput("I1")');
+  check('a stale window cannot route into the new layout',
+    d.allSent().join(' | ').indexOf('mvid layout tx lay10 4') < 0, d.allSent().join(' | '));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectLayout("L1")');
+  d.feed(LAY1);
+  d.call('SelectWindow(2)');
+  d.feed('{"cmd":"mvid get layouts","info":{"lay10":[],"lay1":[]},"code":0}');
+  d.call('SelectLayoutItem(0,0)');     // live-list arm of lay10, a different layout
+  check('live-list layout change also disarms the window',
+    d.vars.SelectedWindowID === 0, '' + d.vars.SelectedWindowID);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('UpdateWindowSource("L1",9,"I1")');   // windows unknown: allowed, flagged
+  const a = d.allSent().join(' | ');
+  check('unknown window set does not block routing', a.indexOf('mvid layout tx lay1 9 TX1') >= 0, a);
+  check('unknown window set triggers a re-read', a.indexOf('mvid layout get lay1') >= 0, a);
+  // ...but once known, the same call is refused.
+  const e = loadDriver();
+  e.call('SelectLayout("L1")');
+  e.feed(LAY1);
+  e.call('UpdateWindowSource("L1",9,"I1")');
+  check('known window set refuses the same call',
+    e.allSent().join(' | ').indexOf('mvid layout tx lay1 9') < 0, e.allSent().join(' | '));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectWindow(99)');
+  check('window beyond the ceiling is rejected', d.vars.SelectedWindowID !== 99,
+    '' + d.vars.SelectedWindowID);
+})();
+
 console.log('');
 if (failures) { console.log(failures + ' FAILURE(S)'); process.exit(1); }
 console.log('All assertions passed.');

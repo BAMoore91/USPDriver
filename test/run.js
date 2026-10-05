@@ -826,6 +826,57 @@ const LAY10 = '{"cmd":"mvid layout get lay10","info":{"windows":[' +
     '' + d.vars.SelectedWindowID);
 })();
 
+// =====================================================================
+// 13. Reply shapes seen on real hardware
+// =====================================================================
+console.log('Live reply shapes:');
+
+// Verbatim from a CBOX trace: no "code" field, and an empty windows array.
+const LAY_EMPTY = '{"info":{"windows":[],"audiomode":1,"audioselect":0,"resolution":5,' +
+  '"client":"BackRoomLED"},"cmd":"mvid layout get 1x1BackRoom"}';
+const RX_OK = '{"info":"OK","cmd":"mvid layout rx 1x1BackRoom BackRoomLED"}';
+
+(function () {
+  const d = loadDriver();
+  d.feed('{"cmd":"config set device hdcp 1 RX1","info":"fail","code":13}');
+  check('a failure is recorded', d.vars.LastCommandSuccess === false);
+  d.feed(RX_OK);
+  check('a code-less OK reply reports success', d.vars.LastCommandSuccess === true,
+    '' + d.vars.LastCommandSuccess);
+  check('a code-less OK reply sets code 0', d.vars.LastResponseCode === 0,
+    '' + d.vars.LastResponseCode);
+  check('its echoed command is recorded',
+    d.vars.LastResponseCmd === 'mvid layout rx 1x1BackRoom BackRoomLED', d.vars.LastResponseCmd);
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectLayout("L1")');
+  d.feed(LAY_EMPTY.replace('1x1BackRoom', 'lay1'));
+  check('empty windows array records the client', d.vars.LayoutClient === 'BackRoomLED',
+    d.vars.LayoutClient);
+  // An empty array must not be read as "no window exists" -- that would refuse
+  // every route into a 1x1 layout.
+  d.call('SelectWindow(1)');
+  check('a window can still be armed on an empty layout', d.vars.SelectedWindowID === 1,
+    '' + d.vars.SelectedWindowID);
+  d.call('RouteSelectedInput("I1")');
+  check('routing into an empty layout is still sent',
+    d.allSent().indexOf('mvid layout tx lay1 1 TX1') >= 0, d.allSent().join(' | '));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('SelectLayout("L1")');
+  d.feed(LAY_EMPTY.replace('1x1BackRoom', 'lay1'));
+  const before = d.allSent().length;
+  d.call('RouteSelectedInput("I1")');   // no window armed -> guarded earlier
+  d.call('SelectWindow(2)');
+  d.call('RouteSelectedInput("I1")');
+  const gets = d.allSent().filter(function (c) { return c === 'mvid layout get lay1'; }).length;
+  check('an empty answer is not re-queried on every route', gets <= 1, 'gets=' + gets);
+})();
+
 console.log('');
 if (failures) { console.log(failures + ' FAILURE(S)'); process.exit(1); }
 console.log('All assertions passed.');

@@ -16,7 +16,7 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 
 Build tooling (not shipped to the processor): `PackageDriver.exe`, `Build.bat`.
 
-## Feature areas (v4.3)
+## Feature areas (v4.4)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – arm a source, then tap each destination to route it; also the
   original direct routes (one display, up to three) and named preset recall.
@@ -175,6 +175,18 @@ appears as a stray layer behind the saved design. Three guards close it:
 
 `SelectWindow` is also bounded to 1..`WIN_COUNT` and will not arm a window the
 armed layout lacks.
+
+A layout can legitimately answer `"windows":[]` — a 1x1, or one with nothing
+assigned yet. That is **not** read as "no window exists", since doing so would
+refuse every route into such a layout; it reads as unknown, so the send goes
+through with a warning. `LayoutClient` records which decoder the armed layout is
+assigned to, which is worth checking when stray windows appear behind a layout:
+several layouts naming the same client is the thing to rule out.
+
+Note the CBOX does not put a `code` field on every reply — `mvid` replies come
+back as `{"info":"OK","cmd":...}` — so an `info` of `OK` without a code is
+treated as success, otherwise the feedback variables would keep the previous
+command's result.
 
 ## Matrix routing (select source, then destinations)
 

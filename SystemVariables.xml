@@ -393,6 +393,7 @@
     <variable name="Selected Layout ID" sysvar="SelectedLayoutID" type="integer" sample="1" />
     <variable name="Selected Layout" sysvar="SelectedLayout" type="string" sample="lay1" />
     <variable name="Armed Layout Windows" sysvar="LayoutWindowList" type="string" sample="1|2|3|4" />
+    <variable name="Armed Layout Client" sysvar="LayoutClient" type="string" sample="BackRoomLED" />
   </category>
 
   <!-- Per-window booleans: true only for the armed window. Bind a Select -->

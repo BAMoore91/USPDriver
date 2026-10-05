@@ -3,7 +3,7 @@ var hostIP = Config.Get("IPAddress");
 var hostPort = Config.Get("USPPort");
 
 function Initialize() {
-    System.Print("--- IPCBox Driver V4.3 Initialized ---\r\n");
+    System.Print("--- IPCBox Driver V4.4 Initialized ---\r\n");
     PublishSlotNames();
     Connect();
 }
@@ -167,10 +167,14 @@ function HandleResponseLine(line) {
     var cmd = ExtractStr(line, "cmd");
     var info = ExtractStr(line, "info");
 
-    // Bare "OK"/"ok" replies have no code field.
+    // Not every reply carries a code. A bare "OK" has none, and the mvid
+    // replies are {"info":"OK","cmd":...} with no code either, so without this
+    // the success/last-code variables would keep a previous command's result.
     if (code === null && line.toLowerCase() === "ok") {
         code = 0;
         info = "OK";
+    } else if (code === null && info.toLowerCase() === "ok") {
+        code = 0;
     }
 
     if (code !== null) {
@@ -227,9 +231,13 @@ function KnownWindows(layout) {
 }
 
 // true / false when the layout's windows are known, null when they are not.
+// A layout can answer "windows":[] (a 1x1, or one with nothing assigned yet),
+// which is stored as "|". That is not evidence the layout rejects every window,
+// so it reads as unknown rather than as "no window exists" -- otherwise the
+// guard would refuse all routing into such a layout.
 function WindowExists(layout, win) {
     var list = KnownWindows(layout);
-    if (list === null) {
+    if (list === null || list === "|") {
         return null;
     }
     return list.indexOf("|" + win + "|") >= 0;
@@ -277,6 +285,11 @@ function ParseLayoutWindows(line, layoutName) {
     }
     if (layoutName) {
         g_layoutWindows[("" + layoutName).toUpperCase()] = found + "|";
+        // Which decoder this layout is assigned to. Several layouts naming the
+        // same client is worth seeing when stray windows appear behind one.
+        if (("" + layoutName).toUpperCase() === ("" + g_selLayoutVal).toUpperCase()) {
+            SystemVars.Write("LayoutClient", ExtractStr(line, "client"));
+        }
         if (("" + layoutName).toUpperCase() === ("" + g_selLayoutVal).toUpperCase()) {
             SystemVars.Write("LayoutWindowList", found.length > 1 ? found.substring(1) : "");
         }
@@ -501,9 +514,15 @@ function CanRouteWindow(layout, win, who) {
         return false;
     }
     if (exists === null) {
-        System.Print("[Warning] " + who + ": windows of '" + layout +
-                     "' not known yet; sending unchecked and re-reading the layout.\r\n");
-        SendCommand("mvid layout get " + layout);
+        if (KnownWindows(layout) === null) {
+            System.Print("[Warning] " + who + ": windows of '" + layout +
+                         "' not known yet; sending unchecked and re-reading the layout.\r\n");
+            SendCommand("mvid layout get " + layout);
+        } else {
+            System.Print("[Warning] " + who + ": '" + layout +
+                         "' reports no windows; sending unchecked. If a stray window " +
+                         "appears, this layout has none defined to route into.\r\n");
+        }
     }
     return true;
 }

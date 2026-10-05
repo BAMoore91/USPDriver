@@ -16,7 +16,7 @@ over TCP (default port 24) using the USPCBOX USP API (v1.07).
 
 Build tooling (not shipped to the processor): `PackageDriver.exe`, `Build.bat`.
 
-## Feature areas (v4.4)
+## Feature areas (v4.5)
 - **Multiview** – set layout on display, switch window source (original v1.4 functions).
 - **Matrix** – arm a source, then tap each destination to route it; also the
   original direct routes (one display, up to three) and named preset recall.
@@ -155,10 +155,18 @@ active` — never `add`, `rm`, `window`, `rmwindow`, `layer`, `resolution`,
 `template`, or any `mvid template` verb. `test/metadata.py` aside, a harness
 assertion pins that list so a structural verb cannot creep in.
 
-That leaves one way to change a layout by accident: `mvid layout tx {layout}
-{windowID} {tx}` naming a window the layout does not contain. Nothing in that
-call path creates a window explicitly, so the box is left to invent one — which
-appears as a stray layer behind the saved design. Three guards close it:
+That leaves one way to change a layout by accident, and API v1.08 states it
+outright for `mvid layout tx {layout} {windowID} {tx}`:
+
+> *"{layout_name}: … If the layout does not exist, the system will automatically
+> create it. {windowID}: … If the window does not exist, the system will
+> automatically create it."*
+
+A window created that way has no geometry or layer of its own, which is what
+appears as a stray layer behind the saved design. `mvid layout active` is safe
+by contrast — the manual says it errors rather than creating. So `tx` is the
+only command the driver sends that can alter a layout, and it is gated on both
+the layout and the window existing:
 
 - **The window set is read and remembered.** Every `mvid layout get` reply
   records that layout's real window IDs (`g_layoutWindows`), published for the
@@ -167,6 +175,9 @@ appears as a stray layer behind the saved design. Three guards close it:
   previous layout used to survive the switch, so the next input tap routed into
   a window the new layout may never have had. Both the config-slot and
   live-list layout arming now clear it.
+- **The layout must exist too.** The layout list is read on connect, and a
+  `tx` naming a layout the CBOX does not have is refused rather than creating
+  a phantom layout from a mistyped config slot.
 - **Every `mvid layout tx` is gated.** `CanRouteWindow()` refuses the send when
   the window is known not to exist. When the window set is not known yet it
   allows the send but logs it and re-reads the layout, so a failed
@@ -182,6 +193,15 @@ refuse every route into such a layout; it reads as unknown, so the send goes
 through with a warning. `LayoutClient` records which decoder the armed layout is
 assigned to, which is worth checking when stray windows appear behind a layout:
 several layouts naming the same client is the thing to rule out.
+
+### Clearing stray windows
+
+The guards stop new strays; windows an earlier build already had the CBOX
+create stay saved in the layout. **Remove Window from Layout** and **Remove ALL
+Windows from Layout** (Multiview) send `mvid layout rmwindow {layout}
+[{windowID}]` — with the ID omitted the API deletes every window in that layout
+— then re-read it. Use the second to clear a ghosted layout before rebuilding
+its windows in the web GUI.
 
 Note the CBOX does not put a `code` field on every reply — `mvid` replies come
 back as `{"info":"OK","cmd":...}` — so an `info` of `OK` without a code is

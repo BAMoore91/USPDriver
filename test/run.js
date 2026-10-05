@@ -877,6 +877,59 @@ const RX_OK = '{"info":"OK","cmd":"mvid layout rx 1x1BackRoom BackRoomLED"}';
   check('an empty answer is not re-queried on every route', gets <= 1, 'gets=' + gets);
 })();
 
+// =====================================================================
+// 14. Layout existence (API v1.08: "mvid layout tx" creates layouts too)
+// =====================================================================
+console.log('Layout existence:');
+const LAYOUTS = '{"cmd":"mvid get layouts","info":{"lay1":{"windows":[]},"lay10":{"windows":[]}},"code":0}';
+
+(function () {
+  const d = loadDriver();
+  d.feed(LAYOUTS);
+  d.call('SelectLayout("L1")');        // lay1 exists
+  d.feed(LAY1);
+  d.call('SelectWindow(2)');
+  d.call('RouteSelectedInput("I1")');
+  check('routing into an existing layout works',
+    d.allSent().indexOf('mvid layout tx lay1 2 TX1') >= 0, d.allSent().join(' | '));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.feed('{"cmd":"mvid get layouts","info":{"lay10":{"windows":[]}},"code":0}');  // no lay1
+  d.call('UpdateWindowSource("L1",1,"I1")');
+  check('refuses to create a layout that does not exist',
+    d.allSent().join(' | ').indexOf('mvid layout tx lay1') < 0, d.allSent().join(' | '));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('UpdateWindowSource("L1",1,"I1")');   // layout list never read
+  check('unknown layout list does not block routing',
+    d.allSent().join(' | ').indexOf('mvid layout tx lay1 1 TX1') >= 0, d.allSent().join(' | '));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('tcpClient.OnConnectFunc()');
+  check('connect reads the layout list', d.allSent().indexOf('mvid get layouts') >= 0,
+    d.allSent().join(' | '));
+})();
+
+(function () {
+  const d = loadDriver();
+  d.call('RemoveLayoutWindow("L1",3)');
+  check('removes one window', d.allSent()[0] === 'mvid layout rmwindow lay1 3', d.allSent().join(' | '));
+  check('and re-reads the layout', d.allSent()[1] === 'mvid layout get lay1', d.allSent().join(' | '));
+  const e = loadDriver();
+  e.call('RemoveAllLayoutWindows("L1")');
+  check('removes every window when no ID is given',
+    e.allSent()[0] === 'mvid layout rmwindow lay1', e.allSent().join(' | '));
+  const f = loadDriver();
+  f.call('RemoveAllLayoutWindows("L9")');      // empty slot
+  check('empty layout slot removes nothing', f.allSent().length === 0, f.allSent().join(' | '));
+})();
+
 console.log('');
 if (failures) { console.log(failures + ' FAILURE(S)'); process.exit(1); }
 console.log('All assertions passed.');

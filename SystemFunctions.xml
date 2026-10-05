@@ -220,6 +220,84 @@
       </parameter>
     </function>
 
+
+    <!-- Cleanup. "mvid layout rmwindow" is the only way to clear windows the -->
+    <!-- CBOX was made to create by routing into a window a layout never had. -->
+    <function name="3. Remove Window from Layout" export="RemoveLayoutWindow">
+      <parameter name="Select Layout" type="mcstring">
+        <choice name="%%L1%%" value="L1" condition="$LayoutCount &gt;= 1" />
+        <choice name="%%L2%%" value="L2" condition="$LayoutCount &gt;= 2" />
+        <choice name="%%L3%%" value="L3" condition="$LayoutCount &gt;= 3" />
+        <choice name="%%L4%%" value="L4" condition="$LayoutCount &gt;= 4" />
+        <choice name="%%L5%%" value="L5" condition="$LayoutCount &gt;= 5" />
+        <choice name="%%L6%%" value="L6" condition="$LayoutCount &gt;= 6" />
+        <choice name="%%L7%%" value="L7" condition="$LayoutCount &gt;= 7" />
+        <choice name="%%L8%%" value="L8" condition="$LayoutCount &gt;= 8" />
+        <choice name="%%L9%%" value="L9" condition="$LayoutCount &gt;= 9" />
+        <choice name="%%L10%%" value="L10" condition="$LayoutCount &gt;= 10" />
+        <choice name="%%L11%%" value="L11" condition="$LayoutCount &gt;= 11" />
+        <choice name="%%L12%%" value="L12" condition="$LayoutCount &gt;= 12" />
+        <choice name="%%L13%%" value="L13" condition="$LayoutCount &gt;= 13" />
+        <choice name="%%L14%%" value="L14" condition="$LayoutCount &gt;= 14" />
+        <choice name="%%L15%%" value="L15" condition="$LayoutCount &gt;= 15" />
+        <choice name="%%L16%%" value="L16" condition="$LayoutCount &gt;= 16" />
+        <choice name="%%L17%%" value="L17" condition="$LayoutCount &gt;= 17" />
+        <choice name="%%L18%%" value="L18" condition="$LayoutCount &gt;= 18" />
+        <choice name="%%L19%%" value="L19" condition="$LayoutCount &gt;= 19" />
+        <choice name="%%L20%%" value="L20" condition="$LayoutCount &gt;= 20" />
+        <choice name="%%L21%%" value="L21" condition="$LayoutCount &gt;= 21" />
+        <choice name="%%L22%%" value="L22" condition="$LayoutCount &gt;= 22" />
+        <choice name="%%L23%%" value="L23" condition="$LayoutCount &gt;= 23" />
+        <choice name="%%L24%%" value="L24" condition="$LayoutCount &gt;= 24" />
+        <choice name="%%L25%%" value="L25" condition="$LayoutCount &gt;= 25" />
+        <choice name="%%L26%%" value="L26" condition="$LayoutCount &gt;= 26" />
+        <choice name="%%L27%%" value="L27" condition="$LayoutCount &gt;= 27" />
+        <choice name="%%L28%%" value="L28" condition="$LayoutCount &gt;= 28" />
+        <choice name="%%L29%%" value="L29" condition="$LayoutCount &gt;= 29" />
+        <choice name="%%L30%%" value="L30" condition="$LayoutCount &gt;= 30" />
+        <choice name="%%L31%%" value="L31" condition="$LayoutCount &gt;= 31" />
+        <choice name="%%L32%%" value="L32" condition="$LayoutCount &gt;= 32" />
+      </parameter>
+      <parameter name="Window ID" type="integer" min="1" max="16" default="1" />
+    </function>
+
+    <function name="4. Remove ALL Windows from Layout" export="RemoveAllLayoutWindows">
+      <parameter name="Select Layout" type="mcstring">
+        <choice name="%%L1%%" value="L1" condition="$LayoutCount &gt;= 1" />
+        <choice name="%%L2%%" value="L2" condition="$LayoutCount &gt;= 2" />
+        <choice name="%%L3%%" value="L3" condition="$LayoutCount &gt;= 3" />
+        <choice name="%%L4%%" value="L4" condition="$LayoutCount &gt;= 4" />
+        <choice name="%%L5%%" value="L5" condition="$LayoutCount &gt;= 5" />
+        <choice name="%%L6%%" value="L6" condition="$LayoutCount &gt;= 6" />
+        <choice name="%%L7%%" value="L7" condition="$LayoutCount &gt;= 7" />
+        <choice name="%%L8%%" value="L8" condition="$LayoutCount &gt;= 8" />
+        <choice name="%%L9%%" value="L9" condition="$LayoutCount &gt;= 9" />
+        <choice name="%%L10%%" value="L10" condition="$LayoutCount &gt;= 10" />
+        <choice name="%%L11%%" value="L11" condition="$LayoutCount &gt;= 11" />
+        <choice name="%%L12%%" value="L12" condition="$LayoutCount &gt;= 12" />
+        <choice name="%%L13%%" value="L13" condition="$LayoutCount &gt;= 13" />
+        <choice name="%%L14%%" value="L14" condition="$LayoutCount &gt;= 14" />
+        <choice name="%%L15%%" value="L15" condition="$LayoutCount &gt;= 15" />
+        <choice name="%%L16%%" value="L16" condition="$LayoutCount &gt;= 16" />
+        <choice name="%%L17%%" value="L17" condition="$LayoutCount &gt;= 17" />
+        <choice name="%%L18%%" value="L18" condition="$LayoutCount &gt;= 18" />
+        <choice name="%%L19%%" value="L19" condition="$LayoutCount &gt;= 19" />
+        <choice name="%%L20%%" value="L20" condition="$LayoutCount &gt;= 20" />
+        <choice name="%%L21%%" value="L21" condition="$LayoutCount &gt;= 21" />
+        <choice name="%%L22%%" value="L22" condition="$LayoutCount &gt;= 22" />
+        <choice name="%%L23%%" value="L23" condition="$LayoutCount &gt;= 23" />
+        <choice name="%%L24%%" value="L24" condition="$LayoutCount &gt;= 24" />
+        <choice name="%%L25%%" value="L25" condition="$LayoutCount &gt;= 25" />
+        <choice name="%%L26%%" value="L26" condition="$LayoutCount &gt;= 26" />
+        <choice name="%%L27%%" value="L27" condition="$LayoutCount &gt;= 27" />
+        <choice name="%%L28%%" value="L28" condition="$LayoutCount &gt;= 28" />
+        <choice name="%%L29%%" value="L29" condition="$LayoutCount &gt;= 29" />
+        <choice name="%%L30%%" value="L30" condition="$LayoutCount &gt;= 30" />
+        <choice name="%%L31%%" value="L31" condition="$LayoutCount &gt;= 31" />
+        <choice name="%%L32%%" value="L32" condition="$LayoutCount &gt;= 32" />
+      </parameter>
+    </function>
+
   </category>
 
   <category name="IPCBox: Matrix">

@@ -1,7 +1,7 @@
 {\rtf1\ansi\deff0{\fonttbl{\f0 Segoe UI;}}
 \fs20
 {\b\fs28 AC-MXNET USP-CBOX Control \line}
-{\fs18 Driver v4.4 \'96 AVPro Global IPCBox (USP API) \line}
+{\fs18 Driver v4.5 \'96 AVPro Global IPCBox (USP API) \line}
 \line
 This driver controls an AVPro AC-MXNET USP-CBOX over TCP (default port 24). It supports Multiview, Matrix routing, Video Wall recall, the Media Player, CEC display control, and per-device / system control, with two-way feedback exposed as System Variables.\line
 \line
@@ -49,6 +49,8 @@ Tag template buttons with these and Integration Designer assigns the commands au
 The driver only reads layouts and sets window sources \'96 it never adds, removes or re-shapes a layout, a window or a layer.\line
 \tab Routing into a window a layout does not have is the one thing that could make the CBOX invent one, so it is blocked. Tapping a window number the armed layout lacks is refused, and changing the armed layout clears the armed window rather than carrying it into a layout that may not have it.\line
 \tab {\b Armed Layout Windows} shows which window numbers the armed layout actually has, as reported by the CBOX.\line
+\tab The API creates a layout or a window on demand if you set a source on one that does not exist, which is where stray windows come from. The driver now refuses those sends instead.\line
+\tab To clear strays already saved on the CBOX, use {\b Remove ALL Windows from Layout} (then rebuild the layout's windows in the web GUI), or {\b Remove Window from Layout} for a single one.\line
 \line
 {\b MATRIX ROUTING (SELECT SOURCE, THEN DESTINATIONS) \line}
 Attach {\b Select Source (Arm)} to each source button and {\b Route to Display} to each destination button. The operator taps a source once, then taps TV 1, TV 3, TV 4 and each routes the armed source immediately \'96 one source tap, not one per destination. The source stays armed until another is tapped or {\b Clear Source Selection} runs.\line

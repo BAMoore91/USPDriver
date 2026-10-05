@@ -3,7 +3,7 @@ var hostIP = Config.Get("IPAddress");
 var hostPort = Config.Get("USPPort");
 
 function Initialize() {
-    System.Print("--- IPCBox Driver V4.4 Initialized ---\r\n");
+    System.Print("--- IPCBox Driver V4.5 Initialized ---\r\n");
     PublishSlotNames();
     Connect();
 }
@@ -33,6 +33,7 @@ function Connect() {
         // Pull the device list now (it carries the MAC/id map the route
         // feedback needs) and the routes once that reply has landed.
         RefreshDevices();
+        RefreshLayouts();   // so routing knows which layouts actually exist
         ScheduleRouteRefresh();
     };
     tcpClient.OnDisconnectFunc = function() {
@@ -224,6 +225,20 @@ function HandleResponseLine(line) {
 // path, so the box is left to invent one, which shows up as an stray layer
 // behind the saved design.
 var g_layoutWindows = {};
+
+// true / false once the layout list has been read, null before that.
+function LayoutExists(name) {
+    if (!g_layoutsKnown) {
+        return null;
+    }
+    var want = ("" + name).toUpperCase();
+    for (var i = 0; i < g_layouts.length; i++) {
+        if (("" + g_layouts[i]).toUpperCase() === want) {
+            return true;
+        }
+    }
+    return false;
+}
 
 function KnownWindows(layout) {
     var v = g_layoutWindows[("" + layout).toUpperCase()];
@@ -453,6 +468,38 @@ function UpdateWindowSource(layoutKey, winID, inputKey) {
     }
 }
 
+// --- Multiview cleanup -----------------------------------------------------
+// "mvid layout rmwindow {layout} [{windowID}]" deletes one window, or every
+// window in the layout when the ID is omitted. This is the only way to clear
+// windows a previous version of this driver may have had the CBOX create by
+// routing into a window the layout did not define.
+
+/** Delete one window from a layout. */
+function RemoveLayoutWindow(layoutKey, winID) {
+    var layout = ResolveSlot(layoutKey);
+    var w = parseInt("" + winID, 10);
+    if (!layout) {
+        return;
+    }
+    if (!(w >= 1)) {
+        System.Print("[Error] RemoveLayoutWindow: invalid window '" + winID + "'.\r\n");
+        return;
+    }
+    SendCommand("mvid layout rmwindow " + layout + " " + w);
+    SendCommand("mvid layout get " + layout);   // re-read the window set
+}
+
+/** Delete EVERY window in a layout. Use to clear stray windows, then rebuild. */
+function RemoveAllLayoutWindows(layoutKey) {
+    var layout = ResolveSlot(layoutKey);
+    if (!layout) {
+        return;
+    }
+    System.Print("[Layout] Removing ALL windows from '" + layout + "'.\r\n");
+    SendCommand("mvid layout rmwindow " + layout);
+    SendCommand("mvid layout get " + layout);
+}
+
 // --- Multiview Window Routing (arm-then-route workflow) ---
 // Workflow: SelectLayout (armed by the page's layout button) -> SelectWindow
 // (tap a window to arm it) -> RouteSelectedInput (tap an input to route it
@@ -507,6 +554,14 @@ function SelectWindow(winID) {
 // known yet the send is allowed but flagged, so a failed "mvid layout get"
 // cannot silently disable multiview routing.
 function CanRouteWindow(layout, win, who) {
+    // v1.08 of the API is explicit that "mvid layout tx" creates BOTH on
+    // demand: "If the layout does not exist, the system will automatically
+    // create it" and the same for the window. So both are checked here.
+    if (LayoutExists(layout) === false) {
+        System.Print("[Error] " + who + ": no layout named '" + layout +
+                     "' on the CBOX. Refusing, to avoid creating one.\r\n");
+        return false;
+    }
     var exists = WindowExists(layout, win);
     if (exists === false) {
         System.Print("[Error] " + who + ": layout '" + layout + "' has no window " + win +
@@ -1154,6 +1209,7 @@ function PublishOutputLabels() {
 var g_sources = [];     // TX ids, parallel to SourceList rows
 var g_displays = [];    // RX ids, parallel to DisplayList rows
 var g_layouts = [];     // layout names, parallel to LayoutList rows
+var g_layoutsKnown = false;   // true once "mvid get layouts" has been parsed
 var g_playlists = [];   // playlist names, parallel to PlaylistList rows
 
 var g_liveSrc = "";       // selected source id
@@ -1400,6 +1456,7 @@ function ParseLayouts(line) {
     if (inner === null) { return; }
     g_layouts = [];
     ForEachEntry(inner, function (name, v) { g_layouts[g_layouts.length] = name; });
+    g_layoutsKnown = true;
     FillList("LayoutList", g_layouts);
     System.Print("[Lists] Layouts: " + g_layouts.length + "\r\n");
 }
